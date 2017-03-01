@@ -5,14 +5,8 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class DamageController : OptimizedBehaviour {
 
-        // Use this for initialization
-        void Start() {
+        public event System.Action OnLifesChange;
+        public event System.Action OnDieEnd;
 
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
     }
 }
