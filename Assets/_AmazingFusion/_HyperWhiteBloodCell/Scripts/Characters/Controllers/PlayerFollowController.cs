@@ -5,10 +5,7 @@ using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     [RequireComponent(typeof(IMotor))]
-    public class TargetFollowController : OptimizedBehaviour, ITickable {
-
-        [SerializeField]
-        Transform _target;
+    public class PlayerFollowController : OptimizedBehaviour, ITickable {
 
         [SerializeField]
         float _updateMovementRate;
@@ -26,7 +23,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Tick(float realDeltaTime) {
             if (Time.time >= _nextUpdateMovementTime) {
-                _motor.Translate(_target.position - Transform.position);
+                //_motor.Translate(GameController.Instance.Player.Transform.position - Transform.position);
                 _nextUpdateMovementTime = Time.time + _updateMovementRate;
             }
         }
