@@ -39,7 +39,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void RestartGame()
         {
-
+            LevelManager.Instance.FirstLevel();
         }
 
         public void GoToMenu()
