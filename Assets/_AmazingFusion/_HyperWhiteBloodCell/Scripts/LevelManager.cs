@@ -44,6 +44,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        void Start()
+        {
+            FirstLevel();
+        }
+
         Room _currentRoom;
 
         public Room CurrentRoom
@@ -64,8 +69,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             List<Room> temListRoom = new List<Room>();
             foreach(Room a in _roomsPrefab)
             {
-                if((CurrentLevelNumber >= a.MinLevelRequired && CurrentLevelNumber <= a.MaxLevelRequired) ||
-                    (a.MaxLevelRequired == 0))
+                if(CurrentLevelNumber >= a.MinLevelRequired && (CurrentLevelNumber <= a.MaxLevelRequired ||
+                    a.MaxLevelRequired == 0))
                 {
                     temListRoom.Add(a);
                 }
