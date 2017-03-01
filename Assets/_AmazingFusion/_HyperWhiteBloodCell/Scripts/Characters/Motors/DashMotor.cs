@@ -30,20 +30,26 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void Translate(Vector2 vector) {
-            _isDashing = true;
-            //_rigidBody.gravityScale = 0;
-            _rigidBody.velocity = vector.normalized * _dashSpeed;
+            BeginDash(vector);
+        }
 
-            if (_damageController != null) {
-                foreach (string immuneTag in _dashImmuneTags) {
-                    if (_damageController.HarmfulTags.Contains(immuneTag)) {
-                        _harmfulTagsImmunity.Add(immuneTag);
-                        _damageController.HarmfulTags.Remove(immuneTag);
+        void BeginDash(Vector2 vector) {
+            if (!_isDashing) {
+                _isDashing = true;
+                _rigidBody.gravityScale = 0;
+                _rigidBody.velocity = vector.normalized * _dashSpeed;
+
+                if (_damageController != null) {
+                    foreach (string immuneTag in _dashImmuneTags) {
+                        if (_damageController.HarmfulTags.Contains(immuneTag)) {
+                            _harmfulTagsImmunity.Add(immuneTag);
+                            _damageController.HarmfulTags.Remove(immuneTag);
+                        }
                     }
                 }
-            }
 
-            Timing.CallDelayed(_dashDuration, EndDash);
+                Timing.CallDelayed(_dashDuration, EndDash);
+            }
         }
 
         void EndDash() {
@@ -58,6 +64,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 }
 
                 _harmfulTagsImmunity.Clear();
+
+                _isDashing = false;
             }
         }
     }
