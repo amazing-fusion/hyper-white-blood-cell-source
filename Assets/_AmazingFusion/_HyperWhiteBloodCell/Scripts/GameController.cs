@@ -6,6 +6,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class GameController : Singleton<GameController>
     {
+        [SerializeField]
+        SwipeInputController _player;
+
+        public SwipeInputController Player {
+            get {
+                return _player;
+            }
+        }
+
         void Start()
         {
             EnemyCounter.OnEnemyDestroy += CheckEnemyList;
@@ -13,9 +22,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void CheckEnemyList()
         {
-            if(EnemyCounter._enemies.Count <= 0)
-            {
-                LevelManager.Instance.CurrentRoom.EndLevel();
+            if (LevelManager.HasInstance) {
+                if (EnemyCounter._enemies.Count <= 0) {
+                    LevelManager.Instance.CurrentRoom.EndLevel();
+                }
             }
         }
     }

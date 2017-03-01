@@ -44,16 +44,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void Tick(float realDeltaTime) {
-            if (Vector2.Distance(_wayPointsPath[_currentPathIndex].position, Transform.position) <= _reachDistance) {
+            float distance = Vector2.Distance(_wayPointsPath[_currentPathIndex].position, Transform.position);
+            Debug.Log(distance);
+            if (distance <= _reachDistance) {
                 NextWayPoint();  
             } else if (_nextUpdateMovementTime >= 0 && Time.time >= _nextUpdateMovementTime) {
-                _motor.Translate(_wayPointsPath[_currentPathIndex].position);
+                _motor.Translate(_wayPointsPath[_currentPathIndex].position - Transform.position);
                 _nextUpdateMovementTime = Time.time + _updateMovementRate;
             }
         }
 
         void NextWayPoint() {
-
+            Debug.Log("NextWayPoint");
             if (_inverse) {
                 if (_currentPathIndex > 0) {
                     --_currentPathIndex;
@@ -63,19 +65,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 }
             } else {
                 if (_currentPathIndex < _wayPointsPath.Length - 1) {
+                    Debug.Log("++");
                     ++_currentPathIndex;
                 } else {
                     if (_invertPathOnEnd) {
+                        Debug.Log("_invertPathOnEnd");
                         _inverse = true;
                         --_currentPathIndex;
                     }
                     else {
+                        Debug.Log("0");
                         _currentPathIndex = 0;
                     }
                 }
             }
 
-            _motor.Translate(_wayPointsPath[_currentPathIndex].position);
+            _motor.Translate(_wayPointsPath[_currentPathIndex].position - Transform.position);
         }
     }
 }
