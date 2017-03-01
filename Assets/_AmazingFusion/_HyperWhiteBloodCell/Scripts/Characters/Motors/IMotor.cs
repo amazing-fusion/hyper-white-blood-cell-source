@@ -5,6 +5,6 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     public interface IMotor {
 
-        void MoveTo(Vector2 destinyPosition);
+        void Translate(Vector2 vector);
     }
 }

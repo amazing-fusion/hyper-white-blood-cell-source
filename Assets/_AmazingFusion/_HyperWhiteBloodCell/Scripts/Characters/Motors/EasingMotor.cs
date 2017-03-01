@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class EasingMotor : OptimizedBehaviour, IMotor {
-        public void MoveTo(Vector2 destinyPosition) {
+        public void Translate(Vector2 vector) {
             throw new NotImplementedException();
         }
     }
