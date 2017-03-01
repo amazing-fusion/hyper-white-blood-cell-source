@@ -1,16 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NextLevelView : MonoBehaviour {
+namespace com.AmazingFusion.HyperWhiteBloodCell
+{
+    public class NextLevelView : OptimizedBehaviour
+    {
+        EasingAnimation _showAnimation;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        [SerializeField]
+        Image _fadeImage;
+
+        void Awake()
+        {
+            Room.OnLevelEnd += OnLevelEnd;
+        }
+
+        void OnLevelEnd(Room room)
+        {
+            Show();
+            LevelManager.Instance.NextLevel();
+            Hide();
+            LevelManager.Instance.CurrentRoom.StartLevel();
+        }
+
+        void Show()
+        {
+            _fadeImage.enabled = true;
+        }
+
+        void Hide()
+        {
+            _fadeImage.enabled = false;
+        }
+    }
 }
+

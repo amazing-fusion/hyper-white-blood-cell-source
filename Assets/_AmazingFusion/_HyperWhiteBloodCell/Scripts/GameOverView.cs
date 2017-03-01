@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverView : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+namespace com.AmazingFusion.HyperWhiteBloodCell
+{
+    public class GameOverView : OptimizedBehaviour
+    {
+        
+    }
 }
+

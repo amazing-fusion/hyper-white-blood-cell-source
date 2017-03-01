@@ -24,7 +24,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 _minLevelRequired = value;
             }
         }
-
         public int MaxLevelRequired
         {
             get
@@ -38,16 +37,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
-        public event System.Action<int> OnLevelStart;
+        public static event System.Action<Room> OnLevelStart;
+        public static event System.Action<Room> OnLevelEnd;
 
         public void StartLevel()
         {
-
+            if (OnLevelStart != null) OnLevelStart(this);
         }
 
         public void EndLevel()
         {
-
+            if (OnLevelEnd != null) OnLevelEnd(this);
         }
     }
 }
