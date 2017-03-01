@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class LevelView : MonoBehaviour {
+namespace com.AmazingFusion.HyperWhiteBloodCell
+{
+    public class LevelView : OptimizedBehaviour
+    {
+        [SerializeField]
+        TMP_Text _levelText,_highScoreText;
+        
+        void Inizialize()
+        {
+            _levelText.text = "Level: " + LevelManager.Instance.CurrentLevel.ToString();
+            _highScoreText.text = "HighScore: " + LevelManager.Instance.Highscore.ToString();
+        }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        void OnLevelStart(int level)
+        {
+            _levelText.text = "Level: " +  level.ToString();
+        }
+
+    }
 }
+

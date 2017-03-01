@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextLevelView : MonoBehaviour {
+namespace com.AmazingFusion.HyperWhiteBloodCell
+{
+    public class NextLevelView : OptimizedBehaviour
+    {
+        EasingAnimation _showAnimation;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        void OnLevelEnd()
+        {
+
+        }
+
+        void Show()
+        {
+
+        }
+
+        void Hide()
+        {
+
+        }
+    }
 }
+
