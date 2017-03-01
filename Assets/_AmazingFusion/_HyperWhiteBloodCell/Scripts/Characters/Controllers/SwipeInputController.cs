@@ -16,6 +16,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         IMotor _motor;
 
+        void OnDestroy() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+        }
+
         void Awake() {
             _motor = GetComponent<IMotor>();
             UpdateManager.Instance.Add(this);
@@ -69,7 +75,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 Vector3 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
 
                 if (vector.sqrMagnitude >= _sqrMinSwipe) {
-                    _motor.MoveTo(vector);
+                    _motor.Translate(vector);
                 }
 
                 _swipePoints.Clear();

@@ -1,18 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell {
-    public class TargetFollowController : OptimizedBehaviour {
+    [RequireComponent(typeof(IMotor))]
+    public class TargetFollowController : OptimizedBehaviour, ITickable {
 
-        // Use this for initialization
-        void Start() {
+        [SerializeField]
+        Transform _target;
 
+        [SerializeField]
+        float _updateMovementRate;
+
+        IMotor _motor;
+
+        float _nextUpdateMovementTime;
+
+        void Awake() {
+            _motor = GetComponent<IMotor>();
+
+            _nextUpdateMovementTime = Time.time + _updateMovementRate;
+            UpdateManager.Instance.Add(this);
         }
 
-        // Update is called once per frame
-        void Update() {
-
+        public void Tick(float realDeltaTime) {
+            if (Time.time >= _nextUpdateMovementTime) {
+                _motor.Translate(_target.position - Transform.position);
+                _nextUpdateMovementTime = Time.time + _updateMovementRate;
+            }
         }
     }
 }
