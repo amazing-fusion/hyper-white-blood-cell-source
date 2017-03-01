@@ -7,23 +7,29 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class LevelManager : Singleton<LevelManager>
     {
         [SerializeField]
-        Room[] _rooms;
+        Room[] _roomsPrefab;
 
-        int _currentLevel;
+        int _currentLevelNumber;
         int _highscore;
 
-        public int CurrentLevel
+        public int CurrentLevelNumber
         {
             get
             {
-                return _currentLevel;
+                return _currentLevelNumber;
             }
 
             set
             {
-                _currentLevel = value;
+                if(_currentLevelNumber != value)
+                {
+                    _currentLevelNumber = value;
+                    if (OnLevelChange != null) OnLevelChange();
+                }
             }
         }
+
+        public event System.Action OnLevelChange;
 
         public int Highscore
         {
@@ -38,14 +44,49 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        Room _currentRoom;
+
+        public Room CurrentRoom
+        {
+            get
+            {
+                return _currentRoom;
+            }
+
+            set
+            {
+                _currentRoom = value;
+            }
+        }
+
+        void LoadLevel()
+        {
+            List<Room> temListRoom = new List<Room>();
+            foreach(Room a in _roomsPrefab)
+            {
+
+            }
+            _currentRoom = Instantiate(temListRoom[Random.Range(0,temListRoom.Count)]);
+        }
+
         public void FirstLevel()
         {
-            CurrentLevel = 0;
+            if(CurrentRoom != null)
+            {
+                Destroy( CurrentRoom.gameObject);
+            }
+            CurrentLevelNumber = 0;
+            LoadLevel();
         }
 
         public void NextLevel()
         {
-            CurrentLevel++;
+            if (CurrentRoom != null)
+            {
+                Destroy(CurrentRoom.gameObject);
+            }
+            CurrentLevelNumber++;
+            LoadLevel();
         }
     }
 }

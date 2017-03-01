@@ -10,16 +10,21 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     {
         [SerializeField]
         TMP_Text _levelText,_highScoreText;
+
+        void Awake()
+        {
+            LevelManager.Instance.OnLevelChange += OnLevelChange;
+        }
         
         void Inizialize()
         {
-            _levelText.text = "Level: " + LevelManager.Instance.CurrentLevel.ToString();
+            _levelText.text = "Level: " + (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
             _highScoreText.text = "HighScore: " + LevelManager.Instance.Highscore.ToString();
         }
 
-        void OnLevelStart(int level)
+        void OnLevelChange()
         {
-            _levelText.text = "Level: " +  level.ToString();
+            _levelText.text = "Level: " + (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
         }
 
     }
