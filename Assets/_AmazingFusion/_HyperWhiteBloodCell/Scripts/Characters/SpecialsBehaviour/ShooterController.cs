@@ -33,7 +33,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void Shot() {
-            Vector2 position = Transform.position + Transform.forward * 0.5f;
+            Vector2 position = Transform.position + Transform.up * 0.5f;
             Instantiate(_projectilePrefab, position, Transform.rotation);
             _nextShotTime = Time.time + _fireSleep;
         }
