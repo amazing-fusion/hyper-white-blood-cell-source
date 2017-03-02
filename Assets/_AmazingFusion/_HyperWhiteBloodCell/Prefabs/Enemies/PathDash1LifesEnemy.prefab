@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114283743326201480}
   - component: {fileID: 114815407005083064}
   m_Layer: 0
-  m_Name: PathDash2LifesEnemy
+  m_Name: PathDash1LifesEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -70,7 +70,7 @@ MonoBehaviour:
   _tileset: {fileID: 11400000}
   tileIndex: 0
   _procedural: 0
-  addCollider: 0
+  addCollider: 1
   colliderType: 0
   attachPrefab: {fileID: 0}
   applySimpleRotationToAttachment: 0
