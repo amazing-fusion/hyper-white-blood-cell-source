@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curve: 11
-  _speed: 5
+  _speed: 4
 --- !u!114 &114919921189695722
 MonoBehaviour:
   m_ObjectHideFlags: 1

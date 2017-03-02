@@ -41,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1365133962275220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: -3, z: 1}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifes: 2
+  _rig: {fileID: 0}
+  _collider: {fileID: 0}
   _harmfulTags:
   - DashingPlayer
 --- !u!114 &114915626369114222
@@ -117,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curve: 11
-  _speed: 5
+  _speed: 4
 --- !u!114 &114919921189695722
 MonoBehaviour:
   m_ObjectHideFlags: 1
