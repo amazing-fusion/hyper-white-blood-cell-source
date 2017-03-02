@@ -47,6 +47,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             CurrentLifes = _lifes;
         }
 
+        void Awake() {
+            Initialize();
+        }
+
         void Die() {
             if (OnDie != null) OnDie(DieAnimationEnded);
         }
