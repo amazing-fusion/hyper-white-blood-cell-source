@@ -50,12 +50,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Start()
         {
-         //   Initialize();
+            //Initialize();
         }
 
         void Initialize()
         {
-            _explosionDied.Stop();
             _dashParticles0.Stop();
             _dashParticles1.Stop();
             _dashTrailRenderer.enabled = false;
@@ -92,8 +91,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
-            yield return Timing.WaitForSeconds(0.1f);
-
+            yield return Timing.WaitForSeconds(0.6f);
+            
             action();
         }
 
@@ -105,6 +104,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         IEnumerator<float> DoWhiteSprite()
         {
             White.Instance.WhiteSprite(_spriteRenderer);
+            EZCameraShake.CameraShaker.Instance.ShakeOnce
+                (_magnitudeShake*0.6f, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
             yield return Timing.WaitForSeconds(0.2f);
             White.Instance.NormalSprite(_spriteRenderer);
         }

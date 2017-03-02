@@ -58,6 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         void DieAnimationEnded() {
             Debug.Log("DieAnimationEnded");
             if (OnDieEnd != null) OnDieEnd();
+            this.gameObject.SetActive(false);
         }
 
         void TakeDamage() {
