@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZObjectPools;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class ProjectileController : OptimizedBehaviour {
@@ -10,19 +11,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         Rigidbody2D _rigidBody;
 
-        void Start() {
+        EZObjectPool _projectilesPool;
+
+        void Awake() {
             _rigidBody = GetComponent<Rigidbody2D>();
-            _rigidBody.velocity = transform.up * _speed;
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
             Explode();
         }
 
+        void OnBecameInvisible() {
+            Delete();
+        }
+
         void Explode() {
             //TODO: Make awesome effect
             _rigidBody.velocity = Vector2.zero;
-            Destroy(gameObject);
+
+            Delete();
+        }
+
+        void Delete() {
+            gameObject.SetActive(false);
+            _projectilesPool.AddToAvailableObjects(gameObject);
+        }
+
+        public void Initialize(EZObjectPool projectilesPool) {
+            _projectilesPool = projectilesPool;
+            _rigidBody.velocity = transform.up * _speed;
         }
     }
 }
