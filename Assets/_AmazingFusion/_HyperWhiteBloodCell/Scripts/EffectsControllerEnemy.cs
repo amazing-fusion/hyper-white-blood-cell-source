@@ -31,15 +31,24 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         float _fadeOutTimeShake;
 
+        [SerializeField]
+        Transform _scaleEffect;
 
         void Awake()
         {
             _damageController.OnDie += EffectsDiedEnemy;
+            _damageController.OnTakeDamage += EffectScaleDamage;
         }
         
         void Start()
         {
             _explosionParticles.Stop();
+            _scaleEffect.localScale = Vector3.zero;
+        }
+
+        public void EffectScaleDamage()
+        {
+            _scaleEffect.GetComponent<SequenceEasingAnimation>().Play();
         }
 
         public void EffectsDiedEnemy(System.Action action)

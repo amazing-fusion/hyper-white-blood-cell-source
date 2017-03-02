@@ -42,8 +42,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Awake()
         {
-            _dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
-            _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
+            //_dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
+            //_dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
         }
@@ -64,19 +64,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void DashEffectPlayerEnabled()
         {
-           /* _dashParticles0.Play();
-            _dashParticles1.Play();
-            _dashTrailRenderer.enabled = true;*/
-           // AnimatorControllerPlayer.Instance.AnimationAtkPlayer();
+            AnimatorControllerPlayer.Instance.AnimationAtkPlayer();
 
         }
 
         public void DashEffectPlayerDisenabled()
         {
-          /*  _dashParticles0.Stop();
-            _dashParticles1.Stop();
-            _dashTrailRenderer.enabled = false;*/
-           // AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
+            AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
         }
 
         public void EffectDiedPlayer(System.Action action)

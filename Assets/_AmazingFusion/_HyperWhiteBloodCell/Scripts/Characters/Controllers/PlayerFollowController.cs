@@ -6,7 +6,7 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     [RequireComponent(typeof(IMotor))]
     public class PlayerFollowController : OptimizedBehaviour, ITickable {
-
+        
         [SerializeField]
         float _updateMovementRate;
 
