@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _internalFlags: 1
   disableImmediatePreview: 0
-  _previewAssetId: z_a88e9622-f399-4bfa-8bf1-fb3ac25ef8bd
+  _previewAssetId: z_d035d8c0-3271-46a3-b2fa-0983a1e55d00
   customPreviewImage: {fileID: 0}
   customPreviewDesignTime: 1
   _static: 0
@@ -40,37 +40,42 @@ MonoBehaviour:
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 2e739124641ec4b44a36f684e6d3f976, type: 2}
     _variationWeights: 32000000
+  - mask: 61
+    _type: 0
+    _rotation: 0
+    _variations: []
+    _variationWeights: 
   - mask: 88
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 2e739124641ec4b44a36f684e6d3f976, type: 2}
     _variationWeights: 32000000
   - mask: 82
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1819236732896968, guid: 7dca77ce91ccf6a4392fd9c32bf9cc29, type: 2}
+    - {fileID: 1819236732896968, guid: ddfea4b310be1b24087978d2e9c9ad75, type: 2}
     _variationWeights: 32000000
   - mask: 74
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1491949408846112, guid: d4cd475731da3044d948a3ca0403b8c0, type: 2}
+    - {fileID: 1491949408846112, guid: 3d36d77754487164e85082ceb1382592, type: 2}
     _variationWeights: 32000000
   - mask: 26
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1841256538501626, guid: da0b49bdad732f345ac2370ee83fc74e, type: 2}
+    - {fileID: 1841256538501626, guid: 67897261108b9d244b27d04a9dafb2d2, type: 2}
     _variationWeights: 32000000
   - mask: 90
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    - {fileID: 1890478856603722, guid: f77ac8cf22e0bb046a37ce0282f4686c, type: 2}
     _variationWeights: 32000000
   _materialMappingFrom: []
   _materialMappingTo: []

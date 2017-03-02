@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212973977675185264}
   - component: {fileID: 61357158655324500}
   m_Layer: 0
-  m_Name: DownTile
+  m_Name: DownColliderTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e7182e66c2f311847bf1e36e2be9607a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
