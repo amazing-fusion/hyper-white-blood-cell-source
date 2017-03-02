@@ -55,7 +55,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Tick(float realDeltaTime) {
             float distance = Vector2.Distance(_wayPointsPath[_currentPathIndex].position, Transform.position);
-            Debug.Log(distance);
+            
             if (distance <= _reachDistance) {
                 NextWayPoint();  
             } else if (_nextUpdateMovementTime >= 0 && Time.time >= _nextUpdateMovementTime) {
