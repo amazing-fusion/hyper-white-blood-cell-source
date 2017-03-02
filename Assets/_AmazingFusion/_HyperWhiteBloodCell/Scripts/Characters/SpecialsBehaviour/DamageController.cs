@@ -43,6 +43,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             CurrentLifes = _lifes;
         }
 
+        void Awake() {
+            Initialize();
+        }
+
         void Die() {
             //FIX THE HACK: Call to animation
             DieAnimationEnded();
