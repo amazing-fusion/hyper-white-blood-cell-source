@@ -27,6 +27,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         IMotor _motor;
 
         void Awake() {
+            Initialize();
+        }
+
+        public void Initialize(Transform[] wayPoints, bool invertPathOnEnd = false) {
+            _wayPointsPath = wayPoints;
+            _invertPathOnEnd = invertPathOnEnd;
+            Initialize();
+        }
+
+        public void Initialize() {
             if (_wayPointsPath.Length < 2) return;
 
             _motor = GetComponent<IMotor>();
