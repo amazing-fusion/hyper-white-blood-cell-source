@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4428002008178424}
   - component: {fileID: 114338171638587590}
   m_Layer: 0
-  m_Name: PathDash2LifesSpawn
+  m_Name: PathDash1LifesSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
