@@ -32,7 +32,6 @@ namespace com.AmazingFusion {
 
         void SetCamera() {
             float ratio = (_referenceWidth / _referenceHeight) / Camera.main.aspect;
-
             Camera.main.orthographicSize = _referenceHeight * (ratio + (1 - ratio) * _match);
         }
     }
