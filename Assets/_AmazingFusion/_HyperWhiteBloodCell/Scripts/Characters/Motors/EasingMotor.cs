@@ -9,10 +9,20 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         EasingCurves.Curve _curve;
 
+        //[SerializeField]
+        float _curveStart = 0f;
+
+        //[SerializeField]
+        float _curveEnd = 1f;
+
         [SerializeField]
         float _speed;
 
+        //[SerializeField]
+        //bool _useEndTimeAsStartTime;
+
         float _translateDuration;
+
         Vector2 _destinyPosition;
 
         bool _isMoving;
@@ -36,22 +46,26 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
             if (!_isMoving) {
                 UpdateManager.Instance.Add(this);
+                _isMoving = true;
             }
         }
 
         public void Tick(float realDeltaTime) {
             float time = Time.time - _startMoveTime;
             if (time > _translateDuration) {
+
                 Transform.position = _startMovePosition + _moveVector;
                 UpdateManager.Instance.Remove(this);
+                _isMoving = false;
+
                 return;
             }
 
             Transform.position = _startMovePosition + _moveVector * (float)EasingCurves.Evaluate(
                     _curve,
                     time,
-                    0,
-                    1,
+                    _curveStart,
+                    _curveEnd,
                     _translateDuration);
         }
     }

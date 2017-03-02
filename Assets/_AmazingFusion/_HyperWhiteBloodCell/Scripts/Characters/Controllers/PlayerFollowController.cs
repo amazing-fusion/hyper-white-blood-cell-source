@@ -23,7 +23,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Tick(float realDeltaTime) {
             if (Time.time >= _nextUpdateMovementTime) {
-                //_motor.Translate(GameController.Instance.Player.Transform.position - Transform.position);
+                _motor.Translate(GameController.Instance.Player.Transform.position - Transform.position);
                 _nextUpdateMovementTime = Time.time + _updateMovementRate;
             }
         }
