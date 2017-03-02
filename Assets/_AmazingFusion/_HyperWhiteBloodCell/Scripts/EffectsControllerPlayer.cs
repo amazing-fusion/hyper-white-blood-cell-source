@@ -92,7 +92,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
-            yield return Timing.WaitForSeconds(1f);
+            yield return Timing.WaitForSeconds(0.1f);
 
             action();
         }
