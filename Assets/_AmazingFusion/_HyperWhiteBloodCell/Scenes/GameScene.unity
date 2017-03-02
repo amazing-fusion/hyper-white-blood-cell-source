@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &335933672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -691,9 +691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dff3201a9d66142a749b2ef463e143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1042035589}
-  _highScoreText: {fileID: 2014481422}
-  _gameOverTransform: {fileID: 335933672}
 --- !u!1 &659213237
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearID: 0
-  IDs: 8a0d00008f0d0000900d0000910d0000920d0000930d0000940d0000950d0000960d0000970d00009a0d0000a70d00001c0e00001d0e0000210e0000220e0000
+  IDs: 8a0d00008f0d0000900d0000910d0000920d0000930d0000940d0000950d0000960d0000970d00009a0d0000a70d00001c0e00001d0e0000210e0000220e0000460e0000
   OBJs:
   - {fileID: 1867702460}
   - {fileID: 1677734208}
@@ -840,6 +837,7 @@ MonoBehaviour:
   - {fileID: 2147297469}
   - {fileID: 734651617}
   - {fileID: 2147297470}
+  - {fileID: 469472551}
 --- !u!4 &755300851
 Transform:
   m_ObjectHideFlags: 1
@@ -1182,12 +1180,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1042035583}
   m_Script: {fileID: 11500000, guid: 5afce52a4a5b9c5429d930cfe51e5b44, type: 3}
---- !u!114 &1042035589 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114681870480820738, guid: a57ff097b62b041419d5f4ab9895070d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1042035583}
-  m_Script: {fileID: 11500000, guid: cb6acae608d44da41a56a97b50eb3362, type: 3}
 --- !u!1 &1063915793
 GameObject:
   m_ObjectHideFlags: 0
