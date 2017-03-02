@@ -28,11 +28,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         float _fadeOutTimeShake;
 
+        [SerializeField]
+        ParticleSystem _explosionDied;
+
         void Awake()
         {
             _dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
             _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
+            _explosionDied.Stop();
         }
         
 
@@ -54,11 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void EffectDiedPlayer()
         {
-            /*
-                Particles enabled
-                Animation died enabled 
-                CameraShake            
-             */
+            _explosionDied.Play();
             AnimatorControllerPlayer.Instance.AnimationDiedPlayer();
             EZCameraShake.CameraShaker.Instance.ShakeOnce(_magnitudeShake,_roughnessShake,_fadeInTimeShake,_fadeOutTimeShake);
         }

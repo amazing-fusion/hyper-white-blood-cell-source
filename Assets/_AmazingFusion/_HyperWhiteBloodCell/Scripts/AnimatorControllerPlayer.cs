@@ -11,12 +11,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         public void AnimationDiedPlayer()
         {
-            _animatorController.SetBool("diedPlayer", true);
+            _animatorController.SetInteger("statePlayer", 1);
         }
 
         public void AnimationIdlePlayer()
         {
-            _animatorController.SetBool("idlePlayer", true);
+            _animatorController.SetInteger("statePlayer", 0);
+        }
+
+        public void AnimationAtkPlayer()
+        {
+            _animatorController.SetInteger("statePlayer", 2);
         }
     }
 }
