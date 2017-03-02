@@ -11,6 +11,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         List<string> _harmfulTags;
 
+        bool _died;
         float _currentLifes;
 
         public event System.Action OnLifesChange;

@@ -18,8 +18,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         void Inizialize()
         {
-            _levelText.text = "Level: " + (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
-            _highScoreText.text = "HighScore: " + LevelManager.Instance.Highscore.ToString();
+            _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
+            _highScoreText.text = string.Format("BEST: {0}", 0);
         }
 
         void OnLevelChange()
