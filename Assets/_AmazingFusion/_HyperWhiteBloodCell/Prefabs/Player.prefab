@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f340b499cc975489081ea1f2d32b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 4172604383837562}
   _dashSpeed: 70
   _dashDuration: 0.1
   _dashImmuneTags:

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a451d640f5f7024c9e46bd399ff3ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireSleep: 2
+  _fireSleep: 3
   _projectilePrefab: {fileID: 114202758342159350, guid: 414ea87185ddcc74ab9ed6a6b5326579,
     type: 2}
   _poolSize: 5

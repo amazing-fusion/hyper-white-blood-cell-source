@@ -9,6 +9,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class DashMotor : OptimizedBehaviour, IMotor {
 
         [SerializeField]
+        Transform _player;
+
+        [SerializeField]
         float _dashSpeed;
 
         [SerializeField]
@@ -49,6 +52,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 _isDashing = true;
                 _rigidBody.gravityScale = 0;
                 _rigidBody.velocity = vector.normalized * _dashSpeed;
+
+                if (vector.x > 0) {
+                    _player.rotation = Quaternion.LookRotation(Vector3.forward, vector);
+                } else {
+                    _player.rotation = Quaternion.LookRotation(Vector3.back, vector);
+                }
+                _player.Rotate(0, 0, 90);
+
                 if (OnBeginDrag != null) OnBeginDrag();
 
                 if (_damageController != null) {
