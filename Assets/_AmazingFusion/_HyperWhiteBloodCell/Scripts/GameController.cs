@@ -18,6 +18,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Start()
         {
             EnemyCounter.OnEnemyDestroy += CheckEnemyList;
+            StartGame();
+        }
+
+        void OnDestroy() {
+            EnemyCounter.OnEnemyDestroy -= CheckEnemyList;
         }
 
         void CheckEnemyList()
@@ -27,6 +32,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                     LevelManager.Instance.CurrentRoom.EndLevel();
                 }
             }
+        }
+
+        public void StartGame() {
+            _player.GetComponent<DamageController>().Initialize();
+            LevelManager.Instance.FirstLevel();
         }
     }
 }
