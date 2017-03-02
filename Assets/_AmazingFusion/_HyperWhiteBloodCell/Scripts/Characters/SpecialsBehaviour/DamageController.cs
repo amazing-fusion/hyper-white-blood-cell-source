@@ -16,6 +16,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public event System.Action OnLifesChange;
         public event System.Action OnDieEnd;
 
+        public event System.Action OnTakeDamage;
+
         public float CurrentLifes {
             get {
                 return _currentLifes;
@@ -56,6 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         void TakeDamage() {
             Debug.Log("TakeDamage");
             --CurrentLifes;
+            if (OnTakeDamage != null) OnTakeDamage();
         }
 
         void OnTriggerEnter2D(Collider2D collider) {

@@ -22,6 +22,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         Rigidbody2D _rigidBody;
         DamageController _damageController;
 
+        public event System.Action OnBeginDrag;
+        public event System.Action OnEndDrag;
+
         bool _isDashing;
 
         void Awake() {
@@ -38,6 +41,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 _isDashing = true;
                 _rigidBody.gravityScale = 0;
                 _rigidBody.velocity = vector.normalized * _dashSpeed;
+                if (OnBeginDrag != null) OnBeginDrag();
 
                 if (_damageController != null) {
                     foreach (string immuneTag in _dashImmuneTags) {
@@ -56,6 +60,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (_isDashing) {
                 _rigidBody.velocity = Vector2.zero;
                 _rigidBody.gravityScale = 1;
+                if (OnEndDrag != null) OnEndDrag();
 
                 if (_damageController != null) {
                     foreach (string harmfulTag in _harmfulTagsImmunity) {
