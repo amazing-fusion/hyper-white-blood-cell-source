@@ -17,19 +17,27 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         string[] _dashImmuneTags;
 
+        [SerializeField]
+        string _dashingTag;
+
         List<string> _harmfulTagsImmunity = new List<string>();
 
         Rigidbody2D _rigidBody;
         DamageController _damageController;
-
+        
         public event System.Action OnBeginDrag;
         public event System.Action OnEndDrag;
-
+        
+        string _tag;
         bool _isDashing;
 
         void Awake() {
             _rigidBody = GetComponent<Rigidbody2D>();
             _damageController = GetComponent<DamageController>();
+
+            if (!String.IsNullOrEmpty(_dashingTag)) {
+                _tag = tag;
+            }
         }
 
         public void Translate(Vector2 vector) {
@@ -52,6 +60,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     }
                 }
 
+                if (!String.IsNullOrEmpty(_dashingTag)) {
+                    tag = _dashingTag;
+                }
+
                 Timing.CallDelayed(_dashDuration, EndDash);
             }
         }
@@ -68,6 +80,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     }
                 }
 
+                if (!String.IsNullOrEmpty(_dashingTag)) {
+                    tag = _tag;
+                }
                 _harmfulTagsImmunity.Clear();
 
                 _isDashing = false;
