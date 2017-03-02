@@ -44,11 +44,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
-        void Start()
-        {
-            FirstLevel();
-        }
-
         Room _currentRoom;
 
         public Room CurrentRoom
