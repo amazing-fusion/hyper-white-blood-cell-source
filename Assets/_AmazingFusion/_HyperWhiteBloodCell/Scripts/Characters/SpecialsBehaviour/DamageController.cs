@@ -16,6 +16,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public event System.Action OnLifesChange;
         public event System.Action OnDieEnd;
 
+        public event System.Action OnTakeDamage;
+
+        public event System.Action<System.Action> OnDie;
+
         public float CurrentLifes {
             get {
                 return _currentLifes;
@@ -44,18 +48,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void Die() {
-            //FIX THE HACK: Call to animation
-            DieAnimationEnded();
+            if (OnDie != null) OnDie(DieAnimationEnded);
         }
 
         void DieAnimationEnded() {
-            gameObject.SetActive(false);
+            Debug.Log("Evento: Die Animation Ended");
             if (OnDieEnd != null) OnDieEnd();
         }
 
         void TakeDamage() {
             Debug.Log("TakeDamage");
             --CurrentLifes;
+            if (OnTakeDamage != null) OnTakeDamage();
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
