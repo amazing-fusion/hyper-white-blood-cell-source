@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238342206310030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.54, y: 2.21, z: 1}
+  m_LocalPosition: {x: -16, y: 9, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172604383837562}
@@ -212,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359356114932198}
   m_LocalRotation: {x: -0.49904677, y: -0.49877578, z: 0.5012225, w: 0.5009502}
-  m_LocalPosition: {x: 0.16, y: -0.29, z: 0}
+  m_LocalPosition: {x: 0.17, y: -0.11, z: 10}
   m_LocalScale: {x: 2.781899, y: 1, z: 0.12586541}
   m_Children:
   - {fileID: 4452527932331554}
@@ -241,7 +241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694692918648336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.09, z: -0}
+  m_LocalPosition: {x: 0.03, y: 0.09, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066863950812970}
@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295502357597002}
   m_LocalRotation: {x: 0.49904677, y: 0.49877578, z: -0.5012225, w: 0.5009502}
-  m_LocalPosition: {x: -0, y: 0, z: 2}
+  m_LocalPosition: {x: -0, y: 0, z: -1}
   m_LocalScale: {x: 7.9448633, y: 0.3594669, z: 1.0001314}
   m_Children: []
   m_Father: {fileID: 4066863950812970}
@@ -302,7 +302,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -454,6 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afce52a4a5b9c5429d930cfe51e5b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageController: {fileID: 114681870480820738}
   _sqrMinSwipe: 30
 --- !u!114 &114150884071678984
 MonoBehaviour:
@@ -518,6 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifes: 3
+  _rig: {fileID: 50920044664890106}
+  _collider: {fileID: 58893898195352218}
   _harmfulTags:
   - Enemy
   - Hazard
@@ -532,7 +535,7 @@ ParticleSystem:
   simulationSpeed: 0.5
   looping: 1
   prewarm: 1
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     scalar: 0
@@ -576,7 +579,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1941255459
+  randomSeed: -1083811885
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3133,7 +3136,7 @@ ParticleSystem:
   simulationSpeed: 0.5
   looping: 1
   prewarm: 1
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     scalar: 0
@@ -3177,7 +3180,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -154080459
+  randomSeed: -43281107
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5734,7 +5737,7 @@ ParticleSystem:
   simulationSpeed: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   autoRandomSeed: 1
   startDelay:
     scalar: 0
@@ -5778,7 +5781,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -194095313
+  randomSeed: 1854649100
   InitialModule:
     serializedVersion: 3
     enabled: 1

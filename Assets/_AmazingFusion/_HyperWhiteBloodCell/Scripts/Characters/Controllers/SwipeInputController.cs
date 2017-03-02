@@ -8,6 +8,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class SwipeInputController : OptimizedBehaviour, ITickable {
 
         [SerializeField]
+        DamageController _damageController;
+
+
+        [SerializeField]
         float _sqrMinSwipe;
 
         bool _isSwiping;
@@ -54,7 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void BeginSwipe() {
-            if (!_isSwiping) {
+            if (!_isSwiping && _damageController.CanSwipe) {
                 _isSwiping = true;
                 _swipePoints.Add(Input.mousePosition);
             }
