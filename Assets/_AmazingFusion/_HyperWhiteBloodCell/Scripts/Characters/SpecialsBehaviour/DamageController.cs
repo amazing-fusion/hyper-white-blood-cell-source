@@ -56,7 +56,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void DieAnimationEnded() {
-            Debug.Log("Evento: Die Animation Ended");
+            Debug.Log("DieAnimationEnded");
             if (OnDieEnd != null) OnDieEnd();
         }
 
