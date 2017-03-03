@@ -23,19 +23,20 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         AlphaCanvasGroupEasingAnimation _hideAnimation;
 
-        void Awake()
-        {
-            GameController.Instance.OnPlayerDied += OnPlayerDie;
-            GameController.Instance.OnTimeOver += OnTimeOver;
-        }
         
         void Start()
         {
+            GameController.Instance.OnPlayerDied += OnPlayerDie;
+            GameController.Instance.OnTimeOver += OnTimeOver;
             _showAnimation.OnEnd += OnShowAnimationEnd;
             _hideAnimation.OnEnd += OnHideAnimationEnd;
         }
 
         void OnDestroy() {
+            if (GameController.HasInstance) {
+                GameController.Instance.OnPlayerDied -= OnPlayerDie;
+                GameController.Instance.OnTimeOver -= OnTimeOver;
+            }
             _showAnimation.OnEnd -= OnShowAnimationEnd;
             _hideAnimation.OnEnd -= OnHideAnimationEnd;
         }

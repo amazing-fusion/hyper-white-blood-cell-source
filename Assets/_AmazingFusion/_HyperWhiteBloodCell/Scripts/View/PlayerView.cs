@@ -36,6 +36,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             GameController.Instance.OnGameRestart += Initialize;
         }
 
+        void OnDestroy() {
+            if (GameController.HasInstance) {
+                GameController.Instance.Player.OnLifesChange -= OnLifesChange;
+                GameController.Instance.OnGameRestart -= Initialize;
+            }
+        }
+
         void Initialize()
         {
             _life0_On.color = Color.white;

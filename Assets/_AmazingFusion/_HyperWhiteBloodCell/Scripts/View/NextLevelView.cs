@@ -28,6 +28,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void OnDestroy() {
             _showAnimation.OnEnd -= OnShowAnimationEnd;
             _hideAnimation.OnEnd -= OnHideAnimationEnd;
+
+            Room.OnLevelEnd -= OnLevelEnd;
         }
 
         void OnShowAnimationEnd(IEffectable effect) {

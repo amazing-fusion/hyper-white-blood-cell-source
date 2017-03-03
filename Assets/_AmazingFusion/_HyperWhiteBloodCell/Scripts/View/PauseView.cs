@@ -13,6 +13,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             GameController.Instance.OnPause += Show;
         }
 
+        void OnDestroy() {
+            if (GameController.HasInstance) {
+                GameController.Instance.OnPause -= Show;
+            }
+        }
+
         void Show() {
             _pausePanel.gameObject.SetActive(true);
         }

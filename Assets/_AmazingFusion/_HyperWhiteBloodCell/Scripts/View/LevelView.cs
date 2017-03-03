@@ -23,7 +23,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             LevelManager.Instance.OnLevelChange += OnLevelChange;
             GameController.Instance.OnTimeChange += OnTimeChange;
         }
-        
+
+        void OnDestroy() {
+            if (LevelManager.HasInstance) {
+                LevelManager.Instance.OnLevelChange -= OnLevelChange;
+            }
+            if (GameController.HasInstance) {
+                GameController.Instance.OnTimeChange -= OnTimeChange;
+            }
+        }
+
         void Initialize()
         {
             _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
@@ -37,7 +46,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnTimeChange() {
-            _levelTimeText.text = string.Format("{0}s", Mathf.CeilToInt(GameController.Instance.CurrentLevelTime));
+            _levelTimeText.text = string.Format("{0}<size=40>s</size>", Mathf.CeilToInt(GameController.Instance.CurrentLevelTime));
         }
     }
 }
