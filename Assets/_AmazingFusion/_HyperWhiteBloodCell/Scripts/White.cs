@@ -16,10 +16,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             
         }
 
-        public void WhiteSprite(SpriteRenderer myRenderer)
+        public void WhiteSprite(SpriteRenderer myRenderer, Color color)
         {
             myRenderer.material.shader = _shaderGUItext;
-            myRenderer.color = Color.red;
+            myRenderer.color = color;
         }
 
         public void NormalSprite(SpriteRenderer myRenderer)

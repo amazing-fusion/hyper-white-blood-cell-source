@@ -212,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365133962275220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4907494, y: 1.7605994, z: 1}
+  m_LocalPosition: {x: 3.9543216, y: 0.19073069, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087833246827414}
@@ -440,6 +440,8 @@ MonoBehaviour:
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4316589991427064}
+  _colorDamage: {r: 1, g: 1, b: 1, a: 1}
+  _spriteRenderer: {fileID: 212645759793566236}
 --- !u!114 &114420650618072788
 MonoBehaviour:
   m_ObjectHideFlags: 1

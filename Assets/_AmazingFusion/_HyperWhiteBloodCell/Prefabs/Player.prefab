@@ -536,6 +536,7 @@ MonoBehaviour:
   _explosionDied: {fileID: 198814689045548544}
   _dashAnimation: {fileID: 114129306656676158}
   _dashTrailRenderer: {fileID: 96293192688726946}
+  _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
 --- !u!114 &114553409482080504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5846,7 +5847,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1854649100
+  randomSeed: 431508258
   InitialModule:
     serializedVersion: 3
     enabled: 1

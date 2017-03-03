@@ -8,23 +8,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     {
         [SerializeField]
         SwipeInputController _player;
-
-        Transform _playerChild;
-
+        
         public SwipeInputController Player {
             get {
                 return _player;
             }
-        }
-
-        public Transform PlayerChild
-        {
-            get
-            {
-                return _player.Transform.GetChild(0);
-            }
-
-            
         }
 
         void Start()
