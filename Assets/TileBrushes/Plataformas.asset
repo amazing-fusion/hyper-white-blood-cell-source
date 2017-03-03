@@ -42,19 +42,13 @@ MonoBehaviour:
     _variations:
     - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
     _variationWeights: 32000000
-  - mask: 18
-    _type: 0
-    _rotation: 0
-    _variations:
-    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
-  - mask: 10
-    _type: 0
-    _rotation: 0
-    _variations:
-    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
   - mask: 64
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    _variationWeights: 32000000
+  - mask: 16
     _type: 0
     _rotation: 0
     _variations:
@@ -67,6 +61,30 @@ MonoBehaviour:
     - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
     _variationWeights: 32000000
   - mask: 66
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    _variationWeights: 32000000
+  - mask: 80
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    _variationWeights: 32000000
+  - mask: 72
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    _variationWeights: 32000000
+  - mask: 18
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    _variationWeights: 32000000
+  - mask: 10
     _type: 0
     _rotation: 0
     _variations:

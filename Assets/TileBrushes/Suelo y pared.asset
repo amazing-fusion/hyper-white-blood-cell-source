@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _internalFlags: 1
   disableImmediatePreview: 0
-  _previewAssetId: z_d035d8c0-3271-46a3-b2fa-0983a1e55d00
+  _previewAssetId: z_1a95d934-ca5c-496b-9677-d39e2c4edbd7
   customPreviewImage: {fileID: 0}
   customPreviewDesignTime: 1
   _static: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   forceLegacySideways: 0
   overrideTransforms: 0
   scaleMode: 0
-  applyPrefabTransform: 0
+  applyPrefabTransform: 1
   transformScale: {x: 1, y: 1, z: 1}
   _userFlags: 0
   _userFlagLabels: 
@@ -40,7 +40,7 @@ MonoBehaviour:
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1294543146639976, guid: 2e739124641ec4b44a36f684e6d3f976, type: 2}
+    - {fileID: 1890478856603722, guid: 6ed2865606764774db08a03e1607a87d, type: 2}
     _variationWeights: 32000000
   - mask: 61
     _type: 0
@@ -52,31 +52,41 @@ MonoBehaviour:
     _rotation: 0
     _variations:
     - {fileID: 1294543146639976, guid: 2e739124641ec4b44a36f684e6d3f976, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1294543146639976, guid: 573025c4eca697a4ba35e0f9bd4dd0e0, type: 2}
+    - {fileID: 1294543146639976, guid: d0449220f4fc86d448588736415e1b6d, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 82
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1819236732896968, guid: ddfea4b310be1b24087978d2e9c9ad75, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1819236732896968, guid: 484f6f96c00a1bc46ae35119d6fdaa1f, type: 2}
+    - {fileID: 1819236732896968, guid: 7fa3c5464711a1646a245015d29883d5, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 74
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1491949408846112, guid: 3d36d77754487164e85082ceb1382592, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1491949408846112, guid: b494d72587ae5b6478093afebcd48a5c, type: 2}
+    - {fileID: 1491949408846112, guid: 5caf69d68c108b841b6395ab1d565071, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 26
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1841256538501626, guid: 67897261108b9d244b27d04a9dafb2d2, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1841256538501626, guid: f5452c454b3d79a48b412f31e88b8cdf, type: 2}
+    - {fileID: 1841256538501626, guid: b6c4ee21f98b0f345a23d2b41b4f3a2f, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 90
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1890478856603722, guid: f77ac8cf22e0bb046a37ce0282f4686c, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1890478856603722, guid: bf8247834d04da24a9c7f94bbfa2f42a, type: 2}
+    - {fileID: 1890478856603722, guid: 9c7e498bce1710143aef90c898eef8cf, type: 2}
+    _variationWeights: 320000003200000032000000
   _materialMappingFrom: []
   _materialMappingTo: []
   _coalesce: 1
