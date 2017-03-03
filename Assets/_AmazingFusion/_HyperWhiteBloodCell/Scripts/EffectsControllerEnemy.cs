@@ -66,6 +66,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void EffectsDiedEnemy(System.Action action)
         {
             AudioController.Instance.PlayDeathEnemySound();
+            AnimatorControllerEnemy.Instance.AnimationDiedEnemy();
             Timing.RunCoroutine(DoEffectsDiedEnemy(action));
         }
         
@@ -73,7 +74,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             _explosionParticles.Play();
             _spriteEnemy.enabled = false;
-            AnimatorControllerEnemy.Instance.AnimationDiedEnemy();
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
