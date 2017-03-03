@@ -8,15 +8,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class EffectsControllerPlayer : OptimizedBehaviour
     {
         [SerializeField]
-        DashMotor _dashMotorPlayer;
-
-        [SerializeField]
-        DamageController _damageControllerPlayer;
-
-        [SerializeField]
-        SpriteRenderer _spriteRenderer;
-
-        [SerializeField]
         float _magnitudeShake;
 
         [SerializeField]
@@ -29,35 +20,28 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         float _fadeOutTimeShake;
 
         [SerializeField]
-        ParticleSystem _explosionDied;
-
-        [SerializeField]
-        SequenceEasingAnimation _dashAnimation;
-
-        [SerializeField]
-        TrailRenderer _dashTrailRenderer;
-
-        [SerializeField]
         Color _colorDamage;
 
-
+        DashMotor _dashMotorPlayer;
+        DamageController _damageControllerPlayer;
+        SpriteRenderer _spriteRenderer;
+        ParticleSystem _explosionDied;
+        SequenceEasingAnimation _dashAnimation;
+        
         void Awake()
         {
+            _dashMotorPlayer = GetComponent<DashMotor>();
+            _damageControllerPlayer = GetComponent<DamageController>();
+            _dashAnimation = GetComponent<SequenceEasingAnimation>();
+
+            _spriteRenderer = Transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+            _explosionDied = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
+
             _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
         }
-
-        void Start()
-        {
-            //Initialize();
-        }
-
-        void Initialize()
-        {
-            _dashTrailRenderer.enabled = false;
-        }
-
+        
         public void DashEffectPlayerEnabled()
         {
             _dashAnimation.Play();

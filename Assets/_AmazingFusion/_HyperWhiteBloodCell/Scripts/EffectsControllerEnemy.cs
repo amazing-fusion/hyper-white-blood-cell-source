@@ -7,17 +7,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class EffectsControllerEnemy : OptimizedBehaviour
     {
-        [SerializeField]
-        DamageController _damageController;
-
-        [SerializeField]
-        SpriteRenderer _spriteEnemy;
-
-        [SerializeField]
-        AnimatorControllerEnemy _animator;
-
-        [SerializeField]
-        ParticleSystem _explosionParticles;
 
         [SerializeField]
         float _magnitudeShake;
@@ -37,11 +26,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Color _colorDamage;
 
-        [SerializeField]
-        SpriteRenderer _spriteRenderer;
+        DamageController _damageController;
+        SpriteRenderer _spriteEnemy;
+        AnimatorControllerEnemy _animator;
+        ParticleSystem _explosionParticles;
 
         void Awake()
         {
+            _damageController = GetComponent<DamageController>();
+            _animator = GetComponent<AnimatorControllerEnemy>();
+            _explosionParticles = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
+            _spriteEnemy = Transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>();
+
             _damageController.OnDie += EffectsDiedEnemy;
             _damageController.OnTakeDamage += EffectScaleDamage;
         }
@@ -62,9 +58,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         IEnumerator<float> DoWhiteSprite()
         {
-            White.Instance.WhiteSprite(_spriteRenderer, _colorDamage);
+            White.Instance.WhiteSprite(_spriteEnemy, _colorDamage);
             yield return Timing.WaitForSeconds(0.1f);
-            White.Instance.NormalSprite(_spriteRenderer);
+            White.Instance.NormalSprite(_spriteEnemy);
         }
 
         public void EffectsDiedEnemy(System.Action action)
