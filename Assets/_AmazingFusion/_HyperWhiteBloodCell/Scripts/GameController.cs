@@ -16,6 +16,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         Transform _playerChild;
 
+        public event System.Action OnPause;
+
         public event System.Action OnGameRestart;
         public event System.Action OnTimeChange;
 
@@ -78,6 +80,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                     LevelManager.Instance.CurrentRoom.EndLevel();
                 }
             }
+        }
+
+        public void Pause() {
+            //TODO: Fix the hack
+            Time.timeScale = 0;
+            if (OnPause != null) OnPause();
+        }
+
+        public void Resume() {
+            Time.timeScale = 1;
         }
 
         public void StartGame() {
