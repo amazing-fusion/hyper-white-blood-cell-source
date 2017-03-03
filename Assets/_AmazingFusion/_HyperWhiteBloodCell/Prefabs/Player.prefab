@@ -26,6 +26,9 @@ GameObject:
   - component: {fileID: 114681870480820738}
   - component: {fileID: 114553409482080504}
   - component: {fileID: 114305547346861398}
+  - component: {fileID: 114895484341843496}
+  - component: {fileID: 114206728947728512}
+  - component: {fileID: 114129306656676158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -198,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238342206310030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16, y: 9, z: 1}
+  m_LocalPosition: {x: -14.54, y: 2.21, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172604383837562}
@@ -456,6 +459,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageController: {fileID: 114681870480820738}
   _sqrMinSwipe: 30
+--- !u!114 &114129306656676158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238342206310030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc0f6f857f335d41aaf43931382d87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0
+  _easingAnimations:
+  - {fileID: 114895484341843496}
+  - {fileID: 114206728947728512}
 --- !u!114 &114150884071678984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,6 +491,30 @@ MonoBehaviour:
   _dashImmuneTags:
   - Enemy
   _dashingTag: DashingPlayer
+--- !u!114 &114206728947728512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238342206310030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97210279f9d5c94bb47778c51d967ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.1
+  _xEasingInfo:
+    _startValue: 1
+    _changeValue: 0
+    _curve: 0
+  _yEasingInfo:
+    _startValue: 0.4
+    _changeValue: 0.6
+    _curve: 31
+  _zEasingInfo:
+    _startValue: 1
+    _changeValue: 0
+    _curve: 0
 --- !u!114 &114305547346861398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,8 +534,7 @@ MonoBehaviour:
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _explosionDied: {fileID: 198814689045548544}
-  _dashParticles0: {fileID: 198325192787954774}
-  _dashParticles1: {fileID: 198023460500979478}
+  _dashAnimation: {fileID: 114129306656676158}
   _dashTrailRenderer: {fileID: 96293192688726946}
 --- !u!114 &114553409482080504
 MonoBehaviour:
@@ -524,6 +565,30 @@ MonoBehaviour:
   _harmfulTags:
   - Enemy
   - Hazard
+--- !u!114 &114895484341843496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1238342206310030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97210279f9d5c94bb47778c51d967ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.05
+  _xEasingInfo:
+    _startValue: 1
+    _changeValue: 0
+    _curve: 0
+  _yEasingInfo:
+    _startValue: 1
+    _changeValue: -0.6
+    _curve: 31
+  _zEasingInfo:
+    _startValue: 1
+    _changeValue: 0
+    _curve: 0
 --- !u!198 &198023460500979478
 ParticleSystem:
   m_ObjectHideFlags: 1

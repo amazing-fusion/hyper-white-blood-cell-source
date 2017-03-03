@@ -410,10 +410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3b1fd38a131c84cbae158dfbb885a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 0.1
+  _duration: 0.2
   _easingInfo:
     _startValue: 0
-    _changeValue: 1
+    _changeValue: 1.5
     _curve: 27
 --- !u!114 &114408874952716010
 MonoBehaviour:
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 0.1
   _easingInfo:
-    _startValue: 1
-    _changeValue: -1
+    _startValue: 1.5
+    _changeValue: -1.5
     _curve: 19
 --- !u!114 &114653663593270252
 MonoBehaviour:

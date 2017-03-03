@@ -212,7 +212,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365133962275220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.692719, y: 1.9323411, z: 1}
+  m_LocalPosition: {x: -5.4907494, y: 1.7605994, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087833246827414}
@@ -399,10 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3b1fd38a131c84cbae158dfbb885a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 0.1
+  _duration: 0.2
   _easingInfo:
-    _startValue: 1
-    _changeValue: -1
+    _startValue: 1.5
+    _changeValue: -1.5
     _curve: 19
 --- !u!114 &114323849078663012
 MonoBehaviour:
@@ -418,7 +418,7 @@ MonoBehaviour:
   _duration: 0.1
   _easingInfo:
     _startValue: 0
-    _changeValue: 1
+    _changeValue: 1.5
     _curve: 27
 --- !u!114 &114377239328682844
 MonoBehaviour:
@@ -453,8 +453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 0
   _easingAnimations:
-  - {fileID: 114185822543102922, guid: e7bfd3fc8afe71749808ab743611760d, type: 2}
-  - {fileID: 114408954872182214, guid: e7bfd3fc8afe71749808ab743611760d, type: 2}
+  - {fileID: 114323849078663012}
+  - {fileID: 114055554589484978}
 --- !u!114 &114540594687739736
 MonoBehaviour:
   m_ObjectHideFlags: 1
