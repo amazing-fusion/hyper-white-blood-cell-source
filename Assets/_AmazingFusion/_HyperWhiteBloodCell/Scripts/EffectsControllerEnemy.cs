@@ -48,6 +48,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void EffectScaleDamage()
         {
+            //_scaleEffect.localRotation = GameController.Instance.PlayerChild.localRotation;
+            _scaleEffect.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 180));
             _scaleEffect.GetComponent<SequenceEasingAnimation>().Play();
         }
 
