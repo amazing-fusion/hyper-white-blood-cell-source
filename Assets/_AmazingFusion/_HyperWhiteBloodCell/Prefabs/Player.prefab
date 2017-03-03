@@ -305,10 +305,10 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58893898195352218
@@ -504,8 +504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 0.1
   _xEasingInfo:
-    _startValue: 1.5
-    _changeValue: -0.5
+    _startValue: 2
+    _changeValue: -1
     _curve: 31
   _yEasingInfo:
     _startValue: 0.4
@@ -580,7 +580,7 @@ MonoBehaviour:
   _duration: 0.05
   _xEasingInfo:
     _startValue: 1
-    _changeValue: 0.5
+    _changeValue: 1
     _curve: 31
   _yEasingInfo:
     _startValue: 1

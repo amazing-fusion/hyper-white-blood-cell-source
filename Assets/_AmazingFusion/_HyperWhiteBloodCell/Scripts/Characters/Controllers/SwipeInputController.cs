@@ -21,13 +21,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         IMotor _motor;
 
         void OnDestroy() {
+            Room.OnLevelStart -= Initialize;
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
         }
 
-        void Awake() {
+        void Start() {
             _motor = GetComponent<IMotor>();
+            if (LevelManager.Instance.CurrentRoom != null && 
+                    LevelManager.Instance.CurrentRoom.Started) {
+                Initialize(LevelManager.Instance.CurrentRoom);
+            } else {
+                Room.OnLevelStart += Initialize;
+            }
+        }
+
+        void OnDisable() {
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
+            }
+        }
+
+        void Initialize(Room room) {
+            Debug.Log("Initialized");
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.WakeUp();
+            }
             UpdateManager.Instance.Add(this);
         }
 

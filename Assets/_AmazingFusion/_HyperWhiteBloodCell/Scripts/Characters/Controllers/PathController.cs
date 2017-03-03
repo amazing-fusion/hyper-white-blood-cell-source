@@ -26,28 +26,41 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         IMotor _motor;
 
-        void Awake() {
-            Initialize();
+        void Start() {
+            if (LevelManager.Instance.CurrentRoom != null && 
+                    LevelManager.Instance.CurrentRoom.Started) {
+                Initialize(LevelManager.Instance.CurrentRoom);
+            } else {
+                Room.OnLevelStart += Initialize;
+            }
         }
 
-        public void Initialize(Transform[] wayPoints, bool invertPathOnEnd = false) {
-            _wayPointsPath = wayPoints;
-            _invertPathOnEnd = invertPathOnEnd;
-            Initialize();
-        }
 
-        public void Initialize() {
+        void Initialize(Room room) {
+            Debug.Log("PathController : Initialize");
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.WakeUp();
+            }
+
             if (_wayPointsPath.Length < 2) return;
 
             _motor = GetComponent<IMotor>();
 
             _currentPathIndex = 0;
-            UpdateManager.Instance.Add(this);
-
             _motor.Translate(_wayPointsPath[_currentPathIndex].position);
+            UpdateManager.Instance.Add(this);
         }
 
+        public void SetPath(Transform[] wayPoints, bool invertPathOnEnd = false) {
+            Debug.Log("PathController : SetPath");
+            _wayPointsPath = wayPoints;
+            _invertPathOnEnd = invertPathOnEnd;
+        }
+
+
         void OnDestroy() {
+            Room.OnLevelStart -= Initialize;
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
@@ -65,7 +78,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void NextWayPoint() {
-            Debug.Log("NextWayPoint");
             if (_inverse) {
                 if (_currentPathIndex > 0) {
                     --_currentPathIndex;

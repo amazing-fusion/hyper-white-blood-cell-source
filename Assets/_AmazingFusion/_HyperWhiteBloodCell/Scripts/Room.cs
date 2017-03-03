@@ -12,6 +12,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         int _maxLevelRequired;
 
+        bool _started;
+
         public int MinLevelRequired
         {
             get
@@ -37,16 +39,24 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public bool Started {
+            get {
+                return _started;
+            }
+        }
+
         public static event System.Action<Room> OnLevelStart;
         public static event System.Action<Room> OnLevelEnd;
 
         public void StartLevel()
         {
+            _started = true;
             if (OnLevelStart != null) OnLevelStart(this);
         }
 
         public void EndLevel()
         {
+            _started = false;
             if (OnLevelEnd != null) OnLevelEnd(this);
         }
     }
