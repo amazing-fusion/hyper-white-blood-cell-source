@@ -9,9 +9,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class PlayerView : OptimizedBehaviour
     {
         [SerializeField]
-        DamageController _player;
-
-        [SerializeField]
         Image _life0_On;
 
         [SerializeField]
@@ -35,7 +32,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Awake()
         {
             Initialize();
-            _player.OnLifesChange += OnLifesChange;
+            GameController.Instance.Player.OnLifesChange += OnLifesChange;
             GameController.Instance.OnGameRestart += Initialize;
         }
 
