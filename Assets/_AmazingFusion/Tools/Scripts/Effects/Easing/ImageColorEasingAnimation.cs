@@ -26,8 +26,6 @@ namespace com.AmazingFusion {
                         (float)_gEasingInfo.CurrentValue,
                         (float)_bEasingInfo.CurrentValue,
                         (float)_aEasingInfo.CurrentValue);
-
-            Debug.Log(_image.color);
         }
     }
 }

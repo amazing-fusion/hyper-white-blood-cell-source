@@ -27,12 +27,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Initialize()
         {
             _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
-            _highScoreText.text = string.Format("BEST: {0}", 0);
+            _highScoreText.text = string.Format("BEST: {0}", PersistanceManager.Instance.BestLevel + 1);
         }
 
         void OnLevelChange()
         {
             _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
+            _highScoreText.text = string.Format("BEST: {0}", PersistanceManager.Instance.BestLevel + 1);
         }
 
         void OnTimeChange() {

@@ -73,7 +73,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             if(CurrentRoom != null)
             {
-                Destroy( CurrentRoom.gameObject);
+                Destroy(CurrentRoom.gameObject);
             }
             CurrentLevelNumber = 0;
             LoadLevel();
@@ -86,6 +86,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 Destroy(CurrentRoom.gameObject);
             }
             CurrentLevelNumber++;
+            PersistanceManager.Instance.BestLevel = CurrentLevelNumber;
             LoadLevel();
         }
     }

@@ -18,10 +18,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         TMP_Text _bestLevelText;
 
         [SerializeField]
-        EasingAnimation _showAnimation;
+        AlphaCanvasGroupEasingAnimation _showAnimation;
 
         [SerializeField]
-        EasingAnimation _hideAnimation;
+        AlphaCanvasGroupEasingAnimation _hideAnimation;
 
         void Awake()
         {
@@ -31,6 +31,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         void Start()
         {
+            _showAnimation.OnEnd += (IEffectable effect) => {
+                _showAnimation.CanvasGroup.interactable = true;
+            };
+
             _hideAnimation.OnEnd += (IEffectable effect) => {
                 _hideAnimation.gameObject.SetActive(false);
                 GameController.Instance.RestartGame();
@@ -40,23 +44,29 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void OnPlayerDie()
         {
             _deathText.text = "You're infected!";
+            _levelText.text = string.Format("Level {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
+            _bestLevelText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
 
         void OnTimeOver() {
             _deathText.text = "Time's\nup!";
+            _levelText.text = string.Format("Level {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
+            _bestLevelText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
 
         public void RestartGame()
         {
+            _hideAnimation.CanvasGroup.interactable = false;
             _hideAnimation.Play();
         }
 
         public void GoToMenu()
         {
+            _hideAnimation.CanvasGroup.interactable = false;
             ScenesManager.Instance.LoadScene(ScenesManager.Scene.MenuScene);
         }
     }

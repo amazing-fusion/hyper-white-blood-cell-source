@@ -735,15 +735,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114681870480820738, guid: a57ff097b62b041419d5f4ab9895070d,
+    - target: {fileID: 114895484341843496, guid: a57ff097b62b041419d5f4ab9895070d,
         type: 2}
-      propertyPath: _lifes
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 212685664354127990, guid: a57ff097b62b041419d5f4ab9895070d,
-        type: 2}
-      propertyPath: m_Enabled
+      propertyPath: _xEasingInfo._changeValue
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206728947728512, guid: a57ff097b62b041419d5f4ab9895070d,
+        type: 2}
+      propertyPath: _xEasingInfo._startValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206728947728512, guid: a57ff097b62b041419d5f4ab9895070d,
+        type: 2}
+      propertyPath: _xEasingInfo._changeValue
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a57ff097b62b041419d5f4ab9895070d, type: 2}
@@ -1488,17 +1493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomsPrefab:
   - {fileID: 114774482629325346, guid: 56a0f85b88fa89147bc6d0225eff6b0e, type: 2}
-  - {fileID: 114577475673544056, guid: 3a8a68be054e74344b0288e09193be8b, type: 2}
-  - {fileID: 114205805249231406, guid: 3520915854eb75444b35b0326a0d9a4f, type: 2}
-  - {fileID: 114322045311936758, guid: 571e9258d88b6ea4da13de537dfba73d, type: 2}
-  - {fileID: 114507273878991938, guid: 9e5922173035af34cae0baebeb77d6a2, type: 2}
-  - {fileID: 114949765485240460, guid: a168885cb71661048bc7fa36d2bfc1f2, type: 2}
-  - {fileID: 114771654268776960, guid: e8f52cb71fd699948b775cda161b6e52, type: 2}
-  - {fileID: 114295474587183276, guid: 10653f51e039062408a544bb441cbe9c, type: 2}
-  - {fileID: 114894608415229984, guid: 4590f450f5ba32845b7adee579f89633, type: 2}
-  - {fileID: 114421680854484290, guid: 80cd42a4e65619f45a1611fc69c75e79, type: 2}
-  - {fileID: 114408278427097054, guid: 6ce22381d7eb8ad44a4aff54094b764e, type: 2}
-  - {fileID: 114426704068277648, guid: f4368f3804f9e8745bf0710eafaf759f, type: 2}
 --- !u!114 &1867702463
 MonoBehaviour:
   m_ObjectHideFlags: 0

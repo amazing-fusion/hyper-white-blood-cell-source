@@ -7,14 +7,14 @@ namespace com.AmazingFusion {
     public class AlphaCanvasGroupEasingAnimation : ValueEasingAnimation {
 
         CanvasGroup _canvasGroup;
-        /*CanvasGroup CanvasGroup {
+        public CanvasGroup CanvasGroup {
             get {
                 if (_canvasGroup == null) {
                     _canvasGroup = GetComponent<CanvasGroup>();
                 }
                 return _canvasGroup;
             }
-        }*/
+        }
 
         void Awake() {
             _canvasGroup = GetComponent<CanvasGroup>();
