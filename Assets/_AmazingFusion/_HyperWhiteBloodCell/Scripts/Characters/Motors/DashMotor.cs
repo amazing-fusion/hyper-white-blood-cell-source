@@ -50,8 +50,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         void BeginDash(Vector2 vector) {
             if (!_isDashing) {
                 _isDashing = true;
-                _rigidBody.gravityScale = 0;
-                _rigidBody.velocity = vector.normalized * _dashSpeed;
+                if (_rigidBody != null) {
+                    _rigidBody.gravityScale = 0;
+                    _rigidBody.velocity = vector.normalized * _dashSpeed;
+                }
 
                 if (vector.x > 0) {
                     _player.rotation = Quaternion.LookRotation(Vector3.forward, vector);
@@ -90,6 +92,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
                 if (!String.IsNullOrEmpty(_dashingTag)) {
                     tag = _tag;
+                }
+
+                foreach (string immuneTag in _harmfulTagsImmunity) {
+                    _damageController.HarmfulTags.Add(immuneTag);
                 }
                 _harmfulTagsImmunity.Clear();
 

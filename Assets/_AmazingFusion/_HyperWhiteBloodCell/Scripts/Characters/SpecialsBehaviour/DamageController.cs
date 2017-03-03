@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell {
+    [RequireComponent(typeof(Collider2D))]
     public class DamageController : OptimizedBehaviour {
 
         [SerializeField]
         int _lifes;
-
-        [SerializeField]
-        Rigidbody2D _rig;
 
         [SerializeField]
         Collider2D _collider;
@@ -36,7 +34,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             set {
                 if (value != _currentLifes) {
                     _currentLifes = value;
-                    Debug.Log("Lifes: " + _currentLifes);
                     if (OnLifesChange != null) OnLifesChange(_currentLifes);
                     if (_currentLifes <= 0) {
                         Die();
@@ -66,7 +63,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Initialize() {
             CurrentLifes = _lifes;
-            _rig.WakeUp();
             _collider.enabled = true;
             IsAlive = true;
         }
@@ -77,8 +73,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Die() {
             IsAlive = false;
-            _rig.velocity = Vector3.zero;
-            _rig.Sleep();
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.Sleep();
+            }
             _collider.enabled = false;
             if (OnDie != null) OnDie(DieAnimationEnded);
         }
@@ -103,6 +102,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
+            Debug.Log("OnCollisionEnter2D");
             if (_harmfulTags.Contains(collision.collider.tag)) {
                 TakeDamage();
             }

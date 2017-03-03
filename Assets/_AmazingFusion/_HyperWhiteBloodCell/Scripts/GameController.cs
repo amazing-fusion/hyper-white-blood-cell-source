@@ -97,6 +97,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _player.Initialize();
             LevelManager.Instance.FirstLevel();
             CurrentLevelTime = _levelTime;
+
+            LevelManager.Instance.CurrentRoom.StartLevel();
+
             UpdateManager.Instance.Add(this);
         }
 

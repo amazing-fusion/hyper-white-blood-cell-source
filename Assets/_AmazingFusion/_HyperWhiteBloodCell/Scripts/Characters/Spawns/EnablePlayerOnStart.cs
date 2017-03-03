@@ -7,6 +7,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         // Use this for initialization
         void Start() {
+            Debug.Log("Spawn player");
+
             GameController.Instance.Player.Transform.position = Transform.position;
             GameController.Instance.Player.Transform.rotation = Transform.rotation;
             GameController.Instance.Player.gameObject.SetActive(true);

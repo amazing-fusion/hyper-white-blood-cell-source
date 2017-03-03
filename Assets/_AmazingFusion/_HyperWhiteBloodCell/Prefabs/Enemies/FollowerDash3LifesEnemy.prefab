@@ -247,10 +247,10 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &58944682668309864
@@ -266,7 +266,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.64
 --- !u!95 &95545882350548968
 Animator:
   serializedVersion: 3
@@ -399,8 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6acae608d44da41a56a97b50eb3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifes: 1
-  _rig: {fileID: 50916199787877880}
+  _lifes: 3
   _collider: {fileID: 58944682668309864}
   _harmfulTags:
   - DashingPlayer
@@ -455,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314fe47770130354e8cd78f7b0ee8052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMovementRate: 2
+  _updateMovementRate: 1
 --- !u!114 &114631772077045662
 MonoBehaviour:
   m_ObjectHideFlags: 1
