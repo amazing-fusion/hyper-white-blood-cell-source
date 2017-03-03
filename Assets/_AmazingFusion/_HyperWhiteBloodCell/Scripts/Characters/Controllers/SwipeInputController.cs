@@ -58,7 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void BeginSwipe() {
-            if (!_isSwiping && _damageController.CanSwipe) {
+            if (!_isSwiping && _damageController.IsAlive) {
                 _isSwiping = true;
                 _swipePoints.Add(Input.mousePosition);
             }

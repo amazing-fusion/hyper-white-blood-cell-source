@@ -609,7 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3ec62c0af148f40851b8d9af6ddb08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _life0_On: {fileID: 114858505109822944}
   _life0_Off: {fileID: 114958828904961152}
   _life1_On: {fileID: 114818639470731788}
@@ -744,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelText: {fileID: 114964872765679646}
   _highScoreText: {fileID: 114287063163259256}
+  _levelTimeText: {fileID: 114824086003695362}
 --- !u!114 &114818639470731788
 MonoBehaviour:
   m_ObjectHideFlags: 1

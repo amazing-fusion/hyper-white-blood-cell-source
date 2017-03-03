@@ -9,9 +9,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class GameOverView : OptimizedBehaviour
     {
         [SerializeField]
-        DamageController _player;
-
-        [SerializeField]
         TMP_Text _deathText;
 
         [SerializeField]
@@ -28,14 +25,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Awake()
         {
-            _player.OnDieEnd += OnPlayerDie;
+            GameController.Instance.OnPlayerDied += OnPlayerDie;
+            GameController.Instance.OnTimeOver += OnTimeOver;
         }
         
         void Start()
         {
             _hideAnimation.OnEnd += (IEffectable effect) => {
                 _hideAnimation.gameObject.SetActive(false);
-                GameController.Instance.StartGame();
+                GameController.Instance.RestartGame();
             };
         }
 

@@ -37,6 +37,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         TrailRenderer _dashTrailRenderer;
 
+        [SerializeField]
+        Color _colorDamage;
+
+
         void Awake()
         {
             _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
@@ -53,16 +57,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             _dashTrailRenderer.enabled = false;
         }
-        
-
 
         public void DashEffectPlayerEnabled()
         {
             _dashAnimation.Play();
+            AudioController.Instance.PlayDashPlayerSound();
         }
 
         public void EffectDiedPlayer(System.Action action)
         {
+            AudioController.Instance.PlayDeathExplosionPlayerSound();
             Timing.RunCoroutine(DoEffectsDied(action)); 
         }
 
@@ -81,11 +85,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void WhiteEffect()
         {
             Timing.RunCoroutine(DoWhiteSprite());
+            AudioController.Instance.PlayDamagePlayerSound();
         }
         
         IEnumerator<float> DoWhiteSprite()
         {
-            White.Instance.WhiteSprite(_spriteRenderer);
+            White.Instance.WhiteSprite(_spriteRenderer, _colorDamage);
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake*0.6f, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
             yield return Timing.WaitForSeconds(0.2f);

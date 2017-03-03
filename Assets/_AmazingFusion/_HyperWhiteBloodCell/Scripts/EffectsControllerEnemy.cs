@@ -34,6 +34,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Transform _scaleEffect;
 
+        [SerializeField]
+        Color _colorDamage;
+
+        [SerializeField]
+        SpriteRenderer _spriteRenderer;
+
         void Awake()
         {
             _damageController.OnDie += EffectsDiedEnemy;
@@ -48,13 +54,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void EffectScaleDamage()
         {
-            //_scaleEffect.localRotation = GameController.Instance.PlayerChild.localRotation;
+            Timing.RunCoroutine(DoWhiteSprite());
             _scaleEffect.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 180));
             _scaleEffect.GetComponent<SequenceEasingAnimation>().Play();
+            AudioController.Instance.PlayDamageEnemySound();
+        }
+
+        IEnumerator<float> DoWhiteSprite()
+        {
+            White.Instance.WhiteSprite(_spriteRenderer, _colorDamage);
+            yield return Timing.WaitForSeconds(0.1f);
+            White.Instance.NormalSprite(_spriteRenderer);
         }
 
         public void EffectsDiedEnemy(System.Action action)
         {
+            AudioController.Instance.PlayDeathEnemySound();
             Timing.RunCoroutine(DoEffectsDiedEnemy(action));
         }
         

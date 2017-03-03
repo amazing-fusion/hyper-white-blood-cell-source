@@ -17,10 +17,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         List<string> _harmfulTags;
 
-        bool _died;
         int _currentLifes;
 		
-		bool _canSwipe;
+		bool _isAlive;
 
 		public event System.Action<int> OnLifesChange;
         public event System.Action OnDieEnd;
@@ -52,16 +51,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
         }
 
-        public bool CanSwipe
+        public bool IsAlive
         {
             get
             {
-                return _canSwipe;
+                return _isAlive;
             }
 
             set
             {
-                _canSwipe = value;
+                _isAlive = value;
             }
         }
 
@@ -69,15 +68,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             CurrentLifes = _lifes;
             _rig.WakeUp();
             _collider.enabled = true;
-            CanSwipe = true;
+            IsAlive = true;
         }
 
         void Awake() {
             Initialize();
         }
 
-        void Die() {
-            CanSwipe = false;
+        public void Die() {
+            IsAlive = false;
             _rig.velocity = Vector3.zero;
             _rig.Sleep();
             _collider.enabled = false;
