@@ -18,6 +18,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         void Start() {
             PathController pathController = Instantiate(_prefab, Transform.position, Transform.rotation);
             pathController.Initialize(_wayPointsPath, _invertPathOnEnd);
+            pathController.Transform.SetParent(Transform.parent, true);
             Destroy(gameObject);
         }
     }
