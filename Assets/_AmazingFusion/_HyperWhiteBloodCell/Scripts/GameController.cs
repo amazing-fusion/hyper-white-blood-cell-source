@@ -123,7 +123,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         public void Tick(float realDeltaTime) {
-            Debug.Log("Tick: " + CurrentLevelTime);
             CurrentLevelTime -= Time.deltaTime;
             if (CurrentLevelTime <= 0) {
                 TimeOver();

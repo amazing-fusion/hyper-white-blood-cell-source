@@ -81,15 +81,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void EndDash() {
             if (_isDashing) {
-                _rigidBody.velocity = Vector2.zero;
-                _rigidBody.gravityScale = 1;
-                if (OnEndDrag != null) OnEndDrag();
-
-                if (_damageController != null) {
-                    foreach (string harmfulTag in _harmfulTagsImmunity) {
-                        _damageController.HarmfulTags.Add(harmfulTag);
-                    }
+                if (_rigidBody != null) {
+                    _rigidBody.velocity = Vector2.zero;
+                    _rigidBody.gravityScale = 1;
                 }
+
+                if (OnEndDrag != null) OnEndDrag();
 
                 if (!String.IsNullOrEmpty(_dashingTag)) {
                     tag = _tag;

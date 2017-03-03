@@ -504,9 +504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 0.1
   _xEasingInfo:
-    _startValue: 1
-    _changeValue: 0
-    _curve: 0
+    _startValue: 1.5
+    _changeValue: -0.5
+    _curve: 31
   _yEasingInfo:
     _startValue: 0.4
     _changeValue: 0.6
@@ -580,8 +580,8 @@ MonoBehaviour:
   _duration: 0.05
   _xEasingInfo:
     _startValue: 1
-    _changeValue: 0
-    _curve: 0
+    _changeValue: 0.5
+    _curve: 31
   _yEasingInfo:
     _startValue: 1
     _changeValue: -0.6
