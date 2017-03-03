@@ -22,7 +22,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 		
 		bool _canSwipe;
 
-		public event System.Action<int> OnLifesChange;        public event System.Action OnDieEnd;
+		public event System.Action<int> OnLifesChange;
+        public event System.Action OnDieEnd;
 
         public event System.Action OnTakeDamage;
 

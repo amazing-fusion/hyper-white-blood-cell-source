@@ -12,10 +12,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         DamageController _player;
 
         [SerializeField]
-        TMP_Text _highScoreText;
+        TMP_Text _deathText;
 
         [SerializeField]
-        Transform _gameOverTransform;
+        TMP_Text _levelText;
+
+        [SerializeField]
+        TMP_Text _bestLevelText;
+
+        [SerializeField]
+        EasingAnimation _showAnimation;
+
+        [SerializeField]
+        EasingAnimation _hideAnimation;
 
         void Awake()
         {
@@ -24,22 +33,28 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         void Start()
         {
-            Initialize();
-        }
-
-        void Initialize()
-        {
-            _gameOverTransform.gameObject.SetActive(false);
+            _hideAnimation.OnEnd += (IEffectable effect) => {
+                _hideAnimation.gameObject.SetActive(false);
+                GameController.Instance.StartGame();
+            };
         }
 
         void OnPlayerDie()
         {
-            _gameOverTransform.gameObject.SetActive(true);
+            _deathText.text = "You're infected!";
+            _showAnimation.gameObject.SetActive(true);
+            _showAnimation.Play();
+        }
+
+        void OnTimeOver() {
+            _deathText.text = "Time's\nup!";
+            _showAnimation.gameObject.SetActive(true);
+            _showAnimation.Play();
         }
 
         public void RestartGame()
         {
-            GameController.Instance.StartGame();
+            _hideAnimation.Play();
         }
 
         public void GoToMenu()
