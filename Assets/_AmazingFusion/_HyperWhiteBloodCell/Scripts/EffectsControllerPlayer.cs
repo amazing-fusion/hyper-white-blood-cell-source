@@ -42,20 +42,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Awake()
         {
-            _dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
-            _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
+            //_dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
+            //_dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
         }
 
         void Start()
         {
-         //   Initialize();
+            //Initialize();
         }
 
         void Initialize()
         {
-            _explosionDied.Stop();
             _dashParticles0.Stop();
             _dashParticles1.Stop();
             _dashTrailRenderer.enabled = false;
@@ -65,19 +64,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void DashEffectPlayerEnabled()
         {
-           /* _dashParticles0.Play();
-            _dashParticles1.Play();
-            _dashTrailRenderer.enabled = true;*/
-           // AnimatorControllerPlayer.Instance.AnimationAtkPlayer();
+            AnimatorControllerPlayer.Instance.AnimationAtkPlayer();
 
         }
 
         public void DashEffectPlayerDisenabled()
         {
-          /*  _dashParticles0.Stop();
-            _dashParticles1.Stop();
-            _dashTrailRenderer.enabled = false;*/
-           // AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
+            AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
         }
 
         public void EffectDiedPlayer(System.Action action)
@@ -92,8 +85,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
-            yield return Timing.WaitForSeconds(0.1f);
-
+            yield return Timing.WaitForSeconds(0.6f);
+            
             action();
         }
 
@@ -105,6 +98,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         IEnumerator<float> DoWhiteSprite()
         {
             White.Instance.WhiteSprite(_spriteRenderer);
+            EZCameraShake.CameraShaker.Instance.ShakeOnce
+                (_magnitudeShake*0.6f, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
             yield return Timing.WaitForSeconds(0.2f);
             White.Instance.NormalSprite(_spriteRenderer);
         }

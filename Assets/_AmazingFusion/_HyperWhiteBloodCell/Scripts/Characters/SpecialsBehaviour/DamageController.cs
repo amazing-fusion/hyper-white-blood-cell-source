@@ -9,13 +9,20 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         int _lifes;
 
         [SerializeField]
+        Rigidbody2D _rig;
+
+        [SerializeField]
+        Collider2D _collider;
+
+        [SerializeField]
         List<string> _harmfulTags;
 
         bool _died;
         int _currentLifes;
+		
+		bool _canSwipe;
 
-        public event System.Action<int> OnLifesChange;
-        public event System.Action OnDieEnd;
+		public event System.Action<int> OnLifesChange;        public event System.Action OnDieEnd;
 
         public event System.Action OnTakeDamage;
 
@@ -44,8 +51,24 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
         }
 
+        public bool CanSwipe
+        {
+            get
+            {
+                return _canSwipe;
+            }
+
+            set
+            {
+                _canSwipe = value;
+            }
+        }
+
         public void Initialize() {
             CurrentLifes = _lifes;
+            _rig.WakeUp();
+            _collider.enabled = true;
+            CanSwipe = true;
         }
 
         void Awake() {
@@ -53,12 +76,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void Die() {
+            CanSwipe = false;
+            _rig.velocity = Vector3.zero;
+            _rig.Sleep();
+            _collider.enabled = false;
             if (OnDie != null) OnDie(DieAnimationEnded);
         }
 
         void DieAnimationEnded() {
             Debug.Log("DieAnimationEnded");
             if (OnDieEnd != null) OnDieEnd();
+            this.gameObject.SetActive(false);
         }
 
         void TakeDamage() {
