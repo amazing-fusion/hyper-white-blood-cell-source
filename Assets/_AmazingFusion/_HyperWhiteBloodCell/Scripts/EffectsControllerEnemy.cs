@@ -7,7 +7,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class EffectsControllerEnemy : OptimizedBehaviour
     {
-
         [SerializeField]
         float _magnitudeShake;
 
@@ -30,23 +29,43 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         SpriteRenderer _spriteEnemy;
         AnimatorControllerEnemy _animator;
         ParticleSystem _explosionParticles;
+        Animator _animatorController;
+        SpriteRenderer _spriteExplosionController;
 
         void Awake()
         {
+            
+        }
+
+        void OnDisable()
+        {
+            Initialize();
+        }
+
+        void Start()
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
+            Debug.Log("Coloco todo enemy");
             _damageController = GetComponent<DamageController>();
             _animator = GetComponent<AnimatorControllerEnemy>();
             _explosionParticles = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
             _spriteEnemy = Transform.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>();
+            _animatorController = Transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+            _spriteExplosionController = Transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
 
+            _animatorController.enabled = false;
+            _spriteExplosionController.enabled = false;
             _damageController.OnDie += EffectsDiedEnemy;
             _damageController.OnTakeDamage += EffectScaleDamage;
-        }
-        
-        void Start()
-        {
-            _explosionParticles.Stop();
+
             _scaleEffect.localScale = Vector3.zero;
+            _explosionParticles.Stop();
         }
+
 
         public void EffectScaleDamage()
         {
@@ -66,10 +85,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void EffectsDiedEnemy(System.Action action)
         {
             AudioController.Instance.PlayDeathEnemySound();
-            AnimatorControllerEnemy.Instance.AnimationDiedEnemy();
+            AnimationDiedEnemy();
             Timing.RunCoroutine(DoEffectsDiedEnemy(action));
         }
-        
+
+        public void AnimationDiedEnemy()
+        {
+            Debug.Log("Animacion Muerte de "
+                 + _animatorController.transform.parent.parent.gameObject);
+            _animatorController.enabled = true;
+            _spriteExplosionController.enabled = true;
+            _animatorController.Play(0);
+        }
+
         IEnumerator<float> DoEffectsDiedEnemy(System.Action action)
         {
             _explosionParticles.Play();

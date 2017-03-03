@@ -30,6 +30,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         void Awake()
         {
+            
+        }
+
+        void OnDisable()
+        {
+            Initialize();
+        }
+
+        void Start()
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
+            Debug.Log("Coloco todo");
             _dashMotorPlayer = GetComponent<DashMotor>();
             _damageControllerPlayer = GetComponent<DamageController>();
             _dashAnimation = GetComponent<SequenceEasingAnimation>();
@@ -40,6 +56,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
+
+            _spriteRenderer.enabled = true;
+            _explosionDied.Stop();
         }
         
         public void DashEffectPlayerEnabled()

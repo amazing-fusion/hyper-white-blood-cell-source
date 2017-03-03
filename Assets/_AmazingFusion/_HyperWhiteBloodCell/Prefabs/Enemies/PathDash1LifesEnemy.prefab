@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 114408874952716010}
   - component: {fileID: 114283743326201480}
   - component: {fileID: 114815407005083064}
-  - component: {fileID: 114608206454108016}
   - component: {fileID: 114399997246654526}
   m_Layer: 0
   m_Name: PathDash1LifesEnemy
@@ -459,17 +458,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326e2f49006f7346a997a01538040ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageController: {fileID: 114408874952716010}
-  _spriteEnemy: {fileID: 212925404054174062}
-  _animator: {fileID: 114608206454108016}
-  _explosionParticles: {fileID: 198052753806633090}
   _magnitudeShake: 5
   _roughnessShake: 50
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4404025642672022}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
-  _spriteRenderer: {fileID: 212925404054174062}
 --- !u!114 &114408874952716010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -485,19 +479,6 @@ MonoBehaviour:
   _collider: {fileID: 58649508729180654}
   _harmfulTags:
   - DashingPlayer
---- !u!114 &114608206454108016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1685331657526206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af2adfd0edbef4429e1a517229d83e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorController: {fileID: 95413774796575648}
-  _spriteExplosionController: {fileID: 212736794579100776}
 --- !u!114 &114653663593270252
 MonoBehaviour:
   m_ObjectHideFlags: 1

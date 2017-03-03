@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 114108589875483208}
   - component: {fileID: 114609232640499336}
   - component: {fileID: 114631772077045662}
-  - component: {fileID: 114564608000594082}
   - component: {fileID: 114987227173285502}
   m_Layer: 0
   m_Name: FollowerDash3LifesEnemy
@@ -430,19 +429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c17383d0895a45ac185ab1fb12cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114564608000594082
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1735043448259678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af2adfd0edbef4429e1a517229d83e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorController: {fileID: 95545882350548968}
-  _spriteExplosionController: {fileID: 212782550355545460}
 --- !u!114 &114609232640499336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,17 +499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326e2f49006f7346a997a01538040ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageController: {fileID: 114108589875483208}
-  _spriteEnemy: {fileID: 212464881234683194}
-  _animator: {fileID: 114564608000594082}
-  _explosionParticles: {fileID: 198855580919683374}
   _magnitudeShake: 5
   _roughnessShake: 50
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4732136869146800}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
-  _spriteRenderer: {fileID: 212464881234683194}
 --- !u!198 &198410809318392816
 ParticleSystem:
   m_ObjectHideFlags: 1

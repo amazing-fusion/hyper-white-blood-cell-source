@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 114540594687739736}
   - component: {fileID: 114915626369114222}
   - component: {fileID: 114919921189695722}
-  - component: {fileID: 114782902034474878}
   - component: {fileID: 114377239328682844}
   m_Layer: 0
   m_Name: PathEasing2LifesEnemy
@@ -431,17 +430,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326e2f49006f7346a997a01538040ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageController: {fileID: 114890403751604744}
-  _spriteEnemy: {fileID: 212645759793566236}
-  _animator: {fileID: 114782902034474878}
-  _explosionParticles: {fileID: 198578805779964244}
   _magnitudeShake: 5
   _roughnessShake: 50
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4316589991427064}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
-  _spriteRenderer: {fileID: 212645759793566236}
 --- !u!114 &114420650618072788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,19 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c17383d0895a45ac185ab1fb12cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114782902034474878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1365133962275220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af2adfd0edbef4429e1a517229d83e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorController: {fileID: 95521878537644318}
-  _spriteExplosionController: {fileID: 212100848111718304}
 --- !u!114 &114890403751604744
 MonoBehaviour:
   m_ObjectHideFlags: 1

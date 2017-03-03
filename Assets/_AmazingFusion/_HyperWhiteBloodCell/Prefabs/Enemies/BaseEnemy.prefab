@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 58649508729180654}
   - component: {fileID: 114653663593270252}
   - component: {fileID: 114408874952716010}
-  - component: {fileID: 114036477453200232}
   - component: {fileID: 114658651127550198}
   m_Layer: 0
   m_Name: BaseEnemy
@@ -386,19 +385,6 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.03
   m_Autodestruct: 0
---- !u!114 &114036477453200232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1685331657526206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9af2adfd0edbef4429e1a517229d83e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animatorController: {fileID: 95541982510838914}
-  _spriteExplosionController: {fileID: 212169551519343534}
 --- !u!114 &114185822543102922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,17 +454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326e2f49006f7346a997a01538040ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageController: {fileID: 114408874952716010}
-  _spriteEnemy: {fileID: 212715997360729540}
-  _animator: {fileID: 114036477453200232}
-  _explosionParticles: {fileID: 198163124482899984}
   _magnitudeShake: 5
   _roughnessShake: 50
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4003190289138894}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
-  _spriteRenderer: {fileID: 212715997360729540}
 --- !u!114 &114699004607330490
 MonoBehaviour:
   m_ObjectHideFlags: 1
