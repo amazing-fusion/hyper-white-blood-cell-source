@@ -22,9 +22,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void OnDisable() {
-            Room.OnLevelStart -= Initialize;
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
+            }
+
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
             }
         }
 
