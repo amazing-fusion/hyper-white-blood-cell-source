@@ -21,13 +21,13 @@ namespace com.AmazingFusion {
         }
 
         public void SetStartAlphaAsCurrentAlpha() {
-            _easingInfo.StartValue = _canvasGroup.alpha;
+            _easingInfo.StartValue = CanvasGroup.alpha;
         }
 
 
         protected override void EasingUpdate() {
             base.EasingUpdate();
-           _canvasGroup.alpha = (float)_easingInfo.CurrentValue;
+           CanvasGroup.alpha = (float)_easingInfo.CurrentValue;
         }
     }
 }

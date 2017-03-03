@@ -67,9 +67,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
                 return;
             }
-
-            Debug.Log("Tick: " + time);
-
             Transform.position = _startMovePosition + _moveVector * (float)EasingCurves.Evaluate(
                     _curve,
                     time,

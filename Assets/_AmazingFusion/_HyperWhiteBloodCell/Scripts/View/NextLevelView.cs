@@ -19,15 +19,24 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Awake()
         {
-            _showAnimation.OnEnd += (IEffectable effect) => {
-                LevelManager.Instance.NextLevel();
-                Hide();
-            };
-            _hideAnimation.OnEnd += (IEffectable effect) => {
-                Timing.RunCoroutine(DoNextLevel());
-            };
+            _showAnimation.OnEnd += OnShowAnimationEnd;
+            _hideAnimation.OnEnd += OnHideAnimationEnd;
 
             Room.OnLevelEnd += OnLevelEnd;
+        }
+
+        void OnDestroy() {
+            _showAnimation.OnEnd -= OnShowAnimationEnd;
+            _hideAnimation.OnEnd -= OnHideAnimationEnd;
+        }
+
+        void OnShowAnimationEnd(IEffectable effect) {
+            LevelManager.Instance.NextLevel();
+            Hide();
+        }
+
+        void OnHideAnimationEnd(IEffectable effect) {
+            Timing.RunCoroutine(DoNextLevel());
         }
 
         void OnLevelEnd(Room room)
@@ -37,8 +46,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Show()
         {
-            _showAnimation.gameObject.SetActive(true);
-            _showAnimation.Play();
+            if (_showAnimation != null) {
+                _showAnimation.gameObject.SetActive(true);
+                _showAnimation.Play();
+            }
         }
 
         void Hide()

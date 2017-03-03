@@ -31,14 +31,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         
         void Start()
         {
-            _showAnimation.OnEnd += (IEffectable effect) => {
-                _showAnimation.CanvasGroup.interactable = true;
-            };
+            _showAnimation.OnEnd += OnShowAnimationEnd;
+            _hideAnimation.OnEnd += OnHideAnimationEnd;
+        }
 
-            _hideAnimation.OnEnd += (IEffectable effect) => {
-                _hideAnimation.gameObject.SetActive(false);
-                GameController.Instance.RestartGame();
-            };
+        void OnDestroy() {
+            _showAnimation.OnEnd -= OnShowAnimationEnd;
+            _hideAnimation.OnEnd -= OnHideAnimationEnd;
+        }
+
+        void OnShowAnimationEnd(IEffectable effect) {
+            _showAnimation.CanvasGroup.interactable = true;
+        }
+
+        void OnHideAnimationEnd(IEffectable effect) {
+            _hideAnimation.gameObject.SetActive(false);
+            GameController.Instance.RestartGame();
         }
 
         void OnPlayerDie()
@@ -61,7 +69,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void RestartGame()
         {
             _hideAnimation.CanvasGroup.interactable = false;
-            _hideAnimation.Play();
+            ScenesManager.Instance.LoadScene(ScenesManager.Scene.GameScene);
+            //_hideAnimation.Play();
         }
 
         public void GoToMenu()
