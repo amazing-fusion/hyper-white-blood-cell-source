@@ -75958,8 +75958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849df70bf0784404bae7b0709a5db5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minLevelRequired: 1
-  _maxLevelRequired: 1
+  _minLevelRequired: 0
+  _maxLevelRequired: 0
 --- !u!114 &114909266064499182
 MonoBehaviour:
   m_ObjectHideFlags: 1
