@@ -53,7 +53,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void SetPath(Transform[] wayPoints, bool invertPathOnEnd = false) {
-            Debug.Log("PathController : SetPath");
             _wayPointsPath = wayPoints;
             _invertPathOnEnd = invertPathOnEnd;
         }
@@ -61,6 +60,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void OnDestroy() {
             Room.OnLevelStart -= Initialize;
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+        }
+
+        void OnDisable() {
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }

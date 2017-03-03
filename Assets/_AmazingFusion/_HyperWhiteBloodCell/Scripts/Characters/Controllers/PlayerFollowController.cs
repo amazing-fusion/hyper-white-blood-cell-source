@@ -21,6 +21,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
         }
 
+        void OnDisable() {
+            Room.OnLevelStart -= Initialize;
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+        }
+
         void Start() {
             _motor = GetComponent<IMotor>();
             if (LevelManager.Instance.CurrentRoom != null && 

@@ -42,10 +42,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (rigidbody != null) {
                 rigidbody.Sleep();
             }
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
         }
 
         void Initialize(Room room) {
-            Debug.Log("Initialized");
             Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
             if (rigidbody != null) {
                 rigidbody.WakeUp();

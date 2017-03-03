@@ -34,7 +34,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             set {
                 if (value != _currentLifes) {
                     _currentLifes = value;
-                    Debug.Log("Lifes: " + _currentLifes);
                     if (OnLifesChange != null) OnLifesChange(_currentLifes);
                     if (_currentLifes <= 0) {
                         Die();
