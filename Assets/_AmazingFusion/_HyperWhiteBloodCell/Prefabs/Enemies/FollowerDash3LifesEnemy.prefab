@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6acae608d44da41a56a97b50eb3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifes: 3
+  _lifes: 1
   _rig: {fileID: 50916199787877880}
   _collider: {fileID: 58944682668309864}
   _harmfulTags:
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314fe47770130354e8cd78f7b0ee8052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMovementRate: 1
+  _updateMovementRate: 2
 --- !u!114 &114631772077045662
 MonoBehaviour:
   m_ObjectHideFlags: 1
