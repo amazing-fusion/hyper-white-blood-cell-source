@@ -32,8 +32,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         Vector2 _startMovePosition;
 
         void OnDestroy() {
-            if (_isMoving && UpdateManager.HasInstance) {
-                UpdateManager.Instance.Add(this);
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
             }
         }
 

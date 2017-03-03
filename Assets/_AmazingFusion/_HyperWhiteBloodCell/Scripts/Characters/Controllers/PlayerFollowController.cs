@@ -14,6 +14,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         float _nextUpdateMovementTime;
 
+        void OnDestroy() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+        }
+
         void Awake() {
             _motor = GetComponent<IMotor>();
 
