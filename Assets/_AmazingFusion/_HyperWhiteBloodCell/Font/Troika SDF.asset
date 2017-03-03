@@ -966,8 +966,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Troika SDF Material
-  m_Shader: {fileID: 4800000, guid: dca26082f9cb439469295791d9f76fe5, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 4a7755d6b5b67874f89c85f56f95fe97, type: 3}
+  m_ShaderKeywords: UNDERLAY_ON
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -996,6 +996,12 @@ Material:
         name: _MainTex
       second:
         m_Texture: {fileID: 28521951316037010}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MaskTex
+      second:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -1063,11 +1069,20 @@ Material:
         name: _LightAngle
       second: 3.1416
     - first:
+        name: _MaskEdgeSoftness
+      second: 0.01
+    - first:
+        name: _MaskInverse
+      second: 0
+    - first:
         name: _MaskSoftnessX
       second: 0
     - first:
         name: _MaskSoftnessY
       second: 0
+    - first:
+        name: _MaskWipeControl
+      second: 0.5
     - first:
         name: _OutlineSoftness
       second: 0
@@ -1094,7 +1109,7 @@ Material:
       second: 0.6770833
     - first:
         name: _ScaleRatioC
-      second: 0.6770833
+      second: 0.4513889
     - first:
         name: _ScaleX
       second: 1
@@ -1133,13 +1148,13 @@ Material:
       second: 0
     - first:
         name: _UnderlayOffsetX
-      second: 0
+      second: 1
     - first:
         name: _UnderlayOffsetY
-      second: 0
+      second: -1
     - first:
         name: _UnderlaySoftness
-      second: 0
+      second: 0.5
     - first:
         name: _VertexOffsetX
       second: 0
@@ -1168,6 +1183,9 @@ Material:
     - first:
         name: _MaskCoord
       second: {r: 0, g: 0, b: 32767, a: 32767}
+    - first:
+        name: _MaskEdgeColor
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _OutlineColor
       second: {r: 0, g: 0, b: 0, a: 1}

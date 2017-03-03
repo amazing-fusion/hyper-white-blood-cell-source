@@ -6,22 +6,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class DamageController : OptimizedBehaviour {
 
         [SerializeField]
-        float _lifes;
+        int _lifes;
 
         [SerializeField]
         List<string> _harmfulTags;
 
         bool _died;
-        float _currentLifes;
+        int _currentLifes;
 
-        public event System.Action OnLifesChange;
+        public event System.Action<int> OnLifesChange;
         public event System.Action OnDieEnd;
 
         public event System.Action OnTakeDamage;
 
         public event System.Action<System.Action> OnDie;
 
-        public float CurrentLifes {
+        public int CurrentLifes {
             get {
                 return _currentLifes;
             }
@@ -30,7 +30,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 if (value != _currentLifes) {
                     _currentLifes = value;
                     Debug.Log("Lifes: " + _currentLifes);
-                    if (OnLifesChange != null) OnLifesChange();
+                    if (OnLifesChange != null) OnLifesChange(_currentLifes);
                     if (_currentLifes <= 0) {
                         Die();
                     }

@@ -33,6 +33,9 @@ namespace com.AmazingFusion {
             if (OnStart != null) OnStart(this);
 
             double endTime = _starTime + _duration;
+
+            _easingInfo.CurrentValue = _easingInfo.StartValue;
+
             while (Time.time < endTime) {
                 _currentTime = Time.time - _starTime;
                 EasingUpdate();

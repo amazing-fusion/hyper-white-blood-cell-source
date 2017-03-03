@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6acae608d44da41a56a97b50eb3362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifes: 2
+  _lifes: 1
   _harmfulTags:
   - DashingPlayer
 --- !u!114 &114915626369114222

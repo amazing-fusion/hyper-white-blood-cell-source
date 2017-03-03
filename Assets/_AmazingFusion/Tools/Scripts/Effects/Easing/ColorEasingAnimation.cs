@@ -4,16 +4,19 @@ using UnityEngine;
 using MovementEffects;
 
 namespace com.AmazingFusion {
-    public class Vector3EasingAnimation : EasingAnimation {
+    public class ColorEasingAnimation : EasingAnimation {
 
         [SerializeField]
-        protected EasingInfo _xEasingInfo;
+        protected EasingInfo _rEasingInfo;
 
         [SerializeField]
-        protected EasingInfo _yEasingInfo;
+        protected EasingInfo _gEasingInfo;
 
         [SerializeField]
-        protected EasingInfo _zEasingInfo;
+        protected EasingInfo _bEasingInfo;
+
+        [SerializeField]
+        protected EasingInfo _aEasingInfo;
 
         public override event Action<IEffectable> OnStart;
         public override event Action<IEffectable> OnUpdate;
@@ -24,9 +27,10 @@ namespace com.AmazingFusion {
 
             double endTime = _starTime + _duration;
 
-            _xEasingInfo.CurrentValue = _xEasingInfo.StartValue;
-            _yEasingInfo.CurrentValue = _yEasingInfo.StartValue;
-            _zEasingInfo.CurrentValue = _zEasingInfo.StartValue;
+            _rEasingInfo.CurrentValue = _rEasingInfo.StartValue;
+            _gEasingInfo.CurrentValue = _gEasingInfo.StartValue;
+            _bEasingInfo.CurrentValue = _bEasingInfo.StartValue;
+            _aEasingInfo.CurrentValue = _aEasingInfo.StartValue;
 
             while (Time.time < endTime) {
                 _currentTime = Time.time - _starTime;
@@ -44,14 +48,17 @@ namespace com.AmazingFusion {
         }
 
         protected virtual void EasingUpdate() {
-            if (_xEasingInfo.ChangeValue != 0) {
-                _xEasingInfo.Update(_currentTime, _duration);
+            if (_rEasingInfo.ChangeValue != 0) {
+                _rEasingInfo.Update(_currentTime, _duration);
             }
-            if (_yEasingInfo.ChangeValue != 0) {
-                _yEasingInfo.Update(_currentTime, _duration);
+            if (_gEasingInfo.ChangeValue != 0) {
+                _gEasingInfo.Update(_currentTime, _duration);
             }
-            if (_zEasingInfo.ChangeValue != 0) {
-                _zEasingInfo.Update(_currentTime, _duration);
+            if (_bEasingInfo.ChangeValue != 0) {
+                _bEasingInfo.Update(_currentTime, _duration);
+            }
+            if (_aEasingInfo.ChangeValue != 0) {
+                _aEasingInfo.Update(_currentTime, _duration);
             }
         }
     }

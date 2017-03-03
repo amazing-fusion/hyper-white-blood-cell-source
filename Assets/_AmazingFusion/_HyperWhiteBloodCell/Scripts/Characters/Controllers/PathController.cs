@@ -75,16 +75,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 }
             } else {
                 if (_currentPathIndex < _wayPointsPath.Length - 1) {
-                    Debug.Log("++");
                     ++_currentPathIndex;
                 } else {
                     if (_invertPathOnEnd) {
-                        Debug.Log("_invertPathOnEnd");
                         _inverse = true;
                         --_currentPathIndex;
                     }
                     else {
-                        Debug.Log("0");
                         _currentPathIndex = 0;
                     }
                 }

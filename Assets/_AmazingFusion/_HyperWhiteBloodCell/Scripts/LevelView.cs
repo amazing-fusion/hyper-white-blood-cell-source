@@ -13,10 +13,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Awake()
         {
+            Initialize();
             LevelManager.Instance.OnLevelChange += OnLevelChange;
         }
         
-        void Inizialize()
+        void Initialize()
         {
             _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
             _highScoreText.text = string.Format("BEST: {0}", 0);
