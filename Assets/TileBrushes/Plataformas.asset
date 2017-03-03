@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _internalFlags: 1
   disableImmediatePreview: 0
-  _previewAssetId: z_4412281b-69e0-4c81-9153-df8bda3d0a0d
+  _previewAssetId: z_eecc399e-8b39-4558-b3ef-cf7bb96a284c
   customPreviewImage: {fileID: 0}
   customPreviewDesignTime: 1
   _static: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   forceLegacySideways: 0
   overrideTransforms: 0
   scaleMode: 0
-  applyPrefabTransform: 0
+  applyPrefabTransform: 1
   transformScale: {x: 1, y: 1, z: 1}
   _userFlags: 0
   _userFlagLabels: 
@@ -40,50 +40,96 @@ MonoBehaviour:
     _type: 0
     _rotation: 0
     _variations:
-    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
-    _variationWeights: 32000000
-  - mask: 18
-    _type: 0
-    _rotation: 0
-    _variations:
-    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
-  - mask: 10
-    _type: 0
-    _rotation: 0
-    _variations:
-    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    - {fileID: 1890478856603722, guid: 686a9f65185044b489d68f8ef9b6fa09, type: 2}
     _variationWeights: 32000000
   - mask: 64
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 16
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 8
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 2
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1890478856603722, guid: 221ba64e67454e047aefbd10e3149fbe, type: 2}
+    - {fileID: 1890478856603722, guid: 381db82c63450c24dae9b842d7e66b65, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 66
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1890478856603722, guid: 221ba64e67454e047aefbd10e3149fbe, type: 2}
+    - {fileID: 1890478856603722, guid: 381db82c63450c24dae9b842d7e66b65, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 80
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 72
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 18
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    - {fileID: 1890478856603722, guid: 221ba64e67454e047aefbd10e3149fbe, type: 2}
+    - {fileID: 1890478856603722, guid: 381db82c63450c24dae9b842d7e66b65, type: 2}
+    _variationWeights: 320000003200000032000000
+  - mask: 10
+    _type: 0
+    _rotation: 0
+    _variations:
+    - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
+    - {fileID: 1890478856603722, guid: 221ba64e67454e047aefbd10e3149fbe, type: 2}
+    - {fileID: 1890478856603722, guid: 381db82c63450c24dae9b842d7e66b65, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 88
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1294543146639976, guid: 654beb466d3c34a4ea156cb72398e894, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1294543146639976, guid: 18ac5f4cc9f87294583558d5f4b4fadf, type: 2}
+    - {fileID: 1294543146639976, guid: b951072f05dde0940a12558688365e2c, type: 2}
+    _variationWeights: 320000003200000032000000
   - mask: 90
     _type: 0
     _rotation: 0
     _variations:
     - {fileID: 1890478856603722, guid: 2c6c5706be6c19b4eb03c42eeed04d89, type: 2}
-    _variationWeights: 32000000
+    - {fileID: 1890478856603722, guid: 221ba64e67454e047aefbd10e3149fbe, type: 2}
+    - {fileID: 1890478856603722, guid: 381db82c63450c24dae9b842d7e66b65, type: 2}
+    _variationWeights: 320000003200000032000000
   _materialMappingFrom: []
   _materialMappingTo: []
   _coalesce: 1
