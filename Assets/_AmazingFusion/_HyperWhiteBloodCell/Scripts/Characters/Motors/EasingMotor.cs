@@ -35,6 +35,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
+            _isMoving = false;
+        }
+
+        void OnDisable() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+            _isMoving = false;
         }
 
         public void Translate(Vector2 vector) {
@@ -53,13 +61,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public void Tick(float realDeltaTime) {
             float time = Time.time - _startMoveTime;
             if (time > _translateDuration) {
-
                 Transform.position = _startMovePosition + _moveVector;
                 UpdateManager.Instance.Remove(this);
                 _isMoving = false;
 
                 return;
             }
+
+            Debug.Log("Tick: " + time);
 
             Transform.position = _startMovePosition + _moveVector * (float)EasingCurves.Evaluate(
                     _curve,

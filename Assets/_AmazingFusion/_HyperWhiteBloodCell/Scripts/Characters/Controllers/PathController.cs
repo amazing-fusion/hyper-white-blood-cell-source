@@ -37,7 +37,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
 
         void Initialize(Room room) {
-            Debug.Log("PathController : Initialize");
             Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
             if (rigidbody != null) {
                 rigidbody.WakeUp();
@@ -69,14 +68,21 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
+
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
+            }
         }
 
         public void Tick(float realDeltaTime) {
             float distance = Vector2.Distance(_wayPointsPath[_currentPathIndex].position, Transform.position);
             
             if (distance <= _reachDistance) {
-                NextWayPoint();  
-            } else if (_nextUpdateMovementTime >= 0 && Time.time >= _nextUpdateMovementTime) {
+
+                NextWayPoint();
+
+            } else if (_updateMovementRate >= 0 && Time.time >= _nextUpdateMovementTime) {
                 _motor.Translate(_wayPointsPath[_currentPathIndex].position - Transform.position);
                 _nextUpdateMovementTime = Time.time + _updateMovementRate;
             }
