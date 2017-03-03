@@ -11,6 +11,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         Transform _playerChild;
 
+        public event System.Action OnGameRestart;
+
         public SwipeInputController Player {
             get {
                 return _player;
@@ -49,6 +51,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void StartGame() {
             _player.GetComponent<DamageController>().Initialize();
             LevelManager.Instance.FirstLevel();
+        }
+
+        public void RestartGame() {
+            if (OnGameRestart != null) OnGameRestart();
+            StartGame();
         }
     }
 }

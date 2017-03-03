@@ -36,6 +36,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             Initialize();
             _player.OnLifesChange += OnLifesChange;
+            GameController.Instance.OnGameRestart += Initialize;
         }
 
         void Initialize()

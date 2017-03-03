@@ -35,7 +35,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             _hideAnimation.OnEnd += (IEffectable effect) => {
                 _hideAnimation.gameObject.SetActive(false);
-                GameController.Instance.StartGame();
+                GameController.Instance.RestartGame();
             };
         }
 

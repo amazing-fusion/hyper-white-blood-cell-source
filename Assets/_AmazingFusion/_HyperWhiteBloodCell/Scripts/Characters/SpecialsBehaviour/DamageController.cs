@@ -17,7 +17,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         List<string> _harmfulTags;
 
-        bool _died;
         int _currentLifes;
 		
 		bool _canSwipe;
