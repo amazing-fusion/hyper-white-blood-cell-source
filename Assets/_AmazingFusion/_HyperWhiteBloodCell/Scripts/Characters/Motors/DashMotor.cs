@@ -32,7 +32,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public event System.Action OnEndDrag;
         
         string _tag;
-        bool _isDashing;
+        CoroutineHandle _dashCoroutine;
 
         void Awake() {
             _rigidBody = GetComponent<Rigidbody2D>();
@@ -48,41 +48,44 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void BeginDash(Vector2 vector) {
-            if (!_isDashing) {
-                _isDashing = true;
-                if (_rigidBody != null) {
-                    _rigidBody.gravityScale = 0;
-                    _rigidBody.velocity = vector.normalized * _dashSpeed;
-                }
+            if (_dashCoroutine != null) {
+                EndDash();
+            }
+            if (_rigidBody != null) {
+                _rigidBody.gravityScale = 0;
+                _rigidBody.velocity = vector.normalized * _dashSpeed;
+            }
 
-                if (vector.x > 0) {
-                    _player.rotation = Quaternion.LookRotation(Vector3.forward, vector);
-                } else {
-                    _player.rotation = Quaternion.LookRotation(Vector3.back, vector);
-                }
-                _player.Rotate(0, 0, 90);
+            if (vector.x > 0) {
+                _player.rotation = Quaternion.LookRotation(Vector3.forward, vector);
+            } else {
+                _player.rotation = Quaternion.LookRotation(Vector3.back, vector);
+            }
+            _player.Rotate(0, 0, 90);
 
-                if (OnBeginDrag != null) OnBeginDrag();
+            if (OnBeginDrag != null) OnBeginDrag();
 
-                if (_damageController != null) {
-                    foreach (string immuneTag in _dashImmuneTags) {
-                        if (_damageController.HarmfulTags.Contains(immuneTag)) {
-                            _harmfulTagsImmunity.Add(immuneTag);
-                            _damageController.HarmfulTags.Remove(immuneTag);
-                        }
+            if (_damageController != null) {
+                foreach (string immuneTag in _dashImmuneTags) {
+                    if (_damageController.HarmfulTags.Contains(immuneTag)) {
+                        _harmfulTagsImmunity.Add(immuneTag);
+                        _damageController.HarmfulTags.Remove(immuneTag);
                     }
                 }
-
-                if (!String.IsNullOrEmpty(_dashingTag)) {
-                    tag = _dashingTag;
-                }
-
-                Timing.CallDelayed(_dashDuration, EndDash);
             }
+
+            if (!String.IsNullOrEmpty(_dashingTag)) {
+                tag = _dashingTag;
+            }
+
+            _dashCoroutine = Timing.CallDelayed(_dashDuration, EndDash);
         }
 
         void EndDash() {
-            if (_isDashing) {
+            if (_dashCoroutine != null) {
+                Timing.KillCoroutines(_dashCoroutine);
+                _dashCoroutine = null;
+
                 if (_rigidBody != null) {
                     _rigidBody.velocity = Vector2.zero;
                     _rigidBody.gravityScale = 1;
@@ -98,8 +101,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     _damageController.HarmfulTags.Add(immuneTag);
                 }
                 _harmfulTagsImmunity.Clear();
-
-                _isDashing = false;
             }
         }
     }

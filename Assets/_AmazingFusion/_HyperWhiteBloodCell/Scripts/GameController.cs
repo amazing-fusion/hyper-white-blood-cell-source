@@ -60,12 +60,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             _player.OnDieEnd += PlayerDied;
             EnemyCounter.OnEnemyDestroy += CheckEnemyList;
+            Room.OnLevelStart += StartLevel;
+            Room.OnLevelEnd += EndLevel;
             StartGame();
         }
 
         void OnDestroy() {
+            _player.OnDieEnd -= PlayerDied;
             EnemyCounter.OnEnemyDestroy -= CheckEnemyList;
-
+            Room.OnLevelStart -= StartLevel;
+            Room.OnLevelEnd -= EndLevel;
         }
 
         void EndGame() {
@@ -96,11 +100,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _gameIsActive = true;
             _player.Initialize();
             LevelManager.Instance.FirstLevel();
+
             CurrentLevelTime = _levelTime;
-
             LevelManager.Instance.CurrentRoom.StartLevel();
-
-            UpdateManager.Instance.Add(this);
 
             AudioController.Instance.PlayBattleMusic();
         }
@@ -125,6 +127,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 EndGame();
                 _player.Die();
             }
+        }
+
+        void StartLevel(Room room) {
+            CurrentLevelTime = _levelTime;
+            UpdateManager.Instance.Add(this);
+        }
+
+        void EndLevel(Room room) {
+            UpdateManager.Instance.Remove(this);
         }
 
         public void Tick(float realDeltaTime) {
