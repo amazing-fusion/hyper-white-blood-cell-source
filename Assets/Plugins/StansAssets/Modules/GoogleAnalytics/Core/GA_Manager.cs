@@ -357,7 +357,7 @@ namespace SA.Analytics.Google {
 					Client.SendEventHit(SYSTEM_INFO, "supportsLocationService", SystemInfo.supportsLocationService ? "true" : "false", SystemInfo.supportsLocationService ? 1 : 0);
 					Client.SendEventHit(SYSTEM_INFO, "supportsVibration", SystemInfo.supportsVibration ? "true" : "false", SystemInfo.supportsVibration ? 1 : 0);
 					
-					
+					#pragma warning disable 0618
 					Client.SendEventHit(SYSTEM_INFO, "supportsRenderTextures", SystemInfo.supportsRenderTextures ? "true" : "false", SystemInfo.supportsRenderTextures ? 1 : 0);
 					Client.SendEventHit(SYSTEM_INFO, "supportsImageEffects", SystemInfo.supportsImageEffects ? "true" : "false", SystemInfo.supportsImageEffects ? 1 : 0);
 					Client.SendEventHit(SYSTEM_INFO, "supportsShadows", SystemInfo.supportsShadows ? "true" : "false", SystemInfo.supportsShadows ? 1 : 0);

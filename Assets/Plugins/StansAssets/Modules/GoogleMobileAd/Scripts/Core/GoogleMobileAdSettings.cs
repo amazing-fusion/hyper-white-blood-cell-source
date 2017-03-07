@@ -10,7 +10,7 @@ using UnityEditor;
 
 public class GoogleMobileAdSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "9.4/17";
+	public const string VERSION_NUMBER = "9.5/17";
 	public const string PLAY_SERVICE_VERSION = "10.0.1";
 	public const string PLAY_SERVICE_VERSION_NUMBER = "10084000";
 

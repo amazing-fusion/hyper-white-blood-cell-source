@@ -11,14 +11,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91a7deec5b9f48e785f526d406a9b0f, type: 3}
   m_Name: UltimateMobileSettings
   m_EditorClassIdentifier: 
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 1
   InAppProducts: []
   TransactionsHandlingMode: 0
   InApps_EditorFillRateIndex: 4
   InApps_EditorFillRate: 100
   Is_InApps_EditorTestingEnabled: 1
   IsInAppSettingsProductsOpen: 1
-  Leaderboards: []
+  Leaderboards:
+  - id: ranking
+    IsOpen: 1
+    IOSId: new leaderboard1
+    AndroidId: CgkIsba1640CEAIQAA
+    AmazonId: new leaderboard1
+    _Description: 
+    _Texture: {fileID: 0}
   Achievements: []
   AutoLoadUsersSmallImages: 1
   AutoLoadUsersBigImages: 0

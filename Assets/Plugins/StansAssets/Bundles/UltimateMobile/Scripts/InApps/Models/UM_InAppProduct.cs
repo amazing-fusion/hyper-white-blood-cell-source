@@ -143,7 +143,13 @@ public class UM_InAppProduct  {
 			case RuntimePlatform.IPhonePlayer:
 				return _IOSTemplate.LocalizedPrice;
 
+			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 			case RuntimePlatform.WP8Player:
+			#else
+			case RuntimePlatform.WSAPlayerARM:
+			case RuntimePlatform.WSAPlayerX64:
+			case RuntimePlatform.WSAPlayerX86:
+			#endif
 				return _WP8Template.Price;
 			}
 
@@ -187,7 +193,13 @@ public class UM_InAppProduct  {
 			case RuntimePlatform.IPhonePlayer:
 				return _IOSTemplate.PriceInMicros;
 
+			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 			case RuntimePlatform.WP8Player:
+			#else
+			case RuntimePlatform.WSAPlayerARM:
+			case RuntimePlatform.WSAPlayerX64:
+			case RuntimePlatform.WSAPlayerX86:
+			#endif
 				return System.Convert.ToInt64(GetPriceByTier() * 1000000f);
 			}
 
@@ -226,7 +238,13 @@ public class UM_InAppProduct  {
 					return _AmazonTemplate.Title;
 			case RuntimePlatform.IPhonePlayer:
 				return _IOSTemplate.DisplayName;
+			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 			case RuntimePlatform.WP8Player:
+			#else
+			case RuntimePlatform.WSAPlayerARM:
+			case RuntimePlatform.WSAPlayerX64:
+			case RuntimePlatform.WSAPlayerX86:
+			#endif
 				return _WP8Template.Name;
 			}
 

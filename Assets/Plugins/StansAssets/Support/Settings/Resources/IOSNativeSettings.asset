@@ -13,19 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnableGameCenterAPI: 1
   EnableInAppsAPI: 1
-  EnableCameraAPI: 1
+  EnableCameraAPI: 0
   EnableSocialSharingAPI: 1
   EnablePickerAPI: 0
   EnableMediaPlayerAPI: 0
   EnableReplayKit: 0
-  EnableCloudKit: 0
+  EnableCloudKit: 1
   EnableSoomla: 0
   EnableGestureAPI: 0
   EnablePushNotificationsAPI: 0
   EnableContactsAPI: 0
   AppEventsAPI: 0
   AppleId: XXXXXXXXX
-  ToolbarIndex: 0
+  ToolbarIndex: 1
   ExpandMoreActionsMenu: 1
   ExpandModulesSettings: 1
   InAppsEditorTesting: 1
@@ -34,7 +34,14 @@ MonoBehaviour:
   DefaultStoreProductsView: []
   InAppProducts: []
   ShowStoreKitProducts: 1
-  Leaderboards: []
+  Leaderboards:
+  - IsOpen: 1
+    _info:
+      Title: ranking
+      Description: 
+      Identifier: new leaderboard1
+      Texture: {fileID: 0}
+      MaxRange: 0
   Achievements: []
   UseGCRequestCaching: 0
   UsePPForAchievements: 0

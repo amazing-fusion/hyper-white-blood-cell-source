@@ -45,9 +45,13 @@ public class UM_InAppPurchaseManager  {
 						_Client =  new UM_Android_InAppClient();
 					}
 					break;
-
-
+				#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 				case RuntimePlatform.WP8Player:
+				#else
+				case RuntimePlatform.WSAPlayerARM:
+				case RuntimePlatform.WSAPlayerX64:
+				case RuntimePlatform.WSAPlayerX86:
+				#endif
 					_Client =  new UM_WP8_InAppClient();
 					break;
 				default:

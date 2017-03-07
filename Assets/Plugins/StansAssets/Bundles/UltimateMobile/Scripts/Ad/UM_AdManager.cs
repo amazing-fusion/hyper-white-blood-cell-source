@@ -37,7 +37,13 @@ public static class UM_AdManager  {
 				GoogleMobileAdInterstitialSubscribe ();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.Init ();
 			GoogleMobileAdInterstitialSubscribe ();
 			break;
@@ -88,7 +94,13 @@ public static class UM_AdManager  {
 			} else {
 				return GoogleMobileAd.CreateAdBanner (anchor, size).id;
 			}
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			return GoogleMobileAd.CreateAdBanner(anchor, size).id;
 		}
 
@@ -119,7 +131,13 @@ public static class UM_AdManager  {
 			} else {
 				return GoogleMobileAd.GetBanner(id).IsLoaded;
 			}
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			return GoogleMobileAd.GetBanner(id).IsLoaded;
 		}
 
@@ -147,7 +165,13 @@ public static class UM_AdManager  {
 			} else {
 				return GoogleMobileAd.GetBanner(id).IsOnScreen;
 			}
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			return GoogleMobileAd.GetBanner(id).IsOnScreen;
 		}
 		
@@ -178,7 +202,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.DestroyBanner(id);
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.DestroyBanner(id);
 			break;
 		}
@@ -207,7 +237,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.GetBanner(id).Hide();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.GetBanner(id).Hide();
 			break;
 		}
@@ -238,7 +274,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.GetBanner(id).Show();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.GetBanner(id).Show();
 			break;
 		}
@@ -265,7 +307,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.GetBanner(id).Refresh();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.GetBanner(id).Refresh();
 			break;
 		}
@@ -291,7 +339,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.StartInterstitialAd();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.StartInterstitialAd();
 			break;
 		}
@@ -314,7 +368,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.LoadInterstitialAd();	
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.LoadInterstitialAd();
 			break;
 		}
@@ -336,7 +396,13 @@ public static class UM_AdManager  {
 				GoogleMobileAd.ShowInterstitialAd();
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			GoogleMobileAd.ShowInterstitialAd();
 			break;
 		}

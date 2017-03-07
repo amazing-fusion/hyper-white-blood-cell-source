@@ -22,7 +22,13 @@ public class UM_ShareUtility : MonoBehaviour {
 			IOSSocialManager.Instance.TwitterPost(status, null, texture);
 			break;
 
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			break;
 		}
 	}
@@ -52,7 +58,13 @@ public class UM_ShareUtility : MonoBehaviour {
 			IOSSocialManager.Instance.InstagramPost(texture, status);
 			break;
 			
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			break;
 		}
 	}
@@ -76,7 +88,13 @@ public class UM_ShareUtility : MonoBehaviour {
 		case RuntimePlatform.IPhonePlayer:
 			IOSSocialManager.Instance.FacebookPost(message, null, texture);
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			break;
 		}
 	}
@@ -84,7 +102,7 @@ public class UM_ShareUtility : MonoBehaviour {
 	public static void WhatsappShare(string message, Texture2D texture = null) {
 		switch (Application.platform) {
 		case RuntimePlatform.Android:
-			AndroidSocialGate.StartShareIntent (string.Empty, message, texture);
+			AndroidSocialGate.StartShareIntent (string.Empty, message, texture, "whatsapp");
 			break;
 		case RuntimePlatform.IPhonePlayer:
 			if (texture == null) {
@@ -113,7 +131,13 @@ public class UM_ShareUtility : MonoBehaviour {
 		case RuntimePlatform.IPhonePlayer:
 			IOSSocialManager.Instance.ShareMedia(message, texture);
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			break;
 		}
 	}
@@ -133,7 +157,13 @@ public class UM_ShareUtility : MonoBehaviour {
 		case RuntimePlatform.IPhonePlayer:
 			IOSSocialManager.Instance.SendMail(subject, body, recipients, texture);
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			break;
 		}
 		

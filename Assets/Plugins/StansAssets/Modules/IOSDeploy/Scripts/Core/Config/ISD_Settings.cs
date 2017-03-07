@@ -27,7 +27,7 @@ namespace SA.IOSDeploy {
 	#endif
 	public class ISD_Settings : ScriptableObject{
 
-		public const string VERSION_NUMBER = "2.5/17";
+		public const string VERSION_NUMBER = "3.0/17";
 
 
 		//Editor Window
@@ -48,15 +48,12 @@ namespace SA.IOSDeploy {
 		public bool enableTestability = false;
 		public bool generateProfilingCode = false;
 
-
+		//Post Process Libs
 		public List<Framework> Frameworks =  new List<Framework>();
-		public List<BaseFramework> BaseFrameworks =  new List<BaseFramework>();
 		public List<Lib> Libraries =  new List<Lib>(); 
 		public List<Flag> Flags = new List<Flag> ();
 		public List<Variable>  PlistVariables =  new List<Variable>();
 		public List<VariableId> VariableDictionary = new List<VariableId>();
-
-
 		public List<string> langFolders = new List<string>();
 
 		
@@ -64,18 +61,11 @@ namespace SA.IOSDeploy {
 		private const string ISDAssetExtension = ".asset";
 
 		private static ISD_Settings instance;
-		 
-
-
-		public static ISD_Settings Instance
-		{
-			get
-			{
-				if(instance == null)
-				{
+		public static ISD_Settings Instance {
+			get {
+				if(instance == null) {
 					instance = Resources.Load(ISDAssetName) as ISD_Settings;
-					if(instance == null)
-					{
+					if(instance == null) {
 						instance = CreateInstance<ISD_Settings>();
 						#if UNITY_EDITOR
 
@@ -93,7 +83,11 @@ namespace SA.IOSDeploy {
 		}
 
 
-		public void AddNewVariable(Variable var){
+		//--------------------------------------
+		// Varaibles
+		//--------------------------------------
+
+		public void AddVariable(Variable var){
 			foreach (Variable v in PlistVariables.ToList()) {
 				if (v.Name.Equals (var.Name)) {
 					PlistVariables.Remove (v);
@@ -102,26 +96,6 @@ namespace SA.IOSDeploy {
 			PlistVariables.Add(var);
 		}
 
-		public void AddLinkerFlag(string s){
-			Flag newFlag = new Flag ();
-			newFlag.Name = s;
-			newFlag.Type = FlagType.LinkerFlag;
-			foreach (Flag f in Flags) {
-				if (f.Type.Equals (FlagType.LinkerFlag) && f.Name.Equals (s)) {
-					break;
-				}
-			}
-			Flags.Add (newFlag);
-		}
-
-		public void AddOrReplaceNewVariable(Variable var){
-			foreach (Variable v in PlistVariables) {
-				if (v.Name.Equals (var.Name)) {
-					PlistVariables.Remove (v);
-				}
-			}
-			PlistVariables.Add(var);
-		}
 
 		public void AddVariableToDictionary(string uniqueIdKey,Variable var){
 			VariableId newVar = new VariableId ();
@@ -175,68 +149,55 @@ namespace SA.IOSDeploy {
 			return null;
 		}
 
-		public bool ContainsFreamworkWithName(string name) {
-			foreach(Framework f in ISD_Settings.Instance.Frameworks) {
-				if(f.Name.Equals(name)) {
-					return true;
-				}
-			}
-			
-			return false;
-		}
-
 		public bool ContainsPlistVarWithName(string name) {
 			foreach(Variable var in ISD_Settings.Instance.PlistVariables) {
 				if(var.Name.Equals(name)) {
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
 			
-		public void AddPlistVariable(Variable newVariable) {
-			if (ISD_Settings.Instance.PlistVariables.Count > 0) {
-				foreach(Variable var in ISD_Settings.Instance.PlistVariables) {
-					if (var.Name.Equals(newVariable.Name)) {
-						if (var.Type.Equals (newVariable.Type)) { //add parrams
-							switch (var.Type) {
-							case PlistValueTypes.Dictionary:
-								foreach (string newChildId in newVariable.ChildrensIds) {
-									var.AddChild (ISD_Settings.Instance.getVariableByKey (newChildId));
-								}
-								break;
-							case PlistValueTypes.Array:
-								foreach (string newChildId in newVariable.ChildrensIds) {
-									var.AddChild (ISD_Settings.Instance.getVariableByKey (newChildId));
-								}
-								break;
-							case PlistValueTypes.Boolean:
-								var.BooleanValue = newVariable.BooleanValue;
-								break;
-							case PlistValueTypes.Float:
-								var.FloatValue = newVariable.FloatValue;
-								break;
-							case PlistValueTypes.Integer:
-								var.IntegerValue = newVariable.IntegerValue;
-								break;
-							case PlistValueTypes.String:
-								var.StringValue = newVariable.StringValue;
-								break;
-							}
-						} else {							//replace new with old
-							RemoveVariable (var, ISD_Settings.Instance.PlistVariables);
-							ISD_Settings.Instance.PlistVariables.Add (newVariable);
-						}
-					} else { //No manes match
-						ISD_Settings.Instance.PlistVariables.Add (newVariable);
-					}
+
+		//--------------------------------------
+		// Frameworks
+		//--------------------------------------
+
+
+		public bool ContainsFramework(iOSFramework framework) {
+			foreach(Framework f in ISD_Settings.Instance.Frameworks) {
+				if(f.Type.Equals(framework)) {
+					return true;
 				}
-			} else { //First variable
-				ISD_Settings.Instance.PlistVariables.Add (newVariable);
 			}
+			return false;
 		}
 
+		public Framework GetFramework(iOSFramework framework) {
+			foreach(Framework f in ISD_Settings.Instance.Frameworks) {
+				if(f.Type.Equals(framework)) {
+					return f;
+				}
+			}
+			return null;
+		}
+
+		public Framework AddFramework(iOSFramework framework) {
+
+			var f = GetFramework (framework);
+			if(f ==  null) {
+				f = new Framework (framework);
+				ISD_Settings.Instance.Frameworks.Add (f);
+			}
+
+			return f;
+		}
+
+
+		//--------------------------------------
+		// Libraries
+		//--------------------------------------
 
 
 		public bool ContainsLibWithName(string name) {
@@ -245,9 +206,57 @@ namespace SA.IOSDeploy {
 					return true;
 				}
 			}
-			
 			return false;
 		}
+
+		public Lib GetLibrary(iOSLibrary library){
+			foreach (Lib l in ISD_Settings.instance.Libraries) {
+				if (l.Type.Equals(library)) {
+					return l;
+				}
+			}
+			return null;
+		}
+
+		public Lib AddLibrary(iOSLibrary library){
+			var l = GetLibrary (library);
+			if (l == null) {
+				l = new Lib (library);
+				ISD_Settings.Instance.Libraries.Add (l);
+			}
+			return l;
+		}
+			
+		//--------------------------------------
+		// Flags
+		//--------------------------------------
+
+		public void AddLinkerFlag(string s){
+			Flag newFlag = new Flag ();
+			newFlag.Name = s;
+			newFlag.Type = FlagType.LinkerFlag;
+			foreach (Flag f in Flags) {
+				if (f.Type.Equals (FlagType.LinkerFlag) && f.Name.Equals (s)) {
+					break;
+				}
+			}
+			Flags.Add (newFlag);
+		}
+
+	
+
+
+
+
+
+
+
+
+			
+
+
+
+
 							
 	}
 }

@@ -15,6 +15,23 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void Awake() {
             _rigidBody = GetComponent<Rigidbody2D>();
+            
+        }
+
+        void OnEnable() {
+            Room.OnLevelEnd += LevelEnd;
+        }
+
+        void OnDisable() {
+            Room.OnLevelEnd -= LevelEnd;
+        }
+
+        void OnDestroy() {
+            Room.OnLevelEnd -= LevelEnd;
+        }
+
+        void LevelEnd(Room room) {
+            Delete();
         }
 
         void OnTriggerEnter2D(Collider2D collider) {

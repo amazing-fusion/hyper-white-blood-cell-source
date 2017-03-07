@@ -1,4 +1,4 @@
-//#define AMAZON_ADVERTISING_ENABLED
+#define AMAZON_ADVERTISING_ENABLED
 
 ////////////////////////////////////////////////////////////////////////////////
 //  
@@ -70,7 +70,7 @@ public class SA_AmazonAdsManager: AMN_Singleton<SA_AmazonAdsManager> {
 
 	public int CreateBanner(AmazonAdBanner.BannerAligns position) {
 		#if AMAZON_ADVERTISING_ENABLED
-		AmazonAdBanner banner = new AmazonAdBanner(position, SA_IdFactory.NextId);
+		AmazonAdBanner banner = new AmazonAdBanner(position, SA.Common.Util.IdFactory.NextId);
 		_banners.Add(banner.Id, banner);
 
 		return banner.Id;

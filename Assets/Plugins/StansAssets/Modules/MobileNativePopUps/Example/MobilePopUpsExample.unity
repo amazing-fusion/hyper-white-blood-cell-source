@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c579605fe8654b658e7d9238ead4a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appleId: 293622097
-  androidAppUrl: market://details?id=com.google.earth
+  appleId: 323933363232303937
+  apdroidAppUrl: 6d61726b65743a2f2f64657461696c733f69643d636f6d2e676f6f676c652e6561727468
 --- !u!4 &844646524
 Transform:
   m_ObjectHideFlags: 0
