@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MovementEffects;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
@@ -102,9 +103,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             LevelManager.Instance.FirstLevel();
 
             CurrentLevelTime = _levelTime;
-            LevelManager.Instance.CurrentRoom.StartLevel();
 
             AudioController.Instance.PlayBattleMusic();
+            //LevelManager.Instance.CurrentRoom.StartLevel();
+            NextLevelView.Instance.StartLevel();
         }
 
         public void RestartGame() {

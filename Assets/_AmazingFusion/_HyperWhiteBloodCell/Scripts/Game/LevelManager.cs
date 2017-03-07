@@ -9,6 +9,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Room[] _roomsPrefab;
 
+        [SerializeField]
+        float _startLevelDelay;
+
         int _currentLevelNumber;
         int _highscore;
 
@@ -51,6 +54,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             get
             {
                 return _currentRoom;
+            }
+        }
+
+        public float StartLevelDelay {
+            get {
+                return _startLevelDelay;
             }
         }
 

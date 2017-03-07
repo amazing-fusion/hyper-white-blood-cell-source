@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MovementEffects;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
@@ -50,14 +51,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void StartLevel()
         {
-            _started = true;
-            if (OnLevelStart != null) OnLevelStart(this);
+            Timing.RunCoroutine(DoStartLevel());
         }
 
         public void EndLevel()
         {
             _started = false;
             if (OnLevelEnd != null) OnLevelEnd(this);
+        }
+
+        IEnumerator<float> DoStartLevel() {
+            yield return Timing.WaitForSeconds(LevelManager.Instance.StartLevelDelay);
+            _started = true;
+            if (OnLevelStart != null) OnLevelStart(this);
         }
     }
 }

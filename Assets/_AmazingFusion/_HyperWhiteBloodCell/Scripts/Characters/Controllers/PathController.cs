@@ -40,6 +40,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
             if (rigidbody != null) {
                 rigidbody.WakeUp();
+                MovementEffects.Timing.CallDelayed(0.01f, () => { rigidbody.gravityScale = 1; });
             }
 
             if (_wayPointsPath.Length < 2) return;
@@ -72,6 +73,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
             if (rigidbody != null) {
                 rigidbody.Sleep();
+                rigidbody.gravityScale = 0;
+                rigidbody.velocity = Vector2.zero;
             }
         }
 

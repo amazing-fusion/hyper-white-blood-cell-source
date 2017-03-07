@@ -88,7 +88,7 @@ MonoBehaviour:
   CameraAPI: 1
   KeepManifestClean: 1
   GooglePlayServiceAppID: 72434408241
-  ToolbarSelectedIndex: 1
+  ToolbarSelectedIndex: 0
   base64EncodedPublicKey: REPLACE_WITH_YOUR_PUBLIC_KEY
   ShowStoreProducts: 1
   InAppProducts: []

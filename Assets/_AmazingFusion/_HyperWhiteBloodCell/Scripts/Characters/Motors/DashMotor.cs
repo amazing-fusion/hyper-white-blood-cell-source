@@ -24,7 +24,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         string _dashingTag;
 
         [SerializeField]
-        float _immortalityAfterDashDuration;
+        float _immunityAfterDashDuration;
 
         List<string> _harmfulTagsImmunity = new List<string>();
 
@@ -104,8 +104,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     foreach (string immuneTag in _harmfulTagsImmunity) {
                         _damageController.HarmfulTags.Add(immuneTag);
                     }
-                    if (_immortalityAfterDashDuration > 0) {
-                        _damageController.SetImmortal(_immortalityAfterDashDuration);
+                    if (_immunityAfterDashDuration > 0) {
+                        _damageController.SetImmortal(_immunityAfterDashDuration);
                     }
                 }
                 _harmfulTagsImmunity.Clear();

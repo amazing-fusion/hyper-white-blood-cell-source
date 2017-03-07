@@ -306,7 +306,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
@@ -492,6 +492,7 @@ MonoBehaviour:
   _dashImmuneTags:
   - Enemy
   _dashingTag: DashingPlayer
+  _immunityAfterDashDuration: 0
 --- !u!114 &114206728947728512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,12 +544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a3d0c8a435ab24bbcde6b6dc35f792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startColor: {r: 1, g: 1, b: 1, a: 0.7529412}
-  _endColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  _startColor: {r: 1, g: 1, b: 1, a: 1}
+  _endColor: {r: 0, g: 1, b: 1, a: 0.5019608}
   _duration: 0.2
   _delay: 0
   _sleep: 0
-  _sleepColor: {r: 1, g: 1, b: 1, a: 0.7529412}
+  _sleepColor: {r: 1, g: 1, b: 1, a: 1}
   _inverseLoop: 0
   _curve: 13
 --- !u!114 &114553409482080504
@@ -579,7 +580,6 @@ MonoBehaviour:
   _harmfulTags:
   - Enemy
   - Hazard
-  _immortalityTimeAfterDamage: 1
   _immortalityEffect: {fileID: 114413894449826584}
 --- !u!114 &114895484341843496
 MonoBehaviour:

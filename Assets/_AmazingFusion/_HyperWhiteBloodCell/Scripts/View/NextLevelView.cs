@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
-    public class NextLevelView : OptimizedBehaviour
+    public class NextLevelView : Singleton<NextLevelView>
     {
         [SerializeField]
         EasingAnimation _showAnimation;
@@ -15,12 +16,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         EasingAnimation _hideAnimation;
 
         [SerializeField]
+        TMP_Text _levelText;
+
+        [SerializeField]
+        EasingAnimation _startLevelAnimation;
+
+        [SerializeField]
         Image _fadeImage;
 
-        void Awake()
+        void Start()
         {
             _showAnimation.OnEnd += OnShowAnimationEnd;
             _hideAnimation.OnEnd += OnHideAnimationEnd;
+            _startLevelAnimation.OnEnd += OnStartLevelAnimationEnd;
 
             Room.OnLevelEnd += OnLevelEnd;
         }
@@ -38,7 +46,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnHideAnimationEnd(IEffectable effect) {
-            Timing.RunCoroutine(DoNextLevel());
+            _hideAnimation.gameObject.SetActive(false);
+            StartLevel();
+        }
+
+        void OnStartLevelAnimationEnd(IEffectable effect) {
+            LevelManager.Instance.CurrentRoom.StartLevel();
         }
 
         void OnLevelEnd(Room room)
@@ -59,10 +72,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _hideAnimation.Play();
         }
 
-        IEnumerator<float> DoNextLevel() {
-            _hideAnimation.gameObject.SetActive(false);
-            yield return Timing.WaitForSeconds(0.5f);
-            LevelManager.Instance.CurrentRoom.StartLevel();
+        public void StartLevel() {
+            _levelText.text = string.Format("Level {0}", LevelManager.Instance.CurrentLevelNumber + 1);
+            _startLevelAnimation.Play();
         }
     }
 }
