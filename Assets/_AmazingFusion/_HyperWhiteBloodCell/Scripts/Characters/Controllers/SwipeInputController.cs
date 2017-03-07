@@ -8,6 +8,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class SwipeInputController : OptimizedBehaviour, ITickable {
 
         [SerializeField]
+        DamageController _damageController;
+
+
+        [SerializeField]
         float _sqrMinSwipe;
 
         bool _isSwiping;
@@ -17,13 +21,38 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         IMotor _motor;
 
         void OnDestroy() {
+            Room.OnLevelStart -= Initialize;
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
         }
 
-        void Awake() {
+        void Start() {
             _motor = GetComponent<IMotor>();
+            if (LevelManager.Instance.CurrentRoom != null && 
+                    LevelManager.Instance.CurrentRoom.Started) {
+                Initialize(LevelManager.Instance.CurrentRoom);
+            } else {
+                Room.OnLevelStart += Initialize;
+            }
+        }
+
+        void OnDisable() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
+            }
+        }
+
+        void Initialize(Room room) {
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.WakeUp();
+            }
             UpdateManager.Instance.Add(this);
         }
 
@@ -54,7 +83,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         public void BeginSwipe() {
-            if (!_isSwiping) {
+            if (!_isSwiping && _damageController.IsAlive) {
                 _isSwiping = true;
                 _swipePoints.Add(Input.mousePosition);
             }

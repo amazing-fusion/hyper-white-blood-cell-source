@@ -23,6 +23,11 @@ namespace com.AmazingFusion {
             if (OnStart != null) OnStart(this);
 
             double endTime = _starTime + _duration;
+
+            _xEasingInfo.CurrentValue = _xEasingInfo.StartValue;
+            _yEasingInfo.CurrentValue = _yEasingInfo.StartValue;
+            _zEasingInfo.CurrentValue = _zEasingInfo.StartValue;
+
             while (Time.time < endTime) {
                 _currentTime = Time.time - _starTime;
 

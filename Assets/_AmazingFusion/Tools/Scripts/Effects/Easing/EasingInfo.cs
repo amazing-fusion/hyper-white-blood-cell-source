@@ -49,6 +49,9 @@ namespace com.AmazingFusion {
             get {
                 return _currentValue;
             }
+            set {
+                _currentValue = value;
+            }
         }
 
         public void Update(double currentTime, double duration) {

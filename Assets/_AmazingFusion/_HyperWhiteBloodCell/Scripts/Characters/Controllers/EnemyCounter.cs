@@ -12,11 +12,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Start()
         {
             _enemies.Add(this);
+            Debug.Log("Enemies: " + _enemies.Count);
         }
 
-        void OnDestroy()
+        void OnDisable()
         {
             _enemies.Remove(this);
+            Debug.Log("Enemies: " + _enemies.Count);
             if (OnEnemyDestroy != null) OnEnemyDestroy();
         }
 

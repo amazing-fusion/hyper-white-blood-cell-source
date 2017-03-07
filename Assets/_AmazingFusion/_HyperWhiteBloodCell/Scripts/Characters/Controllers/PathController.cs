@@ -26,30 +26,52 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         IMotor _motor;
 
-        void Awake() {
-            Initialize();
+        void Start() {
+            if (LevelManager.Instance.CurrentRoom != null && 
+                    LevelManager.Instance.CurrentRoom.Started) {
+                Initialize(LevelManager.Instance.CurrentRoom);
+            } else {
+                Room.OnLevelStart += Initialize;
+            }
         }
 
-        public void Initialize(Transform[] wayPoints, bool invertPathOnEnd = false) {
-            _wayPointsPath = wayPoints;
-            _invertPathOnEnd = invertPathOnEnd;
-            Initialize();
-        }
 
-        public void Initialize() {
+        void Initialize(Room room) {
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.WakeUp();
+            }
+
             if (_wayPointsPath.Length < 2) return;
 
             _motor = GetComponent<IMotor>();
 
             _currentPathIndex = 0;
-            UpdateManager.Instance.Add(this);
-
             _motor.Translate(_wayPointsPath[_currentPathIndex].position);
+            UpdateManager.Instance.Add(this);
         }
 
+        public void SetPath(Transform[] wayPoints, bool invertPathOnEnd = false) {
+            _wayPointsPath = wayPoints;
+            _invertPathOnEnd = invertPathOnEnd;
+        }
+
+
         void OnDestroy() {
+            Room.OnLevelStart -= Initialize;
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
+            }
+        }
+
+        void OnDisable() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
             }
         }
 
@@ -57,15 +79,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             float distance = Vector2.Distance(_wayPointsPath[_currentPathIndex].position, Transform.position);
             
             if (distance <= _reachDistance) {
-                NextWayPoint();  
-            } else if (_nextUpdateMovementTime >= 0 && Time.time >= _nextUpdateMovementTime) {
+
+                NextWayPoint();
+
+            } else if (_updateMovementRate >= 0 && Time.time >= _nextUpdateMovementTime) {
                 _motor.Translate(_wayPointsPath[_currentPathIndex].position - Transform.position);
                 _nextUpdateMovementTime = Time.time + _updateMovementRate;
             }
         }
 
         void NextWayPoint() {
-            Debug.Log("NextWayPoint");
             if (_inverse) {
                 if (_currentPathIndex > 0) {
                     --_currentPathIndex;
@@ -75,16 +98,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 }
             } else {
                 if (_currentPathIndex < _wayPointsPath.Length - 1) {
-                    Debug.Log("++");
                     ++_currentPathIndex;
                 } else {
                     if (_invertPathOnEnd) {
-                        Debug.Log("_invertPathOnEnd");
                         _inverse = true;
                         --_currentPathIndex;
                     }
                     else {
-                        Debug.Log("0");
                         _currentPathIndex = 0;
                     }
                 }

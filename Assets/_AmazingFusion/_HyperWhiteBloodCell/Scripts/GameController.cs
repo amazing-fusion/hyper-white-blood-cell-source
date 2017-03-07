@@ -4,25 +4,77 @@ using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
-    public class GameController : Singleton<GameController>
+    public class GameController : Singleton<GameController>, ITickable
     {
         [SerializeField]
-        SwipeInputController _player;
+        DamageController _player;
 
-        public SwipeInputController Player {
+        [SerializeField]
+        int _levelTime;
+
+        float _currentLevelTime;
+
+        Transform _playerChild;
+
+        public event System.Action OnPause;
+
+        public event System.Action OnGameRestart;
+        public event System.Action OnTimeChange;
+
+        public event System.Action OnPlayerDied;
+        public event System.Action OnTimeOver;
+
+        bool _gameIsActive = false;
+
+        public DamageController Player {
             get {
                 return _player;
             }
         }
 
+        public Transform PlayerChild
+        {
+            get
+            {
+                return _player.Transform.GetChild(0);
+            }
+
+            
+        }
+
+        public float CurrentLevelTime {
+            get {
+                return _currentLevelTime;
+            }
+
+            set {
+                float newTime = Mathf.Max(0, value);
+                if (_currentLevelTime != newTime) {
+                    _currentLevelTime = newTime;
+                    if (OnTimeChange != null) OnTimeChange();
+                }
+            }
+        }
+
         void Start()
         {
+            _player.OnDieEnd += PlayerDied;
             EnemyCounter.OnEnemyDestroy += CheckEnemyList;
+            Room.OnLevelStart += StartLevel;
+            Room.OnLevelEnd += EndLevel;
             StartGame();
         }
 
         void OnDestroy() {
+            _player.OnDieEnd -= PlayerDied;
             EnemyCounter.OnEnemyDestroy -= CheckEnemyList;
+            Room.OnLevelStart -= StartLevel;
+            Room.OnLevelEnd -= EndLevel;
+        }
+
+        void EndGame() {
+            _gameIsActive = false;
+            UpdateManager.Instance.Remove(this);
         }
 
         void CheckEnemyList()
@@ -34,10 +86,63 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public void Pause() {
+            //TODO: Fix the hack
+            Time.timeScale = 0;
+            if (OnPause != null) OnPause();
+        }
+
+        public void Resume() {
+            Time.timeScale = 1;
+        }
+
         public void StartGame() {
-            _player.GetComponent<DamageController>().Initialize();
+            _gameIsActive = true;
+            _player.Initialize();
             LevelManager.Instance.FirstLevel();
+
+            CurrentLevelTime = _levelTime;
+            LevelManager.Instance.CurrentRoom.StartLevel();
+
+            AudioController.Instance.PlayBattleMusic();
+        }
+
+        public void RestartGame() {
+            if (OnGameRestart != null) OnGameRestart();
+            StartGame();
+        }
+
+        void PlayerDied() {
+            if (_gameIsActive) {
+                EndGame();
+                if (OnPlayerDied != null) OnPlayerDied();
+            }
+            else {
+                if (OnTimeOver != null) OnTimeOver();
+            }
+        }
+
+        void TimeOver() {
+            if (_gameIsActive) {
+                EndGame();
+                _player.Die();
+            }
+        }
+
+        void StartLevel(Room room) {
+            CurrentLevelTime = _levelTime;
+            UpdateManager.Instance.Add(this);
+        }
+
+        void EndLevel(Room room) {
+            UpdateManager.Instance.Remove(this);
+        }
+
+        public void Tick(float realDeltaTime) {
+            CurrentLevelTime -= Time.deltaTime;
+            if (CurrentLevelTime <= 0) {
+                TimeOver();
+            }
         }
     }
 }
-

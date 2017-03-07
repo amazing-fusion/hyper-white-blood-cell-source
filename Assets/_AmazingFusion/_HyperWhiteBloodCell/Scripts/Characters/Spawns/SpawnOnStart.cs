@@ -10,7 +10,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         // Use this for initialization
         void Start() {
-            Instantiate(_prefab, Transform.position, Transform.rotation);
+            Transform go = Instantiate(_prefab, Transform.position, Transform.rotation);
+            go.SetParent(Transform.parent, true);
             Destroy(gameObject);
         }
     }

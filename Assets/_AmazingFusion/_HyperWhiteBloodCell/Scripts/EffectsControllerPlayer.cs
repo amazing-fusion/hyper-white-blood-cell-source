@@ -8,15 +8,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class EffectsControllerPlayer : OptimizedBehaviour
     {
         [SerializeField]
-        DashMotor _dashMotorPlayer;
-
-        [SerializeField]
-        DamageController _damageControllerPlayer;
-
-        [SerializeField]
-        SpriteRenderer _spriteRenderer;
-
-        [SerializeField]
         float _magnitudeShake;
 
         [SerializeField]
@@ -29,59 +20,56 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         float _fadeOutTimeShake;
 
         [SerializeField]
+        Color _colorDamage;
+
+        DashMotor _dashMotorPlayer;
+        DamageController _damageControllerPlayer;
+        SpriteRenderer _spriteRenderer;
         ParticleSystem _explosionDied;
-
-        [SerializeField]
-        ParticleSystem _dashParticles0;
-
-        [SerializeField]
-        ParticleSystem _dashParticles1;
-
-        [SerializeField]
-        TrailRenderer _dashTrailRenderer;
-
+        SequenceEasingAnimation _dashAnimation;
+        
         void Awake()
         {
-            _dashMotorPlayer.OnEndDrag += DashEffectPlayerDisenabled;
-            _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
-            _damageControllerPlayer.OnTakeDamage += WhiteEffect;
-            _damageControllerPlayer.OnDie += EffectDiedPlayer;
+            
+        }
+
+        void OnDisable()
+        {
+            Initialize();
         }
 
         void Start()
         {
-         //   Initialize();
+            Initialize();
         }
 
         void Initialize()
         {
+            Debug.Log("Coloco todo");
+            _dashMotorPlayer = GetComponent<DashMotor>();
+            _damageControllerPlayer = GetComponent<DamageController>();
+            _dashAnimation = GetComponent<SequenceEasingAnimation>();
+
+            _spriteRenderer = Transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+            _explosionDied = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
+
+            _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
+            _damageControllerPlayer.OnTakeDamage += WhiteEffect;
+            _damageControllerPlayer.OnDie += EffectDiedPlayer;
+
+            _spriteRenderer.enabled = true;
             _explosionDied.Stop();
-            _dashParticles0.Stop();
-            _dashParticles1.Stop();
-            _dashTrailRenderer.enabled = false;
         }
         
-
-
         public void DashEffectPlayerEnabled()
         {
-           /* _dashParticles0.Play();
-            _dashParticles1.Play();
-            _dashTrailRenderer.enabled = true;*/
-           // AnimatorControllerPlayer.Instance.AnimationAtkPlayer();
-
-        }
-
-        public void DashEffectPlayerDisenabled()
-        {
-          /*  _dashParticles0.Stop();
-            _dashParticles1.Stop();
-            _dashTrailRenderer.enabled = false;*/
-           // AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
+            _dashAnimation.Play();
+            AudioController.Instance.PlayDashPlayerSound();
         }
 
         public void EffectDiedPlayer(System.Action action)
         {
+            AudioController.Instance.PlayDeathExplosionPlayerSound();
             Timing.RunCoroutine(DoEffectsDied(action)); 
         }
 
@@ -92,19 +80,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             EZCameraShake.CameraShaker.Instance.ShakeOnce
                 (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
-            yield return Timing.WaitForSeconds(0.1f);
-
+            yield return Timing.WaitForSeconds(0.6f);
+            
             action();
         }
 
         public void WhiteEffect()
         {
             Timing.RunCoroutine(DoWhiteSprite());
+            AudioController.Instance.PlayDamagePlayerSound();
         }
         
         IEnumerator<float> DoWhiteSprite()
         {
-            White.Instance.WhiteSprite(_spriteRenderer);
+            White.Instance.WhiteSprite(_spriteRenderer, _colorDamage);
+            EZCameraShake.CameraShaker.Instance.ShakeOnce
+                (_magnitudeShake*0.6f, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
             yield return Timing.WaitForSeconds(0.2f);
             White.Instance.NormalSprite(_spriteRenderer);
         }

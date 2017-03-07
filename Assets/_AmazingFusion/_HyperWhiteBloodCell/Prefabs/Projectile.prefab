@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4913013914893544}
   - component: {fileID: 50306982768581152}
   - component: {fileID: 212481042375465798}
-  - component: {fileID: 70030433442562138}
   - component: {fileID: 114202758342159350}
+  - component: {fileID: 58999216697636290}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Hazard
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &70030433442562138
-CapsuleCollider2D:
+--- !u!58 &58999216697636290
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,11 +72,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.35, y: 0.35}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.65
 --- !u!114 &114202758342159350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63de3cac0d971364cafb66884e0c9743, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 4c0ecf2b34d67ce43aff391a45bde91f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

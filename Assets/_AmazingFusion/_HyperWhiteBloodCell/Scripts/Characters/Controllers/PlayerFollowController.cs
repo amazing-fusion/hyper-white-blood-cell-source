@@ -6,7 +6,7 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     [RequireComponent(typeof(IMotor))]
     public class PlayerFollowController : OptimizedBehaviour, ITickable {
-
+        
         [SerializeField]
         float _updateMovementRate;
 
@@ -14,8 +14,40 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         float _nextUpdateMovementTime;
 
-        void Awake() {
+        void OnDestroy() {
+            Room.OnLevelStart -= Initialize;
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+        }
+
+        void OnDisable() {
+            if (UpdateManager.HasInstance) {
+                UpdateManager.Instance.Remove(this);
+            }
+
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.Sleep();
+            }
+        }
+
+        void Start() {
             _motor = GetComponent<IMotor>();
+            if (LevelManager.Instance.CurrentRoom != null && 
+                    LevelManager.Instance.CurrentRoom.Started) {
+                Initialize(LevelManager.Instance.CurrentRoom);
+            } else {
+                Room.OnLevelStart += Initialize;
+            }
+        }
+
+
+        void Initialize(Room room) {
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            if (rigidbody != null) {
+                rigidbody.WakeUp();
+            }
 
             _nextUpdateMovementTime = Time.time + _updateMovementRate;
             UpdateManager.Instance.Add(this);
