@@ -15,8 +15,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         List<string> _harmfulTags;
 
-        //[SerializeField]
-        //float _immortalityTimeAfterDamage;
+        [SerializeField]
+        float _immortalityTimeAfterDamage;
 
         [SerializeField]
         SpriteColorFlick _immortalityEffect;
@@ -113,9 +113,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 --CurrentLifes;
                 if (OnTakeDamage != null) OnTakeDamage();
 
-                //if (_immortalityTimeAfterDamage > 0) {
-                //    SetImmortal(_immortalityTimeAfterDamage);
-                //}
+                if (_immortalityTimeAfterDamage > 0) {
+                    SetImmortal(_immortalityTimeAfterDamage);
+                }
             }
         }
 

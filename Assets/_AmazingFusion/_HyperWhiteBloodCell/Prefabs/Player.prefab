@@ -492,7 +492,7 @@ MonoBehaviour:
   _dashImmuneTags:
   - Enemy
   _dashingTag: DashingPlayer
-  _immunityAfterDashDuration: 0
+  _immunityAfterDashDuration: 2
 --- !u!114 &114206728947728512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -580,6 +580,7 @@ MonoBehaviour:
   _harmfulTags:
   - Enemy
   - Hazard
+  _immortalityTimeAfterDamage: 1
   _immortalityEffect: {fileID: 114413894449826584}
 --- !u!114 &114895484341843496
 MonoBehaviour:

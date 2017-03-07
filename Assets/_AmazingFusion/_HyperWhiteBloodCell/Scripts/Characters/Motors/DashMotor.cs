@@ -101,14 +101,21 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 }
 
                 if (_damageController != null) {
-                    foreach (string immuneTag in _harmfulTagsImmunity) {
-                        _damageController.HarmfulTags.Add(immuneTag);
-                    }
                     if (_immunityAfterDashDuration > 0) {
-                        _damageController.SetImmortal(_immunityAfterDashDuration);
+                        Timing.CallDelayed(_immunityAfterDashDuration, () => {
+                            foreach (string immuneTag in _harmfulTagsImmunity) {
+                                _damageController.HarmfulTags.Add(immuneTag);
+                                _harmfulTagsImmunity.Clear();
+                            }
+                        });
+                    } else {
+                        foreach (string immuneTag in _harmfulTagsImmunity) {
+                            _damageController.HarmfulTags.Add(immuneTag);
+                            _harmfulTagsImmunity.Clear();
+                        }
                     }
                 }
-                _harmfulTagsImmunity.Clear();
+                
             }
         }
     }
