@@ -8,7 +8,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
     public class EffectsControllerPlayer : OptimizedBehaviour
     {
         [SerializeField]
-        float _magnitudeShake;
+        float _dieMagnitudeShake;
+
+        [SerializeField]
+        float _collideMagnitudeShake;
 
         [SerializeField]
         float _roughnessShake;
@@ -21,6 +24,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         [SerializeField]
         Color _colorDamage;
+
+        [SerializeField]
+        EasingAnimation _cameraEffect;
 
         DashMotor _dashMotorPlayer;
         DamageController _damageControllerPlayer;
@@ -54,6 +60,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _explosionDied = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
 
             _dashMotorPlayer.OnBeginDrag += DashEffectPlayerEnabled;
+            _damageControllerPlayer.OnCollide += CollideEffect;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
 
@@ -61,6 +68,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _explosionDied.Stop();
         }
         
+        void OnDestroy() {
+            _dashMotorPlayer.OnBeginDrag -= DashEffectPlayerEnabled;
+            _damageControllerPlayer.OnCollide -= CollideEffect;
+            _damageControllerPlayer.OnTakeDamage -= WhiteEffect;
+            _damageControllerPlayer.OnDie -= EffectDiedPlayer;
+        }
+
         public void DashEffectPlayerEnabled()
         {
             _dashAnimation.Play();
@@ -78,7 +92,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _explosionDied.Play();
             AnimatorControllerPlayer.Instance.AnimationDiedPlayer();
             EZCameraShake.CameraShaker.Instance.ShakeOnce
-                (_magnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
+                (_dieMagnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
 
             yield return Timing.WaitForSeconds(0.6f);
             
@@ -91,11 +105,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             AudioController.Instance.PlayDamagePlayerSound();
         }
         
+
+        public void CollideEffect() {
+                EZCameraShake.CameraShaker.Instance.ShakeOnce
+                    (_collideMagnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
+        }
+
         IEnumerator<float> DoWhiteSprite()
         {
             White.Instance.WhiteSprite(_spriteRenderer, _colorDamage);
-            EZCameraShake.CameraShaker.Instance.ShakeOnce
-                (_magnitudeShake*0.6f, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
+            _cameraEffect.Play();
             yield return Timing.WaitForSeconds(0.2f);
             White.Instance.NormalSprite(_spriteRenderer);
         }

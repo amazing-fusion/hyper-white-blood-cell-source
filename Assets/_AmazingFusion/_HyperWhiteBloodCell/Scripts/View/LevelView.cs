@@ -17,6 +17,32 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         TMP_Text _levelTimeText;
 
+        [SerializeField]
+        int _countDownStart;
+
+        [SerializeField]
+        EasingAnimation _countDownAnimation;
+
+        [SerializeField]
+        TMP_Text _countDownText;
+
+        int _seconds;
+        int Seconds {
+            get {
+                return _seconds;
+            }
+
+            set {
+                if (value != _seconds) {
+                    _seconds = value;
+                    if (_seconds <= _countDownStart) {
+                        _countDownText.text = _seconds == 0 ? "Time over" : _seconds.ToString();
+                        _countDownAnimation.Play();
+                    }
+                }
+            }
+        }
+
         void Awake()
         {
             Initialize();
@@ -46,7 +72,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnTimeChange() {
-            _levelTimeText.text = string.Format("{0}<size=40>s</size>", Mathf.CeilToInt(GameController.Instance.CurrentLevelTime));
+            int seconds = Mathf.CeilToInt(GameController.Instance.CurrentLevelTime);
+            if (seconds <= _countDownStart && seconds != _seconds) {
+                _seconds = seconds;
+                _countDownText.text = _seconds == 0 ? "Time over" : _seconds.ToString();
+                _countDownAnimation.Play();
+            }
+
+            _levelTimeText.text = string.Format("{0}<size=40>s</size>", seconds);
         }
     }
 }

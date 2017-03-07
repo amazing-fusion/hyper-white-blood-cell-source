@@ -31,6 +31,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public event System.Action OnDieEnd;
 
         public event System.Action OnTakeDamage;
+        public event System.Action OnCollide;
 
         public event System.Action<System.Action> OnDie;
 
@@ -120,16 +121,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
-            Debug.Log("OnTriggerEnter2D");
-            if (_harmfulTags.Contains(collider.tag)) {
-                TakeDamage();
+            if (LevelManager.Instance.CurrentRoom.Started) {
+                if (OnCollide != null) OnCollide();
+
+                if (_harmfulTags.Contains(collider.tag)) {
+                    TakeDamage();
+                }
             }
         }
 
         void OnCollisionEnter2D(Collision2D collision) {
-            Debug.Log("OnCollisionEnter2D");
-            if (_harmfulTags.Contains(collision.collider.tag)) {
-                TakeDamage();
+            if (LevelManager.Instance.CurrentRoom.Started) {
+                if (OnCollide != null) OnCollide();
+
+                if (_harmfulTags.Contains(collision.collider.tag)) {
+                    TakeDamage();
+                }
             }
         }
     }

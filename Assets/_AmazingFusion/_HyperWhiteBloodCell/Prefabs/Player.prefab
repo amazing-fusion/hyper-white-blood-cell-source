@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238342206310030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.54, y: 2.21, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172604383837562}
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359356114932198}
   m_LocalRotation: {x: -0.49904677, y: -0.49877578, z: 0.5012225, w: 0.5009502}
-  m_LocalPosition: {x: 0.17, y: -0.11, z: 10}
+  m_LocalPosition: {x: 0.17, y: -0.11, z: 0}
   m_LocalScale: {x: 2.781899, y: 1, z: 0.12586541}
   m_Children:
   - {fileID: 4452527932331554}
@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694692918648336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.09, z: 10}
+  m_LocalPosition: {x: 0.03, y: 0.09, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066863950812970}
@@ -325,7 +325,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.7
 --- !u!95 &95905091169445356
 Animator:
   serializedVersion: 3
@@ -458,7 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afce52a4a5b9c5429d930cfe51e5b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageController: {fileID: 114681870480820738}
   _sqrMinSwipe: 10
 --- !u!114 &114129306656676158
 MonoBehaviour:
@@ -492,7 +491,7 @@ MonoBehaviour:
   _dashImmuneTags:
   - Enemy
   _dashingTag: DashingPlayer
-  _immunityAfterDashDuration: 2
+  _immunityAfterDashDuration: 1
 --- !u!114 &114206728947728512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,11 +527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dbc3d22832f974ca23b9910cab00a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _magnitudeShake: 5
-  _roughnessShake: 50
+  _dieMagnitudeShake: 5
+  _collideMagnitudeShake: 2
+  _roughnessShake: 30
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
+  _cameraEffect: {fileID: 0}
 --- !u!114 &114413894449826584
 MonoBehaviour:
   m_ObjectHideFlags: 1
