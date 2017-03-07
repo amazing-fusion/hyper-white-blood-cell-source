@@ -836,15 +836,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114057621001431980, guid: a57ff097b62b041419d5f4ab9895070d,
+    - target: {fileID: 114413894449826584, guid: a57ff097b62b041419d5f4ab9895070d,
         type: 2}
-      propertyPath: _sqrSwipe
-      value: 14400
+      propertyPath: _sleepColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114057621001431980, guid: a57ff097b62b041419d5f4ab9895070d,
+    - target: {fileID: 114413894449826584, guid: a57ff097b62b041419d5f4ab9895070d,
         type: 2}
-      propertyPath: _sqrMinSwipe
-      value: 10
+      propertyPath: _startColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114413894449826584, guid: a57ff097b62b041419d5f4ab9895070d,
+        type: 2}
+      propertyPath: _endColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114413894449826584, guid: a57ff097b62b041419d5f4ab9895070d,
+        type: 2}
+      propertyPath: _endColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 114150884071678984, guid: a57ff097b62b041419d5f4ab9895070d,
+        type: 2}
+      propertyPath: _immortalityAfterDashDuration
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a57ff097b62b041419d5f4ab9895070d, type: 2}

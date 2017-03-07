@@ -15,9 +15,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         List<string> _harmfulTags;
 
+        //[SerializeField]
+        //float _immortalityTimeAfterDamage;
+
+        [SerializeField]
+        SpriteColorFlick _immortalityEffect;
+
         int _currentLifes;
-		
-		bool _isAlive;
+
+        bool _isImmortal;
+
+        bool _isAlive;
 
 		public event System.Action<int> OnLifesChange;
         public event System.Action OnDieEnd;
@@ -82,6 +90,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (OnDie != null) OnDie(DieAnimationEnded);
         }
 
+        public void SetImmortal(float duration) {
+            _isImmortal = true;
+            //TODO: Start Effect
+            _immortalityEffect.enabled = true;
+            MovementEffects.Timing.CallDelayed(duration, () => {
+                //TODO: End Effect
+                _immortalityEffect.enabled = false;
+                _isImmortal = false;
+            });
+        }
+
         void DieAnimationEnded() {
             Debug.Log("DieAnimationEnded");
             if (OnDieEnd != null) OnDieEnd();
@@ -90,8 +109,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void TakeDamage() {
             Debug.Log("TakeDamage");
-            --CurrentLifes;
-            if (OnTakeDamage != null) OnTakeDamage();
+            if (!_isImmortal) {
+                --CurrentLifes;
+                if (OnTakeDamage != null) OnTakeDamage();
+
+                //if (_immortalityTimeAfterDamage > 0) {
+                //    SetImmortal(_immortalityTimeAfterDamage);
+                //}
+            }
         }
 
         void OnTriggerEnter2D(Collider2D collider) {

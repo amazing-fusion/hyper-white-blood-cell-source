@@ -23,6 +23,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         string _dashingTag;
 
+        [SerializeField]
+        float _immortalityAfterDashDuration;
+
         List<string> _harmfulTagsImmunity = new List<string>();
 
         Rigidbody2D _rigidBody;
@@ -97,8 +100,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     tag = _tag;
                 }
 
-                foreach (string immuneTag in _harmfulTagsImmunity) {
-                    _damageController.HarmfulTags.Add(immuneTag);
+                if (_damageController != null) {
+                    foreach (string immuneTag in _harmfulTagsImmunity) {
+                        _damageController.HarmfulTags.Add(immuneTag);
+                    }
+                    if (_immortalityAfterDashDuration > 0) {
+                        _damageController.SetImmortal(_immortalityAfterDashDuration);
+                    }
                 }
                 _harmfulTagsImmunity.Clear();
             }

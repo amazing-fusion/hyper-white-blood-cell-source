@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4014662946304248}
   - component: {fileID: 212685664354127990}
   - component: {fileID: 95905091169445356}
+  - component: {fileID: 114413894449826584}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -458,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageController: {fileID: 114681870480820738}
-  _sqrMinSwipe: 30
+  _sqrMinSwipe: 10
 --- !u!114 &114129306656676158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -531,6 +532,25 @@ MonoBehaviour:
   _fadeInTimeShake: 0
   _fadeOutTimeShake: 0.6
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
+--- !u!114 &114413894449826584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1498787388555478}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a3d0c8a435ab24bbcde6b6dc35f792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 1, g: 1, b: 1, a: 0.7529412}
+  _endColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  _duration: 0.2
+  _delay: 0
+  _sleep: 0
+  _sleepColor: {r: 1, g: 1, b: 1, a: 0.7529412}
+  _inverseLoop: 0
+  _curve: 13
 --- !u!114 &114553409482080504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,6 +579,8 @@ MonoBehaviour:
   _harmfulTags:
   - Enemy
   - Hazard
+  _immortalityTimeAfterDamage: 1
+  _immortalityEffect: {fileID: 114413894449826584}
 --- !u!114 &114895484341843496
 MonoBehaviour:
   m_ObjectHideFlags: 1
