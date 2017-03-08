@@ -4974,7 +4974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a7ecfc94a35754a918c732a8d597b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 114815407005083064, guid: 5b4695a56b3be9a4994041bffea17d6d, type: 2}
+  _prefab: {fileID: 114919921189695722, guid: c88968f86afa77d41a9254a315bff421, type: 2}
   _wayPointsPath:
   - {fileID: 4747896010522438}
   - {fileID: 4854276014027730}
