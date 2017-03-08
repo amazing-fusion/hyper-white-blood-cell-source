@@ -128,7 +128,7 @@ PlayerSettings:
   xboxOneDisableKinectGpuReservation: 0
   protectGraphicsMemory: 0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -199,7 +199,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Trabajos/Empleos/Demium Games/Hiper White Blood Cell/hyper-white-blood-cell-source/amazing_fusion.keystore
+  AndroidKeystoreName: C:/Users/Diego Diaz/Documents/hyper-white-blood-cell-source/amazing_fusion.keystore
   AndroidKeyaliasName: amazing fusion
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -475,8 +475,9 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudServicesEnabled:
+    UNet: 1
+  cloudProjectId: 5c30986c-cb4a-4df9-91be-2a7335d8278a
+  projectName: Hyper White Blood Cell
+  organizationId: demium-games
   cloudEnabled: 0

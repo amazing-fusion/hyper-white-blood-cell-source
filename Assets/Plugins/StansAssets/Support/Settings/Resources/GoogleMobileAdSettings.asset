@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395a190857176478d93e51fdcb929250, type: 3}
   m_Name: GoogleMobileAdSettings
   m_EditorClassIdentifier: 
-  IOS_InterstisialsUnitId: 
-  IOS_BannersUnitId: 
-  IOS_RewardedVideoAdUnitId: 
-  Android_InterstisialsUnitId: 
-  Android_BannersUnitId: 
-  Android_RewardedVideoAdUnitId: 
+  IOS_InterstisialsUnitId: ca-app-pub-3340554034106910/9232904389
+  IOS_BannersUnitId: ca-app-pub-3340554034106910/7756171181
+  IOS_RewardedVideoAdUnitId: ca-app-pub-3340554034106910/1709637581
+  Android_InterstisialsUnitId: ca-app-pub-3340554034106910/1849238388
+  Android_BannersUnitId: ca-app-pub-3340554034106910/9372505187
+  Android_RewardedVideoAdUnitId: ca-app-pub-3340554034106910/3325971582
   WP8_InterstisialsUnitId: 
   WP8_BannersUnitId: 
   WP8_RewardedVideoAdUnitId: 
