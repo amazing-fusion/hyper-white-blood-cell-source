@@ -9,6 +9,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Start()
         {
             AudioController.Instance.PlayMenuMusic();
+
             UM_GameServiceManager.Instance.Connect();
         }
 

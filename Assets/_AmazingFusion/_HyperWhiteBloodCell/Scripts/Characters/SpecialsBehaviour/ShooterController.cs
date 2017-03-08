@@ -25,6 +25,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             if (UpdateManager.HasInstance) {
                 UpdateManager.Instance.Remove(this);
             }
+
+            Room.OnLevelStart -= LevelStart;
+            Room.OnLevelEnd -= LevelEnd;
         }
 
         void Awake() {
@@ -34,7 +37,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         void Start() {
             _nextShotTime = Time.time + _fireSleep;
 
+            Room.OnLevelStart += LevelStart;
+            Room.OnLevelEnd += LevelEnd;
+        }
+
+        void LevelStart(Room room) {
             UpdateManager.Instance.Add(this);
+        }
+
+        void LevelEnd(Room room) {
+            UpdateManager.Instance.Remove(this);
         }
 
         public void Tick(float realDeltaTime) {
