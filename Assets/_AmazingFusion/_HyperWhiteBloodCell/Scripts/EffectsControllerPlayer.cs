@@ -11,16 +11,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         float _dieMagnitudeShake;
 
         [SerializeField]
-        float _collideMagnitudeShake;
+        float _dieRoughnessShake;
 
         [SerializeField]
-        float _roughnessShake;
+        float _dieFadeOutTimeShake;
 
         [SerializeField]
-        float _fadeInTimeShake;
+        float _collideBaseMagnitudeShake;
 
         [SerializeField]
-        float _fadeOutTimeShake;
+        float _collideBaseRoughnessShake;
+
+        [SerializeField]
+        float _collideFadeOutTimeShake;
 
         [SerializeField]
         Color _colorDamage;
@@ -92,7 +95,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _explosionDied.Play();
             AnimatorControllerPlayer.Instance.AnimationDiedPlayer();
             EZCameraShake.CameraShaker.Instance.ShakeOnce
-                (_dieMagnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
+                (_dieMagnitudeShake, _dieRoughnessShake, 0, _dieFadeOutTimeShake);
 
             yield return Timing.WaitForSeconds(0.6f);
             
@@ -106,9 +109,31 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
         
 
-        public void CollideEffect() {
-                EZCameraShake.CameraShaker.Instance.ShakeOnce
-                    (_collideMagnitudeShake, _roughnessShake, _fadeInTimeShake, _fadeOutTimeShake);
+        public void CollideEffect(Rigidbody2D playerBody, Rigidbody2D colliderBody) {
+            float force = 0;
+            if (playerBody != null) {
+                if (colliderBody != null) {
+                    force = (playerBody.velocity - colliderBody.velocity).magnitude;
+                } else {
+                    force = playerBody.velocity.magnitude;
+                }
+            } else if (colliderBody != null) {
+                force = playerBody.velocity.magnitude;
+            }
+
+            //TODO: Fix the hack: gravity velocity is not detected (is (0, 0))!!! So I use a base force
+            if (force == 0) {
+                force = 10;
+            }
+
+            Debug.Log("Collision force: " + force);
+
+            //if (force > 0) {
+            EZCameraShake.CameraShaker.Instance.ShakeOnce
+                    (_collideBaseMagnitudeShake * force,
+                    _collideBaseRoughnessShake * force, 
+                    0, _collideFadeOutTimeShake * force);
+            //}
         }
 
         IEnumerator<float> DoWhiteSprite()

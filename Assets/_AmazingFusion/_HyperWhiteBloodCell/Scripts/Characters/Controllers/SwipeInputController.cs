@@ -18,7 +18,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         DamageController _damageController;
 
-        Vector2 _startPoint;
+        //Vector2 _startPoint;
         List<Vector2> _swipePoints = new List<Vector2>();
 
         IMotor _motor;
@@ -154,7 +154,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public void BeginSwipe() {
             //if (!_isSwiping) {
                 _isSwiping = true;
-                _startPoint = Input.mousePosition;
+                //_startPoint = Input.mousePosition;
                 _swipePoints.Add(Input.mousePosition);
             //}
         }
