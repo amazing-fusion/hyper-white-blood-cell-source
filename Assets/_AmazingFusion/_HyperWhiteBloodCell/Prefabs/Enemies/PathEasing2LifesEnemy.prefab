@@ -505,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wayPointsPath: []
   _invertPathOnEnd: 0
-  _reachDistance: 0
+  _reachDistance: 0.1
   _updateMovementRate: -1
 --- !u!198 &198578805779964244
 ParticleSystem:
