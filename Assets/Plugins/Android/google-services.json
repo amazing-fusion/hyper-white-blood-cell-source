@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "72434408241",
+    "firebase_url": "https://hyper-white-blood-cell-das-111.firebaseio.com",
+    "project_id": "hyper-white-blood-cell-das-111",
+    "storage_bucket": "hyper-white-blood-cell-das-111.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72434408241:android:681cfc464c167725",
+        "android_client_info": {
+          "package_name": "com.AmazingFusion.HyperWhiteBloodCellDash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72434408241-tcmqf036e2bsdit1bhqmuv78n8eo0kp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpKsixTTgoZurf-Z0PerQNTDxUJE259OY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

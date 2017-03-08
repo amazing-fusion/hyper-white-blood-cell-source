@@ -21,6 +21,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             GoogleMobileAd.LoadInterstitialAd();
         }
 
+        void OnDestroy()
+        {
+            GoogleMobileAd.OnInterstitialLoaded -= OnInterstisialsLoaded;
+            GoogleMobileAd.OnInterstitialOpened -= OnInterstisialsOpen;
+            GoogleMobileAd.OnInterstitialClosed -= OnInterstisialsClosed;
+
+            GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
+            GoogleMobileAd.OnRewardedVideoAdClosed -= HandleOnRewardedVideoAdClosed;
+        }
+
         void HandleOnRewardedVideoLoaded()
         {
 
