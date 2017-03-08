@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afce52a4a5b9c5429d930cfe51e5b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sqrMinSwipe: 10
+  _sqrMinSwipe: 16
 --- !u!114 &114129306656676158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,10 +528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dieMagnitudeShake: 5
-  _collideMagnitudeShake: 2
-  _roughnessShake: 30
-  _fadeInTimeShake: 0
-  _fadeOutTimeShake: 0.6
+  _dieRoughnessShake: 2
+  _dieFadeOutTimeShake: 0.6
+  _collideBaseMagnitudeShake: 0.25
+  _collideBaseRoughnessShake: 0.1
+  _collideFadeOutTimeShake: 0.01
+  _wallCollideForce: 5
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
   _cameraEffect: {fileID: 0}
 --- !u!114 &114413894449826584

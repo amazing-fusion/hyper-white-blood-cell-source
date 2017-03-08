@@ -21,6 +21,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         SpriteColorFlick _immortalityEffect;
 
+        Rigidbody2D _rigidBody;
+
         int _currentLifes;
 
         bool _isImmortal;
@@ -31,7 +33,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         public event System.Action OnDieEnd;
 
         public event System.Action OnTakeDamage;
-        public event System.Action OnCollide;
+        public event System.Action<Rigidbody2D, Rigidbody2D> OnCollide;
 
         public event System.Action<System.Action> OnDie;
 
@@ -77,6 +79,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void Awake() {
+            _rigidBody = GetComponent<Rigidbody2D>();
             Initialize();
         }
 
@@ -103,13 +106,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void DieAnimationEnded() {
-            Debug.Log("DieAnimationEnded");
             if (OnDieEnd != null) OnDieEnd();
             this.gameObject.SetActive(false);
         }
 
         void TakeDamage() {
-            Debug.Log("TakeDamage");
             if (!_isImmortal) {
                 --CurrentLifes;
                 if (OnTakeDamage != null) OnTakeDamage();
@@ -122,7 +123,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void OnTriggerEnter2D(Collider2D collider) {
             if (LevelManager.Instance.CurrentRoom.Started) {
-                if (OnCollide != null) OnCollide();
+                if (OnCollide != null) OnCollide(_rigidBody, collider.GetComponent<Rigidbody2D>());
 
                 if (_harmfulTags.Contains(collider.tag)) {
                     TakeDamage();
@@ -132,7 +133,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         void OnCollisionEnter2D(Collision2D collision) {
             if (LevelManager.Instance.CurrentRoom.Started) {
-                if (OnCollide != null) OnCollide();
+                if (OnCollide != null) OnCollide(_rigidBody, collision.collider.GetComponent<Rigidbody2D>());
 
                 if (_harmfulTags.Contains(collision.collider.tag)) {
                     TakeDamage();

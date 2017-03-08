@@ -103,7 +103,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 if (_damageController != null) {
                     if (_immunityAfterDashDuration > 0) {
                         Timing.CallDelayed(_immunityAfterDashDuration, () => {
-                            Debug.Log("");
                             foreach (string immuneTag in _harmfulTagsImmunity) {
                                 _damageController.HarmfulTags.Add(immuneTag);
                             }

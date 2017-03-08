@@ -74,12 +74,12 @@ MonoBehaviour:
   PoupsandPreloadersAPI: 0
   CheckAppLicenseAPI: 0
   NetworkStateAPI: 0
-  FirebaseAnalytics: 1
+  FirebaseAnalytics: 0
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
   PlayServicesAdvancedSignInAPI: 0
   GoogleButtonAPI: 0
-  AnalyticsAPI: 1
+  AnalyticsAPI: 0
   GoogleCloudSaveAPI: 1
   PushNotificationsAPI: 0
   GoogleMobileAdAPI: 1

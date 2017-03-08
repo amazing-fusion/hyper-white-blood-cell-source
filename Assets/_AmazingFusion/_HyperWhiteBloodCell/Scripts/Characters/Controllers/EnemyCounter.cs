@@ -10,12 +10,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public static List<EnemyCounter> _enemies = new List<EnemyCounter>();
         public static event System.Action OnEnemyDestroy;
 
-        DamageController _damageController;
+        //DamageController _damageController;
 
         void Start()
         {
             _enemies.Add(this);
-            _damageController = GetComponent<DamageController>();
+            //_damageController = GetComponent<DamageController>();
             //_damageController.OnDie += (System.Action onDieEnd) => {
             //    Remove(this);
             //};
