@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91a7deec5b9f48e785f526d406a9b0f, type: 3}
   m_Name: UltimateMobileSettings
   m_EditorClassIdentifier: 
-  ToolbarSelectedIndex: 5
+  ToolbarSelectedIndex: 1
   InAppProducts: []
   TransactionsHandlingMode: 0
   InApps_EditorFillRateIndex: 4
@@ -29,8 +29,8 @@ MonoBehaviour:
   Achievements: []
   AutoLoadUsersSmallImages: 1
   AutoLoadUsersBigImages: 0
-  AutoLoadLeaderboardsInfo: 1
-  AutoLoadAchievementsInfo: 1
+  AutoLoadLeaderboardsInfo: 0
+  AutoLoadAchievementsInfo: 0
   IsAchievementsOpen: 1
   IsLeaderBoardsOpen: 1
   IOSAdEdngine: 0

@@ -19,6 +19,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         public void ShowRanking() {
+            if (UM_GameServiceManager.Instance.IsConnected) {
+                UM_GameServiceManager.Instance.ShowLeaderBoardUI("ranking");
+            } else {
+                UM_GameServiceManager.OnPlayerConnected += ShowRankingOnConnect;
+                UM_GameServiceManager.Instance.Connect();
+            }
+        }
+
+        void ShowRankingOnConnect() {
+            UM_GameServiceManager.OnPlayerConnected -= ShowRankingOnConnect;
             UM_GameServiceManager.Instance.ShowLeaderBoardUI("ranking");
         }
     }

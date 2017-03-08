@@ -56,8 +56,8 @@ MonoBehaviour:
   ShowAppPermissions: 1
   EnableBillingAPI: 1
   EnablePSAPI: 1
-  EnableSocialAPI: 1
-  EnableCameraAPI: 1
+  EnableSocialAPI: 0
+  EnableCameraAPI: 0
   ExpandNativeAPI: 1
   ExpandPSAPI: 1
   ExpandBillingAPI: 1
@@ -74,7 +74,7 @@ MonoBehaviour:
   PoupsandPreloadersAPI: 0
   CheckAppLicenseAPI: 0
   NetworkStateAPI: 0
-  FirebaseAnalytics: 0
+  FirebaseAnalytics: 1
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
   PlayServicesAdvancedSignInAPI: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
   PushNotificationsAPI: 0
   GoogleMobileAdAPI: 1
   GoogleOAuthAPI: 0
-  GalleryAPI: 1
-  CameraAPI: 1
+  GalleryAPI: 0
+  CameraAPI: 0
   KeepManifestClean: 1
   GooglePlayServiceAppID: 72434408241
   ToolbarSelectedIndex: 0

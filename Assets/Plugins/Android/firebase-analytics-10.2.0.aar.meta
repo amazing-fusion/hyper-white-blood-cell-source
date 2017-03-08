@@ -12,12 +12,12 @@ PluginImporter:
   isOverridable: 0
   platformData:
     Android:
-      enabled: 1
+      enabled: 0
       settings: {}
     Any:
       enabled: 0
       settings:
-        Exclude Android: 0
+        Exclude Android: 1
         Exclude Editor: 1
         Exclude Linux: 1
         Exclude Linux64: 1
