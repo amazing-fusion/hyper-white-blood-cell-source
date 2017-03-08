@@ -98,6 +98,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _hideAnimation.CanvasGroup.interactable = false;
             ScenesManager.Instance.LoadScene(ScenesManager.Scene.MenuScene);
         }
+
+        public void GoToAddVideo()
+        {
+            AdsController.Instance.ShowRewardedVideoAd();
+        }
     }
 }
 
