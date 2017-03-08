@@ -533,6 +533,7 @@ MonoBehaviour:
   _collideBaseMagnitudeShake: 0.25
   _collideBaseRoughnessShake: 0.1
   _collideFadeOutTimeShake: 0.01
+  _wallCollideForce: 5
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
   _cameraEffect: {fileID: 0}
 --- !u!114 &114413894449826584

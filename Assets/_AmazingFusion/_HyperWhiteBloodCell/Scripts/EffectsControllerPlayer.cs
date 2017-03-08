@@ -26,6 +26,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         float _collideFadeOutTimeShake;
 
         [SerializeField]
+        float _wallCollideForce;
+
+        [SerializeField]
         Color _colorDamage;
 
         [SerializeField]
@@ -121,9 +124,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 force = playerBody.velocity.magnitude;
             }
 
-            //TODO: Fix the hack: gravity velocity is not detected (is (0, 0))!!! So I use a base force
+            //TODO: Fix the hack: gravity velocity is not detected (is (0, 0))!!! So I use a wall force
             if (force == 0) {
-                force = 10;
+                force = _wallCollideForce;
             }
 
             Debug.Log("Collision force: " + force);
