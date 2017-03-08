@@ -75,7 +75,7 @@ MonoBehaviour:
     Texture: {fileID: 0}
   UseGCRequestCaching: 0
   UsePPForAchievements: 0
-  AutoLoadUsersSmallImages: 1
+  AutoLoadUsersSmallImages: 0
   AutoLoadUsersBigImages: 0
   ShowLeaderboards: 1
   ShowAchievementsParams: 1

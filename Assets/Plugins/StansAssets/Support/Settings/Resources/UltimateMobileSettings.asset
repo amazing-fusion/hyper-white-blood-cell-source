@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91a7deec5b9f48e785f526d406a9b0f, type: 3}
   m_Name: UltimateMobileSettings
   m_EditorClassIdentifier: 
-  ToolbarSelectedIndex: 1
+  ToolbarSelectedIndex: 0
   InAppProducts: []
   TransactionsHandlingMode: 0
   InApps_EditorFillRateIndex: 4
@@ -72,13 +72,13 @@ MonoBehaviour:
     IOSId: new achievment1
     AndroidId: CgkIsba1640CEAIQBg
     AmazonId: new achievment1
-  AutoLoadUsersSmallImages: 1
+  AutoLoadUsersSmallImages: 0
   AutoLoadUsersBigImages: 0
   AutoLoadLeaderboardsInfo: 0
-  AutoLoadAchievementsInfo: 1
+  AutoLoadAchievementsInfo: 0
   IsAchievementsOpen: 1
-  IsLeaderBoardsOpen: 1
-  IOSAdEdngine: 0
+  IsLeaderBoardsOpen: 0
+  IOSAdEdngine: 1
   WP8AdEdngine: 0
   IsCameraAndGallerySettingsOpen: 1
   IsCameraAndGalleryAndroidSettingsOpen: 0
