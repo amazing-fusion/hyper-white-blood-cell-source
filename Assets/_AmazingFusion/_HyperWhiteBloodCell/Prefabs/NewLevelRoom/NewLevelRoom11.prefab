@@ -5358,7 +5358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minLevelRequired: 7
-  _maxLevelRequired: 10
+  _maxLevelRequired: 0
 --- !u!114 &114385168332362728
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -37,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296313454852966}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -3, z: 1}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,9 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1780f3768f3b994b934eea50564e7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wayPointsPath: []
+  _wayPointsPath:
+  - {fileID: 0}
+  - {fileID: 0}
   _invertPathOnEnd: 0
-  _reachDistance: 0
+  _reachDistance: 0.1
   _updateMovementRate: -1
 --- !u!212 &212771036761170256
 SpriteRenderer:

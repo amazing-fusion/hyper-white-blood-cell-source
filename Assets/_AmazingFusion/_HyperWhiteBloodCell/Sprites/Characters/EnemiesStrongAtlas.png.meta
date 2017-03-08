@@ -1,0 +1,294 @@
+fileFormatVersion: 2
+guid: 49dff2ff7391a96419489bb96af50832
+timeCreated: 1488988357
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: EnemiesStrongAtlas_0
+    21300002: EnemiesStrongAtlas_1
+    21300004: EnemiesStrongAtlas_2
+    21300006: EnemiesStrongAtlas_3
+    21300008: EnemiesStrongAtlas_4
+    21300010: EnemiesStrongAtlas_5
+    21300012: EnemiesStrongAtlas_6
+    21300014: EnemiesStrongAtlas_7
+    21300016: EnemiesStrongAtlas_8
+    21300018: EnemiesStrongAtlas_9
+    21300020: EnemiesStrongAtlas_10
+    21300022: EnemiesStrongAtlas_11
+    21300024: EnemiesStrongAtlas_12
+    21300026: EnemiesStrongAtlas_13
+    21300028: EnemiesStrongAtlas_14
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 60
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 276
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 261
+        width: 121
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 255
+        width: 121
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 281
+        width: 138
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 281
+        width: 137
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 146
+        width: 127
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 131
+        width: 121
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 133
+        width: 121
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 161
+        width: 138
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 10
+        width: 127
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 121
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 5
+        width: 121
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 7
+        width: 93
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 7
+        width: 92
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EnemiesStrongAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 4
+        width: 93
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
