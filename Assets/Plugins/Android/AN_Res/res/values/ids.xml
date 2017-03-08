@@ -5,5 +5,11 @@ Save this file as res/values/games-ids.xml in your project.
 -->
 <resources>
   <string name="app_id">72434408241</string>
+  <string name="package_name">com.AmazingFusion.HyperWhiteBloodCellDash</string>
+  <string name="achievement_first_contact">CgkIsba1640CEAIQAg</string>
+  <string name="achievement_antibody">CgkIsba1640CEAIQAw</string>
+  <string name="achievement_biowar_veteran">CgkIsba1640CEAIQBA</string>
+  <string name="achievement_the_chosen_one">CgkIsba1640CEAIQBQ</string>
+  <string name="achievement_johnny_is_still_alive">CgkIsba1640CEAIQBg</string>
   <string name="leaderboard_ranking">CgkIsba1640CEAIQAA</string>
 </resources>

@@ -10,7 +10,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             AudioController.Instance.PlayMenuMusic();
             UM_GameServiceManager.Instance.Connect();
-
         }
 
         public void StartGame()
@@ -20,16 +19,20 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void ShowRanking() {
             if (UM_GameServiceManager.Instance.IsConnected) {
-                UM_GameServiceManager.Instance.ShowLeaderBoardUI("ranking");
+                UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
             } else {
-                UM_GameServiceManager.OnPlayerConnected += ShowRankingOnConnect;
+                UM_GameServiceManager.OnConnectionStateChnaged += ShowRankingOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.Connect();
             }
         }
 
-        void ShowRankingOnConnect() {
-            UM_GameServiceManager.OnPlayerConnected -= ShowRankingOnConnect;
-            UM_GameServiceManager.Instance.ShowLeaderBoardUI("ranking");
+        void ShowRankingOnConnectionStateChnaged(UM_ConnectionState connectionState) {
+            if (connectionState == UM_ConnectionState.CONNECTED) {
+                UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
+                UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
+            } else {
+                //TODO: Show error
+            }
         }
     }
 }

@@ -99,53 +99,23 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     EndSwipe(vector);
                 }
 
-
-                //if (!_isSwiping) {
-                //    BeginSwipe();
-                //} else {
-                //    Swipe();
-
-                //    // Swipe when stop
-                //    //if (_swipe) {
-                //    //    Vector2 vector = (Vector2)Input.mousePosition - _swipePoints[0];
-                //    //    if (vector.sqrMagnitude <= _sqrSwipe) {
-                //    //        EndSwipe(vector);
-                //    //    }
-                //    //} else {
-                //    //    Vector2 vector = _startPoint - _swipePoints[0];
-                //    //    if (vector.sqrMagnitude >= _sqrMinSwipe) {
-                //    //        _swipe = true;
-                //    //    }
-                //    //}
-
-                //    // Swipe every frame
-                //    //if (_swipePoints.Count < 2) {
-                //    //    Swipe();
-                //    //} else {
-                //    //    Vector3 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
-                //    //    Debug.Log(vector.sqrMagnitude);
-                //    //    if (vector.sqrMagnitude >= _sqrSwipe) {
-                //    //        EndSwipe();
-                //    //    } else {
-                //    //        Swipe();
-                //    //    }
-                //    //}
-                //}
             }
-
-
 #else
             if (Input.touches.Length == 1) {
                 if (Input.touches[0].phase == TouchPhase.Began) {
 
                     BeginSwipe();
-                } else if (Input.touches[0].phase == TouchPhase.Ended || 
-                        Input.touches[0].phase == TouchPhase.Canceled) {
-
-                    EndSwipe();
-                } else {
+                } else if (_isSwiping && (Input.touches[0].phase == TouchPhase.Ended || 
+                        Input.touches[0].phase == TouchPhase.Canceled)) {
 
                     Swipe();
+                    EndSwipe();
+                } else if (_isSwiping) {
+                    Swipe();
+                    Vector2 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
+                    if (vector.sqrMagnitude >= _sqrMinSwipe) {
+                        EndSwipe(vector);
+                    }
                 }
             }
 #endif
