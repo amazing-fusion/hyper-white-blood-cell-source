@@ -2829,15 +2829,6 @@ Prefab:
       propertyPath: _cameraEffect
       value: 
       objectReference: {fileID: 1854345137}
-    - target: {fileID: 212858882507163128, guid: a57ff097b62b041419d5f4ab9895070d,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4823544674630564, guid: a57ff097b62b041419d5f4ab9895070d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.41
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a57ff097b62b041419d5f4ab9895070d, type: 2}
   m_IsPrefabParent: 0
