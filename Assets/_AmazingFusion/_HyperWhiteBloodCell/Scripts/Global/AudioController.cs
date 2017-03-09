@@ -33,14 +33,26 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         [SerializeField]
         AudioClip _damageEnemySound;
-        
-        
+
+
         #endregion;
 
         #region Private Members
 
+        bool _isOn;
+
         AudioSource _musicSource;
         AudioSource _gameFxSource;
+
+        public bool IsOn {
+            get {
+                return _isOn;
+            }
+
+            set {
+                _isOn = value;
+            }
+        }
 
         #endregion
 
@@ -57,15 +69,25 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             //SoundOn(SettingsManager.Instance.SoundOn);
         }
 
-        public void MusicOn(bool on)
-        {
-            _musicSource.volume = on ? 1 : 0;
+        void Start() {
+            _isOn = PersistanceManager.Instance.AudioOn;
         }
 
-        public void SoundOn(bool on)
-        {
-            _gameFxSource.volume = on ? 1 : 0;
+        public void SwitchAudio() {
+            _isOn = !_isOn;
+            _musicSource.volume = _isOn ? 1 : 0;
+            _gameFxSource.volume = _isOn ? 1 : 0;
         }
+
+        //public void MusicOn(bool on)
+        //{
+        //    _musicSource.volume = on ? 1 : 0;
+        //}
+
+        //public void SoundOn(bool on)
+        //{
+        //    _gameFxSource.volume = on ? 1 : 0;
+        //}
 
         public void PlayMusic(AudioClip music)
         {
