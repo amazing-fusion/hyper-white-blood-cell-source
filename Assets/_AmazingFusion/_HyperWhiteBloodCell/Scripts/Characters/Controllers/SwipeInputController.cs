@@ -58,7 +58,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             End();
         }
 
-        void LevelEnd(Room room) {
+        void LevelEnd(Room room, bool win) {
             End();
         }
 

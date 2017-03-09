@@ -45,7 +45,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             UpdateManager.Instance.Add(this);
         }
 
-        void LevelEnd(Room room) {
+        void LevelEnd(Room room, bool win) {
             UpdateManager.Instance.Remove(this);
         }
 

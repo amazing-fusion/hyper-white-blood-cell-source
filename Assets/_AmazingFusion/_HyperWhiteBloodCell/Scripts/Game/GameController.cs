@@ -74,13 +74,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void EndGame() {
+            LevelManager.Instance.CurrentRoom.LoseLevel();
             _gameIsActive = false;
             UpdateManager.Instance.Remove(this);
         }
 
         void CheckEnemyList()
         {
-            if (LevelManager.HasInstance) {
+            if (LevelManager.HasInstance && LevelManager.Instance.CurrentRoom.Started) {
                 if (EnemyCounter._enemies.Count <= 0) {
                     LevelManager.Instance.CurrentRoom.EndLevel();
                 }
@@ -111,6 +112,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             //NextLevelView.Instance.StartLevel();
         }
 
+        public void Revive()
+        {
+            _gameIsActive = true;
+            _player.Initialize();
+            NextLevelView.Instance.Show();
+            if (OnGameRestart != null) OnGameRestart();
+            //LevelManager.Instance.VideoLevel();
+        }
+
         public void RestartGame() {
             if (OnGameRestart != null) OnGameRestart();
             StartGame();
@@ -138,7 +148,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             UpdateManager.Instance.Add(this);
         }
 
-        void EndLevel(Room room) {
+        void EndLevel(Room room, bool win) {
             UpdateManager.Instance.Remove(this);
         }
 

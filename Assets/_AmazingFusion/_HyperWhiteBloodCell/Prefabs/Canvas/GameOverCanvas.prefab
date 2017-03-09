@@ -396,6 +396,7 @@ MonoBehaviour:
   _timeText1: {fileID: 114527886396802330}
   _scoreText: {fileID: 114450265938434056}
   _bestScoreText: {fileID: 114690426538860152}
+  _videoButton: {fileID: 114505129959691816}
   _showAnimation: {fileID: 114856788135114002}
   _hideAnimation: {fileID: 114829424745337848}
 --- !u!114 &114444138075258444
