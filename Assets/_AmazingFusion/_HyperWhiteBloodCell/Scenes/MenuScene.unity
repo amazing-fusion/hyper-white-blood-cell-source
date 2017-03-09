@@ -96,6 +96,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1902347754014798, guid: a07fab8b4b4b7ea41aa6283515297ae7,
     type: 2}
   m_PrefabInternal: {fileID: 942505020}
+--- !u!1 &108465649 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1970328372170486, guid: a07fab8b4b4b7ea41aa6283515297ae7,
+    type: 2}
+  m_PrefabInternal: {fileID: 942505020}
 --- !u!1 &123431668 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1865132888287756, guid: a07fab8b4b4b7ea41aa6283515297ae7,
@@ -511,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearID: 0
-  IDs: 8c0f0000910f0000920f0000091000000a1000000b1000000c1000000d10000096100000971000009d1000009e1000009f100000a0100000a1100000a2100000a3100000a4100000a5100000a9100000aa100000af100000b0100000b1100000
+  IDs: 8c0f0000910f0000920f0000091000000a1000000b1000000c1000000d10000096100000971000009d1000009e1000009f100000a0100000a1100000a2100000a3100000a4100000a5100000a9100000aa100000af100000b0100000b1100000c1100000
   OBJs:
   - {fileID: 1214020732}
   - {fileID: 123431668}
@@ -537,6 +542,7 @@ MonoBehaviour:
   - {fileID: 359165638}
   - {fileID: 0}
   - {fileID: 501301387}
+  - {fileID: 108465649}
 --- !u!4 &1444801429
 Transform:
   m_ObjectHideFlags: 1
@@ -719,7 +725,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982175570 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1970328372170486, guid: a07fab8b4b4b7ea41aa6283515297ae7,
+  m_PrefabParentObject: {fileID: 1813973831478816, guid: a07fab8b4b4b7ea41aa6283515297ae7,
     type: 2}
   m_PrefabInternal: {fileID: 942505020}
 --- !u!1 &2036116924 stripped
