@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: TwitterShare
+  MethodName: 547769747465725368617265
 --- !u!114 &347875900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareImage
+  MethodName: 5368617265496d616765
 --- !u!114 &401504979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareWhatsapp
+  MethodName: 53686172655768617473617070
 --- !u!114 &422928382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareFB
+  MethodName: 53686172654642
 --- !u!114 &712342821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareScreehshot
+  MethodName: 536861726553637265656873686f74
 --- !u!114 &807895427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3779,7 +3779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: InstaShare
+  MethodName: 496e7374615368617265
 --- !u!114 &986172871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5873,7 +5873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GoogleShare
+  MethodName: 476f6f676c655368617265
 --- !u!114 &1832445957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6342,7 +6342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareText
+  MethodName: 536861726554657874
 --- !u!1 &1937946727
 GameObject:
   m_ObjectHideFlags: 0
@@ -6617,7 +6617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: ShareMail
+  MethodName: 53686172654d61696c
 --- !u!114 &1985378902
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -66,6 +66,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _explosionParticles.Stop();
         }
 
+        void OnDestroy() {
+            _damageController.OnDie -= EffectsDiedEnemy;
+            _damageController.OnTakeDamage -= EffectScaleDamage;
+        }
 
         public void EffectScaleDamage()
         {

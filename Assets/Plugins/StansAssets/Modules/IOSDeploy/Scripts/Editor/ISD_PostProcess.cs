@@ -49,7 +49,7 @@ namespace SA.IOSDeploy {
 
 
 
-			foreach(BaseFramework framework in ISD_Settings.Instance.BaseFrameworks){
+			foreach(Framework framework in ISD_Settings.Instance.Frameworks){
 				string optional = "|0";
 				if(framework.IsOptional){
 					optional = "|1";

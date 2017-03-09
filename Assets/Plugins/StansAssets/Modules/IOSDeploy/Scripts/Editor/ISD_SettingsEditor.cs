@@ -34,6 +34,9 @@ namespace SA.IOSDeploy {
 
 
 		public static int NewBaseFrameworkIndex = 0;
+		public static int NewLibraryIndex = 0;
+
+		private static bool GUI_ENABLED  = true;
 
 		private static GUIContent SdkVersion   = new GUIContent("Plugin Version [?]", "This is Plugin version.  If you have problems or compliments please include this so we know exactly what version to look out for.");
 	
@@ -101,8 +104,12 @@ namespace SA.IOSDeploy {
 
 
 #if DISABLED
-GUI.enabled = false;
+GUI_ENABLED = false;
+#else
+GUI_ENABLED = true;
 #endif
+
+			GUI.enabled = GUI_ENABLED;
 			EditorGUILayout.Space();
 			switch (ISD_Settings.Instance.ToolbarIndex) {
 			case 0:
@@ -184,7 +191,7 @@ GUI.enabled = false;
 			if (ISD_Settings.Instance.IsDefFrameworksOpen) {
 
 				EditorGUILayout.BeginVertical (GUI.skin.box);
-				foreach (BaseFramework framework in ISD_FrameworkHandler.DefaultFrameworks) {
+				foreach (Framework framework in ISD_FrameworkHandler.DefaultFrameworks) {
 					SA.Common.Editor.Tools.SelectableLabel (framework.Type.ToString () + ".framework", "");
 					//AvailableFrameworks;
 				}
@@ -196,32 +203,30 @@ GUI.enabled = false;
 
 
 			EditorGUILayout.Space ();
-			//	EditorGUILayout.Space ();
+
 			GUI.enabled = false ;
 			EditorGUILayout.TextArea("",GUI.skin.horizontalSlider);
-			GUI.enabled = true;
+			GUI.enabled = GUI_ENABLED;
 
 
 			EditorGUILayout.LabelField ("Custom IOS Frameworks", EditorStyles.boldLabel);
-			if (ISD_Settings.Instance.BaseFrameworks.Count == 0) {
+			if (ISD_Settings.Instance.Frameworks.Count == 0) {
 				EditorGUILayout.HelpBox ("No Frameworks Added", MessageType.None);
 			}else{
 
 
 
-				foreach (BaseFramework framework in ISD_Settings.Instance.BaseFrameworks) {
+				foreach (Framework framework in ISD_Settings.Instance.Frameworks) {
 					EditorGUILayout.BeginVertical (GUI.skin.box);
 					EditorGUI.indentLevel++;
 					EditorGUILayout.BeginHorizontal ();
-
-					//GUI.enabled = false;
 
 					framework.IsOpen = EditorGUILayout.Foldout(framework.IsOpen, framework.TypeString);
 					if(framework.IsOptional) {
 						EditorGUILayout.LabelField("(Optional)");
 					}
 
-					bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons ((object)framework, ISD_Settings.Instance.BaseFrameworks);
+					bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons ((object)framework, ISD_Settings.Instance.Frameworks);
 					if (ItemWasRemoved) {
 						return;
 					}
@@ -247,18 +252,19 @@ GUI.enabled = false;
 			NewBaseFrameworkIndex = EditorGUILayout.Popup(NewBaseFrameworkIndex, ISD_FrameworkHandler.BaseFrameworksArray());
 
 			if(GUILayout.Button("Add Framework",  GUILayout.Height(20))) {
-				BaseFramework bf =  new BaseFramework();
-				bf.Index = NewBaseFrameworkIndex;
+				var type = ISD_FrameworkHandler.BaseFrameworksArray () [NewBaseFrameworkIndex];
 				NewBaseFrameworkIndex = 0;
-				ISD_Settings.Instance.BaseFrameworks.Add(bf);
+
+				Framework f =  new Framework(type);
+				ISD_Settings.Instance.Frameworks.Add(f);
 			}
 
-			EditorGUILayout.Space();
+			//EditorGUILayout.Space();
 			EditorGUILayout.EndHorizontal();
 
 
-			EditorGUILayout.Space();
-			SA.Common.Editor.Tools.DrawSeparatorLine ();
+			//EditorGUILayout.Space();
+			DrawSeparatorLine ();
 
 				
 
@@ -273,51 +279,12 @@ GUI.enabled = false;
 					EditorGUILayout.LabelField (s);
 					EditorGUILayout.EndHorizontal ();
 				}
-				GUI.enabled = true;
+				GUI.enabled = GUI_ENABLED;
 				EditorGUILayout.EndVertical ();
 			} else {
 				//EditorGUILayout.HelpBox ("Not found any custom \".framework\" in project", MessageType.None);
 			}
-
-
-
-			foreach(Framework framework in ISD_Settings.Instance.Frameworks) {
-				EditorGUILayout.BeginVertical (GUI.skin.box);
-
-				EditorGUILayout.BeginHorizontal();
-				framework.IsOpen = EditorGUILayout.Foldout(framework.IsOpen, framework.Name);
-
-				if(framework.IsOptional) {
-					EditorGUILayout.LabelField("(Optional)");
-				}
-				bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons((object) framework, ISD_Settings.Instance.Frameworks);
-				if(ItemWasRemoved) {
-					return;
-				}
-
-				EditorGUILayout.EndHorizontal();
-
-
-				if(framework.IsOpen) {
-					EditorGUILayout.Space();	
-					framework.Name = SA.Common.Editor.Tools.TextField ("Full Name:", framework.Name);
-					framework.IsOptional = SA.Common.Editor.Tools.YesNoFiled ("Is Optional", framework.IsOptional);
-				}
-
-				EditorGUILayout.EndVertical ();
-			}
-
-//			EditorGUILayout.Space();
-//			EditorGUILayout.BeginHorizontal();
-//			EditorGUILayout.Space();
-//			if(GUILayout.Button("Add New Framework", /*EditorStyles.miniButton,*/ GUILayout.Width(250))) {
-//				Framework f =  new Framework();
-//				f.Name = "NewFramework.framework";
-//				ISD_Settings.Instance.Frameworks.Add(f);		
-//			}
-//			EditorGUILayout.Space();
-//
-//			EditorGUILayout.EndHorizontal();
+				
 		}
 
 
@@ -327,7 +294,7 @@ GUI.enabled = false;
 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUI.indentLevel++;
-			ISD_Settings.Instance.IsDefLibrariesOpen = EditorGUILayout.Foldout(ISD_Settings.Instance.IsDefFrameworksOpen, "Default Unity Libraries (2 Enabled)");
+			ISD_Settings.Instance.IsDefLibrariesOpen = EditorGUILayout.Foldout(ISD_Settings.Instance.IsDefLibrariesOpen, "Default Unity Libraries (2 Enabled)");
 			EditorGUI.indentLevel--;
 			EditorGUILayout.EndHorizontal();
 
@@ -343,14 +310,9 @@ GUI.enabled = false;
 
 				EditorGUILayout.Space ();
 			}
+			EditorGUILayout.Space ();
+			DrawSeparatorLine ();
 
-			SA.Common.Editor.Tools.DrawSeparatorLine ();
-
-
-
-
-		
-		
 
 			EditorGUILayout.LabelField("Custom Libraries", EditorStyles.boldLabel);	
 			if (ISD_Settings.Instance.Libraries.Count == 0) {
@@ -375,8 +337,6 @@ GUI.enabled = false;
 					EditorGUILayout.EndHorizontal();
 
 					if(lib.IsOpen) {
-
-						lib.Name = SA.Common.Editor.Tools.TextField ("Full Name:", lib.Name);
 						lib.IsOptional = SA.Common.Editor.Tools.YesNoFiled ("Optional", lib.IsOptional);
 						EditorGUILayout.Space ();
 					
@@ -387,22 +347,26 @@ GUI.enabled = false;
 				}
 			}EditorGUI.indentLevel--;
 
-			EditorGUILayout.Space();
+			//EditorGUILayout.Space();
 
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.Space();
-			if(GUILayout.Button("Add New Library",  GUILayout.Width(250))) {
-				Lib lib = new Lib();
-				lib.Name = "NewLibrary";
-				ISD_Settings.Instance.Libraries.Add(lib);
+
+			EditorGUILayout.BeginHorizontal ();
+			EditorStyles.popup.fixedHeight = 20;
+			NewLibraryIndex = EditorGUILayout.Popup(NewLibraryIndex, ISD_LibHandler.BaseLibrariesArray());
+
+			if(GUILayout.Button("Add Library",  GUILayout.Height(20))) {
+				iOSLibrary type = (iOSLibrary) ISD_LibHandler.enumValueOf( ISD_LibHandler.BaseLibrariesArray()[NewLibraryIndex]);
+
+				NewLibraryIndex = 0;
+				Debug.Log ("Adding new library with type  = " + type.ToString() );
+				ISD_Settings.Instance.AddLibrary(type);
 			}
-			EditorGUILayout.Space();
+				
 			EditorGUILayout.EndHorizontal();
 
 
 
-
-			SA.Common.Editor.Tools.DrawSeparatorLine ();
+			DrawSeparatorLine ();
 
 
 
@@ -410,11 +374,9 @@ GUI.enabled = false;
 			if (foundedLibraries.Count > 0) {
 				EditorGUILayout.LabelField("Libraries Inide Current Project", EditorStyles.boldLabel);
 				EditorGUILayout.BeginVertical (GUI.skin.box);
-				//GUI.enabled = false;
 				foreach (string s in foundedLibraries) {
 					SA.Common.Editor.Tools.SelectableLabel (s, "");
 				}
-				//GUI.enabled = true;
 				EditorGUILayout.EndVertical ();
 			} 
 
@@ -586,7 +548,7 @@ GUI.enabled = false;
 				if (NewPlistValueName.Length > 0) {
 					Variable var = new Variable ();
 					var.Name = NewPlistValueName;
-					ISD_Settings.Instance.AddNewVariable(var);					
+					ISD_Settings.Instance.AddVariable(var);					
 				}
 				NewPlistValueName = string.Empty;
 			}
@@ -601,8 +563,7 @@ GUI.enabled = false;
 			EditorGUILayout.BeginHorizontal();
 
 			if(var.Name.Length > 0) {
-				var.IsOpen = EditorGUILayout.Foldout(var.IsOpen, var.Name);
-				EditorGUILayout.LabelField("(" + var.Type.ToString() +  ")");
+				var.IsOpen = EditorGUILayout.Foldout(var.IsOpen, var.Name + "   (" + var.Type.ToString() +  ")");
 			} else {
 				var.IsOpen = EditorGUILayout.Foldout(var.IsOpen, var.Type.ToString());
 			}
@@ -624,7 +585,7 @@ GUI.enabled = false;
 					if (var.ChildrensIds.Count > 0) {
 						GUI.enabled = false;
 						var.Type = (PlistValueTypes)EditorGUILayout.EnumPopup (var.Type);
-						GUI.enabled = true;
+						GUI.enabled = GUI_ENABLED;
 					} else {
 						var.Type = (PlistValueTypes)EditorGUILayout.EnumPopup (var.Type);
 					}
@@ -729,6 +690,11 @@ GUI.enabled = false;
 
 		}
 
+		public static void DrawSeparatorLine()  {
+			GUI.enabled = false ;
+			EditorGUILayout.TextArea("",GUI.skin.horizontalSlider);
+			GUI.enabled = GUI_ENABLED;
+		}
 
 
 

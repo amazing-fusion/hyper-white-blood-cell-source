@@ -18,19 +18,19 @@ using com.amazon.device.iap.cpt;
 
 [System.Serializable]
 public class AmazonProductTemplate {
-
+	
 	//Editor Only
 	public bool IsOpen = true;
-
+	
 	[SerializeField]
 	private string _LocalizedPrice = "0.99 $";
-
+	
 	[SerializeField]
 	private long   _PriceAmountMicros = 990000;
-
+	
 	[SerializeField]
 	private string _PriceCurrencyCode = "USD";
-
+	
 	[SerializeField]
 	private string _sku = string.Empty;
 	[SerializeField]
@@ -45,9 +45,9 @@ public class AmazonProductTemplate {
 	private string _smallIconUrl = string.Empty;
 	[SerializeField]
 	private Texture2D _Texture;
-
+	
 	#if AMAZON_BILLING_ENABLED
-
+	
 	public AmazonProductTemplate(ProductData item) {
 		_sku 			= item.Sku;
 		_productType 	= (AMN_InAppType)Enum.Parse(typeof(AMN_InAppType), item.ProductType);
@@ -57,10 +57,10 @@ public class AmazonProductTemplate {
 		_smallIconUrl 	= item.SmallIconUrl;
 	}
 	#endif
-
+	
 	public AmazonProductTemplate() {		
 	}
-
+	
 	public string Sku {
 		get {
 			return _sku;
@@ -84,7 +84,7 @@ public class AmazonProductTemplate {
 			return _price;
 		}
 	}
-
+	
 	public string Title {
 		get {
 			return _title;
@@ -93,7 +93,7 @@ public class AmazonProductTemplate {
 			_title = value;
 		}
 	}
-
+	
 	public string Description {
 		get {
 			return _description;
@@ -102,13 +102,13 @@ public class AmazonProductTemplate {
 			_description = value;
 		}
 	}
-
+	
 	public string SmallIconUrl {
 		get {
 			return _smallIconUrl;
 		}
 	}
-
+	
 	public Texture2D Texture {
 		get {
 			return _Texture;
@@ -117,22 +117,22 @@ public class AmazonProductTemplate {
 			_Texture = value;
 		}
 	}
-
+	
 	public string PriceCurrencyCode  {
 		get {
 			return _PriceCurrencyCode;
 		}
-
+		
 		set {
 			_PriceCurrencyCode = value;
 		}
 	}
-
+	
 	public string LocalizedPrice {
 		get {
 			return _LocalizedPrice;
 		}
-
+		
 		set {
 			_LocalizedPrice = value;
 		}

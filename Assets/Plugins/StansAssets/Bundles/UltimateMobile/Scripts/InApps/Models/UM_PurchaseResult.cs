@@ -45,7 +45,13 @@ public class UM_PurchaseResult  {
 				}
 			case RuntimePlatform.IPhonePlayer:
 				return IOS_PurchaseInfo.TransactionIdentifier;
+			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 			case RuntimePlatform.WP8Player:
+			#else
+			case RuntimePlatform.WSAPlayerARM:
+			case RuntimePlatform.WSAPlayerX64:
+			case RuntimePlatform.WSAPlayerX86:
+			#endif
 				return WP8_PurchaseInfo.TransactionId;
 			default:
 				return string.Empty;

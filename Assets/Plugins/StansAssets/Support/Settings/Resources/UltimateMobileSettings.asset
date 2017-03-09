@@ -11,22 +11,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91a7deec5b9f48e785f526d406a9b0f, type: 3}
   m_Name: UltimateMobileSettings
   m_EditorClassIdentifier: 
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 2
   InAppProducts: []
   TransactionsHandlingMode: 0
   InApps_EditorFillRateIndex: 4
   InApps_EditorFillRate: 100
   Is_InApps_EditorTestingEnabled: 1
   IsInAppSettingsProductsOpen: 1
-  Leaderboards: []
-  Achievements: []
-  AutoLoadUsersSmallImages: 1
+  Leaderboards:
+  - id: leaderboard_ranking
+    IsOpen: 1
+    IOSId: new leaderboard1
+    AndroidId: CgkIsba1640CEAIQAA
+    AmazonId: new leaderboard1
+    _Description: 
+    _Texture: {fileID: 0}
+  Achievements:
+  - IsOpen: 1
+    id: achievement_defeat_10_germs
+    _Steps: 1
+    _Description: 
+    _Texture: {fileID: 0}
+    IsIncremental: 0
+    IOSId: new achievment1
+    AndroidId: CgkIsba1640CEAIQAg
+    AmazonId: new achievment1
+  - IsOpen: 1
+    id: achievement_defeat_100_germs
+    _Steps: 1
+    _Description: 
+    _Texture: {fileID: 0}
+    IsIncremental: 0
+    IOSId: new achievment1
+    AndroidId: CgkIsba1640CEAIQAw
+    AmazonId: new achievment1
+  - IsOpen: 1
+    id: achievement_defeat_1000_germs
+    _Steps: 1
+    _Description: 
+    _Texture: {fileID: 0}
+    IsIncremental: 0
+    IOSId: new achievment1
+    AndroidId: CgkIsba1640CEAIQBA
+    AmazonId: new achievment1
+  - IsOpen: 1
+    id: achievement_defeat_10000_germs
+    _Steps: 1
+    _Description: 
+    _Texture: {fileID: 0}
+    IsIncremental: 0
+    IOSId: new achievment1
+    AndroidId: CgkIsba1640CEAIQBQ
+    AmazonId: new achievment1
+  - IsOpen: 1
+    id: achievement_reach_level_10
+    _Steps: 1
+    _Description: 
+    _Texture: {fileID: 0}
+    IsIncremental: 0
+    IOSId: new achievment1
+    AndroidId: CgkIsba1640CEAIQBg
+    AmazonId: new achievment1
+  AutoLoadUsersSmallImages: 0
   AutoLoadUsersBigImages: 0
-  AutoLoadLeaderboardsInfo: 1
-  AutoLoadAchievementsInfo: 1
+  AutoLoadLeaderboardsInfo: 0
+  AutoLoadAchievementsInfo: 0
   IsAchievementsOpen: 1
-  IsLeaderBoardsOpen: 1
-  IOSAdEdngine: 0
+  IsLeaderBoardsOpen: 0
+  IOSAdEdngine: 1
   WP8AdEdngine: 0
   IsCameraAndGallerySettingsOpen: 1
   IsCameraAndGalleryAndroidSettingsOpen: 0

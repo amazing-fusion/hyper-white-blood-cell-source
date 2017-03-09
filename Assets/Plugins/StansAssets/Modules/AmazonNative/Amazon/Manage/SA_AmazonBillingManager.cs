@@ -87,13 +87,13 @@ public class SA_AmazonBillingManager : AMN_Singleton<SA_AmazonBillingManager> {
 		AMN_PurchaseResponse result;
 
 		if (data.Status.Equals (status.SUCCESSFUL.ToString())) {			
-				result = new AMN_PurchaseResponse (data);
-				iapService.NotifyFulfillment(new NotifyFulfillmentInput() {
+			result = new AMN_PurchaseResponse (data);
+			iapService.NotifyFulfillment(new NotifyFulfillmentInput() {
 				ReceiptId = data.PurchaseReceipt.ReceiptId,
 				FulfillmentResult = "FULFILLED"
-				});
+			});
 		} else {
-				result = new AMN_PurchaseResponse (data, currentSKU);
+			result = new AMN_PurchaseResponse (data, currentSKU);
 		}
 
 		OnPurchaseProductReceived(result);
@@ -168,7 +168,6 @@ public class SA_AmazonBillingManager : AMN_Singleton<SA_AmazonBillingManager> {
 
 	public void Purchase(string SKU) {
 		#if AMAZON_BILLING_ENABLED
-
 		currentSKU = SKU;
 
 		// Construct object passed to operation as input

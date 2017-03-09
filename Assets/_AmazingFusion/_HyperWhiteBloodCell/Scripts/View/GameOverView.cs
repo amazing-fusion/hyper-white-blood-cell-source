@@ -12,10 +12,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         TMP_Text _deathText;
 
         [SerializeField]
-        TMP_Text _levelText;
+        TMP_Text _deathText1;
 
         [SerializeField]
-        TMP_Text _bestLevelText;
+        TMP_Text _timeText;
+
+        [SerializeField]
+        TMP_Text _timeText1;
+
+        [SerializeField]
+        TMP_Text _scoreText;
+
+        [SerializeField]
+        TMP_Text _bestScoreText;
 
         [SerializeField]
         AlphaCanvasGroupEasingAnimation _showAnimation;
@@ -52,17 +61,27 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void OnPlayerDie()
         {
-            _deathText.text = "You're infected!";
-            _levelText.text = string.Format("Level {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
-            _bestLevelText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
+            _deathText.enabled = true;
+            _deathText1.enabled = true;
+            _timeText.enabled = false;
+            _timeText1.enabled = false;
+            _deathText.text = "You're";
+            _deathText1.text = "infected!";
+           _scoreText.text = string.Format("Score {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
+            _bestScoreText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
 
         void OnTimeOver() {
-            _deathText.text = "Time's\nup!";
-            _levelText.text = string.Format("Level {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
-            _bestLevelText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
+            _deathText.enabled = false;
+            _deathText1.enabled = false;
+            _timeText.enabled = true;
+            _timeText1.enabled = true;
+            _timeText.text = "Time's";
+            _timeText1.text = "up!";
+            _scoreText.text = string.Format("Score {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
+            _bestScoreText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
@@ -78,6 +97,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             _hideAnimation.CanvasGroup.interactable = false;
             ScenesManager.Instance.LoadScene(ScenesManager.Scene.MenuScene);
+        }
+
+        public void GoToAddVideo()
+        {
+            AdsController.Instance.ShowRewardedVideoAd();
         }
     }
 }

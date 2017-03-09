@@ -25,8 +25,6 @@ public class AMN_GetPurchaseProductsUpdateResponse : AMN_Result {
 	private string _status = string.Empty;
 	private bool _hasMore = false;
 
-	private Dictionary<string, string> _Products = new Dictionary<string, string>();
-
 	#if AMAZON_BILLING_ENABLED
 	public AMN_GetPurchaseProductsUpdateResponse(GetPurchaseUpdatesResponse data) : base(true) {
 		_requestId = data.RequestId;
@@ -35,10 +33,6 @@ public class AMN_GetPurchaseProductsUpdateResponse : AMN_Result {
 		_receipts = data.Receipts;
 		_status = data.Status;
 		_hasMore = data.HasMore;
-
-		foreach (PurchaseReceipt receipt in _receipts) {
-			_Products.Add(receipt.Sku, receipt.ReceiptId);
-		}
 	}
 	#else
 	public AMN_GetPurchaseProductsUpdateResponse() : base(true) {
@@ -68,13 +62,6 @@ public class AMN_GetPurchaseProductsUpdateResponse : AMN_Result {
 		}
 	}
 	#endif
-
-	public Dictionary<string, string> Products {
-		get {
-			return _Products;
-		}
-	}
-
 	public string Status {
 		get {
 			return _status;

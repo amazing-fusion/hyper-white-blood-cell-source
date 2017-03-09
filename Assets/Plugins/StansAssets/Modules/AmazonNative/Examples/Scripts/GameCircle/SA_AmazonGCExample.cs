@@ -208,6 +208,6 @@ public class SA_AmazonGCExample : MonoBehaviour  {
 	}
 
 	private void SubmitLeaderBoardProgress() {
-		SA_AmazonGameCircleManager.Instance.SubmitLeaderBoardProgress (leaderboard_id, leaderboard_progress);
+		SA_AmazonGameCircleManager.Instance.SubmitLeaderBoardProgress (leaderboard_id, leaderboard_progress++);
 	}
 }

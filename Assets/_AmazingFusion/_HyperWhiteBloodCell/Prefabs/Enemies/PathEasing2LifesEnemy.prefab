@@ -211,7 +211,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365133962275220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9543216, y: 0.19073069, z: 1}
+  m_LocalPosition: {x: -0.84012985, y: -1.3240751, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087833246827414}
@@ -477,6 +477,8 @@ MonoBehaviour:
   _collider: {fileID: 58272724656035600}
   _harmfulTags:
   - DashingPlayer
+  _immortalityTimeAfterDamage: 0
+  _immortalityEffect: {fileID: 0}
 --- !u!114 &114915626369114222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wayPointsPath: []
   _invertPathOnEnd: 0
-  _reachDistance: 0
+  _reachDistance: 0.1
   _updateMovementRate: -1
 --- !u!198 &198578805779964244
 ParticleSystem:
@@ -5884,7 +5886,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 788f116da2201e9499ac6be5399a8e52, type: 3}
+  m_Sprite: {fileID: 21300022, guid: 49dff2ff7391a96419489bb96af50832, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

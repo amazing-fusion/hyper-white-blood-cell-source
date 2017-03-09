@@ -12,27 +12,12 @@ public class IOSNativePostProcess  {
 
 
 		if(IOSNativeSettings.Instance.EnableInAppsAPI) {
-
-			string StoreKit = "StoreKit.framework";
-
-
-
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(StoreKit)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = StoreKit;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
-
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.StoreKit);
 		}
 
 		if(IOSNativeSettings.Instance.EnableGameCenterAPI) {
-			
-			string GameKit = "GameKit.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(GameKit)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = GameKit;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.GameKit);
 
 			SA.IOSDeploy.Variable UIRequiredDeviceCapabilities =  new SA.IOSDeploy.Variable();
 			UIRequiredDeviceCapabilities.Name = "UIRequiredDeviceCapabilities";
@@ -50,7 +35,7 @@ public class IOSNativePostProcess  {
 			UIRequiredDeviceCapabilities.AddChild(armv7);
 
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(UIRequiredDeviceCapabilities);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(UIRequiredDeviceCapabilities);
 
 		}
 
@@ -87,9 +72,7 @@ public class IOSNativePostProcess  {
 
 					CFBundleURLSchemes.AddChild (Scheme);
 				}
-
 			}
-
 
 			foreach(SA.IOSDeploy.Variable v in  SA.IOSDeploy.ISD_Settings.Instance.PlistVariables) {
 				if(v.Name.Equals(CFBundleURLTypes.Name)) {
@@ -97,7 +80,6 @@ public class IOSNativePostProcess  {
 					break;
 				}
 			}
-
 			SA.IOSDeploy.ISD_Settings.Instance.PlistVariables.Add (CFBundleURLTypes);
 		}
 
@@ -105,29 +87,12 @@ public class IOSNativePostProcess  {
 
 
 		if(IOSNativeSettings.Instance.EnableSocialSharingAPI) {
-		
-			string Accounts = "Accounts.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(Accounts)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = Accounts;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
 
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.Accounts);
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.Social);
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.MessageUI);
 			
-			
-			string SocialF = "Social.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(SocialF)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = SocialF;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
-			
-			string MessageUI = "MessageUI.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(MessageUI)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = MessageUI;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+
 
 			string QueriesSchemesName = "LSApplicationQueriesSchemes";
 			SA.IOSDeploy.Variable LSApplicationQueriesSchemes = SA.IOSDeploy.ISD_Settings.Instance.GetVariableByName (QueriesSchemesName);
@@ -148,8 +113,7 @@ public class IOSNativePostProcess  {
 			LSApplicationQueriesSchemes.AddChild(whatsapp);
 
 
-			SA.IOSDeploy.ISD_Settings.Instance.PlistVariables.Remove(LSApplicationQueriesSchemes);
-			SA.IOSDeploy.ISD_Settings.Instance.PlistVariables.Add(LSApplicationQueriesSchemes);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable (LSApplicationQueriesSchemes);
 
 		}
 			
@@ -171,19 +135,14 @@ public class IOSNativePostProcess  {
 				LSApplicationQueriesSchemes.AddChild(schemeName);
 			}
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(LSApplicationQueriesSchemes);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(LSApplicationQueriesSchemes);
 		}
 
 
 
 
 		if(IOSNativeSettings.Instance.EnableMediaPlayerAPI) {
-			string MediaPlayer = "MediaPlayer.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(MediaPlayer)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = MediaPlayer;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.MediaPlayer);
 				
 
 			var NSAppleMusicUsageDescription =  new SA.IOSDeploy.Variable();
@@ -192,19 +151,14 @@ public class IOSNativePostProcess  {
 			NSAppleMusicUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
 
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(NSAppleMusicUsageDescription);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSAppleMusicUsageDescription);
 
 		}
 	
 
 		if(IOSNativeSettings.Instance.EnableCameraAPI) {
-			string MobileCoreServices = "MobileCoreServices.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(MobileCoreServices)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = MobileCoreServices;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
 
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.MobileCoreServices);
 
 
 			var NSCameraUsageDescription =  new SA.IOSDeploy.Variable();
@@ -212,7 +166,8 @@ public class IOSNativePostProcess  {
 			NSCameraUsageDescription.StringValue = IOSNativeSettings.Instance.CameraUsageDescription;
 			NSCameraUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(NSCameraUsageDescription);
+
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSCameraUsageDescription);
 
 
 
@@ -222,70 +177,40 @@ public class IOSNativePostProcess  {
 			NSPhotoLibraryUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
 
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(NSPhotoLibraryUsageDescription);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSPhotoLibraryUsageDescription);
 
 		}
 
 		if(IOSNativeSettings.Instance.EnableReplayKit) {
-			Debug.Log ("Replay Kit enabled");
-
-			string ReplayKit = "ReplayKit.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(ReplayKit)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = ReplayKit;
-				F.IsOptional = true;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+			var ReplayKit = SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.ReplayKit);
+			ReplayKit.IsOptional = true;
 		}
 
 
 		if(IOSNativeSettings.Instance.EnableCloudKit) {
 
-			Debug.Log ("Cloud Kit enabled");
+			var CloudKit = SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.CloudKit);
+			CloudKit.IsOptional = true;
 
-			string CloudKit = "CloudKit.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(CloudKit)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = CloudKit;
-				F.IsOptional = true;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
-
-
+	
 			string inheritedflag = "$(inherited)";
-
 			SA.IOSDeploy.ISD_Settings.Instance.AddLinkerFlag (inheritedflag);
 
 		}
 
 		if(IOSNativeSettings.Instance.EnablePickerAPI) {
-			string AssetsLibrary = "AssetsLibrary.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(AssetsLibrary)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = AssetsLibrary;
-				F.IsOptional = true;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+			var AssetsLibrary = SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.AssetsLibrary);
+			AssetsLibrary.IsOptional = true;
 		}
 
 
 		if(IOSNativeSettings.Instance.EnableContactsAPI) {
-			string Contacts = "Contacts.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(Contacts)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = Contacts;
-				F.IsOptional = true;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
 
+			var Contacts = SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.Contacts);
+			Contacts.IsOptional = true;
 
-			string ContactsUI = "ContactsUI.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(ContactsUI)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = ContactsUI;
-				F.IsOptional = true;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
+			var ContactsUI = SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.ContactsUI);
+			ContactsUI.IsOptional = true;
 
 
 			var NSContactsUsageDescription =  new SA.IOSDeploy.Variable();
@@ -294,34 +219,20 @@ public class IOSNativePostProcess  {
 			NSContactsUsageDescription.Type = SA.IOSDeploy.PlistValueTypes.String;
 
 
-			SA.IOSDeploy.ISD_Settings.Instance.AddOrReplaceNewVariable(NSContactsUsageDescription);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(NSContactsUsageDescription);
 
 		}
 
 		if(IOSNativeSettings.Instance.EnableSoomla) {
-			string AdSupport = "AdSupport.framework";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsFreamworkWithName(AdSupport)) {
-				SA.IOSDeploy.Framework F =  new SA.IOSDeploy.Framework();
-				F.Name = AdSupport;
-				SA.IOSDeploy.ISD_Settings.Instance.Frameworks.Add(F);
-			}
 
-			string libsqlite3 = "libsqlite3.dylib";
-			if(!SA.IOSDeploy.ISD_Settings.Instance.ContainsLibWithName(libsqlite3)) {
-				SA.IOSDeploy.Lib L =  new SA.IOSDeploy.Lib();
-				L.Name = libsqlite3;
-				SA.IOSDeploy.ISD_Settings.Instance.Libraries.Add(L);
-			}
-
-
+			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.AdSupport);
+			SA.IOSDeploy.ISD_Settings.Instance.AddLibrary (SA.IOSDeploy.iOSLibrary.libsqlite3);
 
 			#if UNITY_5
 				string soomlaLinkerFlag = "-force_load Libraries/Plugins/iOS/libSoomlaGrowLite.a";
 			#else
 				string soomlaLinkerFlag = "-force_load Libraries/libSoomlaGrowLite.a";
 			#endif
-
-
 
 			SA.IOSDeploy.ISD_Settings.Instance.AddLinkerFlag (soomlaLinkerFlag);
 		}

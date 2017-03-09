@@ -12,26 +12,25 @@ namespace SA.IOSDeploy {
 
 
 
-		private static List<BaseFramework> _DefaultFrameworks = null;
-	//	public static List<BaseFramework> BaseFrameworks =  new List<BaseFramework>();
+		private static List<Framework> _DefaultFrameworks = null;
 
-		public static List<BaseFramework> AvailableFrameworks{
+		public static List<Framework> AvailableFrameworks{
 			get{
-				List<BaseFramework> resultList = new List<BaseFramework> ();
-				List<string> strings = new List<string>( Enum.GetNames (typeof(IOSBaseFrameworks)));
-				foreach (BaseFramework frmwrk in ISD_Settings.Instance.BaseFrameworks) {
+				List<Framework> resultList = new List<Framework> ();
+				List<string> strings = new List<string>( Enum.GetNames (typeof(iOSFramework)));
+				foreach (Framework frmwrk in ISD_Settings.Instance.Frameworks) {
 					if (strings.Contains(frmwrk.Type.ToString())) {
 						strings.Remove (frmwrk.Type.ToString());
 					}
 				}
-				foreach (BaseFramework frmwrk in DefaultFrameworks) {
+				foreach (Framework frmwrk in DefaultFrameworks) {
 					if (strings.Contains(frmwrk.Type.ToString())) {
 						strings.Remove (frmwrk.Type.ToString());
 					}
 				}
-				foreach (IOSBaseFrameworks v in Enum.GetValues(typeof(IOSBaseFrameworks))) {
+				foreach (iOSFramework v in Enum.GetValues(typeof(iOSFramework))) {
 					if(strings.Contains(v.ToString())){
-						resultList.Add(new BaseFramework((IOSBaseFrameworks)v) );
+						resultList.Add(new Framework((iOSFramework)v) );
 					}
 				}
 				return resultList;
@@ -40,6 +39,7 @@ namespace SA.IOSDeploy {
 
 		public static List<string> GetImportedFrameworks(){
 			List<string> FoundedFrameworks = new List<string> ();
+			#if !UNITY_WSA
 			DirectoryInfo DirectoryPath = new DirectoryInfo (Application.dataPath);
 
 			string[] dirrExtensions = new[] { ".framework"};
@@ -51,94 +51,57 @@ namespace SA.IOSDeploy {
 
 			foreach (FileInfo file in allFiles) {
 				string NewFrameworkName = file.Name;
-				bool found = false;
-				foreach (Framework framework in ISD_Settings.Instance.Frameworks) {
-					if (framework.Name.Equals (NewFrameworkName)) {
-						found = true;
-					}
-				}
-				if (!found) {
-					FoundedFrameworks.Add (NewFrameworkName);
-				}
+				FoundedFrameworks.Add (NewFrameworkName);
 			}
+
+
 			foreach (DirectoryInfo file in dirrFiles) {
 				string NewFrameworkName = file.Name;
-				bool found = false;
-				foreach (Framework framework in ISD_Settings.Instance.Frameworks) {
-					if (framework.Name.Equals (NewFrameworkName)) {
-						found = true;
-					}
-				}
-				if (!found) {
-					FoundedFrameworks.Add (NewFrameworkName);
-				}
+				FoundedFrameworks.Add (NewFrameworkName);
 			}
+			#endif
 			return FoundedFrameworks;
 		}
 
 
 		public static List<string> GetImportedLibraries(){
 			List<string> FoundedFrameworks = new List<string> ();
+			#if !UNITY_WSA
 			DirectoryInfo DirectoryPath = new DirectoryInfo (Application.dataPath);
 
 			string[] fileExtensions = new[] {".a", ".dylib"};
-		//	string[] dirrExtensions = new[] { ".framework", ".bundle"};
 			FileInfo[] allFiles = DirectoryPath.GetFiles ("*", SearchOption.AllDirectories);
-		//	DirectoryInfo[] dirrFiles = DirectoryPath.GetDirectories ("*", SearchOption.AllDirectories);
 
 			allFiles = allFiles.Where(f => fileExtensions.Contains(f.Extension.ToLower())).ToArray();
-		//	dirrFiles = dirrFiles.Where (f => dirrExtensions.Contains (f.Extension.ToLower ())).ToArray ();
-
-			//	allFiles = allFiles.Intersect (dirrFiles);
 			foreach (FileInfo file in allFiles) {
 				string NewFrameworkName = file.Name;
-				bool found = false;
-				foreach (Framework framework in ISD_Settings.Instance.Frameworks) {
-					if (framework.Name.Equals (NewFrameworkName)) {
-						found = true;
-					}
-				}
-				if (!found) {
-					FoundedFrameworks.Add (NewFrameworkName);
-				}
+				FoundedFrameworks.Add (NewFrameworkName);
 			}
-//			foreach (DirectoryInfo file in dirrFiles) {
-//				string NewFrameworkName = file.Name;
-//				bool found = false;
-//				foreach (Framework framework in ISD_Settings.Instance.Frameworks) {
-//					if (framework.Name.Equals (NewFrameworkName)) {
-//						found = true;
-//					}
-//				}
-//				if (!found) {
-//					FoundedFrameworks.Add (NewFrameworkName);
-//				}
-//			}
+			#endif
 			return FoundedFrameworks;
 		}
 
-		public static List<BaseFramework> DefaultFrameworks{
+		public static List<Framework> DefaultFrameworks{
 			get{
 				if(_DefaultFrameworks == null){
-					_DefaultFrameworks = new List<BaseFramework>();
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreText));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.AudioToolbox));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.AVFoundation));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CFNetwork));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreGraphics));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreLocation));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreMedia));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreMotion));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.CoreVideo));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.Foundation));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.iAd));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.MediaPlayer));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.OpenAL));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.OpenGLES));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.QuartzCore));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.SystemConfiguration));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.UIKit));
-					_DefaultFrameworks.Add (new BaseFramework (IOSBaseFrameworks.GameKit));
+					_DefaultFrameworks = new List<Framework>();
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreText));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.AudioToolbox));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.AVFoundation));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CFNetwork));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreGraphics));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreLocation));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreMedia));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreMotion));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.CoreVideo));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.Foundation));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.iAd));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.MediaPlayer));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.OpenAL));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.OpenGLES));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.QuartzCore));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.SystemConfiguration));
+					_DefaultFrameworks.Add (new Framework (iOSFramework.UIKit));
 				}
 				return _DefaultFrameworks;
 			}
@@ -146,7 +109,7 @@ namespace SA.IOSDeploy {
 
 		public static string[] BaseFrameworksArray(){
 			List<string> array = new List<string> (AvailableFrameworks.Capacity);
-			foreach (BaseFramework framework in AvailableFrameworks) {
+			foreach (Framework framework in AvailableFrameworks) {
 				array.Add (framework.Type.ToString ());
 			}
 			return array.ToArray ();

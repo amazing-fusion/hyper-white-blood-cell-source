@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: RequestPermission
+  MethodName: 526571756573745065726d697373696f6e
 --- !u!114 &315338537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GetImageFromCamera
+  MethodName: 476574496d61676546726f6d43616d657261
 --- !u!114 &686164445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2821,7 +2821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: GetImageFromGallery
+  MethodName: 476574496d61676546726f6d47616c6c657279
 --- !u!114 &1703678980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3317,7 +3317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reciver: {fileID: 1896329699}
-  MethodName: CheckPermission
+  MethodName: 436865636b5065726d697373696f6e
 --- !u!1 &1952842232
 GameObject:
   m_ObjectHideFlags: 0

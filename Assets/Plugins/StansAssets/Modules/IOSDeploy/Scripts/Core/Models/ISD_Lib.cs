@@ -8,6 +8,8 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Reflection;
+using System.ComponentModel;
 
 
 namespace SA.IOSDeploy {
@@ -16,11 +18,24 @@ namespace SA.IOSDeploy {
 	public class Lib  {
 
 		//Editor Use Only
-		public bool IsOpen = true;
+		public bool IsOpen = false;
 		
-		public string Name;
+		public iOSLibrary Type;
 		public bool IsOptional;
-		
+
+		public Lib(iOSLibrary lib){
+			Type = lib;
+		}
+
+		public string Name {
+			get{
+				return ISD_LibHandler.stringValueOf(Type);
+			}
+		}
+
+
+
+
 	}
 
 }

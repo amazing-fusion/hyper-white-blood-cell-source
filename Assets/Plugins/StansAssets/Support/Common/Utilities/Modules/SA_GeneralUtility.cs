@@ -150,6 +150,7 @@ namespace SA.Common.Util {
 		/// HMAC SHA256 hex key 
 		/// </summary>
 		public static string  HMAC(string key, string data) {
+			#if !UNITY_WSA
 			var keyByte = ASCIIEncoding.UTF8.GetBytes(key);
 			using (var hmacsha256 = new HMACSHA256(keyByte)) {
 				hmacsha256.ComputeHash(ASCIIEncoding.UTF8.GetBytes(data));
@@ -162,6 +163,9 @@ namespace SA.Common.Util {
 				return sbinary.ToLower();
 
 			}
+			#else
+			return string.Empty;
+			#endif
 		}
 
 

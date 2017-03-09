@@ -9,12 +9,12 @@ using UnityEditor;
 
 public class AmazonNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "2.3/17";
+	public const string VERSION_NUMBER = "2.4/17";
 
-	public int ToolbarIndex = 0;	
+	public int ToolbarIndex = 0;
 	public bool ShowActions = true;
 	public bool ShowStoreParams = false;
-	
+
 	public bool IsGameCircleEnabled = false;
 	public bool IsBillingEnabled = false;
 	public bool IsAdvertisingEnabled = false;
@@ -62,26 +62,26 @@ public class AmazonNativeSettings : ScriptableObject {
 
 	private static AmazonNativeSettings instance = null;
 
-	
+
 	public static AmazonNativeSettings Instance {
-		
+
 		get {
 			if (instance == null) {
 				instance = Resources.Load(AMNSettingsAssetName) as AmazonNativeSettings;
-				
+
 				if (instance == null) {
-					
+
 					// If not found, autocreate the asset object.
 					instance = CreateInstance<AmazonNativeSettings>();
 					#if UNITY_EDITOR
-					
+
 					SA.Common.Util.Files.CreateFolder(AMNSettingsPath);
 
-					
+
 					string fullPath = Path.Combine(Path.Combine("Assets", AMNSettingsPath),
 					                               AMNSettingsAssetName + AMNSettingsAssetExtension
 					                               );
-					
+
 					AssetDatabase.CreateAsset(instance, fullPath);
 					#endif
 				}

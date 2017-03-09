@@ -15,7 +15,7 @@ public class GK_TBM_Controller : iTBM_Matchmaker {
 	public event Action<UM_TBM_MatchResult> TurnEndedEvent		= delegate {};
 	public event Action<UM_TBM_MatchResult> MatchUpdatedEvent	= delegate {};
 
-
+	#pragma warning disable 0067
 	public event Action<UM_TBM_MatchesLoadResult> MatchesListLoadedEvent		= delegate {};
 	public event Action<List<UM_TBM_Invite>> InvitationsListLoadedEvent		= delegate {};
 

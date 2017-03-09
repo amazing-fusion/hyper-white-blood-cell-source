@@ -11,15 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04884765aeeb4749909d668fc086f5c, type: 3}
   m_Name: AndroidNativeSettings
   m_EditorClassIdentifier: 
-  EnablePlusAPI: 1
+  EnablePlusAPI: 0
   EnableGamesAPI: 1
-  EnableAppInviteAPI: 1
-  EnableDriveAPI: 0
-  LoadProfileIcons: 1
-  LoadProfileImages: 1
-  LoadQuestsImages: 1
-  LoadQuestsIcons: 1
-  LoadEventsIcons: 1
+  EnableAppInviteAPI: 0
+  EnableDriveAPI: 1
+  LoadProfileIcons: 0
+  LoadProfileImages: 0
+  LoadQuestsImages: 0
+  LoadQuestsIcons: 0
+  LoadEventsIcons: 0
   ShowConnectingPopup: 1
   EnableATCSupport: 0
   OneSignalEnabled: 0
@@ -49,53 +49,84 @@ MonoBehaviour:
   PushService: 0
   SaveCameraImageToGallery: 0
   UseProductNameAsFolderName: 1
-  GalleryFolderName: 
+  GalleryFolderName: Hyper White Blood Cell Dash
   MaxImageLoadSize: 512
   CameraCaptureMode: 0
   ImageFormat: 0
-  ShowAppPermissions: 0
+  ShowAppPermissions: 1
   EnableBillingAPI: 1
   EnablePSAPI: 1
-  EnableSocialAPI: 1
-  EnableCameraAPI: 1
-  ExpandNativeAPI: 0
-  ExpandPSAPI: 0
-  ExpandBillingAPI: 0
-  ExpandSocialAPI: 0
-  ExpandCameraAPI: 0
+  EnableSocialAPI: 0
+  EnableCameraAPI: 0
+  ExpandNativeAPI: 1
+  ExpandPSAPI: 1
+  ExpandBillingAPI: 1
+  ExpandSocialAPI: 1
+  ExpandCameraAPI: 1
   ThirdPartyParams: 0
-  ShowPSSettingsResources: 0
+  ShowPSSettingsResources: 1
   ShowActions: 0
   GCMSettingsActinve: 0
   LocalNotificationsAPI: 1
-  ImmersiveModeAPI: 1
-  ApplicationInformationAPI: 1
-  ExternalAppsAPI: 1
-  PoupsandPreloadersAPI: 1
-  CheckAppLicenseAPI: 1
+  ImmersiveModeAPI: 0
+  ApplicationInformationAPI: 0
+  ExternalAppsAPI: 0
+  PoupsandPreloadersAPI: 0
+  CheckAppLicenseAPI: 0
   NetworkStateAPI: 0
-  FirebaseAnalytics: 0
+  FirebaseAnalytics: 1
   InAppPurchasesAPI: 1
   GooglePlayServicesAPI: 1
-  PlayServicesAdvancedSignInAPI: 1
-  GoogleButtonAPI: 1
-  AnalyticsAPI: 1
+  PlayServicesAdvancedSignInAPI: 0
+  GoogleButtonAPI: 0
+  AnalyticsAPI: 0
   GoogleCloudSaveAPI: 1
-  PushNotificationsAPI: 1
+  PushNotificationsAPI: 0
   GoogleMobileAdAPI: 1
-  GoogleOAuthAPI: 1
-  GalleryAPI: 1
-  CameraAPI: 1
+  GoogleOAuthAPI: 0
+  GalleryAPI: 0
+  CameraAPI: 0
   KeepManifestClean: 1
-  GooglePlayServiceAppID: 216817929098
-  ToolbarSelectedIndex: 0
+  GooglePlayServiceAppID: 72434408241
+  ToolbarSelectedIndex: 7
   base64EncodedPublicKey: REPLACE_WITH_YOUR_PUBLIC_KEY
   ShowStoreProducts: 1
   InAppProducts: []
   ShowLeaderboards: 1
-  Leaderboards: []
+  Leaderboards:
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQAA
+    _name: leaderboard_ranking
+    _description: 
+    _Texture: {fileID: 0}
+    CurrentPlayerScore: []
   ShowAchievements: 1
-  Achievements: []
+  Achievements:
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQAg
+    _name: achievement_defeat_10_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQAw
+    _name: achievement_defeat_100_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBA
+    _name: achievement_defeat_1000_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBQ
+    _name: achievement_defeat_10000_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBg
+    _name: achievement_reach_level_10
+    _description: 
+    _Texture: {fileID: 0}
   ShowWhenAppIsForeground: 1
   EnableVibrationLocal: 0
   LocalNotificationSmallIcon: {fileID: 0}

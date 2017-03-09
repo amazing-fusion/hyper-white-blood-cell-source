@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GK_RTM_Controller : iRTM_Matchmaker {
 
+	#pragma warning disable 0067
 	public event Action<UM_RTM_Invite> InvitationReceived = delegate {};
 	public event Action<UM_RTM_Invite> InvitationAccepted = delegate {};
 	public event Action<string> InvitationDeclined = delegate {};

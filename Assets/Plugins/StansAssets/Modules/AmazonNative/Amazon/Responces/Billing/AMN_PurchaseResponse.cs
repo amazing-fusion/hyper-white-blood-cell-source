@@ -27,7 +27,7 @@ public class AMN_PurchaseResponse : AMN_Result {
 	private string _status		= string.Empty;
 
 	public AMN_PurchaseResponse() : base(true) {
-
+		
 	}
 
 	#if AMAZON_BILLING_ENABLED
@@ -45,6 +45,7 @@ public class AMN_PurchaseResponse : AMN_Result {
 			_productType = data.PurchaseReceipt.ProductType;
 		}
 	}
+
 	public AMN_PurchaseResponse(PurchaseResponse data, string sku) : base(false) {
 		_requestId = data.RequestId;
 		_userId = data.AmazonUserData.UserId;
@@ -54,8 +55,6 @@ public class AMN_PurchaseResponse : AMN_Result {
 	}
 
 	#endif
-
-
 
 	public string RequestId {
 		get {

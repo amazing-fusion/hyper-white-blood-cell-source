@@ -90,23 +90,23 @@ public class AmazonNativeSettingsEditor : Editor {
 		}
 	}
 
-
+	
 	private void GeneralOptions() {
 		EditorGUILayout.Space();
 		EditorGUILayout.HelpBox("General Settings", MessageType.None);
-
-
+		
+		
 		AmazonNativeSettings.Instance.ShowActions = EditorGUILayout.Foldout(AmazonNativeSettings.Instance.ShowActions, "Actions");
 		if(AmazonNativeSettings.Instance.ShowActions) {
-
+			
 			EditorGUILayout.BeginHorizontal();
-
-
-
+			
+			
+			
 			if(GUILayout.Button("Amazon Developer Console",  GUILayout.Width(200))) {
 				Application.OpenURL(AmazonNativeSettings.Instance.AmazonDeveloperConsoleLink);
 			}
-
+			
 			if(GUILayout.Button("Remove Amazon Libraries",  GUILayout.Width(200))) {
 				SA.Common.Util.Files.DeleteFolder("Plugins/Amazon");
 				SA.Common.Util.Files.DeleteFolder("Plugins/AmazonCommon");
@@ -211,7 +211,7 @@ public class AmazonNativeSettingsEditor : Editor {
 			if(GUILayout.Button("Load Example Settings",  GUILayout.Width(200))) {
 				LoadExampleSettings();
 			}
-
+			
 			EditorGUILayout.EndHorizontal();			
 		}
 	}
@@ -220,39 +220,39 @@ public class AmazonNativeSettingsEditor : Editor {
 		AmazonNativeSettings.Instance.InAppProducts =  new List<AmazonProductTemplate>();	
 
 
-		AmazonNativeSettings.Instance.InAppProducts.Add(new AmazonProductTemplate(){ Sku = "first_item", Title = "ItemTitle", IsOpen = false});		
-
-		AmazonNativeSettings.Instance.AppAPIKey = "78db6141e978469bbf8bfbc8c932df26";
+		AmazonNativeSettings.Instance.InAppProducts.Add(new AmazonProductTemplate(){ Sku = "first_Item", Title = "ItemTitle", IsOpen = false});		
+		
+		AmazonNativeSettings.Instance.AppAPIKey = "f06565f7696840d7adce3d08ea18d742";
 		AmazonNativeSettings.Instance.AdvertisingBannerAlign = AMN_BannerAlign.Bottom;
-
-		PlayerSettings.bundleIdentifier = "com.unionassets.amazon.plugin.preview";
+		
+		PlayerSettings.bundleIdentifier = "com.unionassets.android.plugin.preview";
 	}
 
-	private static string SA_AmazonGameCircleManager_Path = "Plugins/StansAssets/Modules/AmazonNative/Amazon/Manage/SA_AmazonGameCircleManager.cs";
-	private static string GC_Achievement_Path			  					= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Models/GC_Achievement.cs";
-	private static string GC_Leaderboard_Path             				= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Models/GC_Leaderboard.cs";
-	private static string GC_Player_Path				 							= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Models/GC_Player.cs";
-	private static string GC_ScoreTimeSpan_Path 		  				= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Enums/GC_ScoreTimeSpan.cs";
+	private static string SA_AmazonGameCircleManager_Path = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Manage/SA_AmazonGameCircleManager.cs";
+	private static string GC_Achievement_Path			  = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Models/GC_Achievement.cs";
+	private static string GC_Leaderboard_Path             = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Models/GC_Leaderboard.cs";
+	private static string GC_Player_Path				  = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Models/GC_Player.cs";
+	private static string GC_ScoreTimeSpan_Path           = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Enums/GC_ScoreTimeSpan.cs";
 
-	private static string SA_AmazonAdsManager_Path 				= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Manage/SA_AmazonAdsManager.cs";
+	private static string SA_AmazonAdsManager_Path = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Manage/SA_AmazonAdsManager.cs";
 
-	private static string SA_AmazonBillingManager_Path 					 				= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Manage/SA_AmazonBillingManager.cs";
-	private static string Billing_GetUserDataResponse_Path 				 				= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Responces/Billing/AMN_GetUserDataResponse.cs";
-	private static string Billing_PurchaseResponse_Path 				 					= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Responces/Billing/AMN_PurchaseResponse.cs";
-	private static string Billing_GetProductDataResponse_Path 			 			= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Responces/Billing/AMN_GetProductDataResponse.cs";
-	private static string Billing_GetPurchaseProductsUpdateResponse_Path = "Plugins/StansAssets/Modules/AmazonNative/Amazon/Responces/Billing/AMN_GetPurchaseProductsUpdateResponse.cs";
-	private static string Billing_AmazonProductTemplate_Path 		 	 			= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Models/AmazonProductTemplate.cs";
-	private static string Billing_AmazonReceipt_Path 		 	 		 						= "Plugins/StansAssets/Modules/AmazonNative/Amazon/Models/SA_AmazonReceipt.cs";
+	private static string SA_AmazonBillingManager_Path 					 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Manage/SA_AmazonBillingManager.cs";
+	private static string Billing_GetUserDataResponse_Path 				 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Responces/Billing/AMN_GetUserDataResponse.cs";
+	private static string Billing_PurchaseResponse_Path 				 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Responces/Billing/AMN_PurchaseResponse.cs";
+	private static string Billing_GetProductDataResponse_Path 			 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Responces/Billing/AMN_GetProductDataResponse.cs";
+	private static string Billing_GetPurchaseProductsUpdateResponse_Path = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Responces/Billing/AMN_GetPurchaseProductsUpdateResponse.cs";
+	private static string Billing_AmazonProductTemplate_Path 		 	 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Models/AmazonProductTemplate.cs";
+	private static string Billing_AmazonReceipt_Path 		 	 		 = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Models/SA_AmazonReceipt.cs";
 
 	public static void UpdatePluginSettings() {
 		if(AmazonNativeSettings.Instance.IsGameCircleEnabled) {
 			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/GameCircle_Res")) {
-
+				
 				bool res = EditorUtility.DisplayDialog("Game Circle Native Library Not Found!", "Amazon Native wasn't able to locate Game Circle Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
 				if(res) {
 					Application.OpenURL(AmazonNativeSettings.Instance.GameCircleDownloadLink);
 				}
-
+				
 				AmazonNativeSettings.Instance.IsGameCircleEnabled = false;
 			} 
 			Update_GC_State();
@@ -260,12 +260,12 @@ public class AmazonNativeSettingsEditor : Editor {
 
 		if(AmazonNativeSettings.Instance.IsAdvertisingEnabled) {
 			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Advertising_Res")) {
-
+				
 				bool res = EditorUtility.DisplayDialog("Advertising Native Library Not Found!", "Amazon Native wasn't able to locate Advertising Native Library in your project. Would you like to donwload and install it?", "Download", "No Thanks");
 				if(res) {
 					Application.OpenURL(AmazonNativeSettings.Instance.AdvertisingDownloadLink);
 				}
-
+				
 				AmazonNativeSettings.Instance.IsAdvertisingEnabled = false;
 			} 
 			Update_Advertising_State();
@@ -273,12 +273,12 @@ public class AmazonNativeSettingsEditor : Editor {
 
 		if(AmazonNativeSettings.Instance.IsBillingEnabled) {
 			if(!SA.Common.Util.Files.IsFolderExists("Plugins/Android/Billing_Res")) {
-
+				
 				bool res = EditorUtility.DisplayDialog("Billing Native Libraries Not Found!", "Amazon Native wasn't able to locate Billing Native Libraries in your project. Would you like to donwload and install it?", "Download", "No Thanks");
 				if(res) {
 					Application.OpenURL(AmazonNativeSettings.Instance.BillingDownloadLink);
 				}
-
+				
 				AmazonNativeSettings.Instance.IsBillingEnabled = false;
 			} 
 			Update_Billing_State();
@@ -302,11 +302,11 @@ public class AmazonNativeSettingsEditor : Editor {
 
 		SA.Common.Editor.Tools.ChnageDefineState(SA_AmazonAdsManager_Path, "AMAZON_ADVERTISING_ENABLED", AmazonNativeSettings.Instance.IsAdvertisingEnabled);
 	}
-
+	
 	private static void Update_Billing_State() {
 		SA.Common.Util.Files.DeleteFile("Plugins/Android/AndroidManifest 1.xml");
 		SA.Common.Util.Files.DeleteFile("Plugins/Android/AndroidManifest 2.xml");
-
+		
 		SA.Common.Editor.Tools.ChnageDefineState(SA_AmazonBillingManager_Path, 					"AMAZON_BILLING_ENABLED", AmazonNativeSettings.Instance.IsBillingEnabled);
 		SA.Common.Editor.Tools.ChnageDefineState(Billing_GetUserDataResponse_Path, 				"AMAZON_BILLING_ENABLED", AmazonNativeSettings.Instance.IsBillingEnabled);
 		SA.Common.Editor.Tools.ChnageDefineState(Billing_PurchaseResponse_Path, 					"AMAZON_BILLING_ENABLED", AmazonNativeSettings.Instance.IsBillingEnabled);
@@ -319,7 +319,7 @@ public class AmazonNativeSettingsEditor : Editor {
 	GUIContent L_IdDLabel 			= new GUIContent("Leaderboard ID[?]:", "A unique alphanumeric identifier that you create for this leaderboard. Can also contain periods and underscores.");
 	GUIContent L_DisplayNameLabel  	= new GUIContent("Display Name[?]:", "The display name of the leaderboard.");
 	GUIContent L_DescriptionLabel  	= new GUIContent("Description[?]:", "The description of your leaderboard.");
-
+	
 	GUIContent A_IdDLabel 			= new GUIContent("Achievement ID[?]:", "A unique alphanumeric identifier that you create for this achievement. Can also contain periods and underscores.");
 	GUIContent A_DisplayNameLabel  	= new GUIContent("Display Name[?]:", "The display name of the achievement.");
 	GUIContent A_DescriptionLabel 	= new GUIContent("Description[?]:", "The description of your achievement.");
@@ -336,53 +336,53 @@ public class AmazonNativeSettingsEditor : Editor {
 		if(EditorGUI.EndChangeCheck())  {
 			UpdatePluginSettings();
 		}
-
+	
 		GUI.enabled = AmazonNativeSettings.Instance.IsGameCircleEnabled;
-
+		
 		EditorGUILayout.Space();
 		EditorGUILayout.HelpBox("Leaderboards Info", MessageType.None);
-
-
+		
+		
 		EditorGUI.indentLevel++; {
-
+			
 			EditorGUILayout.BeginVertical (GUI.skin.box);
-
+			
 			EditorGUILayout.BeginHorizontal();
 			AmazonNativeSettings.Instance.ShowLeaderboards = EditorGUILayout.Foldout(AmazonNativeSettings.Instance.ShowLeaderboards, "Leaderboards");
-
-
-
+			
+			
+			
 			EditorGUILayout.EndHorizontal();
-
-
+			
+			
 			if(AmazonNativeSettings.Instance.ShowLeaderboards) {
 				EditorGUILayout.Space();
-
+				
 				foreach(GC_Leaderboard leaderboard in AmazonNativeSettings.Instance.Leaderboards) {
-
-
+					
+					
 					EditorGUILayout.BeginVertical (GUI.skin.box);
-
+					
 					EditorGUILayout.BeginHorizontal();
-
-
-
+					
+					
+					
 					if(leaderboard.Texture != null) {
 						GUILayout.Box(leaderboard.Texture, ImageBoxStyle, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
 					}
-
+					
 					leaderboard.IsOpen 	= EditorGUILayout.Foldout(leaderboard.IsOpen, leaderboard.Title);
-
-
-
+					
+					
+					
 					bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons((object) leaderboard, AmazonNativeSettings.Instance.Leaderboards);
 					if(ItemWasRemoved) {
 						return;
 					}
-
-
+					
+					
 					EditorGUILayout.EndHorizontal();
-
+					
 					if(leaderboard.IsOpen) {
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(L_IdDLabel);
@@ -391,94 +391,94 @@ public class AmazonNativeSettingsEditor : Editor {
 							leaderboard.Identifier 		= leaderboard.Identifier.Trim();
 						}
 						EditorGUILayout.EndHorizontal();
-
-
+						
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(L_DisplayNameLabel);
 						leaderboard.Title	 	= EditorGUILayout.TextField(leaderboard.Title);
 						EditorGUILayout.EndHorizontal();
-
-
+						
+						
 						EditorGUILayout.Space();
 						EditorGUILayout.Space();
-
-
+						
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(L_DescriptionLabel);
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						leaderboard.Description	 = EditorGUILayout.TextArea(leaderboard.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
 						leaderboard.Texture = (Texture2D) EditorGUILayout.ObjectField("", leaderboard.Texture, typeof (Texture2D), false);
 						EditorGUILayout.EndHorizontal();
-
+						
 					}
-
+					
 					EditorGUILayout.EndVertical();
-
+					
 				}
-
+				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.Space();
 				if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
 					GC_Leaderboard lb =  new GC_Leaderboard();
 					AmazonNativeSettings.Instance.Leaderboards.Add(lb);
 				}
-
+				
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.Space();
 			}
-
+			
 			EditorGUILayout.EndVertical();
-
+			
 		}EditorGUI.indentLevel--;
-
-
-
+		
+		
+		
 		EditorGUILayout.Space();
 		EditorGUILayout.HelpBox("Achievements Info", MessageType.None);
-
+		
 		EditorGUI.indentLevel++; {
-
+			
 			EditorGUILayout.BeginVertical (GUI.skin.box);
-
+			
 			EditorGUILayout.BeginHorizontal();
 			AmazonNativeSettings.Instance.ShowAchievementsParams = EditorGUILayout.Foldout(AmazonNativeSettings.Instance.ShowAchievementsParams, "Achievements");
-
-
-
+			
+			
+			
 			EditorGUILayout.EndHorizontal();
-
-
+			
+			
 			if(AmazonNativeSettings.Instance.ShowAchievementsParams) {
 				EditorGUILayout.Space();
-
+				
 				foreach(GC_Achievement achievement in AmazonNativeSettings.Instance.Achievements) {
-
-
+					
+					
 					EditorGUILayout.BeginVertical (GUI.skin.box);
-
+					
 					EditorGUILayout.BeginHorizontal();
-
-
-
+					
+					
+					
 					if(achievement.Texture != null) {
 						GUILayout.Box(achievement.Texture, ImageBoxStyle, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
 					}
-
+					
 					achievement.IsOpen 	= EditorGUILayout.Foldout(achievement.IsOpen, achievement.Title);
-
-
-
+					
+					
+					
 					bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons((object) achievement, AmazonNativeSettings.Instance.Achievements);
 					if(ItemWasRemoved) {
 						return;
 					}
-
-
+					
+					
 					EditorGUILayout.EndHorizontal();
-
+					
 					if(achievement.IsOpen) {
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(A_IdDLabel);
@@ -487,50 +487,50 @@ public class AmazonNativeSettingsEditor : Editor {
 							achievement.Identifier 		= achievement.Identifier.Trim();
 						}
 						EditorGUILayout.EndHorizontal();
-
-
+						
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(A_DisplayNameLabel);
 						achievement.Title	 	= EditorGUILayout.TextField(achievement.Title);
 						EditorGUILayout.EndHorizontal();
-
-
+						
+						
 						EditorGUILayout.Space();
 						EditorGUILayout.Space();
-
-
+						
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(A_DescriptionLabel);
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						achievement.Description	 = EditorGUILayout.TextArea(achievement.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
 						achievement.Texture = (Texture2D) EditorGUILayout.ObjectField("", achievement.Texture, typeof (Texture2D), false);
 						EditorGUILayout.EndHorizontal();
-
+						
 					}
-
+					
 					EditorGUILayout.EndVertical();
-
+					
 				}
-
+				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.Space();
 				if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
 					GC_Achievement achievement =  new GC_Achievement();
 					AmazonNativeSettings.Instance.Achievements.Add(achievement);
 				}
-
+				
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.Space();
 			}
-
+			
 			EditorGUILayout.EndVertical();
-
-
-
-
+			
+			
+			
+			
 		}EditorGUI.indentLevel--;
 
 
@@ -553,17 +553,17 @@ public class AmazonNativeSettingsEditor : Editor {
 		}
 
 		GUI.enabled = AmazonNativeSettings.Instance.IsBillingEnabled;
-
+	
 		EditorGUI.indentLevel++;
 		{
 			EditorGUILayout.BeginVertical (GUI.skin.box);			
-
+			
 			EditorGUILayout.BeginHorizontal();
 			AmazonNativeSettings.Instance.ShowStoreParams = EditorGUILayout.Foldout(AmazonNativeSettings.Instance.ShowStoreParams, "Products");			
 			EditorGUILayout.EndHorizontal();
 
 			EditorGUILayout.Space();
-
+			
 			if(AmazonNativeSettings.Instance.ShowStoreParams) {
 
 				if(settings.InAppProducts.Count == 0) {
@@ -571,31 +571,31 @@ public class AmazonNativeSettingsEditor : Editor {
 				}
 
 				foreach(AmazonProductTemplate product in AmazonNativeSettings.Instance.InAppProducts) {
-
+					
 					EditorGUILayout.BeginVertical (GUI.skin.box);
-
+					
 					EditorGUILayout.BeginHorizontal();
-
+					
 					GUIStyle s =  new GUIStyle();
 					s.padding =  new RectOffset();
 					s.margin =  new RectOffset();
 					s.border =  new RectOffset();
-
+					
 					if(product.Texture != null) {
 						GUILayout.Box(product.Texture, s, new GUILayoutOption[]{GUILayout.Width(18), GUILayout.Height(18)});
 					}
-
+					
 					product.IsOpen 	= EditorGUILayout.Foldout(product.IsOpen, product.Title);
-
-
+					
+					
 					EditorGUILayout.LabelField(product.Price + "$");
 					bool ItemWasRemoved = DrawSortingButtons((object) product, AmazonNativeSettings.Instance.InAppProducts);
 					if(ItemWasRemoved) {
 						return;
 					}
-
+					
 					EditorGUILayout.EndHorizontal();
-
+					
 					if(product.IsOpen) {
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(ProductIdDLabel);
@@ -604,52 +604,52 @@ public class AmazonNativeSettingsEditor : Editor {
 							product.Sku = product.Sku.Trim();
 						}
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(DisplayNameLabel);
 						product.Title	 	= EditorGUILayout.TextField(product.Title);
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(IsConsLabel);
 						//check what type is coming
 						product.ProductType	= (AMN_InAppType) EditorGUILayout.EnumPopup(product.ProductType);
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.Space();
 						EditorGUILayout.Space();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						EditorGUILayout.LabelField(DescriptionLabel);
 						EditorGUILayout.EndHorizontal();
-
+						
 						EditorGUILayout.BeginHorizontal();
 						product.Description	 = EditorGUILayout.TextArea(product.Description,  new GUILayoutOption[]{GUILayout.Height(60), GUILayout.Width(200)} );
 						product.Texture = (Texture2D) EditorGUILayout.ObjectField("", product.Texture, typeof (Texture2D), false);
 						EditorGUILayout.EndHorizontal();
 					}
-
-
+					
+					
 					EditorGUILayout.EndVertical();
-
+					
 				}
-
+				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.Space();
 				if(GUILayout.Button("Add new", EditorStyles.miniButton, GUILayout.Width(250))) {
 					AmazonProductTemplate product = new AmazonProductTemplate();
 					AmazonNativeSettings.Instance.InAppProducts.Add(product);
 				}
-
+				
 				EditorGUILayout.Space();
 				EditorGUILayout.EndHorizontal();
 				EditorGUILayout.Space();
 			}
-
+			
 			EditorGUILayout.EndVertical();
 		}
 		EditorGUI.indentLevel--;
-
+		
 		GUI.enabled  = true;
 	}	
 
@@ -688,40 +688,40 @@ public class AmazonNativeSettingsEditor : Editor {
 	}
 
 	private bool DrawSortingButtons(object currentObject, IList ObjectsList) {
-
+		
 		int ObjectIndex = ObjectsList.IndexOf(currentObject);
 		if(ObjectIndex == 0) {
 			GUI.enabled = false;
 		} 
-
+		
 		bool up = GUILayout.Button("↑", EditorStyles.miniButtonLeft, GUILayout.Width(20));
 		if(up) {
 			object c = currentObject;
 			ObjectsList[ObjectIndex]  		= ObjectsList[ObjectIndex - 1];
 			ObjectsList[ObjectIndex - 1] 	=  c;
 		}
-
-
+		
+		
 		if(ObjectIndex >= ObjectsList.Count -1) {
 			GUI.enabled = false;
 		} else {
 			GUI.enabled = true;
 		}
-
+		
 		bool down 		= GUILayout.Button("↓", EditorStyles.miniButtonMid, GUILayout.Width(20));
 		if(down) {
 			object c = currentObject;
 			ObjectsList[ObjectIndex] =  ObjectsList[ObjectIndex + 1];
 			ObjectsList[ObjectIndex + 1] = c;
 		}
-
-
+		
+		
 		GUI.enabled = true;
 		bool r 			= GUILayout.Button("-", EditorStyles.miniButtonRight, GUILayout.Width(20));
 		if(r) {
 			ObjectsList.Remove(currentObject);
 		}
-
+		
 		return r;
 	}
 
@@ -729,12 +729,12 @@ public class AmazonNativeSettingsEditor : Editor {
 
 		EditorGUILayout.HelpBox("Version Info", MessageType.None);
 		EditorGUILayout.Space();
-
+		
 		SelectableLabelField(SdkVersion, AmazonNativeSettings.VERSION_NUMBER);
 		SA.Common.Editor.Tools.SupportMail();
 		SA.Common.Editor.Tools.DrawSALogo();
 	}
-
+	
 	private void SelectableLabelField(GUIContent label, string value) {
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField(label, GUILayout.Width(180), GUILayout.Height(16));
@@ -751,7 +751,7 @@ public class AmazonNativeSettingsEditor : Editor {
 				_ImageBoxStyle.margin =  new RectOffset();
 				_ImageBoxStyle.border =  new RectOffset();
 			}
-
+			
 			return _ImageBoxStyle;
 		}
 	}
@@ -761,9 +761,9 @@ public class AmazonNativeSettingsEditor : Editor {
 	}
 
 	private static void DirtyEditor() {
-#if UNITY_EDITOR
+		#if UNITY_EDITOR
 		EditorUtility.SetDirty(AmazonNativeSettings.Instance);
-#endif
+		#endif
 	}
 }
 #endif

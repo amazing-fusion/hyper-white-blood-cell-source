@@ -23,6 +23,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         string _dashingTag;
 
+        [SerializeField]
+        float _immunityAfterDashDuration;
+
         List<string> _harmfulTagsImmunity = new List<string>();
 
         Rigidbody2D _rigidBody;
@@ -33,6 +36,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         
         string _tag;
         CoroutineHandle _dashCoroutine;
+        CoroutineHandle _endDashCoroutine;
 
         void Awake() {
             _rigidBody = GetComponent<Rigidbody2D>();
@@ -78,12 +82,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 tag = _dashingTag;
             }
 
+            if (_dashCoroutine != null) {
+                Timing.KillCoroutines(_dashCoroutine);
+            }
             _dashCoroutine = Timing.CallDelayed(_dashDuration, EndDash);
         }
 
         void EndDash() {
             if (_dashCoroutine != null) {
-                Timing.KillCoroutines(_dashCoroutine);
                 _dashCoroutine = null;
 
                 if (_rigidBody != null) {
@@ -97,10 +103,28 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                     tag = _tag;
                 }
 
-                foreach (string immuneTag in _harmfulTagsImmunity) {
-                    _damageController.HarmfulTags.Add(immuneTag);
+                if (_damageController != null) {
+                    if (_immunityAfterDashDuration > 0) {
+                        if (_endDashCoroutine != null) {
+                            Timing.KillCoroutines(_endDashCoroutine);
+                        }
+                        _endDashCoroutine = Timing.CallDelayed(_immunityAfterDashDuration, () => {
+                            if (_endDashCoroutine != null) {
+                                _endDashCoroutine = null;
+                                foreach (string immuneTag in _harmfulTagsImmunity) {
+                                    _damageController.HarmfulTags.Add(immuneTag);
+                                }
+                                _harmfulTagsImmunity.Clear();
+                            }
+                        });
+                    } else {
+                        foreach (string immuneTag in _harmfulTagsImmunity) {
+                            _damageController.HarmfulTags.Add(immuneTag);
+                        }
+                        _harmfulTagsImmunity.Clear();
+                    }
                 }
-                _harmfulTagsImmunity.Clear();
+                
             }
         }
     }

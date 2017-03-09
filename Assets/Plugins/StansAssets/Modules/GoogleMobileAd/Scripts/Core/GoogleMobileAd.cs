@@ -54,7 +54,13 @@ public class GoogleMobileAd  {
 				controller.SetRewardedVideoAdUnitID(GoogleMobileAdSettings.Instance.IOS_RewardedVideoAdUnitId);
 			}
 			break;
+		#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 		case RuntimePlatform.WP8Player:
+		#else
+		case RuntimePlatform.WSAPlayerARM:
+		case RuntimePlatform.WSAPlayerX64:
+		case RuntimePlatform.WSAPlayerX86:
+		#endif
 			controller = WP8AdMobController.Instance;
 			controller.Init(GoogleMobileAdSettings.Instance.WP8_BannersUnitId);
 			if(!GoogleMobileAdSettings.Instance.WP8_InterstisialsUnitId.Equals(string.Empty)) {

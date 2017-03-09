@@ -417,7 +417,7 @@ MonoBehaviour:
   _duration: 0.2
   _easingInfo:
     _startValue: 1.5
-    _changeValue: 1.5
+    _changeValue: -1.5
     _curve: 19
 --- !u!114 &114283743326201480
 MonoBehaviour:
@@ -479,6 +479,8 @@ MonoBehaviour:
   _collider: {fileID: 58649508729180654}
   _harmfulTags:
   - DashingPlayer
+  _immortalityTimeAfterDamage: 0
+  _immortalityEffect: {fileID: 0}
 --- !u!114 &114653663593270252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wayPointsPath: []
   _invertPathOnEnd: 0
-  _reachDistance: 0
+  _reachDistance: 0.1
   _updateMovementRate: -1
 --- !u!198 &198052753806633090
 ParticleSystem:
