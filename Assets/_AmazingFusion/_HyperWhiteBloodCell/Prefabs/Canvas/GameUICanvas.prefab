@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1633,8 +1633,8 @@ MonoBehaviour:
     _changeValue: 0
     _curve: 0
   _aEasingInfo:
-    _startValue: 0.5
-    _changeValue: -0.5
+    _startValue: 0.8
+    _changeValue: -0.8
     _curve: 11
 --- !u!114 &114696176739031610
 MonoBehaviour:
