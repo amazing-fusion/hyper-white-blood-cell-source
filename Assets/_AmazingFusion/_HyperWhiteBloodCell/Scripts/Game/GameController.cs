@@ -106,7 +106,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             AudioController.Instance.PlayBattleMusic();
             //LevelManager.Instance.CurrentRoom.StartLevel();
-            NextLevelView.Instance.StartLevel();
+
+
+            //NextLevelView.Instance.StartLevel();
         }
 
         public void RestartGame() {

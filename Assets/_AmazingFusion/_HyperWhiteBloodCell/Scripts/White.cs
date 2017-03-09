@@ -9,7 +9,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         private Shader _shaderSpritesDefault;
         
 
-        void Awake()
+        void Start()
         {
             _shaderGUItext = Shader.Find("GUI/Text Shader");
             _shaderSpritesDefault = Shader.Find("Sprites/Default"); // or whatever sprite shader is being used

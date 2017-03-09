@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238342206310030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: -5.71, y: 2.96, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172604383837562}
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1359356114932198}
   m_LocalRotation: {x: -0.49904677, y: -0.49877578, z: 0.5012225, w: 0.5009502}
-  m_LocalPosition: {x: 0.17, y: -0.11, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.09, z: 0}
   m_LocalScale: {x: 2.781899, y: 1, z: 0.12586541}
   m_Children:
   - {fileID: 4452527932331554}
@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694692918648336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.09, z: 0.5}
+  m_LocalPosition: {x: 0.03, y: 0.09, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4066863950812970}
@@ -286,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798327312773868}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21000004, y: 0.06999993, z: 0}
+  m_LocalPosition: {x: 0.41, y: 0.06999993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4014662946304248}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afce52a4a5b9c5429d930cfe51e5b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sqrMinSwipe: 10
+  _sqrMinSwipe: 16
 --- !u!114 &114129306656676158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,10 +528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dieMagnitudeShake: 5
-  _collideMagnitudeShake: 2
-  _roughnessShake: 30
-  _fadeInTimeShake: 0
-  _fadeOutTimeShake: 0.6
+  _dieRoughnessShake: 2
+  _dieFadeOutTimeShake: 0.6
+  _collideBaseMagnitudeShake: 0.1
+  _collideBaseRoughnessShake: 0.1
+  _collideFadeOutTimeShake: 0.01
+  _wallCollideForce: 5
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
   _cameraEffect: {fileID: 0}
 --- !u!114 &114413894449826584
@@ -662,7 +664,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -1083811885
+  randomSeed: 1690742282
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3263,7 +3265,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -43281107
+  randomSeed: 1485809537
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5864,7 +5866,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 431508258
+  randomSeed: -2021218835
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8482,7 +8484,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -8565,7 +8567,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: 68c7c4b62419fc14abf348862ad71481, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

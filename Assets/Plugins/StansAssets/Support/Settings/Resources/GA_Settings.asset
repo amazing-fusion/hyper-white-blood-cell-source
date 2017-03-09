@@ -24,7 +24,7 @@ MonoBehaviour:
   UseHTTPS: 0
   StringEscaping: 1
   EditorAnalytics: 1
-  IsDisabled: 0
+  IsDisabled: 1
   IsTestingModeEnabled: 0
   TestingModeAccIndex: 0
   IsRequetsCachingEnabled: 1

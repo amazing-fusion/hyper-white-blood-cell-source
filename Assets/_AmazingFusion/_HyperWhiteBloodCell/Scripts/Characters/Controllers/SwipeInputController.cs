@@ -18,7 +18,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         DamageController _damageController;
 
-        Vector2 _startPoint;
+        //Vector2 _startPoint;
         List<Vector2> _swipePoints = new List<Vector2>();
 
         IMotor _motor;
@@ -87,90 +87,68 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Tick(float realDeltaTime) {
 #if UNITY_EDITOR
-            if (Input.GetMouseButtonDown(0)) {
+            if (!_isSwiping && Input.GetMouseButtonDown(0)) {
                 BeginSwipe();
-            } else if (Input.GetMouseButtonUp(0)) {
+            } else if (_isSwiping && Input.GetMouseButtonUp(0)) {
+                Swipe();
                 EndSwipe();
-            } else if (Input.GetMouseButton(0)) {
-                if (!_isSwiping) {
-                    BeginSwipe();
-                } else {
-                    Swipe();
-
-                    // Swipe when stop
-                    //if (_swipe) {
-                    //    Vector2 vector = (Vector2)Input.mousePosition - _swipePoints[0];
-                    //    if (vector.sqrMagnitude <= _sqrSwipe) {
-                    //        EndSwipe(vector);
-                    //    }
-                    //} else {
-                    //    Vector2 vector = _startPoint - _swipePoints[0];
-                    //    if (vector.sqrMagnitude >= _sqrMinSwipe) {
-                    //        _swipe = true;
-                    //    }
-                    //}
-
-                    // Swipe every frame
-                    //if (_swipePoints.Count < 2) {
-                    //    Swipe();
-                    //} else {
-                    //    Vector3 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
-                    //    Debug.Log(vector.sqrMagnitude);
-                    //    if (vector.sqrMagnitude >= _sqrSwipe) {
-                    //        EndSwipe();
-                    //    } else {
-                    //        Swipe();
-                    //    }
-                    //}
+            } else if (_isSwiping && Input.GetMouseButton(0)) {
+                Swipe();
+                Vector2 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
+                if (vector.sqrMagnitude >= _sqrMinSwipe) {
+                    EndSwipe(vector);
                 }
+
             }
-
-
 #else
             if (Input.touches.Length == 1) {
                 if (Input.touches[0].phase == TouchPhase.Began) {
 
                     BeginSwipe();
-                } else if (Input.touches[0].phase == TouchPhase.Ended || 
-                        Input.touches[0].phase == TouchPhase.Canceled) {
-
-                    EndSwipe();
-                } else {
+                } else if (_isSwiping && (Input.touches[0].phase == TouchPhase.Ended || 
+                        Input.touches[0].phase == TouchPhase.Canceled)) {
 
                     Swipe();
+                    EndSwipe();
+                } else if (_isSwiping) {
+                    Swipe();
+                    Vector2 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
+                    if (vector.sqrMagnitude >= _sqrMinSwipe) {
+                        EndSwipe(vector);
+                    }
                 }
             }
 #endif
         }
 
         public void BeginSwipe() {
-            if (!_isSwiping) {
+            //if (!_isSwiping) {
                 _isSwiping = true;
-                _startPoint = Input.mousePosition;
+                //_startPoint = Input.mousePosition;
                 _swipePoints.Add(Input.mousePosition);
-            }
+            //}
         }
 
         public void Swipe() {
-            if (_isSwiping) {
+            //if (_isSwiping) {
                 if (_swipePoints.Count > 10) {
                     _swipePoints.RemoveAt(0);
                 }
 
                 _swipePoints.Add(Input.mousePosition);
-            }
+            //}
         }
 
         public void EndSwipe() {
-            if (_isSwiping) {
+            //if (_isSwiping) {
                 Vector2 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
 
                 EndSwipe(vector);
-            }
+            //}
         }
 
         public void EndSwipe(Vector2 vector) {
-            if (_isSwiping) {
+            //if (_isSwiping) {
                 //Vector2 vector = _swipePoints[_swipePoints.Count - 1] - _swipePoints[0];
 
                 if (vector.sqrMagnitude >= _sqrMinSwipe) {
@@ -180,7 +158,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 _swipePoints.Clear();
                 //_swipe = false;
                 _isSwiping = false;
-            }
+            //}
         }
     }
 }

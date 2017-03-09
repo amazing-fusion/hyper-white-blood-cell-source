@@ -16,7 +16,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                 if (value > _bestLevel) {
                     _bestLevel = value;
 
-                    Debug.Log("Best level: " + _bestLevel);
+                    UM_GameServiceManager.Instance.SubmitScore("leaderboard_ranking", _bestLevel);
 
                     PlayerPrefs.SetInt("BestLevel", _bestLevel);
                     PlayerPrefs.Save();

@@ -14,6 +14,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         int _currentLevelNumber;
         int _highscore;
+        Room _currentRoom;
+        Room _lastRoom;
 
         public int CurrentLevelNumber
         {
@@ -47,8 +49,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
-        Room _currentRoom;
-
         public Room CurrentRoom
         {
             get
@@ -63,19 +63,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public Room LastRoom
+        {
+            get
+            {
+                return _lastRoom;
+            }
+
+            set
+            {
+                _lastRoom = value;
+            }
+        }
+
         void LoadLevel()
         {
+            Room temRoom;
             List<Room> temListRoom = new List<Room>();
             foreach(Room roomPrefab in _roomsPrefab)
             {
                 if(CurrentLevelNumber >= roomPrefab.MinLevelRequired && 
                         (CurrentLevelNumber <= roomPrefab.MaxLevelRequired ||
-                        roomPrefab.MaxLevelRequired == 0))
+                        roomPrefab.MaxLevelRequired == 0) && roomPrefab != _lastRoom)
                 {
                     temListRoom.Add(roomPrefab);
                 }
             }
-            _currentRoom = Instantiate(temListRoom[Random.Range(0, temListRoom.Count)]);
+            temRoom = temListRoom[Random.Range(0, temListRoom.Count)];
+            _currentRoom = Instantiate(temRoom);
+            _lastRoom = temRoom;
         }
 
         public void FirstLevel()

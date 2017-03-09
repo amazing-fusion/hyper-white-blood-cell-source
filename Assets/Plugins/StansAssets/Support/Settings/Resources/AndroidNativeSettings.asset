@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnablePlusAPI: 0
   EnableGamesAPI: 1
-  EnableAppInviteAPI: 1
+  EnableAppInviteAPI: 0
   EnableDriveAPI: 1
-  LoadProfileIcons: 1
+  LoadProfileIcons: 0
   LoadProfileImages: 0
   LoadQuestsImages: 0
   LoadQuestsIcons: 0
@@ -56,15 +56,15 @@ MonoBehaviour:
   ShowAppPermissions: 1
   EnableBillingAPI: 1
   EnablePSAPI: 1
-  EnableSocialAPI: 1
-  EnableCameraAPI: 1
+  EnableSocialAPI: 0
+  EnableCameraAPI: 0
   ExpandNativeAPI: 1
   ExpandPSAPI: 1
   ExpandBillingAPI: 1
   ExpandSocialAPI: 1
   ExpandCameraAPI: 1
   ThirdPartyParams: 0
-  ShowPSSettingsResources: 0
+  ShowPSSettingsResources: 1
   ShowActions: 0
   GCMSettingsActinve: 0
   LocalNotificationsAPI: 1
@@ -79,16 +79,16 @@ MonoBehaviour:
   GooglePlayServicesAPI: 1
   PlayServicesAdvancedSignInAPI: 0
   GoogleButtonAPI: 0
-  AnalyticsAPI: 1
+  AnalyticsAPI: 0
   GoogleCloudSaveAPI: 1
   PushNotificationsAPI: 0
   GoogleMobileAdAPI: 1
   GoogleOAuthAPI: 0
-  GalleryAPI: 1
-  CameraAPI: 1
+  GalleryAPI: 0
+  CameraAPI: 0
   KeepManifestClean: 1
   GooglePlayServiceAppID: 72434408241
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 7
   base64EncodedPublicKey: REPLACE_WITH_YOUR_PUBLIC_KEY
   ShowStoreProducts: 1
   InAppProducts: []
@@ -96,18 +96,37 @@ MonoBehaviour:
   Leaderboards:
   - IsOpen: 1
     _id: CgkIsba1640CEAIQAA
-    _name: ranking
+    _name: leaderboard_ranking
     _description: 
     _Texture: {fileID: 0}
     CurrentPlayerScore: []
+  ShowAchievements: 1
+  Achievements:
   - IsOpen: 1
-    _id: CgkIsba1640CEAIQAA
-    _name: ranking
+    _id: CgkIsba1640CEAIQAg
+    _name: achievement_defeat_10_germs
     _description: 
     _Texture: {fileID: 0}
-    CurrentPlayerScore: []
-  ShowAchievements: 0
-  Achievements: []
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQAw
+    _name: achievement_defeat_100_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBA
+    _name: achievement_defeat_1000_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBQ
+    _name: achievement_defeat_10000_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBg
+    _name: achievement_reach_level_10
+    _description: 
+    _Texture: {fileID: 0}
   ShowWhenAppIsForeground: 1
   EnableVibrationLocal: 0
   LocalNotificationSmallIcon: {fileID: 0}

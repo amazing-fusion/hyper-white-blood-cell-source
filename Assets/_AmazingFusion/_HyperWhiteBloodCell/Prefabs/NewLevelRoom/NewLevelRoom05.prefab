@@ -5050,7 +5050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849df70bf0784404bae7b0709a5db5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minLevelRequired: 0
+  _minLevelRequired: 3
   _maxLevelRequired: 6
 --- !u!114 &114899744946151006
 MonoBehaviour:
