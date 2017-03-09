@@ -39,11 +39,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         SpriteRenderer _spriteRenderer;
         ParticleSystem _explosionDied;
         SequenceEasingAnimation _dashAnimation;
-        
-        void OnDisable()
-        {
-            Initialize();
-        }
 
          void Start()
         {
