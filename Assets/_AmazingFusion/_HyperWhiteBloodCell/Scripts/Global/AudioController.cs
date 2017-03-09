@@ -51,6 +51,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             set {
                 _isOn = value;
+
+                _musicSource.volume = _isOn ? 1 : 0;
+                _gameFxSource.volume = _isOn ? 1 : 0;
+
+                PersistanceManager.Instance.AudioOn = _isOn;
             }
         }
 
@@ -70,13 +75,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void Start() {
-            _isOn = PersistanceManager.Instance.AudioOn;
+            IsOn = PersistanceManager.Instance.AudioOn;
         }
 
         public void SwitchAudio() {
-            _isOn = !_isOn;
-            _musicSource.volume = _isOn ? 1 : 0;
-            _gameFxSource.volume = _isOn ? 1 : 0;
+            IsOn = !_isOn;
         }
 
         //public void MusicOn(bool on)
