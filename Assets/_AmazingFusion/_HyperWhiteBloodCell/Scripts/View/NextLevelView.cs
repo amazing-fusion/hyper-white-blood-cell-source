@@ -62,7 +62,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
             else
             {
-                if(AdsController.Instance.NextTimeAds > Time.time)
+                if(AdsController.Instance.NextTimeAds < Time.time)
                 {
                     AdsController.Instance.ShowInterstisialAd();
                 }
