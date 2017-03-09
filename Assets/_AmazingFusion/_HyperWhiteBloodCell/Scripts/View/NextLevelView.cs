@@ -58,9 +58,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             if (win)
             {
-                Debug.Log("OnLevelEnd");
                 Show();
-
+            }
+            else
+            {
+                if(AdsController.Instance.NextTimeAds > Time.time)
+                {
+                    AdsController.Instance.ShowInterstisialAd();
+                }
             }
             
         }
@@ -68,6 +73,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void Show()
         {
             if (_showAnimation != null) {
+
                 _showAnimation.gameObject.SetActive(true);
                 _showAnimation.Play();
             }

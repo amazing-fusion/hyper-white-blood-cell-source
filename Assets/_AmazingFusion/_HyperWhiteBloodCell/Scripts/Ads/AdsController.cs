@@ -6,8 +6,28 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class AdsController : Singleton<AdsController>
     {
+        [SerializeField]
+        float _timeAds;
+
+        float _nextTimeAds;
+
+        public float NextTimeAds
+        {
+            get
+            {
+                return _nextTimeAds;
+            }
+
+            set
+            {
+                _nextTimeAds = value;
+            }
+        }
+
         void Start()
         {
+            _nextTimeAds = Time.time + (_timeAds * 60);
+
             GoogleMobileAd.Init();
 
             GoogleMobileAd.OnInterstitialLoaded += OnInterstisialsLoaded;
@@ -16,7 +36,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed += HandleOnRewardedVideoAdClosed;
-            GoogleMobileAd.OnRewarded += HandleOnRewarded;
+            
 
             GoogleMobileAd.LoadRewardedVideo();
             GoogleMobileAd.LoadInterstitialAd();
@@ -30,12 +50,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed -= HandleOnRewardedVideoAdClosed;
-            GoogleMobileAd.OnRewarded -= HandleOnRewarded;
+           
         }
 
         void HandleOnRewarded(string itemId,int amount)
         {
-            //LevelManager.Instance.VideoLevel();
+            LevelManager.Instance.RestartLevel = true;
+            GameController.Instance.Revive();
         }
 
         void HandleOnRewardedVideoLoaded()
@@ -73,6 +94,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             GoogleMobileAd.ShowInterstitialAd();
             GoogleMobileAd.LoadInterstitialAd();
+            _nextTimeAds = Time.time + (_timeAds * 60);
         }
     }
 }

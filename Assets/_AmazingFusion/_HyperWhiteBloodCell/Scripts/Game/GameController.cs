@@ -117,6 +117,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _gameIsActive = true;
             _player.Initialize();
             NextLevelView.Instance.Show();
+            if (OnGameRestart != null) OnGameRestart();
             //LevelManager.Instance.VideoLevel();
         }
 

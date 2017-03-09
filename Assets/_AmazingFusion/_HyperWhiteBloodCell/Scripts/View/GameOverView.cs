@@ -43,12 +43,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             GameController.Instance.OnTimeOver += OnTimeOver;
             _showAnimation.OnEnd += OnShowAnimationEnd;
             _hideAnimation.OnEnd += OnHideAnimationEnd;
+            GoogleMobileAd.OnRewarded += HandleOnRewarded;
         }
 
         void OnDestroy() {
             if (GameController.HasInstance) {
                 GameController.Instance.OnPlayerDied -= OnPlayerDie;
                 GameController.Instance.OnTimeOver -= OnTimeOver;
+                GoogleMobileAd.OnRewarded -= HandleOnRewarded;
             }
             _showAnimation.OnEnd -= OnShowAnimationEnd;
             _hideAnimation.OnEnd -= OnHideAnimationEnd;
@@ -125,12 +127,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void GoToAddVideo()
         {
+            AdsController.Instance.ShowRewardedVideoAd();
+        }
+
+        void HandleOnRewarded(string itemId, int amount)
+        {
             _hideAnimation.gameObject.SetActive(false);
             LevelManager.Instance.RestartLevel = true;
             GameController.Instance.Revive();
-            //AdsController.Instance.ShowRewardedVideoAd();
-
-            //LevelManager.Instance.VideoLevel();
         }
     }
 }
