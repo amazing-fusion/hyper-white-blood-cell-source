@@ -54,12 +54,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             LevelManager.Instance.CurrentRoom.StartLevel();
         }
 
-        void OnLevelEnd(Room room)
+        void OnLevelEnd(Room room, bool win)
         {
-            Show();
+            if (win)
+            {
+                Debug.Log("OnLevelEnd");
+                Show();
+
+            }
+            
         }
 
-        void Show()
+        public void Show()
         {
             if (_showAnimation != null) {
                 _showAnimation.gameObject.SetActive(true);
@@ -76,6 +82,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _levelText.text = string.Format("Level {0}", LevelManager.Instance.CurrentLevelNumber + 1);
             _startLevelAnimation.OnEnd += OnStartLevelAnimationEnd;
             _startLevelAnimation.Play();
+            EffectsControllerPlayer.Instance.Initialize();
         }
     }
 }

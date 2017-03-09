@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
@@ -25,6 +26,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         [SerializeField]
         TMP_Text _bestScoreText;
+
+        [SerializeField]
+        Button _videoButton;
 
         [SerializeField]
         AlphaCanvasGroupEasingAnimation _showAnimation;
@@ -61,6 +65,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void OnPlayerDie()
         {
+            if (LevelManager.Instance.AvailableVideo)
+            {
+                _videoButton.interactable = true;
+            }
+            else
+            {
+                _videoButton.interactable = false;
+            }
             _deathText.enabled = true;
             _deathText1.enabled = true;
             _timeText.enabled = false;
@@ -74,6 +86,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnTimeOver() {
+
+            Debug.Log("Current Room " + LevelManager.Instance.CurrentRoom);
+
+            if (LevelManager.Instance.AvailableVideo)
+            {
+                _videoButton.interactable = true;
+            }
+            else
+            {
+                _videoButton.interactable = false;
+            }
+
             _deathText.enabled = false;
             _deathText1.enabled = false;
             _timeText.enabled = true;
@@ -101,7 +125,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void GoToAddVideo()
         {
-            AdsController.Instance.ShowRewardedVideoAd();
+            _hideAnimation.gameObject.SetActive(false);
+            LevelManager.Instance.RestartLevel = true;
+            GameController.Instance.Revive();
+            //AdsController.Instance.ShowRewardedVideoAd();
+
+            //LevelManager.Instance.VideoLevel();
         }
     }
 }

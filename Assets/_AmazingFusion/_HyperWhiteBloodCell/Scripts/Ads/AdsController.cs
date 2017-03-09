@@ -16,6 +16,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed += HandleOnRewardedVideoAdClosed;
+            GoogleMobileAd.OnRewarded += HandleOnRewarded;
 
             GoogleMobileAd.LoadRewardedVideo();
             GoogleMobileAd.LoadInterstitialAd();
@@ -29,6 +30,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed -= HandleOnRewardedVideoAdClosed;
+            GoogleMobileAd.OnRewarded -= HandleOnRewarded;
+        }
+
+        void HandleOnRewarded(string itemId,int amount)
+        {
+            //LevelManager.Instance.VideoLevel();
         }
 
         void HandleOnRewardedVideoLoaded()

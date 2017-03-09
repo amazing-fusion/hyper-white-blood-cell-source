@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
-    public class EffectsControllerPlayer : OptimizedBehaviour
+    public class EffectsControllerPlayer : Singleton<EffectsControllerPlayer>
     {
         [SerializeField]
         float _dieMagnitudeShake;
@@ -40,27 +40,21 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         ParticleSystem _explosionDied;
         SequenceEasingAnimation _dashAnimation;
         
-        void Awake()
-        {
-            
-        }
-
         void OnDisable()
         {
             Initialize();
         }
 
-        void Start()
+         void Start()
         {
-            Initialize();
+            InitializeComponents();
         }
 
-        void Initialize()
+        void InitializeComponents()
         {
-            Debug.Log("Coloco todo");
             _dashMotorPlayer = GetComponent<DashMotor>();
             _damageControllerPlayer = GetComponent<DamageController>();
-            _dashAnimation = GetComponent<SequenceEasingAnimation>();
+            _dashAnimation = Transform.GetChild(0).GetComponent<SequenceEasingAnimation>();
 
             _spriteRenderer = Transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             _explosionDied = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
@@ -69,6 +63,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _damageControllerPlayer.OnCollide += CollideEffect;
             _damageControllerPlayer.OnTakeDamage += WhiteEffect;
             _damageControllerPlayer.OnDie += EffectDiedPlayer;
+        }
+
+        public void Initialize()
+        {
+            Debug.Log("Coloco Player Effects");
+            AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
 
             _spriteRenderer.enabled = true;
             _explosionDied.Stop();

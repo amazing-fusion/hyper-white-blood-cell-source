@@ -26,9 +26,6 @@ GameObject:
   - component: {fileID: 114681870480820738}
   - component: {fileID: 114553409482080504}
   - component: {fileID: 114305547346861398}
-  - component: {fileID: 114895484341843496}
-  - component: {fileID: 114206728947728512}
-  - component: {fileID: 114129306656676158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,6 +157,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4172604383837562}
+  - component: {fileID: 114929442637902798}
+  - component: {fileID: 114401101983338970}
+  - component: {fileID: 114905008942327146}
   m_Layer: 0
   m_Name: PlayerPrefabEffects
   m_TagString: Untagged
@@ -459,21 +459,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sqrMinSwipe: 16
---- !u!114 &114129306656676158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1238342206310030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fc0f6f857f335d41aaf43931382d87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0
-  _easingAnimations:
-  - {fileID: 114895484341843496}
-  - {fileID: 114206728947728512}
 --- !u!114 &114150884071678984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,30 +477,6 @@ MonoBehaviour:
   - Enemy
   _dashingTag: DashingPlayer
   _immunityAfterDashDuration: 1
---- !u!114 &114206728947728512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1238342206310030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97210279f9d5c94bb47778c51d967ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.1
-  _xEasingInfo:
-    _startValue: 2
-    _changeValue: -1
-    _curve: 31
-  _yEasingInfo:
-    _startValue: 0.4
-    _changeValue: 0.6
-    _curve: 31
-  _zEasingInfo:
-    _startValue: 1
-    _changeValue: 0
-    _curve: 0
 --- !u!114 &114305547346861398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -536,6 +497,30 @@ MonoBehaviour:
   _wallCollideForce: 5
   _colorDamage: {r: 1, g: 0.16176468, b: 0.16176468, a: 1}
   _cameraEffect: {fileID: 0}
+--- !u!114 &114401101983338970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922207543182958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97210279f9d5c94bb47778c51d967ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0.1
+  _xEasingInfo:
+    _startValue: 2
+    _changeValue: -1
+    _curve: 31
+  _yEasingInfo:
+    _startValue: 0.4
+    _changeValue: 0.6
+    _curve: 31
+  _zEasingInfo:
+    _startValue: 1
+    _changeValue: 0
+    _curve: 0
 --- !u!114 &114413894449826584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -585,12 +570,27 @@ MonoBehaviour:
   - Hazard
   _immortalityTimeAfterDamage: 1
   _immortalityEffect: {fileID: 114413894449826584}
---- !u!114 &114895484341843496
+--- !u!114 &114905008942327146
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1238342206310030}
+  m_GameObject: {fileID: 1922207543182958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc0f6f857f335d41aaf43931382d87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0
+  _easingAnimations:
+  - {fileID: 114929442637902798}
+  - {fileID: 114401101983338970}
+--- !u!114 &114929442637902798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922207543182958}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e97210279f9d5c94bb47778c51d967ef, type: 3}

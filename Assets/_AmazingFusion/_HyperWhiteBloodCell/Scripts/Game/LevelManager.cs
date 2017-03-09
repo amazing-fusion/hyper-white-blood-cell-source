@@ -17,6 +17,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         Room _currentRoom;
         Room _lastRoom;
 
+        bool _availableVideo;
+
         public int CurrentLevelNumber
         {
             get
@@ -57,6 +59,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        bool _restartLevel;
+
         public float StartLevelDelay {
             get {
                 return _startLevelDelay;
@@ -76,8 +80,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public bool AvailableVideo
+        {
+            get
+            {
+                return _availableVideo;
+            }
+
+            set
+            {
+                _availableVideo = value;
+            }
+        }
+
+        public bool RestartLevel
+        {
+            get
+            {
+                return _restartLevel;
+            }
+
+            set
+            {
+                _restartLevel = value;
+            }
+        }
+
         void LoadLevel()
         {
+            Debug.Log("Load Level");
             Room temRoom;
             List<Room> temListRoom = new List<Room>();
             foreach(Room roomPrefab in _roomsPrefab)
@@ -94,25 +125,57 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _lastRoom = temRoom;
         }
 
+        void LoadLevelVideo()
+        { 
+            Instantiate(_lastRoom);
+        }
+
+        public void VideoLevel()
+        {
+            Debug.Log("Doy al Video");
+            if (CurrentRoom != null)
+            {
+                Destroy(CurrentRoom.gameObject);
+            }
+            LoadLevelVideo();
+            _availableVideo = false;
+        }
+
+
         public void FirstLevel()
         {
-            if(CurrentRoom != null)
+            Debug.Log("Primer Nivel");
+            if (CurrentRoom != null)
             {
                 Destroy(CurrentRoom.gameObject);
             }
             CurrentLevelNumber = 0;
             LoadLevel();
+            _availableVideo = true;
         }
 
         public void NextLevel()
         {
+            Debug.Log("Siguiente Nivel");
             if (CurrentRoom != null)
             {
                 Destroy(CurrentRoom.gameObject);
             }
-            CurrentLevelNumber++;
-            PersistanceManager.Instance.BestLevel = CurrentLevelNumber;
-            LoadLevel();
+            if (_restartLevel)
+            {
+                Debug.Log("Hago la room anterior");
+                _currentRoom = Instantiate(_lastRoom);
+                _availableVideo = false;
+                _restartLevel = false;
+            }
+            else
+            {
+                Debug.Log("Hago la room Siguiente");
+                CurrentLevelNumber++;
+                PersistanceManager.Instance.BestLevel = CurrentLevelNumber;
+                LoadLevel();
+            }
+
         }
     }
 }
