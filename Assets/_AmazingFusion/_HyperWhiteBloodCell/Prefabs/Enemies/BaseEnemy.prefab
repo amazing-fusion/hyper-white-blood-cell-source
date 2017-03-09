@@ -416,6 +416,8 @@ MonoBehaviour:
   _collider: {fileID: 58649508729180654}
   _harmfulTags:
   - DashingPlayer
+  _immortalityTimeAfterDamage: 0
+  _immortalityEffect: {fileID: 0}
 --- !u!114 &114408954872182214
 MonoBehaviour:
   m_ObjectHideFlags: 1

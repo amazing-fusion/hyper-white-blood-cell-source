@@ -1430,6 +1430,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e0746647b4d0bc4d9d8e2d7eb7a1708, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1161638184
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1161638186}
+  - component: {fileID: 1161638185}
+  m_Layer: 0
+  m_Name: EditorPlusSceneObjectsSave.5f9d314c7ed41e75c8663105dce4858f657a4e75
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1161638185
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161638184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775efaa7df4e81545922827071f94c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClearID: 0
+  IDs: 0401000005010000
+  OBJs:
+  - {fileID: 1291604686}
+  - {fileID: 1867702460}
+--- !u!4 &1161638186
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161638184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1216187169
 Prefab:
   m_ObjectHideFlags: 0
@@ -1896,40 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomsPrefab:
-  - {fileID: 114219503035937036, guid: 0100e24040469a44f8a8a5ed7a98259a, type: 2}
-  - {fileID: 114769531594474792, guid: 8368344ae697086409b49fba687fbc6f, type: 2}
-  - {fileID: 114219503035937036, guid: e686e234fb780ce49b4abf16ba8458a6, type: 2}
-  - {fileID: 114769531594474792, guid: b212373764794a7439ccf48a9ddae68c, type: 2}
-  - {fileID: 114769531594474792, guid: 3e8c68cfef908f34b912d35282f52dd5, type: 2}
-  - {fileID: 114219503035937036, guid: c74816c07db9e9e4c86fee4a79d15511, type: 2}
-  - {fileID: 114219503035937036, guid: 95a7aec1980ae904493af83773373d6b, type: 2}
-  - {fileID: 114219503035937036, guid: 5da4619030c333e48ab7d0413f688ed8, type: 2}
-  - {fileID: 114219503035937036, guid: 5ea0f2929518f4f4cabfb211026a4722, type: 2}
-  - {fileID: 114219503035937036, guid: 9a9d176256b6fe74aaccfbab28437353, type: 2}
-  - {fileID: 114219503035937036, guid: 4da4f69d48dd91340810d5c8ccebf534, type: 2}
-  - {fileID: 114219503035937036, guid: 06d1054a7af43f646b07160c0111507b, type: 2}
-  - {fileID: 114219503035937036, guid: 08e2455cb61f9474b9a2e748f1be04f3, type: 2}
-  - {fileID: 114219503035937036, guid: 377cfd2b5c205a5429f48fd79023a4ac, type: 2}
-  - {fileID: 114219503035937036, guid: 79d27a1f60ada184bb6aa61680eefacc, type: 2}
-  - {fileID: 114219503035937036, guid: 22c32f0a4765312408ea32e3e498891d, type: 2}
-  - {fileID: 114219503035937036, guid: afe66b8d597bc424885d8db9023432e0, type: 2}
-  - {fileID: 114219503035937036, guid: 9ec1ca822d6bcdc4d955a60a0e6c36ac, type: 2}
-  - {fileID: 114219503035937036, guid: 922510300909bc04c84ea4ead7c54f27, type: 2}
-  - {fileID: 114219503035937036, guid: ccf4be77bae0a9a489cb4b1039725c70, type: 2}
-  - {fileID: 114219503035937036, guid: 08d95a24e1b92d240bce74d857d957a4, type: 2}
-  - {fileID: 114769531594474792, guid: 19ebc0b7fdd6ef14eb700395dea076d1, type: 2}
-  - {fileID: 114769531594474792, guid: 3a901792684fc024a99c7242517d367c, type: 2}
-  - {fileID: 114219503035937036, guid: 59bc4e6f6602a324a995ba0181f221b7, type: 2}
-  - {fileID: 114219503035937036, guid: c17696f5832c4bb41bfb8d878193d213, type: 2}
-  - {fileID: 114769531594474792, guid: 0f82300fd2b0ae6488163c8592df867d, type: 2}
-  - {fileID: 114769531594474792, guid: 6dea62e3db3fb8c4497a9dfc49cfb6ce, type: 2}
-  - {fileID: 114769531594474792, guid: f79f0d782fcf00547a404937531d9a58, type: 2}
-  - {fileID: 114219503035937036, guid: 8a6cdc21419fd3441a5d2302ab82b7c1, type: 2}
-  - {fileID: 114769531594474792, guid: f547962c6ea11cd4c8f9ac28bd434ad7, type: 2}
-  - {fileID: 114769531594474792, guid: 748ef3d84b074844987a84e8b35e6a86, type: 2}
-  - {fileID: 114219503035937036, guid: e39bec875f8812f4bb3f74808800eb63, type: 2}
-  - {fileID: 114219503035937036, guid: aa722ce3796d40741b15d6de8287f23d, type: 2}
-  - {fileID: 114219503035937036, guid: d28782f99a7263c44b8d8aada39ebda1, type: 2}
+  - {fileID: 114769531594474792, guid: 0aa0b998b29c58c46a7a0ba0be98daa5, type: 2}
   _startLevelDelay: 0.1
 --- !u!114 &1867702463
 MonoBehaviour:

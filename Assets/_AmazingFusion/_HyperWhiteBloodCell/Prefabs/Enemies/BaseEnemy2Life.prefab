@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 4810326471391128}
   - component: {fileID: 212715997360729540}
   - component: {fileID: 96126180084442686}
+  - component: {fileID: 95943971305485698}
+  - component: {fileID: 111278492370889642}
   m_Layer: 0
   m_Name: Sprites Atlas-01_0
   m_TagString: Untagged
@@ -213,7 +215,7 @@ Transform:
   - {fileID: 4003190289138894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.8326055, y: 2.0164454, z: 1.6491199}
 --- !u!4 &4970972552699360
 Transform:
   m_ObjectHideFlags: 1
@@ -274,6 +276,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 47c1081011f476b4a817c0a064703c91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95943971305485698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939477787918904}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34e6558c06e63b84d8247b5281bcac30, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -385,6 +404,20 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.03
   m_Autodestruct: 0
+--- !u!111 &111278492370889642
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939477787918904}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: df547aeeeba78014cbb7dcfc0f16f646, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114185822543102922
 MonoBehaviour:
   m_ObjectHideFlags: 1
