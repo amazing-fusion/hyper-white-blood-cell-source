@@ -47,7 +47,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         public static event System.Action<Room> OnLevelStart;
-        public static event System.Action<Room> OnLevelEnd;
+        public static event System.Action<Room, bool> OnLevelEnd;
 
         public void StartLevel()
         {
@@ -57,7 +57,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void EndLevel()
         {
             _started = false;
-            if (OnLevelEnd != null) OnLevelEnd(this);
+            if (OnLevelEnd != null) OnLevelEnd(this,true);
+        }
+
+        public void LoseLevel()
+        {
+            _started = false;
+            if (OnLevelEnd != null) OnLevelEnd(this, false);
         }
 
         IEnumerator<float> DoStartLevel() {

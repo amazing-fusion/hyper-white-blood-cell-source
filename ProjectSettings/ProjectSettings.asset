@@ -121,13 +121,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.AmazingFusion.HyperWhiteBloodCellDash
-  bundleVersion: 0.1
+  bundleVersion: 0.2
   preloadedAssets: []
   metroInputSource: 0
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -199,7 +199,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Trabajos/Empleos/Demium Games/Hiper White Blood Cell/hyper-white-blood-cell-source/amazing_fusion.keystore
+  AndroidKeystoreName: C:/Users/Diego Diaz/Documents/hyper-white-blood-cell-source/amazing_fusion.keystore
   AndroidKeyaliasName: amazing fusion
   AndroidTVCompatibility: 1
   AndroidIsGame: 1

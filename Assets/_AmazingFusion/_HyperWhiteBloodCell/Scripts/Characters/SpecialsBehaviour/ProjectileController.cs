@@ -30,7 +30,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             Room.OnLevelEnd -= LevelEnd;
         }
 
-        void LevelEnd(Room room) {
+        void LevelEnd(Room room, bool win) {
             Delete();
         }
 

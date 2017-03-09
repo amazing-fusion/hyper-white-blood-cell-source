@@ -92,6 +92,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
             _collider.enabled = false;
             if (OnDie != null) OnDie(DieAnimationEnded);
+
+            //TODO: Get out from here
+            if (tag == "Enemy") {
+                ++PersistanceManager.Instance.GermsKilled;
+            }
         }
 
         public void SetImmortal(float duration) {

@@ -6,10 +6,15 @@ Save this file as res/values/games-ids.xml in your project.
 <resources>
   <string name="app_id">72434408241</string>
   <string name="package_name">com.AmazingFusion.HyperWhiteBloodCellDash</string>
-  <string name="achievement_first_contact">CgkIsba1640CEAIQAg</string>
-  <string name="achievement_antibody">CgkIsba1640CEAIQAw</string>
-  <string name="achievement_biowar_veteran">CgkIsba1640CEAIQBA</string>
-  <string name="achievement_the_chosen_one">CgkIsba1640CEAIQBQ</string>
-  <string name="achievement_johnny_is_still_alive">CgkIsba1640CEAIQBg</string>
+  <string name="achievement_polysuggestivitis_pills">CgkIsba1640CEAIQBg</string>
+  <string name="achievement_emoglobina_rush">CgkIsba1640CEAIQCA</string>
+  <string name="achievement_streptococonut_cells">CgkIsba1640CEAIQCQ</string>
+  <string name="achievement_salmonella_fitzgerald">CgkIsba1640CEAIQCg</string>
+  <string name="achievement_johnny_is_still_alive">CgkIsba1640CEAIQCw</string>
+  <string name="achievement_germ_killer">CgkIsba1640CEAIQAg</string>
+  <string name="achievement_pain_killer">CgkIsba1640CEAIQAw</string>
+  <string name="achievement_trojan_virus_antidote">CgkIsba1640CEAIQBw</string>
+  <string name="achievement_cellulitis">CgkIsba1640CEAIQBA</string>
+  <string name="achievement_germinator">CgkIsba1640CEAIQBQ</string>
   <string name="leaderboard_ranking">CgkIsba1640CEAIQAA</string>
 </resources>

@@ -47,9 +47,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             Initialize();
         }
 
-        void Initialize()
+        public  void Initialize()
         {
-            Debug.Log("Coloco todo enemy");
             _damageController = GetComponent<DamageController>();
             _animator = GetComponent<AnimatorControllerEnemy>();
             _explosionParticles = Transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<ParticleSystem>();

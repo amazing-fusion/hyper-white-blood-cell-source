@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
@@ -27,6 +28,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         TMP_Text _bestScoreText;
 
         [SerializeField]
+        Button _videoButton;
+
+        [SerializeField]
         AlphaCanvasGroupEasingAnimation _showAnimation;
 
         [SerializeField]
@@ -39,12 +43,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             GameController.Instance.OnTimeOver += OnTimeOver;
             _showAnimation.OnEnd += OnShowAnimationEnd;
             _hideAnimation.OnEnd += OnHideAnimationEnd;
+            GoogleMobileAd.OnRewarded += HandleOnRewarded;
         }
 
         void OnDestroy() {
             if (GameController.HasInstance) {
                 GameController.Instance.OnPlayerDied -= OnPlayerDie;
                 GameController.Instance.OnTimeOver -= OnTimeOver;
+                GoogleMobileAd.OnRewarded -= HandleOnRewarded;
             }
             _showAnimation.OnEnd -= OnShowAnimationEnd;
             _hideAnimation.OnEnd -= OnHideAnimationEnd;
@@ -61,6 +67,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void OnPlayerDie()
         {
+            if (LevelManager.Instance.AvailableVideo)
+            {
+                _videoButton.interactable = true;
+            }
+            else
+            {
+                _videoButton.interactable = false;
+            }
             _deathText.enabled = true;
             _deathText1.enabled = true;
             _timeText.enabled = false;
@@ -74,6 +88,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnTimeOver() {
+
+            Debug.Log("Current Room " + LevelManager.Instance.CurrentRoom);
+
+            if (LevelManager.Instance.AvailableVideo)
+            {
+                _videoButton.interactable = true;
+            }
+            else
+            {
+                _videoButton.interactable = false;
+            }
+
             _deathText.enabled = false;
             _deathText1.enabled = false;
             _timeText.enabled = true;
@@ -102,6 +128,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void GoToAddVideo()
         {
             AdsController.Instance.ShowRewardedVideoAd();
+        }
+
+        void HandleOnRewarded(string itemId, int amount)
+        {
+            _hideAnimation.gameObject.SetActive(false);
+            LevelManager.Instance.RestartLevel = true;
+            GameController.Instance.Revive();
         }
     }
 }

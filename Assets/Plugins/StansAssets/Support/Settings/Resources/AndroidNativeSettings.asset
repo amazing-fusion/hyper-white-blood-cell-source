@@ -14,7 +14,7 @@ MonoBehaviour:
   EnablePlusAPI: 0
   EnableGamesAPI: 1
   EnableAppInviteAPI: 0
-  EnableDriveAPI: 1
+  EnableDriveAPI: 0
   LoadProfileIcons: 0
   LoadProfileImages: 0
   LoadQuestsImages: 0
@@ -89,10 +89,19 @@ MonoBehaviour:
   KeepManifestClean: 1
   GooglePlayServiceAppID: 72434408241
   ToolbarSelectedIndex: 7
-  base64EncodedPublicKey: REPLACE_WITH_YOUR_PUBLIC_KEY
+  base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtDyK1JZnsETe/5pbLAJLOKxH4KC4Yqov6LjfXpbOX64wEEBZP6C8RkdJfjm3CJ68vU7mIjmzwXlP4jVc49xWbjIcX00Qr0iWGQTZaK7O0Kjr6BfvHcin6CnU3gSNq9t05xHS89bw7bKR06r+bxOdkxmTsmQ6Hnr0d2NszyZHVGOomazKZFEFxBySoj8mlX0RYb7ZLSQXpdQAvBPd+A3q8Ki2GkUGfyEvGMSvnbSKYtoL3IA7SSz+cteXJqioyMPawXGY5BUDntm1OXs5NFbN+PlrWmSIZgYdNOLbijKjQRh4BlltVM4WtEtbI+Dzv8V91j3Orvsya8rspPG+sxFKgwIDAQAB
   ShowStoreProducts: 1
-  InAppProducts: []
-  ShowLeaderboards: 1
+  InAppProducts:
+  - IsOpen: 1
+    SKU: com.amazingfusion.hyperwhitebloodcelldash.noads
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: No Ads
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  ShowLeaderboards: 0
   Leaderboards:
   - IsOpen: 1
     _id: CgkIsba1640CEAIQAA
@@ -100,7 +109,7 @@ MonoBehaviour:
     _description: 
     _Texture: {fileID: 0}
     CurrentPlayerScore: []
-  ShowAchievements: 1
+  ShowAchievements: 0
   Achievements:
   - IsOpen: 1
     _id: CgkIsba1640CEAIQAg
@@ -110,6 +119,11 @@ MonoBehaviour:
   - IsOpen: 1
     _id: CgkIsba1640CEAIQAw
     _name: achievement_defeat_100_germs
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQBw
+    _name: achievement_defeat_500_germs
     _description: 
     _Texture: {fileID: 0}
   - IsOpen: 1
@@ -124,7 +138,27 @@ MonoBehaviour:
     _Texture: {fileID: 0}
   - IsOpen: 1
     _id: CgkIsba1640CEAIQBg
+    _name: achievement_reach_level_5
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQCA
     _name: achievement_reach_level_10
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQCQ
+    _name: achievement_reach_level_15
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQCg
+    _name: achievement_reach_level_50
+    _description: 
+    _Texture: {fileID: 0}
+  - IsOpen: 1
+    _id: CgkIsba1640CEAIQCw
+    _name: achievement_reach_level_100
     _description: 
     _Texture: {fileID: 0}
   ShowWhenAppIsForeground: 1

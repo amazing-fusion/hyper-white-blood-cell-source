@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 4810326471391128}
   - component: {fileID: 212715997360729540}
   - component: {fileID: 96126180084442686}
+  - component: {fileID: 95424332317028086}
   m_Layer: 0
   m_Name: Sprites Atlas-01_0
   m_TagString: Untagged
@@ -206,7 +207,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685331657526206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.6899476, y: -4.909027, z: 1}
+  m_LocalPosition: {x: -5.915275, y: -4.0534544, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4970972552699360}
@@ -264,6 +265,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.64
+--- !u!95 &95424332317028086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939477787918904}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e110dc627be14e242979dd8fbf1850e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95541982510838914
 Animator:
   serializedVersion: 3
@@ -416,6 +434,8 @@ MonoBehaviour:
   _collider: {fileID: 58649508729180654}
   _harmfulTags:
   - DashingPlayer
+  _immortalityTimeAfterDamage: 0
+  _immortalityEffect: {fileID: 0}
 --- !u!114 &114408954872182214
 MonoBehaviour:
   m_ObjectHideFlags: 1
