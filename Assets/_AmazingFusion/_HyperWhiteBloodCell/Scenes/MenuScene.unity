@@ -409,8 +409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioButtonImage: {fileID: 23409527}
-  _audioOnSprite: {fileID: 21300000, guid: a292c29661f01f34a96aaa354694172a, type: 3}
-  _audioOffSprite: {fileID: 21300000, guid: f202e873f9b84734a966882cd9b972f1, type: 3}
+  _audioOnSprite: {fileID: 21300000, guid: f202e873f9b84734a966882cd9b972f1, type: 3}
+  _audioOffSprite: {fileID: 21300000, guid: a292c29661f01f34a96aaa354694172a, type: 3}
   _noAdsButton: {fileID: 108465651}
   _bestLevelText: {fileID: 932745978}
 --- !u!114 &123431671
