@@ -50,8 +50,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             if (GameController.HasInstance) {
                 GameController.Instance.OnPlayerDied -= OnPlayerDie;
                 GameController.Instance.OnTimeOver -= OnTimeOver;
-                GoogleMobileAd.OnRewarded -= HandleOnRewarded;
             }
+            GoogleMobileAd.OnRewarded -= HandleOnRewarded;
             _showAnimation.OnEnd -= OnShowAnimationEnd;
             _hideAnimation.OnEnd -= OnHideAnimationEnd;
         }
@@ -133,9 +133,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void HandleOnRewarded(string itemId, int amount)
         {
             Debug.Log("Rewarded Video");
-            _hideAnimation.gameObject.SetActive(false);
-            LevelManager.Instance.RestartLevel = true;
-            GameController.Instance.Revive();
+            try {
+                _hideAnimation.gameObject.SetActive(false);
+                LevelManager.Instance.RestartLevel = true;
+                GameController.Instance.Revive();
+            }
+            catch (System.Exception ex) {
+                Debug.Log(ex.Message);
+                Debug.Log(ex.StackTrace);
+            }
         }
     }
 }

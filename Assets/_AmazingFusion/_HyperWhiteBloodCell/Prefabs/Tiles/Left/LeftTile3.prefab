@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212774364769172630}
   m_Layer: 0
   m_Name: LeftTile3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

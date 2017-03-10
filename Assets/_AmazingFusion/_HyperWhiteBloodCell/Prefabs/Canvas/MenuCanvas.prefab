@@ -301,7 +301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &114036692848011116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -565,7 +565,7 @@ MonoBehaviour:
   _audioButtonImage: {fileID: 114544031950668032}
   _audioOnSprite: {fileID: 21300000, guid: a292c29661f01f34a96aaa354694172a, type: 3}
   _audioOffSprite: {fileID: 21300000, guid: f202e873f9b84734a966882cd9b972f1, type: 3}
-  _noAdsButton: {fileID: 0}
+  _noAdsButton: {fileID: 114036692848011116}
 --- !u!114 &114314884218732124
 MonoBehaviour:
   m_ObjectHideFlags: 1
