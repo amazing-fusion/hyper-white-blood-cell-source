@@ -72,6 +72,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
         }
 
+        public int Lifes {
+            get {
+                return _lifes;
+            }
+        }
+
         public void Initialize() {
             CurrentLifes = _lifes;
             _collider.enabled = true;

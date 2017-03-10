@@ -58,7 +58,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             if (lifes < 0) return;
             
-            if (lifes < _lifesAnimation.Length) {
+            if (lifes == GameController.Instance.Player.Lifes) {
+                Initialize();
+            }
+            else if (lifes < _lifesAnimation.Length) {
                 _lifesAnimation[lifes].Play();
             }
         }

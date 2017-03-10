@@ -69,6 +69,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
             if (OnBeginDrag != null) OnBeginDrag();
 
+            if (_endDashCoroutine != null) {
+                Timing.KillCoroutines(_endDashCoroutine);
+            }
+
             if (_damageController != null) {
                 foreach (string immuneTag in _dashImmuneTags) {
                     if (_damageController.HarmfulTags.Contains(immuneTag)) {
@@ -99,15 +103,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
                 if (OnEndDrag != null) OnEndDrag();
 
-                if (!String.IsNullOrEmpty(_dashingTag)) {
-                    tag = _tag;
-                }
-
                 if (_damageController != null) {
                     if (_immunityAfterDashDuration > 0) {
-                        if (_endDashCoroutine != null) {
-                            Timing.KillCoroutines(_endDashCoroutine);
-                        }
                         _endDashCoroutine = Timing.CallDelayed(_immunityAfterDashDuration, () => {
                             if (_endDashCoroutine != null) {
                                 _endDashCoroutine = null;
@@ -116,12 +113,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
                                 }
                                 _harmfulTagsImmunity.Clear();
                             }
+                            if (!String.IsNullOrEmpty(_dashingTag)) {
+                                tag = _tag;
+                            }
                         });
                     } else {
                         foreach (string immuneTag in _harmfulTagsImmunity) {
                             _damageController.HarmfulTags.Add(immuneTag);
                         }
                         _harmfulTagsImmunity.Clear();
+                        if (!String.IsNullOrEmpty(_dashingTag)) {
+                            tag = _tag;
+                        }
                     }
                 }
                 

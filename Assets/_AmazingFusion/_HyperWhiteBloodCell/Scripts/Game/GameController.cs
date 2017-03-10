@@ -100,7 +100,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void StartGame() {
             _gameIsActive = true;
-            _player.Initialize();
+            //_player.Initialize();
             LevelManager.Instance.FirstLevel();
 
             CurrentLevelTime = _levelTime;
@@ -115,7 +115,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void Revive()
         {
             _gameIsActive = true;
-            _player.Initialize();
+            //_player.Initialize();
             NextLevelView.Instance.Show();
             if (OnGameRestart != null) OnGameRestart();
             //LevelManager.Instance.VideoLevel();
@@ -145,6 +145,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void StartLevel(Room room) {
             CurrentLevelTime = _levelTime;
+            _player.Initialize();
             UpdateManager.Instance.Add(this);
         }
 
