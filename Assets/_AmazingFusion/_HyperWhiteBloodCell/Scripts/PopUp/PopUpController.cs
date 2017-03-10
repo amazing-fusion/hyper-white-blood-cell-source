@@ -20,11 +20,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             
         }
 
-        void Start()
-        {
-            _dialogPopUp.OnComplete += OnDialogClose;
-        }
-
         void OnDestroy()
         {
             if (UpdateManager.HasInstance)
@@ -52,6 +47,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp);
+                _dialogPopUp.OnComplete += OnDialogClose;
             }
         }
     }

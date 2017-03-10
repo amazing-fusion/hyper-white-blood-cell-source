@@ -129,7 +129,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             base.Awake();
 
             _showAds = PlayerPrefs.GetInt("ShowAds", 1) == 1;
-            _neverReviewUI = PlayerPrefs.GetInt("NeverReviewUI", 1) == 1;
+            _neverReviewUI = PlayerPrefs.GetInt("NeverReviewUI", 0) == 1;
             _audioOn = PlayerPrefs.GetInt("AudioOn", 1) == 1;
             _bestLevel = PlayerPrefs.GetInt("BestLevel", 0);
             _germsKilled = PlayerPrefs.GetInt("GermsKilled", 0);
