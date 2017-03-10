@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114196676313679896}
   - component: {fileID: 114519342762730228}
   - component: {fileID: 114381081559404380}
+  - component: {fileID: 114071637778015330}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -42,6 +43,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114071637778015330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132144765716646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ae07a1f4a87ab449dfd1946956c172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titlePopUp: Are you sure leave?
+  _dialogMessagePopUp: 
 --- !u!114 &114196676313679896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,8 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6edb3dbc98e5adf4c872beae4d14b156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeAds: 7
-  _adLoadTimeout: 0.5
+  _timeAds: 240
+  _timeReview: 120
 --- !u!114 &114519342762730228
 MonoBehaviour:
   m_ObjectHideFlags: 1

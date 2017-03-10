@@ -24,6 +24,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Image _fadeImage;
 
+        public event System.Action OnReviewUI;
+
         void Start()
         {
             _showAnimation.OnEnd += OnShowAnimationEnd;
@@ -62,9 +64,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
             else
             {
-                if(AdsController.Instance.NextTimeAds < Time.time)
+                if (PersistanceManager.Instance.ShowAds && AdsController.Instance.NextTimeAds < Time.time)
                 {
                     AdsController.Instance.ShowInterstisialAd();
+                }
+                else if (AdsController.Instance.AvailableReviewUI && !PersistanceManager.Instance.NeverReviewUI)
+                {
+                    Debug.Log("Rate Us pre IF");
+                    if (AdsController.Instance.NextReviewUI < Time.time)
+                    {
+                        Debug.Log("Rate Us");
+                        if (OnReviewUI != null) OnReviewUI();
+                        AdsController.Instance.AvailableReviewUI = false;
+                    }
                 }
             }
             

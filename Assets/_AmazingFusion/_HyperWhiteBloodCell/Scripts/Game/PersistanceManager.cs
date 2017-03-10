@@ -5,6 +5,8 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCell {
     public class PersistanceManager : GlobalSingleton<PersistanceManager> {
 
+        bool _neverReviewUI;
+
         bool _audioOn;
 
         int _bestLevel;
@@ -105,11 +107,28 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             }
         }
 
+        public bool NeverReviewUI
+        {
+            get
+            {
+                return _neverReviewUI;
+            }
+
+            set
+            {
+                _neverReviewUI = value;
+
+                PlayerPrefs.SetInt("NeverReviewUI", _neverReviewUI ? 1 : 0);
+                PlayerPrefs.Save();
+            }
+        }
+
         // Use this for initialization
         protected override void Awake() {
             base.Awake();
 
             _showAds = PlayerPrefs.GetInt("ShowAds", 1) == 1;
+            _neverReviewUI = PlayerPrefs.GetInt("NeverReviewUI", 0) == 1;
             _audioOn = PlayerPrefs.GetInt("AudioOn", 1) == 1;
             _bestLevel = PlayerPrefs.GetInt("BestLevel", 0);
             _germsKilled = PlayerPrefs.GetInt("GermsKilled", 0);
