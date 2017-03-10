@@ -50,23 +50,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed -= HandleOnRewardedVideoAdClosed;
-           
-        }
+            GoogleMobileAd.OnRewardedVideoAdLeftApplication -= HandleOnRewardedVideoLeftAplication;
+            GoogleMobileAd.OnRewardedVideoAdOpened -= HandleOnRewardedVideoAdOpened;
+            GoogleMobileAd.OnRewardedVideoStarted -= HandleOnRewardedVideoAdStarted;
 
-        void HandleOnRewarded(string itemId,int amount)
-        {
-            LevelManager.Instance.RestartLevel = true;
-            GameController.Instance.Revive();
         }
 
         void HandleOnRewardedVideoLoaded()
         {
+            Debug.Log("Load Video Rewarded");
+        }
 
+        void HandleOnRewardedVideoAdOpened()
+        {
+            Debug.Log("Opened Video Rewarded");
+        }
+
+        void HandleOnRewardedVideoAdStarted()
+        {
+            Debug.Log("Started Video Rewarded");
+        }
+
+        void HandleOnRewardedVideoLeftAplication()
+        {
+            Debug.Log("Left App Video Rewarded");
         }
 
         void HandleOnRewardedVideoAdClosed()
         {
-
+            Debug.Log("Closed Video Rewarded");
         }
 
         void OnInterstisialsLoaded()

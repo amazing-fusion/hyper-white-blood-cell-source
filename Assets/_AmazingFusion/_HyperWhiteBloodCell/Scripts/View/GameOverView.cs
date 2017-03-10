@@ -132,6 +132,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void HandleOnRewarded(string itemId, int amount)
         {
+            Debug.Log("Rewarded Video");
             _hideAnimation.gameObject.SetActive(false);
             LevelManager.Instance.RestartLevel = true;
             GameController.Instance.Revive();
