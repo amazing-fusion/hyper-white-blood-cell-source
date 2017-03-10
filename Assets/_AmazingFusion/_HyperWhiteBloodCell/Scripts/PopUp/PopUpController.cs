@@ -12,7 +12,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         string _dialogMessagePopUp;
 
-        MobileNativeDialog _dialogPopUp;
+        [SerializeField]
+        string _yesText;
+
+        [SerializeField]
+        string _noText;
+
+        MobileNativeDialog _dialogPopUp = null;
 
         void Awake()
         {
@@ -30,15 +36,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         private void OnDialogClose(MNDialogResult result)
         {
+            _dialogPopUp.OnComplete -= OnDialogClose;
+            _dialogPopUp = null;
             //parsing result
-            switch (result)
+            if(result == MNDialogResult.YES)
             {
-                case MNDialogResult.YES:
-                    Application.Quit();
-                    break;
-                case MNDialogResult.NO:
-
-                    break;
+                Application.Quit();
             }
         }
 
@@ -46,8 +49,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp);
-                _dialogPopUp.OnComplete += OnDialogClose;
+                if (_dialogPopUp == null)
+                {
+                    _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp,_yesText,_noText);
+                    _dialogPopUp.OnComplete += OnDialogClose;
+                }
+                
             }
         }
     }

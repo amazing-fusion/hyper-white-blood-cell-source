@@ -22,7 +22,6 @@ namespace com.AmazingFusion
         public void LoadScene(Scene scene)
         {
             if (scene == Scene.LoadingScene) {
-                Debug.LogWarning("[SceneManager] Some script is attempting to load the Loading Scene");
                 return;
             }
 

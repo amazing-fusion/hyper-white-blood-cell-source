@@ -82,22 +82,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void ShowRankingOnConnectionStateChnaged(UM_ConnectionState connectionState) {
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                Debug.Log("Connected!");
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
             } else {
-                Debug.Log("Ranking state: " + connectionState.ToString());
                 //TODO: Show error
             }
         }
 
         void ShowAchievementsOnConnectionStateChnaged(UM_ConnectionState connectionState) {
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                Debug.Log("Connected!");
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowAchievementsUI();
             } else {
-                Debug.Log("Achievements state: " + connectionState.ToString());
                 //TODO: Show error
             }
         }

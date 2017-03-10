@@ -330,12 +330,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114759444477238748, guid: a07fab8b4b4b7ea41aa6283515297ae7,
+    - target: {fileID: 114414272206483304, guid: a07fab8b4b4b7ea41aa6283515297ae7,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1214020734}
-    - target: {fileID: 114414272206483304, guid: a07fab8b4b4b7ea41aa6283515297ae7,
+    - target: {fileID: 114759444477238748, guid: a07fab8b4b4b7ea41aa6283515297ae7,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -459,7 +459,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114071637778015330, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1214020732 stripped

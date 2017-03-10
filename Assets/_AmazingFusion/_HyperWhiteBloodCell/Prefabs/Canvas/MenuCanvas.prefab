@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 114314884218732124}
   - component: {fileID: 114893185133056334}
   - component: {fileID: 114292763357846768}
+  - component: {fileID: 114699679943207026}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -1143,6 +1144,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114699679943207026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865132888287756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ae07a1f4a87ab449dfd1946956c172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _titlePopUp: Exit Hyper White Blood Cell?
+  _dialogMessagePopUp: Are you sure you want to exit Hyper White Blood Cell Dash?
+  _yesText: Yes!
+  _noText: NO!
 --- !u!114 &114702637484570664
 MonoBehaviour:
   m_ObjectHideFlags: 1
