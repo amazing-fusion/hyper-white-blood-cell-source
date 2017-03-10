@@ -9,7 +9,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         float _timeAds;
 
-        float _nextTimeAds;
+        [SerializeField]
+        float _timeReview;
+
+        float _nextTimeAds, _nextReviewUI;
+
+        bool _availableReviewUI;
+        bool _neverReviewUI;
 
         public float NextTimeAds
         {
@@ -24,9 +30,50 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public float NextReviewUI
+        {
+            get
+            {
+                return _nextReviewUI;
+            }
+
+            set
+            {
+                _nextReviewUI = value;
+            }
+        }
+
+        public bool AvailableReviewUI
+        {
+            get
+            {
+                return _availableReviewUI;
+            }
+
+            set
+            {
+                _availableReviewUI = value;
+            }
+        }
+
+        public bool NeverReviewUI
+        {
+            get
+            {
+                return _neverReviewUI;
+            }
+
+            set
+            {
+                _neverReviewUI = value;
+            }
+        }
+
         void Start()
         {
-            _nextTimeAds = Time.time + (_timeAds * 60);
+            _nextTimeAds = Time.time + (_timeAds);
+            _nextReviewUI = Time.time + (_timeReview);
+            _availableReviewUI = true;
 
             GoogleMobileAd.Init();
 

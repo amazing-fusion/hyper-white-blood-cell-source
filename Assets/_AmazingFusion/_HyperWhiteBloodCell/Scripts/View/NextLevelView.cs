@@ -62,9 +62,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
             else
             {
-                if(AdsController.Instance.NextTimeAds < Time.time)
+                if (PersistanceManager.Instance.ShowAds && AdsController.Instance.NextTimeAds < Time.time)
                 {
                     AdsController.Instance.ShowInterstisialAd();
+                }
+                else if (AdsController.Instance.AvailableReviewUI && PersistanceManager.Instance.NeverReviewUI)
+                {
+                    if (AdsController.Instance.NextReviewUI < Time.time)
+                    {
+                        //Mostrar REVIEW
+                        AdsController.Instance.AvailableReviewUI = false;
+                    }
                 }
             }
             
