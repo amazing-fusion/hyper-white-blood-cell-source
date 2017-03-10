@@ -25,9 +25,9 @@ MonoBehaviour:
   EnableContactsAPI: 0
   AppEventsAPI: 0
   AppleId: XXXXXXXXX
-  ToolbarIndex: 1
+  ToolbarIndex: 0
   ExpandMoreActionsMenu: 1
-  ExpandModulesSettings: 1
+  ExpandModulesSettings: 0
   InAppsEditorTesting: 1
   CheckInternetBeforeLoadRequest: 0
   TransactionsHandlingMode: 0
