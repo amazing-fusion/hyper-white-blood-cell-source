@@ -172,7 +172,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             {
                 Debug.Log("Hago la room Siguiente");
                 CurrentLevelNumber++;
-                PersistanceManager.Instance.BestLevel = CurrentLevelNumber;
+                PersistanceManager.Instance.BestLevel = CurrentLevelNumber + 1;
                 LoadLevel();
             }
 

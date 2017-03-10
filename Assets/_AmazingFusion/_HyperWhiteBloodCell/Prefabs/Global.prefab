@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeAds: 7
+  _adLoadTimeout: 0.5
 --- !u!114 &114519342762730228
 MonoBehaviour:
   m_ObjectHideFlags: 1

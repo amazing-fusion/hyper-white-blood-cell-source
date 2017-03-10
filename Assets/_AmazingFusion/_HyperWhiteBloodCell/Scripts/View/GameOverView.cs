@@ -82,7 +82,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _deathText.text = "You're";
             _deathText1.text = "infected!";
            _scoreText.text = string.Format("Score {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
-            _bestScoreText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
+            _bestScoreText.text = string.Format("High {0}", PersistanceManager.Instance.BestLevel);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
@@ -107,7 +107,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _timeText.text = "Time's";
             _timeText1.text = "up!";
             _scoreText.text = string.Format("Score {0}", (LevelManager.Instance.CurrentLevelNumber + 1));
-            _bestScoreText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel + 1);
+            _bestScoreText.text = string.Format("Best {0}", PersistanceManager.Instance.BestLevel);
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
