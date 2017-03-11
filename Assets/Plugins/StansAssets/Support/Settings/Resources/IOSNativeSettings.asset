@@ -14,92 +14,111 @@ MonoBehaviour:
   EnableGameCenterAPI: 1
   EnableInAppsAPI: 1
   EnableCameraAPI: 0
-  EnableSocialSharingAPI: 1
+  EnableSocialSharingAPI: 0
   EnablePickerAPI: 0
   EnableMediaPlayerAPI: 0
   EnableReplayKit: 0
-  EnableCloudKit: 1
+  EnableCloudKit: 0
   EnableSoomla: 0
   EnableGestureAPI: 0
   EnablePushNotificationsAPI: 0
   EnableContactsAPI: 0
   AppEventsAPI: 0
-  AppleId: XXXXXXXXX
-  ToolbarIndex: 0
+  AppleId: 1214605681
+  ToolbarIndex: 1
   ExpandMoreActionsMenu: 1
-  ExpandModulesSettings: 0
+  ExpandModulesSettings: 1
   InAppsEditorTesting: 1
   CheckInternetBeforeLoadRequest: 0
   TransactionsHandlingMode: 0
   DefaultStoreProductsView: []
-  InAppProducts: []
+  InAppProducts:
+  - IsOpen: 0
+    _IsAvailable: 0
+    _Id: com.AmazingFusion.HyperWhiteBloodCellDash.NoAds
+    _DisplayName: No Ads
+    _Description: 
+    _Price: 0.99
+    _LocalizedPrice: 
+    _CurrencySymbol: $
+    _CurrencyCode: USD
+    _Texture: {fileID: 0}
+    _ProductType: 1
+    _PriceTier: 0
   ShowStoreKitProducts: 1
   Leaderboards:
+  - IsOpen: 0
+    _info:
+      Title: leaderboard_ranking
+      Description: 
+      Identifier: Fusion.HyperWhiteBloodCellDash.Rankingash.Ranking
+      Texture: {fileID: 0}
+      MaxRange: 0
   - IsOpen: 1
     _info:
       Title: leaderboard_ranking
       Description: 
-      Identifier: new leaderboard1
+      Identifier: com.AmazingFusion.HyperWhiteBloodCellDash.Ranking
       Texture: {fileID: 0}
       MaxRange: 0
   Achievements:
   - IsOpen: 1
-    Id: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat10000Germs
+    Title: achievement_defeat_10000_germs
+    Description: 
+    _progress: 0
+    Texture: {fileID: 0}
+  - IsOpen: 1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat500Germs
+    Title: achievement_defeat_500_germs
+    Description: 
+    _progress: 0
+    Texture: {fileID: 0}
+  - IsOpen: 1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat1000Germs
+    Title: achievement_defeat_1000_germs
+    Description: 
+    _progress: 0
+    Texture: {fileID: 0}
+  - IsOpen: 1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat100Germs
+    Title: achievement_defeat_100_germs
+    Description: 
+    _progress: 0
+    Texture: {fileID: 0}
+  - IsOpen: 1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel100
     Title: achievement_reach_level_100
     Description: 
     _progress: 0
     Texture: {fileID: 0}
   - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat10Germs
+    Title: achievement_defeat_10_germs
     Description: 
     _progress: 0
     Texture: {fileID: 0}
   - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel15
+    Title: achievement_reach_level_15
     Description: 
     _progress: 0
     Texture: {fileID: 0}
   - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel50
+    Title: achievement_reach_level_50
     Description: 
     _progress: 0
     Texture: {fileID: 0}
   - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel10
+    Title: achievement_reach_level_10
     Description: 
     _progress: 0
     Texture: {fileID: 0}
   - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
-    Description: 
-    _progress: 0
-    Texture: {fileID: 0}
-  - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
-    Description: 
-    _progress: 0
-    Texture: {fileID: 0}
-  - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
-    Description: 
-    _progress: 0
-    Texture: {fileID: 0}
-  - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
-    Description: 
-    _progress: 0
-    Texture: {fileID: 0}
-  - IsOpen: 1
-    Id: new achievment1
-    Title: new achievment1
+    Id: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel5
+    Title: achievement_reach_level_5
     Description: 
     _progress: 0
     Texture: {fileID: 0}
