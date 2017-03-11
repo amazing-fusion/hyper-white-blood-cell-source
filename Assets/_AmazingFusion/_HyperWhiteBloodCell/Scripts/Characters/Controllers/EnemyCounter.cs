@@ -26,7 +26,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             //if (_enemies.Contains(this)) {
                 _enemies.Remove(this);
             //}
-            Debug.Log("Enemies: " + _enemies.Count);
             if (OnEnemyDestroy != null) OnEnemyDestroy();
         }
 

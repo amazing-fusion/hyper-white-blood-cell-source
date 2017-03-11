@@ -201,7 +201,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/Trabajos/Empleos/Demium Games/Hiper White Blood Cell/hyper-white-blood-cell-source/amazing_fusion.keystore
+  AndroidKeystoreName: E:/Trabajos/Empleos/Demium Games/Hyper White Blood Cell Dash/hyper-white-blood-cell-source/amazing_fusion.keystore
   AndroidKeyaliasName: amazing fusion
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -377,7 +377,7 @@ PlayerSettings:
   psmSplashimage: {fileID: 0}
   splashScreenBackgroundSourceLandscape: {fileID: 0}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
-  spritePackerPolicy: 
+  spritePackerPolicy: TightPackerPolicy
   webGLMemorySize: 256
   webGLExceptionSupport: 1
   webGLDataCaching: 0

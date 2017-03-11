@@ -11,7 +11,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         EasingAnimation _hideAnimation;
 
-        void Awake() {
+        void Start() {
             _hideAnimation.OnEnd += (IEffectable effect) => {
                 _hideAnimation.gameObject.SetActive(false);
             };

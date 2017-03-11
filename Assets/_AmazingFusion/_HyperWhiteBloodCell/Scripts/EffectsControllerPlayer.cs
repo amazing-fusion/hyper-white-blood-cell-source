@@ -62,7 +62,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void Initialize()
         {
-            Debug.Log("Coloco Player Effects");
             AnimatorControllerPlayer.Instance.AnimationIdlePlayer();
 
             _spriteRenderer.enabled = true;
@@ -123,8 +122,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             if (force == 0) {
                 force = _wallCollideForce;
             }
-
-            Debug.Log("Collision force: " + force);
 
             //if (force > 0) {
             EZCameraShake.CameraShaker.Instance.ShakeOnce

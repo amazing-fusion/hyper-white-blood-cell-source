@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 405453469ff92914782d8ec07f8ade22
-timeCreated: 1489070972
+guid: 29ff61bdbef4ed3449d804b7067b7018
+timeCreated: 1488557334
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -94,7 +94,7 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
-  spritePackingTag: Game
+  spritePackingTag: TitleScreen
   userData: 
   assetBundleName: 
   assetBundleVariant: 

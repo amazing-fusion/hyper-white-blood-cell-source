@@ -108,7 +108,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void LoadLevel()
         {
-            Debug.Log("Load Level");
             Room temRoom;
             List<Room> temListRoom = new List<Room>();
             foreach(Room roomPrefab in _roomsPrefab)
@@ -132,7 +131,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void VideoLevel()
         {
-            Debug.Log("Doy al Video");
             if (CurrentRoom != null)
             {
                 Destroy(CurrentRoom.gameObject);
@@ -144,7 +142,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void FirstLevel()
         {
-            Debug.Log("Primer Nivel");
             if (CurrentRoom != null)
             {
                 Destroy(CurrentRoom.gameObject);
@@ -156,21 +153,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void NextLevel()
         {
-            Debug.Log("Siguiente Nivel");
             if (CurrentRoom != null)
             {
                 Destroy(CurrentRoom.gameObject);
             }
             if (_restartLevel)
             {
-                Debug.Log("Hago la room anterior");
                 _currentRoom = Instantiate(_lastRoom);
                 _availableVideo = false;
                 _restartLevel = false;
             }
             else
             {
-                Debug.Log("Hago la room Siguiente");
                 CurrentLevelNumber++;
                 PersistanceManager.Instance.BestLevel = CurrentLevelNumber + 1;
                 LoadLevel();
