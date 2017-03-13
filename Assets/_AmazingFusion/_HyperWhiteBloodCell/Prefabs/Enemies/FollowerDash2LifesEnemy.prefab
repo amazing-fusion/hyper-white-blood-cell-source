@@ -526,6 +526,7 @@ MonoBehaviour:
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4732136869146800}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
+  _lastLifeSprite: {fileID: 21300034, guid: 788f116da2201e9499ac6be5399a8e52, type: 3}
 --- !u!198 &198410809318392816
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -581,7 +582,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 322639227
+  randomSeed: 1062668775
   InitialModule:
     serializedVersion: 3
     enabled: 1

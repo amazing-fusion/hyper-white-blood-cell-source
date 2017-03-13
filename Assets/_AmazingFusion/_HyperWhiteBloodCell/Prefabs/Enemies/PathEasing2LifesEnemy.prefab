@@ -454,6 +454,7 @@ MonoBehaviour:
   _fadeOutTimeShake: 0.6
   _scaleEffect: {fileID: 4316589991427064}
   _colorDamage: {r: 1, g: 1, b: 1, a: 1}
+  _lastLifeSprite: {fileID: 21300018, guid: 788f116da2201e9499ac6be5399a8e52, type: 3}
 --- !u!114 &114420650618072788
 MonoBehaviour:
   m_ObjectHideFlags: 1
