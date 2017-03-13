@@ -25,6 +25,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Color _colorDamage;
 
+        [SerializeField]
+        Sprite _lastLifeSprite;
+
         DamageController _damageController;
         SpriteRenderer _spriteEnemy;
         AnimatorControllerEnemy _animator;
@@ -83,6 +86,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             White.Instance.WhiteSprite(_spriteEnemy, _colorDamage);
             yield return Timing.WaitForSeconds(0.1f);
             White.Instance.NormalSprite(_spriteEnemy);
+            if (_damageController.CurrentLifes == 1 && _lastLifeSprite != null) {
+                _spriteEnemy.sprite = _lastLifeSprite;
+            }
         }
 
         public void EffectsDiedEnemy(System.Action action)

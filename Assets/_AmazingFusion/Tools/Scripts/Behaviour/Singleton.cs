@@ -41,7 +41,7 @@ namespace com.AmazingFusion
             }
         }
 
-        void OnApplicationQuit()
+        protected virtual void OnApplicationQuit()
         {
             _instance = null;
             _destroyed = true;
