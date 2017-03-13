@@ -35,10 +35,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         Animator _animatorController;
         SpriteRenderer _spriteExplosionController;
 
-        void Awake()
-        {
-            
-        }
 
         void OnDisable()
         {

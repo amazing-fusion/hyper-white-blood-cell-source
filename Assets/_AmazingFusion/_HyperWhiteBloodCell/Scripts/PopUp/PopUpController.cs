@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class PopUpController : OptimizedBehaviour, ITickable
     {
+        [System.Serializable]
+        public class VoidEvent : UnityEvent { };
+
         [SerializeField]
         string _titlePopUp;
 
         [SerializeField]
         string _dialogMessagePopUp;
+
+        [SerializeField]
+        VoidEvent _onAcceptDialog;
 
         MobileNativeDialog _dialogPopUp;
 
@@ -34,7 +41,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             switch (result)
             {
                 case MNDialogResult.YES:
-                    Application.Quit();
+                    _onAcceptDialog.Invoke();
                     break;
                 case MNDialogResult.NO:
 
@@ -49,6 +56,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp);
                 _dialogPopUp.OnComplete += OnDialogClose;
             }
+        }
+
+        public void QuitGame() {
+            NotificationsController.Instance.SetNotifications();
+            Application.Quit();
+        }
+
+        public void GoToMenuScene() {
+            ScenesManager.Instance.LoadScene(ScenesManager.Scene.MenuScene);
         }
     }
 }
