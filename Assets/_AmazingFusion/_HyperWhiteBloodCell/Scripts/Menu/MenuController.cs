@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
@@ -19,6 +20,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         Button _noAdsButton;
 
+        [SerializeField]
+        TMP_Text _bestLevelText;
+
         void Start()
         {
             AudioController.Instance.PlayMenuMusic();
@@ -34,6 +38,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             };
 
             UM_InAppPurchaseManager.Client.Connect();
+            _bestLevelText.text = PersistanceManager.Instance.BestLevel.ToString();
             _audioButtonImage.sprite = PersistanceManager.Instance.AudioOn ? _audioOnSprite : _audioOffSprite;
         }
 

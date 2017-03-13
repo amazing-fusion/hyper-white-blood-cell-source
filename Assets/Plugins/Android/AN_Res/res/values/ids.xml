@@ -17,4 +17,12 @@ Save this file as res/values/games-ids.xml in your project.
   <string name="achievement_cellulitis">CgkIsba1640CEAIQBA</string>
   <string name="achievement_germinator">CgkIsba1640CEAIQBQ</string>
   <string name="leaderboard_ranking">CgkIsba1640CEAIQAA</string>
+  
+  <string name="firebase_database_url" translatable="false">https://hyper-white-blood-cell-das-111.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">72434408241</string>
+  <string name="google_storage_bucket" translatable="false">hyper-white-blood-cell-das-111.appspot.com</string>
+  <string name="google_api_key" translatable="false">AIzaSyCpKsixTTgoZurf-Z0PerQNTDxUJE259OY</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCpKsixTTgoZurf-Z0PerQNTDxUJE259OY</string>
+  <string name="google_app_id" translatable="false">1:72434408241:android:681cfc464c167725</string>
+  <string name="default_web_client_id" translatable="false">72434408241-tcmqf036e2bsdit1bhqmuv78n8eo0kp3.apps.googleusercontent.com</string>
 </resources>

@@ -122,7 +122,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             if (force == 0) {
                 force = _wallCollideForce;
             }
-            
 
             //if (force > 0) {
             EZCameraShake.CameraShaker.Instance.ShakeOnce

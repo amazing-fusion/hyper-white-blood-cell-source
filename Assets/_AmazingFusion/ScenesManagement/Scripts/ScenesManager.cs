@@ -7,9 +7,9 @@ namespace com.AmazingFusion
     {
         public enum Scene
         {
-            LoadingScene,
             MenuScene,
-            GameScene
+            GameScene,
+            LoadingScene,
         }
 
         Scene _currentScene = Scene.MenuScene;

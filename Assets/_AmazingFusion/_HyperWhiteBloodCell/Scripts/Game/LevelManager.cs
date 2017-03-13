@@ -166,7 +166,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             else
             {
                 CurrentLevelNumber++;
-                PersistanceManager.Instance.BestLevel = CurrentLevelNumber;
+                PersistanceManager.Instance.BestLevel = CurrentLevelNumber + 1;
                 LoadLevel();
             }
 

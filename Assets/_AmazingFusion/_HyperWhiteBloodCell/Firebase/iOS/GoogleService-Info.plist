@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>72434408241-81a7tth22n0edkhqcp20qo8mt4559ijq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.72434408241-81a7tth22n0edkhqcp20qo8mt4559ijq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>72434408241-00igo6dg9itdq462nopplo0niq0ks6sa.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAdwBS0nIzBxcKGDXcQ9UoMeZD7BqOAKbw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>72434408241</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.AmazingFusion.HyperWhiteBloodCellDash</string>
+	<key>PROJECT_ID</key>
+	<string>hyper-white-blood-cell-das-111</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hyper-white-blood-cell-das-111.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:72434408241:ios:681cfc464c167725</string>
+	<key>DATABASE_URL</key>
+	<string>https://hyper-white-blood-cell-das-111.firebaseio.com</string>
+</dict>
+</plist>

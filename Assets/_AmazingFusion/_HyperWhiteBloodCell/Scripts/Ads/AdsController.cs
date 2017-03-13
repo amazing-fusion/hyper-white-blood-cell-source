@@ -9,14 +9,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         float _timeAds;
 
+		[SerializeField]
+		float _timeReview;
+
         [SerializeField]
-        float _timeReview;
+        float _adLoadTimeout;
 
         float _nextTimeAds, _nextReviewUI;
 
         bool _availableReviewUI;
         bool _neverReviewUI;
 
+		float _rewardedAdTimeout;
+        float _intersticialAdTimeout;
         public float NextTimeAds
         {
             get
@@ -77,11 +82,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             GoogleMobileAd.Init();
 
-            GoogleMobileAd.OnInterstitialLoaded += OnInterstisialsLoaded;
+            //GoogleMobileAd.OnInterstitialLoaded += OnInterstisialsLoaded;
             GoogleMobileAd.OnInterstitialOpened += OnInterstisialsOpen;
             GoogleMobileAd.OnInterstitialClosed += OnInterstisialsClosed;
 
-            GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
+            //GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed += HandleOnRewardedVideoAdClosed;
             
 
@@ -106,6 +111,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void HandleOnRewardedVideoLoaded()
         {
             Debug.Log("Load Video Rewarded");
+            GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
+            if (Time.time < _rewardedAdTimeout) {
+                GoogleMobileAd.ShowRewardedVideo();
+                _rewardedAdTimeout = 0;
+            }
         }
 
         void HandleOnRewardedVideoAdOpened()
@@ -126,34 +136,55 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void HandleOnRewardedVideoAdClosed()
         {
             Debug.Log("Closed Video Rewarded");
+            GoogleMobileAd.LoadRewardedVideo();
         }
 
         void OnInterstisialsLoaded()
         {
+            GoogleMobileAd.OnInterstitialLoaded -= OnInterstisialsLoaded;
+            if (Time.time < _intersticialAdTimeout) {
+                GoogleMobileAd.ShowInterstitialAd();
+                _intersticialAdTimeout = 0;
+            }
             //ad loaded, strting ad
         }
 
         void OnInterstisialsOpen()
         {
             //pausing the game
+            
         }
 
         void OnInterstisialsClosed()
         {
             //un-pausing the game
+            GoogleMobileAd.LoadInterstitialAd();
         }
 
         public void ShowRewardedVideoAd()
         {
-            GoogleMobileAd.ShowRewardedVideo();
-            GoogleMobileAd.LoadRewardedVideo();
+            if (GoogleMobileAd.IsRewardedVideoReady) {
+                GoogleMobileAd.ShowRewardedVideo();
+            } else {
+                GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
+                GoogleMobileAd.LoadRewardedVideo();
+                _rewardedAdTimeout = Time.time + _adLoadTimeout;
+                
+            }
+            //GoogleMobileAd.LoadRewardedVideo();
         }
 
         public void ShowInterstisialAd()
         {
-            GoogleMobileAd.ShowInterstitialAd();
-            GoogleMobileAd.LoadInterstitialAd();
-            _nextTimeAds = Time.time + (_timeAds * 60);
+            if (GoogleMobileAd.IsInterstitialReady) {
+                GoogleMobileAd.ShowInterstitialAd();
+            } else {
+                GoogleMobileAd.OnInterstitialLoaded += OnInterstisialsLoaded;
+                GoogleMobileAd.LoadInterstitialAd();
+                _intersticialAdTimeout = Time.time + _adLoadTimeout;
+            }
+            //GoogleMobileAd.LoadInterstitialAd();
+            _nextTimeAds = Time.time + _timeAds;
         }
     }
 }

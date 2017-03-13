@@ -36,23 +36,22 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             set {
                 if (value > _bestLevel) {
                     _bestLevel = value;
-                    int levelNumber = _bestLevel + 1;
 
-                    UM_GameServiceManager.Instance.SubmitScore("leaderboard_ranking", levelNumber);
+                    UM_GameServiceManager.Instance.SubmitScore("leaderboard_ranking", _bestLevel);
 
-                    if (levelNumber >= 5) {
+                    if (_bestLevel >= 5) {
                         UM_GameServiceManager.Instance.UnlockAchievement("achievement_reach_level_5");
                     }
-                    if (levelNumber >= 10) {
+                    if (_bestLevel >= 10) {
                         UM_GameServiceManager.Instance.UnlockAchievement("achievement_reach_level_10");
                     }
-                    if (levelNumber >= 15) {
+                    if (_bestLevel >= 15) {
                         UM_GameServiceManager.Instance.UnlockAchievement("achievement_reach_level_15");
                     }
-                    if (levelNumber >= 50) {
+                    if (_bestLevel >= 50) {
                         UM_GameServiceManager.Instance.UnlockAchievement("achievement_reach_level_50");
                     }
-                    if (levelNumber >= 100) {
+                    if (_bestLevel >= 100) {
                         UM_GameServiceManager.Instance.UnlockAchievement("achievement_reach_level_0");
                     }
 

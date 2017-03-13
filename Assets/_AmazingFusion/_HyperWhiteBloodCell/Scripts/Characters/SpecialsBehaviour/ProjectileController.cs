@@ -9,6 +9,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         [SerializeField]
         float _speed;
 
+        [SerializeField]
+        List<string> _explodeTags;
+
         Rigidbody2D _rigidBody;
 
         EZObjectPool _projectilesPool;
@@ -35,7 +38,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         }
 
         void OnTriggerEnter2D(Collider2D collider) {
-            Explode();
+            if (_explodeTags.Contains(collider.tag)) {
+                Explode();
+            }
         }
 
         void OnBecameInvisible() {

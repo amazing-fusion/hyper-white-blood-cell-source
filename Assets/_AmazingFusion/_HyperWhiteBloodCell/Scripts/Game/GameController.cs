@@ -90,8 +90,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void Pause() {
             //TODO: Fix the hack
-            Time.timeScale = 0;
-            if (OnPause != null) OnPause();
+            if (LevelManager.Instance.CurrentRoom.Started) {
+                Time.timeScale = 0;
+                if (OnPause != null) OnPause();
+            }
         }
 
         public void Resume() {
@@ -157,6 +159,12 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             CurrentLevelTime -= Time.deltaTime;
             if (CurrentLevelTime <= 0) {
                 TimeOver();
+            }
+        }
+
+        void OnApplicationPause(bool pause) {
+            if (pause) {
+                Pause();
             }
         }
     }

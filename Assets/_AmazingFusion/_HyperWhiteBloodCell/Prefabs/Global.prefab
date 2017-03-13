@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114196676313679896}
   - component: {fileID: 114519342762730228}
   - component: {fileID: 114381081559404380}
+  - component: {fileID: 114218221864275326}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -62,6 +63,17 @@ MonoBehaviour:
   _shootCannonSound: {fileID: 8300000, guid: 3d0858142e6dc4044becde661962e787, type: 3}
   _deathEnemySound: {fileID: 8300000, guid: 276af2fcdd8dfb447ad9a9750ba2c34f, type: 3}
   _damageEnemySound: {fileID: 8300000, guid: edcf1b827df2f6948a894441af830ccd, type: 3}
+--- !u!114 &114218221864275326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132144765716646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c560ea651a91844a9825ee5dd50b6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114381081559404380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeAds: 180
   _timeReview: 120
+  _adLoadTimeout: 0.5
 --- !u!114 &114519342762730228
 MonoBehaviour:
   m_ObjectHideFlags: 1

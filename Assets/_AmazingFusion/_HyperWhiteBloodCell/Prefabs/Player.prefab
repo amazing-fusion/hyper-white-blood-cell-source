@@ -323,9 +323,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.05, y: 0}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 1
 --- !u!95 &95905091169445356
 Animator:
   serializedVersion: 3
@@ -476,7 +476,7 @@ MonoBehaviour:
   _dashImmuneTags:
   - Enemy
   _dashingTag: DashingPlayer
-  _immunityAfterDashDuration: 0.5
+  _immunityAfterDashDuration: 0.2
 --- !u!114 &114305547346861398
 MonoBehaviour:
   m_ObjectHideFlags: 1
