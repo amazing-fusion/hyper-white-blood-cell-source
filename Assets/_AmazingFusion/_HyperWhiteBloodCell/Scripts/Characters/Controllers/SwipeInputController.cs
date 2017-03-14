@@ -131,7 +131,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
         public void Swipe() {
             //if (_isSwiping) {
-                if (_swipePoints.Count > 10) {
+                if (_swipePoints.Count > 5) {
                     _swipePoints.RemoveAt(0);
                 }
 

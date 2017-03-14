@@ -16,9 +16,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         [SerializeField]
         TMP_Text _numberText;
-
-        [SerializeField]
-        TMP_Text _starsText;
         
         [SerializeField]
         AlphaCanvasGroupEasingAnimation _showAnimation;
@@ -56,10 +53,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void OnReviewView()
         {
-            _rateUsText.enabled = true;
-            _messageText.enabled = true;
-            _numberText.enabled = false;
-            _starsText.enabled = false;
             _showAnimation.gameObject.SetActive(true);
             _showAnimation.Play();
         }
