@@ -53,10 +53,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
         //    }
         //}
 
-        protected override void OnApplicationQuit() {
-            SetNotifications();
-            base.OnApplicationQuit();
-        }
+        //protected override void OnApplicationQuit() {
+        //    SetNotifications();
+        //    base.OnApplicationQuit();
+        //}
 
         void OnApplicationPause(bool pause) {
             if (pause) {

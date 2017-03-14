@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114519342762730228}
   - component: {fileID: 114381081559404380}
   - component: {fileID: 114218221864275326}
+  - component: {fileID: 114731978330231976}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -58,8 +59,7 @@ MonoBehaviour:
   _menuMusic: {fileID: 8300000, guid: 2eef9f701420ee448b7ace4d0d12d6b4, type: 3}
   _dashPlayerSound: {fileID: 8300000, guid: 3ba6314d48af34f4b97b5a2d2bf4e519, type: 3}
   _damagePlayerSound: {fileID: 8300000, guid: 79714aa08dff91a40bbaa9d988418368, type: 3}
-  _deathExplosionPlayerSound: {fileID: 8300000, guid: 3abca530f20b4384cb101d396269156f,
-    type: 3}
+  _deathExplosionPlayerSound: {fileID: 0}
   _shootCannonSound: {fileID: 8300000, guid: 3d0858142e6dc4044becde661962e787, type: 3}
   _deathEnemySound: {fileID: 8300000, guid: 276af2fcdd8dfb447ad9a9750ba2c34f, type: 3}
   _damageEnemySound: {fileID: 8300000, guid: edcf1b827df2f6948a894441af830ccd, type: 3}
@@ -99,3 +99,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd860ff1fdaaf94c913676b0d8f3884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114731978330231976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132144765716646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a023fd1346edc49498308269f2397f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeNotifications:
+    _elements:
+    - _key: 86400
+      _value:
+      - Cough, cough!
+      - I am cold...
+      - I am not feeling fine...
+    - _key: 604800
+      _value:
+      - I have a high fever...
+      - My throat is killing me
+      - My whole body hurt
+    - _key: 2592000
+      _value:
+      - 'I don''t longer feels anything '
+      - I love my mother...
+      - I see a white light...
+    - _key: 10
+      _value:
+      - "Notificaci\xF3n de prueba de 10 segundos :P"

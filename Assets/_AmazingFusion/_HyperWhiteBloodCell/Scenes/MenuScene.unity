@@ -485,6 +485,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titlePopUp: Exit Hyper White Blood Cell Dash?
   _dialogMessagePopUp: Are you sure you want to exit Hyper White Blood Cell Dash?
+  _onAcceptDialog:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 123431674}
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: com.AmazingFusion.HyperWhiteBloodCell.PopUpController+VoidEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &326994685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2015,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _timeNotifications._elements.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _timeNotifications._elements.Array.data[3]._value.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4295619376600880, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2031,6 +2057,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _timeNotifications._elements.Array.data[3]._key
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _timeNotifications._elements.Array.data[3]._value.Array.data[0]
+      value: "Notificaci\xF3n de prueba de 10 segundos :P"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
   m_IsPrefabParent: 0
@@ -2039,34 +2075,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1132144765716646, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
     type: 2}
   m_PrefabInternal: {fileID: 1214020731}
---- !u!114 &1214020733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1214020732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a023fd1346edc49498308269f2397f2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeNotifications:
-    _elements:
-    - _key: 86400
-      _value:
-      - Cough, cough!
-      - I am cold...
-      - I am not feeling fine...
-    - _key: 604800
-      _value:
-      - I have a high fever...
-      - My throat is killing me
-      - My whole body hurt
-    - _key: 2592000
-      _value:
-      - 'I don''t longer feels anything '
-      - I love my mother...
-      - I see a white light...
 --- !u!114 &1214020734 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114381081559404380, guid: f862a80c922cbdb4bbc1a04fa47f72d4,

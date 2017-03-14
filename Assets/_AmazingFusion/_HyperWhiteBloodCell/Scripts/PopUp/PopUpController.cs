@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
     public class PopUpController : OptimizedBehaviour, ITickable
     {
+        [System.Serializable]
+        public class VoidEvent : UnityEvent { };
+
         [SerializeField]
         string _titlePopUp;
 
@@ -13,12 +17,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         string _dialogMessagePopUp;
 
         [SerializeField]
-        string _yesText;
+        VoidEvent _onAcceptDialog;
 
-        [SerializeField]
-        string _noText;
-
-        MobileNativeDialog _dialogPopUp = null;
+        MobileNativeDialog _dialogPopUp;
 
         void Awake()
         {
@@ -36,12 +37,15 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         private void OnDialogClose(MNDialogResult result)
         {
-            _dialogPopUp.OnComplete -= OnDialogClose;
-            _dialogPopUp = null;
             //parsing result
-            if(result == MNDialogResult.YES)
+            switch (result)
             {
-                Application.Quit();
+                case MNDialogResult.YES:
+                    _onAcceptDialog.Invoke();
+                    break;
+                case MNDialogResult.NO:
+
+                    break;
             }
         }
 
@@ -49,13 +53,18 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (_dialogPopUp == null)
-                {
-                    _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp,_yesText,_noText);
-                    _dialogPopUp.OnComplete += OnDialogClose;
-                }
-                
+                _dialogPopUp = new MobileNativeDialog(_titlePopUp, _dialogMessagePopUp);
+                _dialogPopUp.OnComplete += OnDialogClose;
             }
+        }
+
+        public void QuitGame() {
+            NotificationsController.Instance.SetNotifications();
+            Application.Quit();
+        }
+
+        public void GoToMenuScene() {
+            ScenesManager.Instance.LoadScene(ScenesManager.Scene.MenuScene);
         }
     }
 }
