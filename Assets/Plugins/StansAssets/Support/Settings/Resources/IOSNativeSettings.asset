@@ -33,7 +33,7 @@ MonoBehaviour:
   TransactionsHandlingMode: 0
   DefaultStoreProductsView: []
   InAppProducts:
-  - IsOpen: 0
+  - IsOpen: 1
     _IsAvailable: 0
     _Id: com.AmazingFusion.HyperWhiteBloodCellDash.NoAds
     _DisplayName: No Ads

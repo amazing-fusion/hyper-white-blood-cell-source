@@ -83,9 +83,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             AdsController.Instance.AvailableReviewUI = false;
 
 #if UNITY_ANDROID
-            Application.OpenURL("http://unity3d.com/");
+            Application.OpenURL("https://play.google.com/store/apps/details?id=com.AmazingFusion.HyperWhiteBloodCellDash");
 #elif UNITY_IOS
-            Application.OpenURL("");
+            Application.OpenURL("https://itunes.apple.com/us/app/hyper-white-blood-cell-dash/id1214605681?ls=1&mt=8");
 #endif 
            
         }
