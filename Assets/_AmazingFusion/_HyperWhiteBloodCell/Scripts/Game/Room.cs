@@ -57,7 +57,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public void EndLevel()
         {
             _started = false;
-            if (OnLevelEnd != null) OnLevelEnd(this,true);
+            if (OnLevelEnd != null) OnLevelEnd(this, true);
         }
 
         public void LoseLevel()
@@ -73,4 +73,3 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
     }
 }
-

@@ -10,28 +10,36 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         public static List<EnemyCounter> _enemies = new List<EnemyCounter>();
         public static event System.Action OnEnemyDestroy;
 
-        //DamageController _damageController;
+        DamageController _damageController;
 
-        void Start()
+        void OnDestroy() {
+            _damageController.OnDie -= OnEnemyDie;
+        }
+
+        void OnEnable()
         {
             _enemies.Add(this);
-            //_damageController = GetComponent<DamageController>();
-            //_damageController.OnDie += (System.Action onDieEnd) => {
-            //    Remove(this);
-            //};
+            _damageController = GetComponent<DamageController>();
+            _damageController.OnDie += OnEnemyDie;
         }
 
         void OnDisable()
         {
-            //if (_enemies.Contains(this)) {
-                _enemies.Remove(this);
-            //}
-            if (OnEnemyDestroy != null) OnEnemyDestroy();
+            _damageController.OnDie -= OnEnemyDie;
+            Remove(this);
         }
 
-        //static void Remove(EnemyCounter enemy) {
-        //    _enemies.Remove(enemy);
-        //}
+        void OnEnemyDie(System.Action onDieEnd) {
+            _damageController.OnDie -= OnEnemyDie;
+            Remove(this);
+        }
+
+        static void Remove(EnemyCounter enemy) {
+            if (_enemies.Contains(enemy)) {
+                _enemies.Remove(enemy);
+                if (OnEnemyDestroy != null) OnEnemyDestroy();
+            }
+        }
 
     }
 }
