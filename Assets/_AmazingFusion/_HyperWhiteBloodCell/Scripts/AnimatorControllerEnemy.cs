@@ -20,8 +20,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void AnimationDiedEnemy()
         {
-            Debug.Log("Animacion Muerte de " 
-                 + _animatorController.transform.parent.parent.gameObject);
             _animatorController.enabled = true;
             _spriteExplosionController.enabled = true;
             _animatorController.Play(0);

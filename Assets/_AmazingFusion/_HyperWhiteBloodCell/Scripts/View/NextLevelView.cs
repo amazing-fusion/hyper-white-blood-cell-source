@@ -70,10 +70,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 }
                 else if (AdsController.Instance.AvailableReviewUI && !PersistanceManager.Instance.NeverReviewUI)
                 {
-                    Debug.Log("Rate Us pre IF");
+                    
                     if (AdsController.Instance.NextReviewUI < Time.time)
                     {
-                        Debug.Log("Rate Us");
+                        
                         if (OnReviewUI != null) OnReviewUI();
                         AdsController.Instance.AvailableReviewUI = false;
                     }

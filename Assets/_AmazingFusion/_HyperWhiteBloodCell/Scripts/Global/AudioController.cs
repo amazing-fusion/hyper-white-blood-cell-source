@@ -43,6 +43,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         AudioSource _musicSource;
         AudioSource _gameFxSource;
+        AudioSource _dashFxSource;
 
         public bool IsOn {
             get {
@@ -69,6 +70,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _musicSource.loop = true;
             
             _gameFxSource = gameObject.AddComponent<AudioSource>();
+
+            _dashFxSource = gameObject.AddComponent<AudioSource>();
 
             //MusicOn(SettingsManager.Instance.MusicOn);
             //SoundOn(SettingsManager.Instance.SoundOn);
@@ -107,6 +110,13 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _gameFxSource.Play();
         }
 
+        public void PlayDashSound(AudioClip sound)
+        {
+            _dashFxSource.Stop();
+            _dashFxSource.clip = sound;
+            _dashFxSource.Play();
+        }
+
         #region Music
 
         public void PlayBattleMusic()
@@ -126,7 +136,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         public void PlayDashPlayerSound()
         {
-            PlayGameSound(_dashPlayerSound);
+            PlayDashSound(_dashPlayerSound);
         }
 
         public void PlayDamagePlayerSound()
