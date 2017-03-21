@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
@@ -26,6 +27,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void Start()
         {
             AudioController.Instance.PlayMenuMusic();
+
+            //UM_GameServiceManager.OnConnectionStateChnaged += OnGameServiceConnectionStateChanged;
             UM_GameServiceManager.Instance.Connect();
 
             UM_InAppPurchaseManager.Client.OnServiceConnected += (UM_BillingConnectionResult result) => {
@@ -39,6 +42,10 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _bestLevelText.text = PersistanceManager.Instance.BestLevel.ToString();
             _audioButtonImage.sprite = PersistanceManager.Instance.AudioOn ? _audioOnSprite : _audioOffSprite;
         }
+
+        /*private void OnGameServiceConnectionStateChanged(UM_ConnectionState connectionState) {
+            
+        }*/
 
         public void StartGame()
         {
@@ -88,7 +95,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
             } else {
-                //TODO: Show error
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not login to Google Play Games");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not login to Game Center");
+#endif
             }
         }
 
@@ -97,7 +108,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowAchievementsUI();
             } else {
-                //TODO: Show error
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not login to Google Play Games");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not login to Game Center");
+#endif
             }
         }
 
@@ -120,6 +135,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void NoAdsPurchaseFinished(UM_PurchaseResult result) {
             if (result.isSuccess) {
                 PersistanceManager.Instance.ShowAds = false;
+                _noAdsButton.gameObject.SetActive(false);
             }
         }
     }

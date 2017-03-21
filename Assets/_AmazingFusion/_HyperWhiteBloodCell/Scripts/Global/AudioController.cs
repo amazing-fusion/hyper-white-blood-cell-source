@@ -55,6 +55,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
                 _musicSource.volume = _isOn ? 1 : 0;
                 _gameFxSource.volume = _isOn ? 1 : 0;
+                _dashFxSource.volume = _isOn ? 1 : 0;
 
                 PersistanceManager.Instance.AudioOn = _isOn;
             }
@@ -70,7 +71,6 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             _musicSource.loop = true;
             
             _gameFxSource = gameObject.AddComponent<AudioSource>();
-
             _dashFxSource = gameObject.AddComponent<AudioSource>();
 
             //MusicOn(SettingsManager.Instance.MusicOn);

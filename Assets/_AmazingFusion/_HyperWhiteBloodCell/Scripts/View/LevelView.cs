@@ -47,6 +47,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             Initialize();
             LevelManager.Instance.OnLevelChange += OnLevelChange;
+            PersistanceManager.Instance.OnBestLevelChanged += OnBestLevelChange;
             GameController.Instance.OnTimeChange += OnTimeChange;
         }
 
@@ -68,6 +69,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void OnLevelChange()
         {
             _levelText.text = (LevelManager.Instance.CurrentLevelNumber + 1).ToString();
+        }
+
+        void OnBestLevelChange() {
             _highScoreText.text = string.Format("High: {0}", PersistanceManager.Instance.BestLevel);
         }
 

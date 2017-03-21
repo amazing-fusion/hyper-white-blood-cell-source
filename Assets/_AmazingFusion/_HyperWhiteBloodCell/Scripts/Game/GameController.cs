@@ -159,6 +159,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             CurrentLevelTime -= Time.deltaTime;
             if (CurrentLevelTime <= 0) {
                 TimeOver();
+            } else if (Input.GetKeyDown(KeyCode.Escape)) {
+                Pause();
             }
         }
 
