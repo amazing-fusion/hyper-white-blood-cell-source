@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91a7deec5b9f48e785f526d406a9b0f, type: 3}
   m_Name: UltimateMobileSettings
   m_EditorClassIdentifier: 
-  ToolbarSelectedIndex: 5
+  ToolbarSelectedIndex: 1
   InAppProducts:
   - IsOpen: 1
     id: iap_no_ads
@@ -32,7 +32,7 @@ MonoBehaviour:
   Leaderboards:
   - id: leaderboard_ranking
     IsOpen: 1
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Ranking
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Ranking
     AndroidId: CgkIsba1640CEAIQAA
     AmazonId: new leaderboard1
     _Description: 
@@ -44,7 +44,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat10Germs
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Defeat10Germs
     AndroidId: CgkIsba1640CEAIQAg
     AmazonId: new achievment1
   - IsOpen: 1
@@ -53,7 +53,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat100Germs
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Defeat100Germs
     AndroidId: CgkIsba1640CEAIQAw
     AmazonId: new achievment1
   - IsOpen: 1
@@ -62,7 +62,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat500Germs
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Defeat500Germs
     AndroidId: CgkIsba1640CEAIQBw
     AmazonId: new achievment1
   - IsOpen: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat1000Germs
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Defeat1000Germs
     AndroidId: CgkIsba1640CEAIQBA
     AmazonId: new achievment1
   - IsOpen: 1
@@ -80,7 +80,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.Defeat10000Germs
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.Defeat10000Germs
     AndroidId: CgkIsba1640CEAIQBQ
     AmazonId: new achievment1
   - IsOpen: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel5
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.ReachLevel5
     AndroidId: CgkIsba1640CEAIQBg
     AmazonId: new achievment1
   - IsOpen: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel10
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.ReachLevel10
     AndroidId: CgkIsba1640CEAIQCA
     AmazonId: new achievment1
   - IsOpen: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel15
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.ReachLevel15
     AndroidId: CgkIsba1640CEAIQCQ
     AmazonId: new achievment1
   - IsOpen: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel50
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.ReachLevel50
     AndroidId: CgkIsba1640CEAIQCg
     AmazonId: new achievment1
   - IsOpen: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
     _Description: 
     _Texture: {fileID: 0}
     IsIncremental: 0
-    IOSId: Fusion.HyperWhiteBloodCellDash.Rankingash.ReachLevel100
+    IOSId: com.AmazingFusion.HyperWhiteBloodCellDash.ReachLevel100
     AndroidId: CgkIsba1640CEAIQCw
     AmazonId: new achievment1
   AutoLoadUsersSmallImages: 0
