@@ -36,6 +36,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                     PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
                     if (!PersistanceManager.Instance.ShowAds) {
                         _noAdsButton.gameObject.SetActive(false);
+                    } else {
+                        _noAdsButton.gameObject.SetActive(true);
                     }
                 }
             };
@@ -137,6 +139,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void NoAdsPurchaseFinished(UM_PurchaseResult result) {
             if (result.isSuccess) {
                 PersistanceManager.Instance.ShowAds = false;
+                _noAdsButton.gameObject.SetActive(false);
             }
         }
     }
