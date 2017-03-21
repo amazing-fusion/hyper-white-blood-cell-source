@@ -31,9 +31,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             UM_InAppPurchaseManager.Client.OnServiceConnected += (UM_BillingConnectionResult result) => {
                 if (result.isSuccess) {
                     PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
-                    if (!PersistanceManager.Instance.ShowAds) {
-                        _noAdsButton.gameObject.SetActive(false);
-                    }
+                    _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
                 }
             };
 
