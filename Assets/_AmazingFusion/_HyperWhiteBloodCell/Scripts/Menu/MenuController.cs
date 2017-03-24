@@ -24,21 +24,35 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         TMP_Text _bestLevelText;
 
+        void OnDestroy() {
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
+
+            if (UM_InAppPurchaseManager.Client != null) {
+                UM_InAppPurchaseManager.Client.OnServiceConnected -= OnInAppPurchasesConnected;
+                UM_InAppPurchaseManager.Client.OnServiceConnected -= StartPurchaseFlowOnServiceConnected;
+            }
+        }
+
         void Start()
         {
             AudioController.Instance.PlayMenuMusic();
 
             //UM_GameServiceManager.OnConnectionStateChnaged += OnGameServiceConnectionStateChanged;
-            UM_GameServiceManager.Instance.Connect();
+            if (!UM_GameServiceManager.Instance.IsConnected) {
+                UM_GameServiceManager.Instance.Connect();
+            }
 
-            UM_InAppPurchaseManager.Client.OnServiceConnected += (UM_BillingConnectionResult result) => {
-                if (result.isSuccess) {
-                    PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
-                    _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
-                }
-            };
+            if (!UM_InAppPurchaseManager.Client.IsConnected) {
+                UM_InAppPurchaseManager.Client.OnServiceConnected += OnInAppPurchasesConnected;
+                UM_InAppPurchaseManager.Client.Connect();
 
-            UM_InAppPurchaseManager.Client.Connect();
+            } else {
+                PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
+                _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+
+            }
+
             _bestLevelText.text = PersistanceManager.Instance.BestLevel.ToString();
             _audioButtonImage.sprite = PersistanceManager.Instance.AudioOn ? _audioOnSprite : _audioOffSprite;
         }
@@ -124,6 +138,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 } else {
                     StartPurchaseFlow();
                 }
+            }
+        }
+
+
+        void OnInAppPurchasesConnected(UM_BillingConnectionResult result) {
+            if (result.isSuccess) {
+                PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
+                _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+            } else {
+                _noAdsButton.gameObject.SetActive(false);
             }
         }
 
