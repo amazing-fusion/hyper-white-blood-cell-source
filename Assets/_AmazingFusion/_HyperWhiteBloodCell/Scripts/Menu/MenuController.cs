@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 namespace com.AmazingFusion.HyperWhiteBloodCell
 {
@@ -23,24 +24,42 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         [SerializeField]
         TMP_Text _bestLevelText;
 
+        void OnDestroy() {
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
+
+            if (UM_InAppPurchaseManager.Client != null) {
+                UM_InAppPurchaseManager.Client.OnServiceConnected -= OnInAppPurchasesConnected;
+                UM_InAppPurchaseManager.Client.OnServiceConnected -= StartPurchaseFlowOnServiceConnected;
+            }
+        }
+
         void Start()
         {
             AudioController.Instance.PlayMenuMusic();
-            UM_GameServiceManager.Instance.Connect();
 
-            UM_InAppPurchaseManager.Client.OnServiceConnected += (UM_BillingConnectionResult result) => {
-                if (result.isSuccess) {
-                    PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
-                    if (!PersistanceManager.Instance.ShowAds) {
-                        _noAdsButton.gameObject.SetActive(false);
-                    }
-                }
-            };
+            //UM_GameServiceManager.OnConnectionStateChnaged += OnGameServiceConnectionStateChanged;
+            if (!UM_GameServiceManager.Instance.IsConnected) {
+                UM_GameServiceManager.Instance.Connect();
+            }
 
-            UM_InAppPurchaseManager.Client.Connect();
+            if (!UM_InAppPurchaseManager.Client.IsConnected) {
+                UM_InAppPurchaseManager.Client.OnServiceConnected += OnInAppPurchasesConnected;
+                UM_InAppPurchaseManager.Client.Connect();
+
+            } else {
+                PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
+                _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+
+            }
+
             _bestLevelText.text = PersistanceManager.Instance.BestLevel.ToString();
             _audioButtonImage.sprite = PersistanceManager.Instance.AudioOn ? _audioOnSprite : _audioOffSprite;
         }
+
+        /*private void OnGameServiceConnectionStateChanged(UM_ConnectionState connectionState) {
+            
+        }*/
 
         public void StartGame()
         {
@@ -87,23 +106,27 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void ShowRankingOnConnectionStateChnaged(UM_ConnectionState connectionState) {
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                Debug.Log("Connected!");
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
             } else {
-                Debug.Log("Ranking state: " + connectionState.ToString());
-                //TODO: Show error
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not login to Google Play Games");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not login to Game Center");
+#endif
             }
         }
 
         void ShowAchievementsOnConnectionStateChnaged(UM_ConnectionState connectionState) {
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                Debug.Log("Connected!");
                 UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowAchievementsUI();
             } else {
-                Debug.Log("Achievements state: " + connectionState.ToString());
-                //TODO: Show error
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not login to Google Play Games");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not login to Game Center");
+#endif
             }
         }
 
@@ -118,6 +141,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+
+        void OnInAppPurchasesConnected(UM_BillingConnectionResult result) {
+            if (result.isSuccess) {
+                PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
+                _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+            } else {
+                _noAdsButton.gameObject.SetActive(false);
+            }
+        }
+
         void StartPurchaseFlow() {
             UM_InAppPurchaseManager.Client.OnPurchaseFinished += NoAdsPurchaseFinished;
             UM_InAppPurchaseManager.Client.Purchase("iap_no_ads");
@@ -126,6 +159,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void NoAdsPurchaseFinished(UM_PurchaseResult result) {
             if (result.isSuccess) {
                 PersistanceManager.Instance.ShowAds = false;
+                _noAdsButton.gameObject.SetActive(false);
             }
         }
     }

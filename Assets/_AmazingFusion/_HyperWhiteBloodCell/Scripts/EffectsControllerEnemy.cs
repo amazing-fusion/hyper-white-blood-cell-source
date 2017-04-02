@@ -110,7 +110,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             yield return Timing.WaitForSeconds(0.6f);
 
-            action();
+            if (_damageController != null) {
+                action();
+            }
         }
     }
 }

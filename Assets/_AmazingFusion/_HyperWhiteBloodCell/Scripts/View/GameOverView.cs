@@ -88,8 +88,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void OnTimeOver() {
-
-            Debug.Log("Current Room " + LevelManager.Instance.CurrentRoom);
+            
 
             if (LevelManager.Instance.AvailableVideo)
             {

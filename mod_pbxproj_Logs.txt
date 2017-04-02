@@ -1,0 +1,7 @@
+add_file System/Library/Frameworks/StoreKit.framework
+add_file System/Library/Frameworks/CoreTelephony.framework
+add_file System/Library/Frameworks/AdSupport.framework
+add_file System/Library/Frameworks/MessageUI.framework
+add_file System/Library/Frameworks/EventKit.framework
+add_file System/Library/Frameworks/EventKitUI.framework
+add_file System/Library/Frameworks/GameKit.framework

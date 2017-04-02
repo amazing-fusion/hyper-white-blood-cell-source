@@ -57,6 +57,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
 
                     PlayerPrefs.SetInt("BestLevel", _bestLevel);
                     PlayerPrefs.Save();
+
+                    if (OnBestLevelChanged != null) OnBestLevelChanged();
                 }
             }
         }
@@ -133,5 +135,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell {
             _bestLevel = PlayerPrefs.GetInt("BestLevel", 0);
             _germsKilled = PlayerPrefs.GetInt("GermsKilled", 0);
         }
+
+        public event System.Action OnBestLevelChanged;
     }
 }
