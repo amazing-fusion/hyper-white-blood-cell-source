@@ -138,8 +138,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 GameController.Instance.Revive();
             }
             catch (System.Exception ex) {
-                Debug.Log(ex.Message);
-                Debug.Log(ex.StackTrace);
+                Debug.LogError(ex.Message);
+                Debug.LogError(ex.StackTrace);
             }
         }
     }
