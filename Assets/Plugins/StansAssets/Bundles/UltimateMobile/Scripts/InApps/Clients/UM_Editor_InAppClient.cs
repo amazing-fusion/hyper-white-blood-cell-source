@@ -57,6 +57,8 @@ public class UM_Editor_InAppClient : UM_BaseInAppClient, UM_InAppClient {
 
 	public override void Consume(UM_InAppProduct product)  {}
 
+	public override void FinishTransaction(UM_InAppProduct product) {}
+
 	public void RestorePurchases() {
 
 		foreach(UM_InAppProduct product in UM_InAppPurchaseManager.InAppProducts) {

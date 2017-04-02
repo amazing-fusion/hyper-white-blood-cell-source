@@ -87,7 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeAds: 180
   _timeReview: 120
-  _adLoadTimeout: 0.5
+  _adLoadTimeout: 1
 --- !u!114 &114519342762730228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +127,3 @@ MonoBehaviour:
       - 'I don''t longer feels anything '
       - I love my mother...
       - I see a white light...
-    - _key: 10
-      _value:
-      - "Notificaci\xF3n de prueba de 10 segundos :P"

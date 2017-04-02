@@ -502,7 +502,7 @@ NSString* lastTransactionReceipt = @"";
     NSMutableString * data = [[NSMutableString alloc] init];
     
     [data appendString:transaction.payment.productIdentifier];
-    [data appendString:UNITY_SPLITTER2];
+    [data appendString:UNITY_SPLITTER];
     [data appendString:serializedError];
     
     UnitySendMessage(UNITY_PAYMENT_LISTENER, "onTransactionFailed", [ISN_DataConvertor NSStringToChar:data]);

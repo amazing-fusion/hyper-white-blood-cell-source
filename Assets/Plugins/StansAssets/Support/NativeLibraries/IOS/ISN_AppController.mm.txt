@@ -115,7 +115,7 @@ static NSString* webpageURL  = @"";
          [ISN_AppController sendEvent:@"continueUserActivity" withParams:webpageURL];
     }
     
-    return [super application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
+    return true;
 }
 
 

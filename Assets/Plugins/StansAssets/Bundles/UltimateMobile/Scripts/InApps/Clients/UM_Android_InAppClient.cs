@@ -42,6 +42,11 @@ public class UM_Android_InAppClient : UM_BaseInAppClient, UM_InAppClient {
 	}
 
 
+	public override void FinishTransaction(UM_InAppProduct product) {
+
+	}
+
+
 	public override bool IsProductPurchased(UM_InAppProduct product) {
 		if(product ==  null) {return false;}
 		if(AndroidInAppPurchaseManager.Client.Inventory == null) {return false;}

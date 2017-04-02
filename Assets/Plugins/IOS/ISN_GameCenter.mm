@@ -1213,8 +1213,12 @@ static ISN_SaveGame *sg_sharedHelper = nil;
                     [data appendString:@"|"];
                     [data appendString:lb.identifier];
                     [data appendString:@"|"];
-                    [data appendString:lb.groupIdentifier];
                     
+                    if(lb.groupIdentifier != nil) {
+                         [data appendString:lb.groupIdentifier];
+                    } else {
+                        [data appendString:@""];
+                    }
                     
                 }
                 

@@ -11,6 +11,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Text;
 
 #if AMAZON_BILLING_ENABLED
 using com.amazon.device.iap.cpt;
@@ -51,13 +52,39 @@ public class AmazonProductTemplate {
 	public AmazonProductTemplate(ProductData item) {
 		_sku 			= item.Sku;
 		_productType 	= (AMN_InAppType)Enum.Parse(typeof(AMN_InAppType), item.ProductType);
-		_price 			= item.Price;
-		_title 			= item.Title;
+		_LocalizedPrice = item.Price;
+		_title 					= item.Title;
 		_description 	= item.Description;
 		_smallIconUrl 	= item.SmallIconUrl;
+		SetPriceFromLocalizedPrice (_LocalizedPrice);
 	}
 	#endif
-	
+
+	private static bool isFloatChar(char c)	{
+		return ((c >= '0' && c <= '9') || c == '.');		
+	}
+
+	private void SetPriceFromLocalizedPrice() {
+			StringBuilder currency = new StringBuilder ();
+			StringBuilder val = new StringBuilder ();
+
+			foreach(char c in LocalizedPrice.ToCharArray()) {
+				if (isFloatChar (c)) {
+					val.Append (c);
+				} else {
+					currency.Append (c);
+				} 
+			}
+
+			float actualVal;
+			if(float.TryParse(val.ToString(), out actualVal)) {
+				_price = actualVal.ToString();
+				_PriceCurrencyCode = PriceCurrencyCode.ToString().Trim();
+			}
+	}
+
+
+
 	public AmazonProductTemplate() {		
 	}
 	

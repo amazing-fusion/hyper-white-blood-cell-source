@@ -1,3 +1,15 @@
+9.5/18
+NEW! Local Notifications will be scheduled in time even after device reboot
+Repeated Local Notifications detailed doc description added
+
+Overall performance improvements
+Compatibility updates & fixes
+
+Fixes:
+Google Play Services - OnPlayerScoreUpdated multiple time call fix
+GooglePlayUtils.Instance.GetAdvertisingId crash fixed on Amazon platform
+GcmIntentService minor fixes
+
 9.4/17
 Google Play Services updated to version 10.0.1
 

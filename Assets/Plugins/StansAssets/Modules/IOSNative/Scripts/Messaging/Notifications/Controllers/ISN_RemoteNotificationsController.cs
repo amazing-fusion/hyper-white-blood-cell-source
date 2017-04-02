@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections;
 
 
-#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR) || SA_DEBUG_MODE
+#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR  && UNITY_5) || SA_DEBUG_MODE
 using System.Runtime.InteropServices;
 #endif
 
@@ -17,7 +17,7 @@ public class ISN_RemoteNotificationsController :  SA.Common.Pattern.Singleton<IS
 	private ISN_RemoteNotification _LaunchNotification = null;
 
 
-	#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR  && UNITY_5) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _ISN_RegisterForRemoteNotifications();
 
@@ -36,7 +36,7 @@ public class ISN_RemoteNotificationsController :  SA.Common.Pattern.Singleton<IS
 	void Awake() {
 		DontDestroyOnLoad(gameObject);
 
-		#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR && UNITY_5) || SA_DEBUG_MODE
 
 		if (UnityEngine.iOS.NotificationServices.remoteNotificationCount > 0) {
 			string alertBody = UnityEngine.iOS.NotificationServices.remoteNotifications [0].alertBody;
@@ -59,7 +59,7 @@ public class ISN_RemoteNotificationsController :  SA.Common.Pattern.Singleton<IS
 	public void RegisterForRemoteNotifications(Action<ISN_RemoteNotificationsRegistrationResult> callback = null) {
 		_RegistrationCallback = callback;
 
-		#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR) || SA_DEBUG_MODE
+		#if (UNITY_IOS && PUSH_ENABLED && !UNITY_EDITOR  && UNITY_5) || SA_DEBUG_MODE
 		_ISN_RegisterForRemoteNotifications();
 		#endif
 

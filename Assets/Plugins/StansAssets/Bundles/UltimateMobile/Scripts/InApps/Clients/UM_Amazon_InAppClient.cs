@@ -39,6 +39,10 @@ public class UM_Amazon_InAppClient :  UM_BaseInAppClient, UM_InAppClient {
 		
 	}
 		
+	public override void FinishTransaction(UM_InAppProduct product) {
+		
+	}
+
 
 	public void RestorePurchases() {
 		SA_AmazonBillingManager.Instance.GetProductUpdates();

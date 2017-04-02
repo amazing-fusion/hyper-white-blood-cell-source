@@ -24,7 +24,7 @@ public interface UM_InAppClient  {
 	/// ActionProductPurchased Action fired when flow
 	/// is complete
 	/// </summary>
-	/// <param name="SKU">product SKU you want to purchase</param>
+	/// <param name="productId">product Id you want to purchase</param>
 	void Purchase(string productId);
 
 
@@ -33,7 +33,7 @@ public interface UM_InAppClient  {
 	/// ActionProductPurchased Action fired when flow
 	/// is complete
 	/// </summary>
-	/// <param name="SKU">product SKU you want to purchase</param>
+	/// <param name="product">product you want to purchase</param>
 	void Purchase(UM_InAppProduct product);
 
 	/// <summary>
@@ -41,7 +41,7 @@ public interface UM_InAppClient  {
 	/// ActionProductPurchased Action fired when flow
 	/// is complete
 	/// </summary>
-	/// <param name="SKU">product SKU you want to purchase</param>
+	/// <param name="product">product you want to purchase</param>
 	void Subscribe(UM_InAppProduct product);
 
 
@@ -50,7 +50,7 @@ public interface UM_InAppClient  {
 	/// ActionProductPurchased Action fired when flow
 	/// is complete
 	/// </summary>
-	/// <param name="SKU">product SKU you want to purchase</param>
+	/// <param name="productId">product Id you want to purchase</param>
 	void Subscribe(string productId);
 
 
@@ -59,8 +59,31 @@ public interface UM_InAppClient  {
 	/// ActionProductConsumed Action fired when flow
 	/// is complete
 	/// </summary>
-	/// <param name="productId">product SKU you want to consume</param>
+	/// <param name="productId">product Id you want to consume</param>
 	void Consume(string productId);
+
+
+	/// <summary>
+	/// Start consume flow for product
+	/// ActionProductConsumed Action fired when flow
+	/// is complete
+	/// </summary>
+	/// <param name="product">product you want to consume</param>
+	void Consume(UM_InAppProduct product);
+
+
+	/// <summary>
+	/// The Method will finish trsansaction for a product
+	/// <param name="productId">target product Id</param>
+	/// </summary>
+	void FinishTransaction(string productId);
+
+
+	/// <summary>
+	///  The Method will finish trsansaction for a product
+	/// <param name="product">target product</param>
+	/// </summary>
+	void FinishTransaction(UM_InAppProduct product);
 
 
 	/// <summary>

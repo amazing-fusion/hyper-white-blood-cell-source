@@ -10,7 +10,7 @@ using UnityEditor;
 public class MNP_PlatformSettings : ScriptableObject {
 
 	private const string ISNSettingsAssetName = "MNPSettings";
-	private const string ISNSettingsPath = SA.Common.Config.SETTINGS_PATH;
+	private const string ISNSettingsPath = MNP_Config.SETTINGS_PATH;
 	private const string ISNSettingsAssetExtension = ".asset";
 
     public MNAndroidDialogTheme AndroidDialogTheme = MNAndroidDialogTheme.ThemeDeviceDefaultDark;
@@ -31,15 +31,10 @@ public class MNP_PlatformSettings : ScriptableObject {
 					// If not found, autocreate the asset object.
 					instance = CreateInstance<MNP_PlatformSettings>();
 					#if UNITY_EDITOR					
-					SA.Common.Util.Files.CreateFolder(ISNSettingsPath);					
+					MNP_Files.CreateFolder(ISNSettingsPath);					
 					string fullPath = Path.Combine(Path.Combine("Assets", ISNSettingsPath),
-					                               ISNSettingsAssetName + ISNSettingsAssetExtension);
-					
-					AssetDatabase.CreateAsset(instance, fullPath);
-					
-					
-
-					
+					                               ISNSettingsAssetName + ISNSettingsAssetExtension);					
+					AssetDatabase.CreateAsset(instance, fullPath);					
 					#endif
 				}
 			}
