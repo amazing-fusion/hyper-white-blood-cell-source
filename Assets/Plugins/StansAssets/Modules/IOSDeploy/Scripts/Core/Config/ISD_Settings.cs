@@ -27,7 +27,7 @@ namespace SA.IOSDeploy {
 	#endif
 	public class ISD_Settings : ScriptableObject{
 
-		public const string VERSION_NUMBER = "3.0/17";
+		public const string VERSION_NUMBER = "3.1/18";
 
 
 		//Editor Window

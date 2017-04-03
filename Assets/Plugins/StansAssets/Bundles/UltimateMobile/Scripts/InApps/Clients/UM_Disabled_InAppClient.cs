@@ -21,6 +21,8 @@ public class UM_Disabled_InAppClient : UM_BaseInAppClient, UM_InAppClient {
 
 	public override void Consume(UM_InAppProduct product)  {}
 
+	public override void FinishTransaction(UM_InAppProduct product) {}
+
 	public void RestorePurchases() {}
 
 }

@@ -52,6 +52,18 @@ public abstract class UM_BaseInAppClient  {
 	public abstract void Consume(UM_InAppProduct product) ;
 
 
+	public void FinishTransaction(string productId) {
+		UM_InAppProduct product = UM_InAppPurchaseManager.GetProductById(productId);
+		if(product != null) {
+			FinishTransaction(product);
+		} else {
+			SendNoTemplateEvent();
+		}
+	}
+
+	public abstract void FinishTransaction(UM_InAppProduct product) ;
+
+
 
 
 	public bool IsProductPurchased(string productId) {

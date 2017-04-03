@@ -57,10 +57,11 @@ namespace SA.IOSNative.StoreKit {
 
 
 		public void UpdatePriceByTier() {
-			int tierint = (int) _PriceTier;
+			
 
-			float FloatPrice = tierint + 1f - 0.01f;
-			_Price = FloatPrice;
+			_Price = SK_Util.GetPriceByTier(_PriceTier);
+
+
 		}
 		
 

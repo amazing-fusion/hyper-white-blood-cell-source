@@ -1,3 +1,16 @@
+9.6/18:
+Fixes:
+iOS Deploy compatibility fixes
+Rewarded Viceo iOS platform callback issue fix
+
+Overall performance improvements
+Compatibility updates & fixes
+
+9.5/17:
+iOS Deploy compatibility fixes
+Overall performance improvements
+Compatibility updates & fixes
+
 9.4/17:
 Overall performance improvements
 Compatibility updates & fixes

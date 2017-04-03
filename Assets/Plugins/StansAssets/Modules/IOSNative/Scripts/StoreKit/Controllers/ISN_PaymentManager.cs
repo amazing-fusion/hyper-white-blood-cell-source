@@ -341,7 +341,7 @@ namespace SA.IOSNative.StoreKit {
 
 		private void onTransactionFailed(string data) {
 
-			string[] DataArray = data.Split(new string[] { SA.Common.Data.Converter.DATA_SPLITTER2 }, StringSplitOptions.None);
+			string[] DataArray = data.Split(new string[] { SA.Common.Data.Converter.DATA_SPLITTER.ToString() }, StringSplitOptions.None);
 
 			string prodcutId = DataArray [0];
 			var error = new SA.Common.Models.Error (DataArray [1]);

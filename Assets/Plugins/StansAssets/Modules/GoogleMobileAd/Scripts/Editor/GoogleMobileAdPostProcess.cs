@@ -1,4 +1,4 @@
-//#define CODE_DISABLED
+#define CODE_DISABLED
 #if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
@@ -13,7 +13,6 @@ public class GoogleMobileAdPostProcess  {
 
 
 		#if UNITY_IPHONE && !CODE_DISABLED
-		
 		SA.IOSDeploy.ISD_Settings.Instance.AddFramework(SA.IOSDeploy.iOSFramework.StoreKit);
 		SA.IOSDeploy.ISD_Settings.Instance.AddFramework(SA.IOSDeploy.iOSFramework.CoreTelephony);
 		SA.IOSDeploy.ISD_Settings.Instance.AddFramework(SA.IOSDeploy.iOSFramework.AdSupport);
@@ -24,7 +23,6 @@ public class GoogleMobileAdPostProcess  {
 		SA.IOSDeploy.ISD_Settings.Instance.AddLinkerFlag("-ObjC");
 
 		#endif
-		
 	}
 
 }

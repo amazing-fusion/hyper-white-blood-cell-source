@@ -37,7 +37,7 @@ public class ISN_LocalNotificationsController : SA.Common.Pattern.Singleton<ISN_
 
 	
 
-	#if (UNITY_IPHONE && !UNITY_EDITOR) || SA_DEBUG_MODE
+	#if (UNITY_IOS && !UNITY_EDITOR) || SA_DEBUG_MODE
 	[DllImport ("__Internal")]
 	private static extern void _ISN_ScheduleNotification (int time, string message, bool sound, string nId, int badges, string data, string soundName);
 

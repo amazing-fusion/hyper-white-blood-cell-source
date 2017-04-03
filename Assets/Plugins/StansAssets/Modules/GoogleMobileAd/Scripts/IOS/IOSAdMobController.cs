@@ -1,4 +1,4 @@
-//#define CODE_DISABLED
+#define CODE_DISABLED
 //#define SA_DEBUG_MODE
 ////////////////////////////////////////////////////////////////////////////////
 //  
@@ -500,34 +500,40 @@ public class IOSAdMobController : SA.Common.Pattern.Singleton<IOSAdMobController
 	//  EVENTS VIDEO AD
 	//--------------------------------------
 
-		private void RewardBasedVideoAdDidReceiveAd() {
-				OnRewardedVideoLoaded ();
-		}
+	private void RewardBasedVideoAdDidReceiveAd() {
+			OnRewardedVideoLoaded ();
+	}
 
-		private void RewardBasedVideoAdDidOpen() {
-				OnRewardedVideoAdOpened ();
-		}
+	private void RewardBasedVideoAdDidOpen() {
+			OnRewardedVideoAdOpened ();
+	}
 
-		private void RewardBasedVideoAdDidStartPlaying() {
-				OnRewardedVideoStarted ();
-		}
+	private void RewardBasedVideoAdDidStartPlaying() {
+			OnRewardedVideoStarted ();
+	}
 
-		private void RewardBasedVideoAdDidClose() {
-				OnRewardedVideoAdClosed ();
-		}
+	private void RewardBasedVideoAdDidClose() {
+			OnRewardedVideoAdClosed ();
+	}
 
-		private void RewardBasedVideoAdDidFailToLoadWithError() {
-				OnRewardedVideoAdFailedToLoad (0);
-		}
+	private void RewardBasedVideoAdDidFailToLoadWithError() {
+			OnRewardedVideoAdFailedToLoad (0);
+	}
 
-		private void RewardBasedVideoAdWillLeaveApplication() {
-				OnRewardedVideoAdLeftApplication ();
-		}
+	private void RewardBasedVideoAdWillLeaveApplication() {
+			OnRewardedVideoAdLeftApplication ();
+	}
 
-	
-		/*
-		public event Action<string, int> OnRewarded 				= delegate {};
-		*/
+
+	private void RewardUserWithReward(string data) {
+		string[] DataArray = data.Split(SA.Common.Data.Converter.DATA_SPLITTER); 
+
+		string type =  DataArray[0];
+		int amount = System.Convert.ToInt32 (DataArray[1]);
+
+		OnRewarded (type, amount);
+
+	}
 
 
 	//--------------------------------------

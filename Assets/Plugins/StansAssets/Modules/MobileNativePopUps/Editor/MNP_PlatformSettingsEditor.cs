@@ -61,8 +61,8 @@ public class MNP_PlatformSettingsEditor : Editor {
 			Color c = GUI.color;
 			GUI.color = Color.cyan;
 			if(GUILayout.Button("Install Plugin",  GUILayout.Width(120))) {
-				SA.Common.Editor.Instalation.Android_InstallPlugin();
-				SA.Common.Editor.Instalation.IOS_InstallPlugin();
+				MNP_Instalation.Android_InstallPlugin();
+				MNP_Instalation.IOS_InstallPlugin();
 				UpdateVersionInfo();
 			}
 			GUI.color = c;
@@ -71,21 +71,18 @@ public class MNP_PlatformSettingsEditor : Editor {
 		
 		if(IsInstalled) {
 			if(!IsUpToDate) {
-				EditorGUILayout.HelpBox("Update Required \nResources version: " + SA.Common.Editor.VersionsManager.MNP_StringVersionId + " Plugin version: " + MNP_PlatformSettings.VERSION_NUMBER, MessageType.Warning);
-				
-				
-				
+				EditorGUILayout.HelpBox("Update Required \nResources version: " + MNP_VersionsManager.MNP_StringVersionId + " Plugin version: " + MNP_PlatformSettings.VERSION_NUMBER, MessageType.Warning);
 				
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.Space();
 				Color c = GUI.color;
 				GUI.color = Color.cyan;
 				
-				Debug.Log(SA.Common.Editor.VersionsManager.MNP_Version);
-				if(CurrentVersion != SA.Common.Editor.VersionsManager.MNP_Version) {
+				Debug.Log(MNP_VersionsManager.MNP_Version);
+				if(CurrentVersion != MNP_VersionsManager.MNP_Version) {
 					if(GUILayout.Button("Upgrade Resources",  GUILayout.Width(250))) {
-						SA.Common.Editor.Instalation.Android_InstallPlugin();
-						SA.Common.Editor.Instalation.IOS_InstallPlugin();
+						MNP_Instalation.Android_InstallPlugin();
+						MNP_Instalation.IOS_InstallPlugin();
 						UpdateVersionInfo();
 					}
 				} 
@@ -108,20 +105,18 @@ public class MNP_PlatformSettingsEditor : Editor {
 	/*****************/
 	
 	public static void UpdateVersionInfo() {
-		SA.Common.Util.Files.Write(SA.Common.Config.MNP_VERSION_INFO_PATH, MNP_PlatformSettings.VERSION_NUMBER);
-	
-	}
+		MNP_Files.Write(MNP_Config.MNP_VERSION_INFO_PATH, MNP_PlatformSettings.VERSION_NUMBER);	
+	}		
 		
-		
-		public static bool IsInstalled {
-			get {
-				return SA.Common.Editor.VersionsManager.Is_MNP_Installed;
-			}
+	public static bool IsInstalled {
+		get {
+			return MNP_VersionsManager.Is_MNP_Installed;
 		}
+	}
 		
 	public static bool IsUpToDate {
 		get {			
-			if(CurrentVersion == SA.Common.Editor.VersionsManager.MNP_Version) {
+			if(CurrentVersion == MNP_VersionsManager.MNP_Version) {
 				return true;
 			} else {
 				return false;
@@ -131,13 +126,13 @@ public class MNP_PlatformSettingsEditor : Editor {
 	
 	public static int CurrentVersion {
 		get {
-			return SA.Common.Editor.VersionsManager.ParceVersion(MNP_PlatformSettings.VERSION_NUMBER);
+			return MNP_VersionsManager.ParceVersion(MNP_PlatformSettings.VERSION_NUMBER);
 		}
 	}
 	
 	public static int CurrentMagorVersion {
 		get {
-			return SA.Common.Editor.VersionsManager.ParceMagorVersion(MNP_PlatformSettings.VERSION_NUMBER);
+			return MNP_VersionsManager.ParceMagorVersion(MNP_PlatformSettings.VERSION_NUMBER);
 		}
 	}
 
@@ -154,7 +149,7 @@ public class MNP_PlatformSettingsEditor : Editor {
 		EditorGUILayout.Space();
 		SelectableLabelField(SdkVersion, MNP_PlatformSettings.VERSION_NUMBER);
 		EditorGUILayout.Space();
-		SelectableLabelField(SupportEmail, "stans.assets@gmail.com");
+				SelectableLabelField(SupportEmail, MNP_Config.SUPPORT_EMAIL);
 			
 	}
 		

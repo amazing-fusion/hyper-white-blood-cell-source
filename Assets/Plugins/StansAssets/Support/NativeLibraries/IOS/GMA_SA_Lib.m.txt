@@ -15,6 +15,11 @@
 #endif
 
 
+NSString * const UNITY_SPLITTER = @"|";
+NSString * const UNITY_SPLITTER2 = @"|%|";
+NSString * const UNITY_EOF = @"endofline";
+
+
 
 @interface GoogleMobileAdBanner : NSObject<GADBannerViewDelegate>
 
@@ -44,7 +49,6 @@ static GoogleMobileAdController *_sharedInstance;
 static GADInterstitial *interstitial_ = NULL;
 static bool showInterstitialOnLoad = false;
 
-static GADRewardBasedVideoAd * video = NULL;
 static bool showVideoOnLoad = false;
 
 static GADRequest *adRequest;
@@ -354,6 +358,17 @@ static NSMutableDictionary* _banners;
 - (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd didRewardUserWithReward:(GADAdReward *)reward {
     
     NSLog(@"didRewardUserWithReward");
+    
+    
+    NSMutableString * data = [[NSMutableString alloc] init];
+    
+    [data appendString:reward.type];
+    [data appendString:UNITY_SPLITTER];
+    [data appendString:[NSString stringWithFormat:@"%@", reward.amount]];
+   
+    
+    UnitySendMessage("IOSAdMobController", "RewardUserWithReward", [data UTF8String]);
+
     
 }
 

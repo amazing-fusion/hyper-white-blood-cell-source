@@ -17,7 +17,7 @@ using UnityEditor;
 
 public class AndroidNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "9.4/17";
+	public const string VERSION_NUMBER = "9.5/18";
 	public const string GOOGLE_PLAY_SDK_VERSION_NUMBER = "10.0.1";
 	public const string GOOGLE_PLAY_SDK_LEAGCY_VERSION_NUMBER = "10084000";
 
@@ -32,11 +32,13 @@ public class AndroidNativeSettings : ScriptableObject {
 	public bool LoadQuestsIcons 	= true;
 	public bool LoadEventsIcons 	= true;
 	public bool ShowConnectingPopup = true;
+	public bool AutoLoadLocalPlayerScore = false;
 
+    //Google Fit
+    public bool GoogleFitEnabled = false;
 
-	//ATC:
-	public bool EnableATCSupport = false;
-
+    //ATC:
+    public bool EnableATCSupport = false;
 
 	//One Signal
 	public bool OneSignalEnabled = false;
