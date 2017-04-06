@@ -1,4 +1,4 @@
-#define CODE_DISABLED
+//#define CODE_DISABLED
 #if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
