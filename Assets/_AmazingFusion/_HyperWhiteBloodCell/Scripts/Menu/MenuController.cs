@@ -93,6 +93,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
         }
 
+        public void RestorePurchases() {
+            if (UM_InAppPurchaseManager.Client.IsConnected) {
+                UM_InAppPurchaseManager.Client.OnRestoreFinished += OnRestoreFinished;
+                UM_InAppPurchaseManager.Client.RestorePurchases();
+            } else {
+                UM_InAppPurchaseManager.Client.OnServiceConnected += RestorePurchasesOnServiceConnected;
+                UM_InAppPurchaseManager.Client.Connect();
+            }
+        }
+
         public void PurchaseNoAds() {
             if (PersistanceManager.Instance.ShowAds) {
                 if (UM_InAppPurchaseManager.Client.IsConnected) {
@@ -105,8 +115,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void ShowRankingOnConnectionStateChnaged(UM_ConnectionState connectionState) {
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                UM_GameServiceManager.OnConnectionStateChnaged -= ShowRankingOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowLeaderBoardUI("leaderboard_ranking");
             } else {
 #if UNITY_ANDROID
@@ -118,8 +128,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         }
 
         void ShowAchievementsOnConnectionStateChnaged(UM_ConnectionState connectionState) {
+            UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
             if (connectionState == UM_ConnectionState.CONNECTED) {
-                UM_GameServiceManager.OnConnectionStateChnaged -= ShowAchievementsOnConnectionStateChnaged;
                 UM_GameServiceManager.Instance.ShowAchievementsUI();
             } else {
 #if UNITY_ANDROID
@@ -148,6 +158,39 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
             } else {
                 _noAdsButton.gameObject.SetActive(false);
+            }
+        }
+
+        private void OnRestoreFinished(UM_BaseResult result) {
+            UM_InAppPurchaseManager.Client.OnRestoreFinished -= OnRestoreFinished;
+            if (result.IsSucceeded) {
+                PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
+                _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games", "Purchases restored!");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center", "Purchases restored!");
+#endif
+            } else {
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not restore purchases");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not restore purchases");
+#endif
+            }
+        }
+
+        void RestorePurchasesOnServiceConnected(UM_BillingConnectionResult result) {
+            UM_InAppPurchaseManager.Client.OnServiceConnected -= RestorePurchasesOnServiceConnected;
+            if (result.isSuccess) {
+                UM_InAppPurchaseManager.Client.OnRestoreFinished += OnRestoreFinished;
+                UM_InAppPurchaseManager.Client.RestorePurchases();
+            } else {
+#if UNITY_ANDROID
+                new MobileNativeMessage("Google Play Games Error", "Could not login to Google Play Games");
+#elif UNITY_IOS
+                new MobileNativeMessage("Game Center Error", "Could not login to Game Center");
+#endif
             }
         }
 
