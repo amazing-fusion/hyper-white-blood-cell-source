@@ -64,19 +64,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             }
             else
             {
-                if (PersistanceManager.Instance.ShowAds && AdsController.Instance.NextTimeAds < Time.time)
+                if (AdsController.Instance.AvailableReviewUI &&
+                        !PersistanceManager.Instance.NeverReviewUI && 
+                        AdsController.Instance.NextReviewUI < Time.time)
+                {
+                    if (OnReviewUI != null) OnReviewUI();
+                    AdsController.Instance.AvailableReviewUI = false;
+                }
+                else if (PersistanceManager.Instance.ShowAds && AdsController.Instance.NextTimeAds < Time.time)
                 {
                     AdsController.Instance.ShowInterstisialAd();
-                }
-                else if (AdsController.Instance.AvailableReviewUI && !PersistanceManager.Instance.NeverReviewUI)
-                {
-                    
-                    if (AdsController.Instance.NextReviewUI < Time.time)
-                    {
-                        
-                        if (OnReviewUI != null) OnReviewUI();
-                        AdsController.Instance.AvailableReviewUI = false;
-                    }
                 }
             }
             

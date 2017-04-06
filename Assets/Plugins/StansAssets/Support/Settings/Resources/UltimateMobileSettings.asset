@@ -141,6 +141,6 @@ MonoBehaviour:
   IsCameraAndGalleryIOSSettingsOpen: 0
   IsLP_Android_SettingsOpen: 0
   IsLP_IOS_SettingsOpen: 0
-  TP_Android_SettingsOpen: 0
-  TP_IOS_SettingsOpen: 0
+  TP_Android_SettingsOpen: 1
+  TP_IOS_SettingsOpen: 1
   PlatformEngine: 0

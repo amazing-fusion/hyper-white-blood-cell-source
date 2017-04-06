@@ -27,7 +27,7 @@ MonoBehaviour:
   EditorFillRateIndex: 4
   IsEditorTestingEnabled: 1
   IsTestSettinsOpened: 0
-  ShowActions: 0
+  ShowActions: 1
   KeepManifestClean: 1
   TagForChildDirectedTreatment: 0
   testDevices: []

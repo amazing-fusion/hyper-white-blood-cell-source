@@ -88,7 +88,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
             //GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
             GoogleMobileAd.OnRewardedVideoAdClosed += HandleOnRewardedVideoAdClosed;
-            
+			GoogleMobileAd.OnRewardedVideoAdOpened += HandleOnRewardedVideoAdOpened;
+			//GoogleMobileAd.OnRewardedVideoStarted += HandleOnRewardedVideoAdStarted;
 
             GoogleMobileAd.LoadRewardedVideo();
             GoogleMobileAd.LoadInterstitialAd();
@@ -104,7 +105,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             GoogleMobileAd.OnRewardedVideoAdClosed -= HandleOnRewardedVideoAdClosed;
             GoogleMobileAd.OnRewardedVideoAdLeftApplication -= HandleOnRewardedVideoLeftAplication;
             GoogleMobileAd.OnRewardedVideoAdOpened -= HandleOnRewardedVideoAdOpened;
-            GoogleMobileAd.OnRewardedVideoStarted -= HandleOnRewardedVideoAdStarted;
+            //GoogleMobileAd.OnRewardedVideoStarted -= HandleOnRewardedVideoAdStarted;
 
         }
 
@@ -121,6 +122,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void HandleOnRewardedVideoAdOpened()
         {
             Debug.Log("Opened Video Rewarded");
+			Time.timeScale = 0;
         }
 
         void HandleOnRewardedVideoAdStarted()
@@ -137,6 +139,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         {
             Debug.Log("Closed Video Rewarded");
             GoogleMobileAd.LoadRewardedVideo();
+			Time.timeScale = 1;
         }
 
         void OnInterstisialsLoaded()
@@ -152,13 +155,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
         void OnInterstisialsOpen()
         {
             //pausing the game
-            
+			Time.timeScale = 0;
         }
 
         void OnInterstisialsClosed()
         {
             //un-pausing the game
             GoogleMobileAd.LoadInterstitialAd();
+			Time.timeScale = 1;
         }
 
         public void ShowRewardedVideoAd()
