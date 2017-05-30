@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class CreditsView : Singleton<CreditsView> {
+
+        [SerializeField]
+        TMP_Text _versionText;
 
         [SerializeField]
         EasingAnimation _showAnimation;
@@ -12,6 +16,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
         EasingAnimation _hideAnimation;
 
         void Start() {
+            _versionText.text = string.Format("v. {0}", Application.version);
+
             _hideAnimation.OnEnd += (IEffectable effect) => {
                 _hideAnimation.gameObject.SetActive(false);
             };
