@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EZObjectPools;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class ProjectileController : OptimizedBehaviour {
 
         [SerializeField]

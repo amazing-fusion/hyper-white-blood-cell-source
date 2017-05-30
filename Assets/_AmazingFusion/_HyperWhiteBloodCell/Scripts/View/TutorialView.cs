@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class TutorialView : Singleton<TutorialView> {
 
         [SerializeField]

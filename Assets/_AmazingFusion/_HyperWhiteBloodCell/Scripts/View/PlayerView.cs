@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
+namespace com.AmazingFusion.HyperWhiteBloodCellDash
 {
     public class PlayerView : OptimizedBehaviour
     {

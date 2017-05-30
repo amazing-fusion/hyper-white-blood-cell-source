@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
+namespace com.AmazingFusion.HyperWhiteBloodCellDash
 {
     public class MenuController : OptimizedBehaviour
     {
@@ -36,6 +36,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void Start()
         {
+            Time.timeScale = 1;
             AudioController.Instance.PlayMenuMusic();
 
             //UM_GameServiceManager.OnConnectionStateChnaged += OnGameServiceConnectionStateChanged;
@@ -50,7 +51,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             } else {
                 PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
                 _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
-
+                if (PersistanceManager.Instance.ShowAds) {
+                    CrossPromotionController.Instance.Show();
+                }
             }
 
             _bestLevelText.text = PersistanceManager.Instance.BestLevel.ToString();
@@ -156,6 +159,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
             if (result.isSuccess) {
                 PersistanceManager.Instance.ShowAds = !UM_InAppPurchaseManager.Client.IsProductPurchased("iap_no_ads");
                 _noAdsButton.gameObject.SetActive(PersistanceManager.Instance.ShowAds);
+                if (PersistanceManager.Instance.ShowAds) {
+                    CrossPromotionController.Instance.Show();
+                }
             } else {
                 _noAdsButton.gameObject.SetActive(false);
             }

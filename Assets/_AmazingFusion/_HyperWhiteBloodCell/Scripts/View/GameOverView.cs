@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
+namespace com.AmazingFusion.HyperWhiteBloodCellDash
 {
     public class GameOverView : OptimizedBehaviour
     {
@@ -131,7 +131,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
 
         void HandleOnRewarded(string itemId, int amount)
         {
-            Debug.Log("Rewarded Video");
+            FirebaseAnalyticsManager.Instance.SendRewardedAdverWatched();
             try {
                 _hideAnimation.gameObject.SetActive(false);
                 LevelManager.Instance.RestartLevel = true;

@@ -5,7 +5,7 @@ using MovementEffects;
 using TMPro;
 using System;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     [RequireComponent(typeof(TMP_Text))]
     public class ChangeTextAnimation : OptimizedBehaviour, IFixedTickable {
 

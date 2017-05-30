@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Copyright (c) Rotorz Limited. All rights reserved.
 
 // This shader is used to draw immediate tile previews.
@@ -40,7 +42,7 @@ Shader "Rotorz/Preview" {
 
 			v2f vert (appdata_base v) {
 				v2f o;
-				o.pos = mul( UNITY_MATRIX_MVP, v.vertex );
+				o.pos = UnityObjectToClipPos( v.vertex );
 				o.uv = TRANSFORM_TEX (v.texcoord, _MainTex);
 				return o;
 			}

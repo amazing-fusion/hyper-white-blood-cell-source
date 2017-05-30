@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MovementEffects;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
+namespace com.AmazingFusion.HyperWhiteBloodCellDash
 {
     public class GameController : Singleton<GameController>, ITickable
     {

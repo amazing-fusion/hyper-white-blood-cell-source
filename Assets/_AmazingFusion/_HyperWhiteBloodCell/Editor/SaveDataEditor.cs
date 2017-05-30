@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.IO;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell.Editor
+namespace com.AmazingFusion.HyperWhiteBloodCellDash.Editor
 {
     public class SaveDataEditor
     {

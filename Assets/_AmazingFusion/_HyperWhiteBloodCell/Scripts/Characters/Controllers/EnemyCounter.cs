@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
-{
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     [RequireComponent(typeof(DamageController))]
     public class EnemyCounter : OptimizedBehaviour
     {

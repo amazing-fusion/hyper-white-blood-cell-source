@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell
+namespace com.AmazingFusion.HyperWhiteBloodCellDash
 {
     public class LevelManager : Singleton<LevelManager>
     {
@@ -31,6 +31,9 @@ namespace com.AmazingFusion.HyperWhiteBloodCell
                 if(_currentLevelNumber != value)
                 {
                     _currentLevelNumber = value;
+                    if (_currentLevelNumber > 0) {
+                        FirebaseAnalyticsManager.Instance.SendLevel(_currentLevelNumber);
+                    }
                     if (OnLevelChange != null) OnLevelChange();
                 }
             }

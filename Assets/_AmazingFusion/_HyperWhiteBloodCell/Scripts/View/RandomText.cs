@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     [RequireComponent(typeof(TMP_Text))]
     public class RandomText : OptimizedBehaviour {
 

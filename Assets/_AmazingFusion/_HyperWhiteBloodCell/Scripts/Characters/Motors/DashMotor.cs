@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     [RequireComponent(typeof(Rigidbody2D))]
     public class DashMotor : OptimizedBehaviour, IMotor {
 

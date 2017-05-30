@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class PersistanceManager : GlobalSingleton<PersistanceManager> {
 
         bool _neverReviewUI;

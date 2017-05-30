@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using EasyEditor;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class NotificationsController : Singleton<NotificationsController> {
 
         [System.Serializable]

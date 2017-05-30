@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace com.AmazingFusion.HyperWhiteBloodCell {
+namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     [RequireComponent(typeof(IMotor))]
     public class SwipeInputController : OptimizedBehaviour, ITickable {
 

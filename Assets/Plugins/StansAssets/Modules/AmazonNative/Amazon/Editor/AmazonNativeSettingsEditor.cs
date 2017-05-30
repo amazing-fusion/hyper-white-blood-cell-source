@@ -225,7 +225,7 @@ public class AmazonNativeSettingsEditor : Editor {
 		AmazonNativeSettings.Instance.AppAPIKey = "f06565f7696840d7adce3d08ea18d742";
 		AmazonNativeSettings.Instance.AdvertisingBannerAlign = AMN_BannerAlign.Bottom;
 		
-		PlayerSettings.bundleIdentifier = "com.unionassets.android.plugin.preview";
+		PlayerSettings.applicationIdentifier = "com.unionassets.android.plugin.preview";
 	}
 
 	private static string SA_AmazonGameCircleManager_Path = SA.Common.Config.MODULS_PATH + "AmazonNative/Amazon/Manage/SA_AmazonGameCircleManager.cs";
