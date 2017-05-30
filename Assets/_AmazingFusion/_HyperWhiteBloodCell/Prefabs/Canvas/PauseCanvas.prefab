@@ -21,9 +21,6 @@ GameObject:
   - component: {fileID: 224719553363136942}
   - component: {fileID: 222830712979902114}
   - component: {fileID: 114811710433738260}
-  - component: {fileID: 225066639144512222}
-  - component: {fileID: 114938805166710902}
-  - component: {fileID: 114885948341635002}
   - component: {fileID: 114826352476024418}
   m_Layer: 5
   m_Name: PausePanel
@@ -31,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1410191567151260
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb15dd69265581e4cb1e2bf93ad6594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showAnimation: {fileID: 114938805166710902}
-  _hideAnimation: {fileID: 114885948341635002}
+  _pausePanel: {fileID: 224719553363136942}
 --- !u!114 &114065422666518258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +213,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 1
   m_subTextObjects:
@@ -288,38 +284,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &114885948341635002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1282087751424838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9785cf955855ca745812dd28d5f5fdec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.2
-  _easingInfo:
-    _startValue: 1
-    _changeValue: -1
-    _curve: 11
---- !u!114 &114938805166710902
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1282087751424838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9785cf955855ca745812dd28d5f5fdec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 0.2
-  _easingInfo:
-    _startValue: 0
-    _changeValue: 1
-    _curve: 11
 --- !u!222 &222738274620000372
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -339,7 +303,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410191567151260}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -348,8 +312,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &224719553363136942
 RectTransform:
@@ -407,14 +372,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!225 &225066639144512222
-CanvasGroup:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1282087751424838}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
