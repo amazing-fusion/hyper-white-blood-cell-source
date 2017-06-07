@@ -408,14 +408,14 @@ public class UMSettingEditor : Editor {
 			
 			#if UNITY_IOS || UNITY_IPHONE
 			
-			PlayerSettings.bundleIdentifier = "com.iosnative.preview";
+			SA.Common.Editor.Tools.ApplicationIdentifier = "com.iosnative.preview";
 			
 			
 			#endif
 			
 			#if UNITY_ANDROID
 			
-			PlayerSettings.applicationIdentifier = "com.unionassets.android.plugin.preview";
+			SA.Common.Editor.Tools.ApplicationIdentifier = "com.unionassets.android.plugin.preview";
 			
 			
 			#endif

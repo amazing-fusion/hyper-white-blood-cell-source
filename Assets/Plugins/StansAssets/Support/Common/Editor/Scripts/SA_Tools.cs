@@ -51,6 +51,33 @@ namespace SA.Common.Editor {
 		}
 
 
+
+		//--------------------------------------
+		// App info
+		//--------------------------------------
+
+
+		public static string ApplicationIdentifier {
+
+			get {
+				#if UNITY_5_6_OR_NEWER
+				return PlayerSettings.applicationIdentifier;
+				#else
+				return PlayerSettings.bundleIdentifier;
+				#endif
+			}
+
+			set {
+				#if UNITY_5_6_OR_NEWER
+				PlayerSettings.applicationIdentifier = value;
+				#else
+				PlayerSettings.bundleIdentifier = value;
+				#endif
+			}
+		}
+
+
+
 		public static Texture2D GetEditorTexture(string path) {
 			path = "Assets/" + path;
 			TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(path);

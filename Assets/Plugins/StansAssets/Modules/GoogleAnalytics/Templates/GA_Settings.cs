@@ -25,7 +25,7 @@ namespace SA.Analytics.Google {
 	#endif
 	public class GA_Settings : ScriptableObject {
 
-		public static string VERSION_NUMBER = "4.4/18";
+		public static string VERSION_NUMBER = "4.5/19";
 
 		
 		[SerializeField]

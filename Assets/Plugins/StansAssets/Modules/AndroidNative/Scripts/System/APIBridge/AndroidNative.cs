@@ -192,6 +192,10 @@ public class AndroidNative {
 
 	}
 
+	public static void RemoveData(string key) {
+		CallAndroidNativeBridge ("RemoveData", key);
+	}
+
 	private const string UTILITY_CLASSS = "com.androidnative.features.common.AndroidNativeUtility";
 	
 	private static void CallUtility(string methodName, params object[] args) {

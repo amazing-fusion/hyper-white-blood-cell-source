@@ -1199,28 +1199,7 @@ static IOSNativeNotificationCenter *sharedHelper = nil;
 @end
 
 
-@implementation ISNSharedApplication
 
-static ISNSharedApplication *sha_sharedInstance;
-
-
-+ (id)sharedInstance {
-    
-    if (sha_sharedInstance == nil)  {
-        sha_sharedInstance = [[self alloc] init];
-    }
-    
-    return sha_sharedInstance;
-}
-
-
-
--(void) openUrl:(NSString *)url {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-}
-
-
-@end
 
 
 extern "C" {
@@ -1295,8 +1274,60 @@ extern "C" {
         return UIAccessibilityIsGuidedAccessEnabled;
     }
     
-    bool _ISN_IsRunningTestFlightBeta() {
+
+    
+
+    
+    
+
+    bool _ISN_isAppStoreReceiptSandbox() {
+#if TARGET_IPHONE_SIMULATOR
+        return NO;
+#else
+        NSURL *appStoreReceiptURL = NSBundle.mainBundle.appStoreReceiptURL;
+        NSString *appStoreReceiptLastComponent = appStoreReceiptURL.lastPathComponent;
+        
+        BOOL isSandboxReceipt = [appStoreReceiptLastComponent isEqualToString:@"sandboxReceipt"];
+        return isSandboxReceipt;
+#endif
+    }
+    
+    bool _ISN_hasEmbeddedMobileProvision() {
+        
         if ([[NSBundle mainBundle] pathForResource:@"embedded" ofType:@"mobileprovision"]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
+    bool _ISN_isRunningInAppStoreEnvironment() {
+#if TARGET_IPHONE_SIMULATOR
+        return NO;
+#else
+        if (_ISN_isAppStoreReceiptSandbox() || _ISN_hasEmbeddedMobileProvision()) {
+            return NO;
+        }
+        return YES;
+#endif
+    }
+    
+    
+    BOOL _ISN_isRunningInTestFlightEnvironment() {
+#if TARGET_IPHONE_SIMULATOR
+        return NO;
+#else
+        if (_ISN_isAppStoreReceiptSandbox() && !_ISN_hasEmbeddedMobileProvision()) {
+            return YES;
+        }
+        return NO;
+#endif
+    }
+    
+    
+    bool _ISN_IsRunningTestFlightBeta() {
+        if (_ISN_isRunningInTestFlightEnvironment()) {
             // TestFlight
             return true;
         } else {
@@ -1304,6 +1335,7 @@ extern "C" {
             return false;
         }
     }
+    
     
     
     // Helper method to create C string copy
@@ -1348,7 +1380,7 @@ extern "C" {
         [data appendString:@"|"];
         
         
-        [data appendString: [NSString stringWithFormat:@"%u",[[NSTimeZone localTimeZone] secondsFromGMT]]];
+        [data appendString: [NSString stringWithFormat:@"%ld",(long)[[NSTimeZone localTimeZone] secondsFromGMT]]];
         
         
         return ISN_MakeStringCopy([ISN_DataConvertor NSStringToChar:data]);
@@ -1529,10 +1561,8 @@ extern "C" {
     
     void _ISN_OpenUrl(char* url) {
         NSString *uri = [ISN_DataConvertor charToNSString:url];
-        [[ISNSharedApplication sharedInstance] openUrl:uri];
+         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:uri]];
     }
-    
-    
     
     
     //--------------------------------------
@@ -1651,9 +1681,11 @@ extern "C" {
     }
     
     
-    int _ISN_CurrentNotificationSettings () {
+    int  _ISN_CurrentNotificationSettings () {
 #if !TARGET_OS_TV
         UIUserNotificationSettings* NotificationSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        
+    
         return NotificationSettings.types;
 #else
         return 0;

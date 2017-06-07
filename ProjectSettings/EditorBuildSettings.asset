@@ -5,11 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Plugins/StansAssets/Bundles/UltimateMobile/Examples/Scenes/GameService/UM_GameServiceBasics.unity
   - enabled: 1
     path: Assets/_AmazingFusion/_HyperWhiteBloodCell/Scenes/MenuScene.unity
+    guid: 6cb3cf726610370489861a7df95e4728
   - enabled: 1
     path: Assets/_AmazingFusion/_HyperWhiteBloodCell/Scenes/GameScene.unity
+    guid: f9b77c2350aa84742a241e9c1738ff02
   - enabled: 1
     path: Assets/_AmazingFusion/_HyperWhiteBloodCell/Scenes/LoadingScene.unity
+    guid: 06c5b7fb80cdcf044a3ccb7ef615191b

@@ -1,3 +1,13 @@
+9.9/19:
+Overall performance improvements
+Compatibility updates & fixes
+
+Updates:
+Android Native v9.6/18
+iOS Native v9.7/18
+Google Mobile Ads v9.7/18
+WP8 Native v3.5/19
+
 9.8/18:
 Overall performance improvements
 Compatibility updates & fixes

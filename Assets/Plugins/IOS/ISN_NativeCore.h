@@ -77,23 +77,6 @@
 
 
 
-
-
-@interface ISNSharedApplication : NSObject
-
-+ (id)  sharedInstance;
-
-- (void) checkUrl:(NSString*)url;
-- (void) openUrl:(NSString*)url;
-
-
-@end
-
-
-
-
-
-
 @interface ISN_NativePopUpsManager : NSObject
 + (ISN_NativePopUpsManager *) sharedInstance;
 @end

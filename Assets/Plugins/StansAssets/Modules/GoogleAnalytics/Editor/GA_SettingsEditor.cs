@@ -403,7 +403,7 @@ namespace SA.Analytics.Google {
 			
 			EditorGUILayout.Space();
 			if(GUILayout.Button("Refresh Client Id",  GUILayout.Width(120))) {
-				PlayerPrefs.DeleteKey(Manager.GOOGLE_ANALYTICS_CLIENTID_PREF_KEY);
+				PlayerPrefs.DeleteKey(GA_Manager.GOOGLE_ANALYTICS_CLIENTID_PREF_KEY);
 			}
 			
 			

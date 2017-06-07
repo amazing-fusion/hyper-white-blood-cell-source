@@ -69,6 +69,20 @@ static bool IsUnitySubscribed = false;
 //  Application State Events
 //--------------------------------------
 
+static NSString* appOpenshortcutItem  = @"";
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem  completionHandler:(void (^)(BOOL succeeded))completionHandler {
+    NSLog(@"performActionForShortcutItem");
+    
+    appOpenshortcutItem = [shortcutItem type];
+    UnitySendMessage("SA.IOSNative.Gestures.ForceTouch", "performActionForShortcutItem", [ISN_DataConvertor NSStringToChar:appOpenshortcutItem]);
+}
+
++ (NSString*) getAppOpenshortcutItem {
+    return  appOpenshortcutItem;
+}
+
+
 - (void)applicationDidEnterBackground:(UIApplication*)application {
     [ISN_AppController sendEvent:@"applicationDidEnterBackground"];
     [super applicationDidEnterBackground:application];
@@ -178,6 +192,15 @@ extern "C" {
     char* _ISN_GetLunchUniversalLink() {
         
         NSString *Data = [ISN_AppController getLunchUniversalLink];
+        
+        const char* string = [ISN_DataConvertor NSStringToChar:Data];
+        char* res = (char*)malloc(strlen(string) + 1);
+        strcpy(res, string);
+        return res;
+    }
+    
+    char* _ISN_FT_AppOpenshortcutItem() {
+        NSString *Data = [ISN_AppController getAppOpenshortcutItem];
         
         const char* string = [ISN_DataConvertor NSStringToChar:Data];
         char* res = (char*)malloc(strlen(string) + 1);

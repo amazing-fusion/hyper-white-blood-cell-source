@@ -314,7 +314,7 @@ static NSMutableDictionary* _views;
         NSMutableString * data = [[NSMutableString alloc] init];
         
         [data appendString:productId];
-        [data appendString:UNITY_SPLITTER];
+        [data appendString:UNITY_SPLITTER2];
         [data appendString:@"Product Not Available"];
         [data appendString:UNITY_SPLITTER];
         [data appendString:@"4"];
@@ -502,9 +502,9 @@ NSString* lastTransactionReceipt = @"";
     NSMutableString * data = [[NSMutableString alloc] init];
     
     [data appendString:transaction.payment.productIdentifier];
-    [data appendString:UNITY_SPLITTER];
+    [data appendString:UNITY_SPLITTER2];
     [data appendString:serializedError];
-    
+
     UnitySendMessage(UNITY_PAYMENT_LISTENER, "onTransactionFailed", [ISN_DataConvertor NSStringToChar:data]);
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }

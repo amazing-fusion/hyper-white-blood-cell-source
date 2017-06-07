@@ -31,14 +31,27 @@ namespace SA.IOSDeploy {
 		public List<string> ChildrensIds = new List<string> ();
 
 
-
 		public void AddChild(Variable v){
-			if(Type.Equals(PlistValueTypes.Dictionary)){
+			if (Type.Equals (PlistValueTypes.Dictionary) ) {
 				foreach (string ChildsId in ChildrensIds) {
 					Variable var = ISD_Settings.Instance.getVariableByKey (ChildsId);
-					if(var.Name.Equals(v.Name)){
-						ISD_Settings.Instance.RemoveVariable(var, ChildrensIds);
+					if (var.Name.Equals (v.Name)) {
+						ISD_Settings.Instance.RemoveVariable (var, ChildrensIds);
 						break;
+					}
+
+				}
+			} else if (Type.Equals (PlistValueTypes.Array)) {
+				if (v.Type.Equals (PlistValueTypes.String)) {
+					foreach (string ChildsId in ChildrensIds) {
+
+						Variable var = ISD_Settings.Instance.getVariableByKey (ChildsId);
+						if (var.Type.Equals (PlistValueTypes.String)) {
+							if (v.StringValue.Equals (var.StringValue)) {
+								ISD_Settings.Instance.RemoveVariable (var, ChildrensIds);
+								break;
+							}
+						}
 					}
 				}
 			}
@@ -47,6 +60,8 @@ namespace SA.IOSDeploy {
 			ISD_Settings.Instance.AddVariableToDictionary (key, v);
 			ChildrensIds.Add(key);
 		}
-			
+
+
+
 	}
 }

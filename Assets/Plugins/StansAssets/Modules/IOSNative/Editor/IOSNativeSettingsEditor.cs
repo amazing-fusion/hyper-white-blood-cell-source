@@ -51,11 +51,12 @@ public class IOSNativeSettingsEditor : Editor {
 	private static string ISN_ReplayKit_Path 				= ISN_SCRIPTS + "Media/Video/Controllers/ISN_ReplayKit.cs";
 
 	private static string ISN_MediaController_Path 			= ISN_SCRIPTS + "Media/MediaPlayer/Controllers/ISN_MediaController.cs";
-	
-	
+
+	private static string ISN_UserNotifications_Path 		= ISN_SCRIPTS + "Messaging/UserNotifications/Controllers/NativeReceiver.cs";
 
 	private static string ISN_CloudKit_Path 				= ISN_SCRIPTS + "iCloud/Controllers/ISN_CloudKit.cs";
 	private static string ISN_GestureRecognizer_Path 		= ISN_SCRIPTS + "System/Gestures/ISN_GestureRecognizer.cs";
+	private static string ISN_ForceTouch_Path 				= ISN_SCRIPTS + "System/Gestures/ISN_ForceTouch.cs";
 
 	private static string ISN_ContactStore_Path 			= ISN_SCRIPTS + "System/Contacts/ISN_ContactStore.cs";
 
@@ -63,6 +64,8 @@ public class IOSNativeSettingsEditor : Editor {
 	private static string ISN_AppController_Path 			= ISN_SCRIPTS + "Core/ISN_AppController.cs";
 
 	private static string ISN_Soomla_Path 					= SA.Common.Config.MODULS_PATH + "IOSNative/Addons/Soomla/Controllers/ISN_SoomlaGrow.cs";
+
+
 	
 	
 	private  GUIStyle _ImageBoxStyle = null;
@@ -338,7 +341,9 @@ public class IOSNativeSettingsEditor : Editor {
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.Space();
 		if(GUILayout.Button("Add", EditorStyles.miniButton, GUILayout.Width(250))) {
-			SA.IOSNative.Models.UrlType newUlr = new SA.IOSNative.Models.UrlType (PlayerSettings.applicationIdentifier);
+
+					
+			SA.IOSNative.Models.UrlType newUlr = new SA.IOSNative.Models.UrlType (SA.Common.Editor.Tools.ApplicationIdentifier);
 			newUlr.AddSchemes ("url_sheme");
 
 
@@ -387,11 +392,71 @@ public class IOSNativeSettingsEditor : Editor {
 			EditorGUILayout.EndVertical ();
 		}
 
+
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.Space();
 		if(GUILayout.Button("Add", EditorStyles.miniButton, GUILayout.Width(250))) {
 			SA.IOSNative.Models.UrlType newUlr = new SA.IOSNative.Models.UrlType ("url_sheme");
 			Settings.ApplicationQueriesSchemes.Add (newUlr);
+		}
+
+		EditorGUILayout.EndHorizontal();
+		EditorGUILayout.Space();
+
+
+		//Force Touch Items
+
+		EditorGUILayout.Space();
+		EditorGUILayout.HelpBox("Force Touch Menu Items", MessageType.None);
+		foreach(SA.IOSNative.Gestures.ForceTouchMenuItem item in Settings.ForceTouchMenu) {
+			EditorGUILayout.BeginVertical (GUI.skin.box);
+
+
+			EditorGUI.indentLevel++; {
+
+				EditorGUILayout.BeginHorizontal();
+
+				item.IsOpen = EditorGUILayout.Foldout(item.IsOpen, item.Title);
+				bool ItemWasRemoved = SA.Common.Editor.Tools.SrotingButtons (item, Settings.ForceTouchMenu);
+				if(ItemWasRemoved) {
+					return;
+				}
+
+				EditorGUILayout.EndHorizontal();
+
+				if(item.IsOpen) {
+					EditorGUI.indentLevel++; {
+
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField("Title");
+						item.Title	 	= EditorGUILayout.TextField(item.Title);
+						EditorGUILayout.EndHorizontal();
+
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField("Subtitle");
+						item.Title	 	= EditorGUILayout.TextField(item.Subtitle);
+						EditorGUILayout.EndHorizontal();
+
+						EditorGUILayout.BeginHorizontal();
+						EditorGUILayout.LabelField("Action");
+						item.Action	 	= EditorGUILayout.TextField(item.Action);
+						EditorGUILayout.EndHorizontal();
+
+					} EditorGUI.indentLevel--;
+				}
+
+
+			} EditorGUI.indentLevel--;
+
+
+			EditorGUILayout.EndVertical ();
+		}
+
+		EditorGUILayout.BeginHorizontal();
+		EditorGUILayout.Space();
+		if(GUILayout.Button("Add", EditorStyles.miniButton, GUILayout.Width(250))) {
+			SA.IOSNative.Gestures.ForceTouchMenuItem newItem = new SA.IOSNative.Gestures.ForceTouchMenuItem ();
+			Settings.ForceTouchMenu.Add (newItem);
 		}
 
 		EditorGUILayout.EndHorizontal();
@@ -562,13 +627,22 @@ public class IOSNativeSettingsEditor : Editor {
 
 			EditorGUILayout.BeginHorizontal();
 			Settings.EnableGestureAPI = EditorGUILayout.Toggle("Gestures API",  Settings.EnableGestureAPI);
-			Settings.EnableContactsAPI = EditorGUILayout.Toggle("Contacts API",  Settings.EnableContactsAPI);
+			Settings.EnableForceTouchAPI = EditorGUILayout.Toggle("Force Touch API",  Settings.EnableForceTouchAPI);
+
 			EditorGUILayout.EndHorizontal();
 
 
 			EditorGUILayout.BeginHorizontal();
-			Settings.AppEventsAPI = EditorGUILayout.Toggle("App Events API",  Settings.AppEventsAPI);
+			Settings.EnableContactsAPI = EditorGUILayout.Toggle("Contacts API",  Settings.EnableContactsAPI);
+			Settings.EnableUserNotificationsAPI = EditorGUILayout.Toggle("User Notifications API",  Settings.EnableUserNotificationsAPI);
 			EditorGUILayout.EndHorizontal();
+
+			EditorGUILayout.BeginHorizontal();
+			Settings.EnableAppEventsAPI = EditorGUILayout.Toggle("App Events API",  Settings.EnableAppEventsAPI);
+			EditorGUILayout.EndHorizontal();
+
+
+
 			
 			
 			if(EditorGUI.EndChangeCheck()) {
@@ -1011,7 +1085,7 @@ public class IOSNativeSettingsEditor : Editor {
 
 
 
-				PlayerSettings.applicationIdentifier = "com.stansassets.iosnative.dev";
+				SA.Common.Editor.Tools.ApplicationIdentifier = "com.stansassets.iosnative.dev";
 				Settings.InAppProducts.Clear();
 
 
@@ -1456,16 +1530,26 @@ public class IOSNativeSettingsEditor : Editor {
 
 
 		SA.Common.Editor.Tools.ChnageDefineState(ISN_GestureRecognizer_Path, 			"GESTURE_API", Settings.EnableGestureAPI);
+		SA.Common.Editor.Tools.ChnageDefineState(ISN_ForceTouch_Path, 			"FORCE_TOUCH_API", Settings.EnableForceTouchAPI);
+
+
 		SA.Common.Editor.Tools.ChnageDefineState(ISN_ContactStore_Path, 			"CONTACTS_API_ENABLED", Settings.EnableContactsAPI);
 
+		SA.Common.Editor.Tools.ChnageDefineState(ISN_UserNotifications_Path, 			"USER_NOTIFICATIONS_API", Settings.EnableUserNotificationsAPI);
+
+		SA.Common.Editor.Tools.ChnageDefineState(ISN_AppController_Path, 			"APP_CONTROLLER_ENABLED", Settings.EnableAppEventsAPI);
 
 
-		SA.Common.Editor.Tools.ChnageDefineState(ISN_AppController_Path, 			"APP_CONTROLLER_ENABLED", Settings.AppEventsAPI);
+
+		if(!Settings.EnableUserNotificationsAPI) {
+			SA.Common.Editor.Instalation.RemoveIOSFile("ISN_UserNotifications");
+		} else {
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_UserNotifications.mm.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_UserNotifications.mm");
+		}
 
 
 
-
-		if(!Settings.AppEventsAPI) {
+		if(!Settings.EnableAppEventsAPI) {
 			SA.Common.Editor.Instalation.RemoveIOSFile("ISN_AppController");
 		} else {
 			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_AppController.mm.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_AppController.mm");
@@ -1491,7 +1575,17 @@ public class IOSNativeSettingsEditor : Editor {
 		} else {
 			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_GestureRecognizer.mm.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_GestureRecognizer.mm");
 		}
-		
+
+
+		if(!Settings.EnableForceTouchAPI) {
+			SA.Common.Editor.Instalation.RemoveIOSFile("ISN_ForceTouch");
+			SA.Common.Editor.Instalation.RemoveIOSFile("ISN_DFContinuousForceTouchGestureRecognizer");
+		} else {
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_ForceTouch.mm.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_ForceTouch.mm");
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_DFContinuousForceTouchGestureRecognizer.h.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_DFContinuousForceTouchGestureRecognizer.h");
+			SA.Common.Util.Files.CopyFile(SA.Common.Config.IOS_SOURCE_PATH + "ISN_DFContinuousForceTouchGestureRecognizer.m.txt", 	SA.Common.Config.IOS_DESTANATION_PATH + "ISN_DFContinuousForceTouchGestureRecognizer.m");
+		}
+
 		
 		if(!Settings.EnableGameCenterAPI) {
 			SA.Common.Editor.Instalation.RemoveIOSFile("ISN_GameCenter");

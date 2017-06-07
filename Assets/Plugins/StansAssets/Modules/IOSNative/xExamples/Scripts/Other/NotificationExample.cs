@@ -144,6 +144,97 @@ public class NotificationExample : BaseIOSFeaturePreview {
 		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Show Game Kit Notification")) {
 			ISN_LocalNotificationsController.Instance.ShowGmaeKitNotification("Title", "Message");
 		}
+
+
+
+
+
+
+		StartX = XStartPos;
+		StartY+= YButtonStep;
+		StartY+= YLableStep;
+
+		UnityEngine.GUI.Label(new UnityEngine.Rect(StartX, StartY, UnityEngine.Screen.width, 40), "User Notifications", style);
+
+
+		StartY+= YLableStep;
+		StartX = XStartPos;
+
+		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Reg Device For User Notif. ")) {
+
+			SA.IOSNative.UserNotifications.NotificationCenter.RequestPermissions ();
+		}
+
+		StartX += XButtonStep;
+		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Schedule for 5 sec")) {
+
+			var content = new SA.IOSNative.UserNotifications.NotificationContent ();
+			content.Title = "Title_";
+			content.Subtitle = "Subtitle_";
+			content.Body = "Body_";
+			content.Badge = 5;
+
+
+			var trigger = new SA.IOSNative.UserNotifications.TimeIntervalTrigger (20);
+			var request = new SA.IOSNative.UserNotifications.NotificationRequest ("some0id0", content, trigger);
+
+			SA.IOSNative.UserNotifications.NotificationCenter.AddNotificationRequest (request, (result) => {
+
+			});
+		}
+
+		StartX += XButtonStep;
+		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Schedule by Calendar - Date Components")) {
+
+			var content = new SA.IOSNative.UserNotifications.NotificationContent ();
+			content.Title = "Calendar - Date Components";
+			content.Subtitle = "Subtitle_";
+			content.Body = "Body_";
+			content.Badge = 5;
+
+			var dateComponents = new SA.IOSNative.UserNotifications.DateComponents () {
+				Second = 32,
+				Weekday = 6
+					// 			You can use any of this fields or their combination; In this example, trigger will fire every Friday, every 32nd second 
+
+	//			public int? Year;
+	//			public int? Month;
+	//			public int? Day;
+	//			public int? Hour;
+	//			public int? Minute;
+	//			public int? Second;
+	//			public int? Weekday; (1 - Sunday, 7 - Saturday)
+	//			public int? Quarter;
+			};
+
+			var trigger = new SA.IOSNative.UserNotifications.CalendarTrigger (dateComponents);
+			trigger.SetRepeat (true);
+			var request = new SA.IOSNative.UserNotifications.NotificationRequest ("some0id1", content, trigger);
+
+			SA.IOSNative.UserNotifications.NotificationCenter.AddNotificationRequest (request, (result) => {
+
+			});
+		}
+
+		StartX += XButtonStep;
+		if(UnityEngine.GUI.Button(new UnityEngine.Rect(StartX, StartY, buttonWidth, buttonHeight), "Schedule by Calendar - Date")) {
+
+			var content = new SA.IOSNative.UserNotifications.NotificationContent ();
+			content.Title = "Calendar - Date";
+			content.Subtitle = "Subtitle_";
+			content.Body = "Body_";
+			content.Badge = 5;
+
+			DateTime dateTime = DateTime.Now;
+			dateTime.AddMinutes (10);
+
+			var trigger = new SA.IOSNative.UserNotifications.CalendarTrigger (dateTime);
+			var request = new SA.IOSNative.UserNotifications.NotificationRequest ("some0id2", content, trigger);
+
+			SA.IOSNative.UserNotifications.NotificationCenter.AddNotificationRequest (request, (result) => {
+
+			});
+		}
 		
 		
 	}

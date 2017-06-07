@@ -21,9 +21,11 @@ MonoBehaviour:
   EnableCloudKit: 0
   EnableSoomla: 0
   EnableGestureAPI: 0
+  EnableForceTouchAPI: 0
   EnablePushNotificationsAPI: 0
   EnableContactsAPI: 0
-  AppEventsAPI: 0
+  EnableAppEventsAPI: 0
+  EnableUserNotificationsAPI: 0
   AppleId: 1214605681
   ToolbarIndex: 0
   ExpandMoreActionsMenu: 1
@@ -201,6 +203,7 @@ MonoBehaviour:
   ContactsUsageDescription: for contacts reading
   UrlTypes: []
   ApplicationQueriesSchemes: []
+  ForceTouchMenu: []
   DisablePluginLogs: 0
   SoomlaDownloadLink: http://goo.gl/7LYwuj
   SoomlaDocsLink: https://goo.gl/JFkpNa

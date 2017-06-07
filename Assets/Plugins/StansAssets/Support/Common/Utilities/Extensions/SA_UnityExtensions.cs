@@ -49,6 +49,11 @@ public static class SA_UnityExtensions  {
 	// Vector3
 	//--------------------------------------
 
+	public static Vector3 Reset(this Vector3 vec) {
+		return Vector3.zero;
+	}
+		
+
 	public static Vector3 ResetXCoord(this Vector3 vec) {
 		Vector3 newVec = vec;
 		newVec.x = 0f;
@@ -68,6 +73,26 @@ public static class SA_UnityExtensions  {
 		newVec.z = 0f;
 
 		return newVec;
+	}
+
+
+	//--------------------------------------
+	// String
+	//--------------------------------------
+
+
+	public static string GetLast(this string source, int count) {
+		if(count >= source.Length)
+			return source;
+		return source.Substring(source.Length - count);
+	}
+
+	public static string GetFirst(this string source, int count) {
+
+
+		if(count >= source.Length)
+			return source;
+		return source.Substring (0, count);
 	}
 
 

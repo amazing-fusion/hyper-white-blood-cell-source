@@ -1,7 +1,7 @@
 #pragma strict
 
 function Start () {
-	SendMessage ("InitGameCneter");
+	SendMessage ("InitGameCenter");
 }
 
 

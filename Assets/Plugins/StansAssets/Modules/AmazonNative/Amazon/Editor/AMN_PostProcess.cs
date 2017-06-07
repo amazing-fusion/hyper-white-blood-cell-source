@@ -12,7 +12,7 @@ public class AMN_PostProcess  {
 
 		string file = SA.Common.Config.ANDROID_DESTANATION_PATH + "AndroidManifest.xml";
 		string Manifest = SA.Common.Util.Files.Read(file);
-		Manifest = Manifest.Replace("%APP_BUNDLE_ID%", PlayerSettings.applicationIdentifier);
+		Manifest = Manifest.Replace("%APP_BUNDLE_ID%", SA.Common.Editor.Tools.ApplicationIdentifier);
 		SA.Common.Util.Files.Write(file, Manifest);
 		Debug.Log("AMN Post Process Done");
 

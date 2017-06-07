@@ -14,17 +14,34 @@ using UnityEngine;
 namespace SA.Fitness {
 	public class DataPoint {
 
+		private long startTime = 0L;
+		private long endTime = 0L;
+
 		private DataType dataType;
 		private Dictionary<string, object> fields = new Dictionary<string, object>();
 
-		public DataPoint (DataType type, string[] bundle) {
-			dataType = type;
+		public DataPoint (DataType type, string[] bundle, string key) {
+			this.dataType = type;
+			this.startTime = long.Parse(bundle[1]);
+			this.endTime = long.Parse(bundle[2]);
 
-			for (int i = 1; i < bundle.Length; i++) {
+			for (int i = 3; i < bundle.Length; i++) {
 				if (!bundle[i].Equals(string.Empty)) {
-					string[] array = bundle [i].Split (new string[] {Connection.SEPARATOR1}, StringSplitOptions.None);
+					string[] array = bundle [i].Split (new string[] {key}, StringSplitOptions.None);
 					fields.Add (array [0], array [1]);
 				}
+			}
+		}
+
+		public long StartTime {
+			get {
+				return startTime;
+			}
+		}
+
+		public long EndTime {
+			get {
+				return endTime;
 			}
 		}
 

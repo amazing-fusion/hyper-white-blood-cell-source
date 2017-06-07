@@ -21,7 +21,7 @@ using UnityEditor;
 
 public class IOSNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "9.6/18";
+	public const string VERSION_NUMBER = "9.7/19";
 
 
 	//--------------------------------------
@@ -38,10 +38,13 @@ public class IOSNativeSettings : ScriptableObject {
 	public bool EnableReplayKit 		= false;
 	public bool EnableCloudKit 			= false;
 	public bool EnableSoomla 			= false;
-	public bool EnableGestureAPI = false;
+	public bool EnableGestureAPI 		= false;
+	public bool EnableForceTouchAPI 	= false;
+
 	public bool EnablePushNotificationsAPI = false;
 	public bool EnableContactsAPI = false;
-	public bool AppEventsAPI = false;
+	public bool EnableAppEventsAPI = false;
+	public bool EnableUserNotificationsAPI = false;
 
 
 
@@ -134,6 +137,9 @@ public class IOSNativeSettings : ScriptableObject {
 	public List<SA.IOSNative.Models.UrlType> UrlTypes = new List<SA.IOSNative.Models.UrlType> ();
 	public List<SA.IOSNative.Models.UrlType> ApplicationQueriesSchemes = new List<SA.IOSNative.Models.UrlType> ();
 
+	//Force Touch
+	public List<SA.IOSNative.Gestures.ForceTouchMenuItem> ForceTouchMenu = new List<SA.IOSNative.Gestures.ForceTouchMenuItem> ();
+
 
 	//--------------------------------------
 	// IOS Native Settings
@@ -168,8 +174,6 @@ public class IOSNativeSettings : ScriptableObject {
 	private static IOSNativeSettings instance = null;
 
 	public static IOSNativeSettings Instance {
-
-		
 		get {
 			if (instance == null) {
 				instance = Resources.Load(ISNSettingsAssetName) as IOSNativeSettings;

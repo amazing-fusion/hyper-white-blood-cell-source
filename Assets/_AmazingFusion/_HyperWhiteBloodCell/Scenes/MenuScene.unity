@@ -451,6 +451,52 @@ GameObject:
   m_PrefabParentObject: {fileID: 1481180430875570, guid: a07fab8b4b4b7ea41aa6283515297ae7,
     type: 2}
   m_PrefabInternal: {fileID: 375812731}
+--- !u!1 &906720922
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 906720924}
+  - component: {fileID: 906720923}
+  m_Layer: 0
+  m_Name: EditorPlusSceneObjectsSave.b3aafbdda51f9bd37f26ad464b7e9340ed297b74
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &906720923
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906720922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775efaa7df4e81545922827071f94c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClearID: 0
+  IDs: 961c0000971c0000981c0000
+  OBJs:
+  - {fileID: 1369467011}
+  - {fileID: 1353291250}
+  - {fileID: 1069054527}
+--- !u!4 &906720924
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906720922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932745977 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1117452464330172, guid: a07fab8b4b4b7ea41aa6283515297ae7,
@@ -797,21 +843,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 123431670}
-    - target: {fileID: 114704960603328082, guid: b4bb7f194572dc44bad63e4c3e96dfc8,
-        type: 2}
-      propertyPath: m_fontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114704960603328082, guid: b4bb7f194572dc44bad63e4c3e96dfc8,
-        type: 2}
-      propertyPath: m_fontSizeBase
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114704960603328082, guid: b4bb7f194572dc44bad63e4c3e96dfc8,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4bb7f194572dc44bad63e4c3e96dfc8, type: 2}
   m_IsPrefabParent: 0

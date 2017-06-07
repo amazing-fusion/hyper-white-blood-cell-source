@@ -1,11 +1,10 @@
-////////////////////////////////////////////////////////////////////////////////
-//  
-// @module IOS Native Plugin
-// @author Osipov Stanislav (Stan's Assets) 
-// @support support@stansassets.com
-// @website https://stansassets.com
 //
-////////////////////////////////////////////////////////////////////////////////
+//  ISN_ReplayKit.m
+//  Unity-iPhone
+//
+//  Created by lacost on 9/18/15.
+//
+//
 
 #import <Foundation/Foundation.h>
 #import <ReplayKit/ReplayKit.h>
@@ -55,17 +54,35 @@ static ISN_ReplayKit * rpk_sharedInstance;
         return;
     }
     
+    if(microphoneEnabled) {
+        [[RPScreenRecorder sharedRecorder] startRecordingWithMicrophoneEnabled:microphoneEnabled handler:^(NSError * _Nullable error) {
+            if(error ==  nil) {
+                NSLog(@"ISN_ReplayKit Start rectording");
+                UnitySendMessage("ISN_ReplayKit", "OnRecorStartSuccess", "");
+            } else {
+                NSLog(@"ISN_ReplayKit Start record Error: %@", error.description);
+                UnitySendMessage("ISN_ReplayKit", "OnRecorStartFailed", [ISN_DataConvertor serializeError:error]);
+            }
+        }];
+
+    } else {
+        [[RPScreenRecorder sharedRecorder] startRecordingWithHandler:^(NSError * _Nullable error) {
+            if(error ==  nil) {
+                NSLog(@"ISN_ReplayKit Start rectording");
+                UnitySendMessage("ISN_ReplayKit", "OnRecorStartSuccess", "");
+            } else {
+                NSLog(@"ISN_ReplayKit Start record Error: %@", error.description);
+                UnitySendMessage("ISN_ReplayKit", "OnRecorStartFailed", [ISN_DataConvertor serializeError:error]);
+            }
+            
+        }];
+
+    }
     
-    [[RPScreenRecorder sharedRecorder] startRecordingWithMicrophoneEnabled:microphoneEnabled handler:^(NSError * _Nullable error) {
-        if(error ==  nil) {
-            NSLog(@"ISN_ReplayKit Start rectording");
-            UnitySendMessage("ISN_ReplayKit", "OnRecorStartSuccess", "");
-        } else {
-            NSLog(@"ISN_ReplayKit Start record Error: %@", error.description);
-            UnitySendMessage("ISN_ReplayKit", "OnRecorStartFailed", [ISN_DataConvertor serializeError:error]);
-        }
-    }];
-}
+    
+    return;
+    
+  }
 
 //static RPPreviewViewController* saved_previewViewController;
 

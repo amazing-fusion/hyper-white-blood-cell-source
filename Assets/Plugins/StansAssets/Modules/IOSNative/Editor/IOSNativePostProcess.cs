@@ -11,6 +11,61 @@ public class IOSNativePostProcess  {
 	public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject) {
 
 
+		if(IOSNativeSettings.Instance.EnableForceTouchAPI && IOSNativeSettings.Instance.ForceTouchMenu.Count > 0) {
+
+			SA.IOSDeploy.Variable UIApplicationShortcutItems =  new SA.IOSDeploy.Variable();
+			UIApplicationShortcutItems.Name = "UIApplicationShortcutItems";
+			UIApplicationShortcutItems.Type = SA.IOSDeploy.PlistValueTypes.Array;
+
+			foreach(var item in IOSNativeSettings.Instance.ForceTouchMenu) {
+				var ShortcutItem  = new SA.IOSDeploy.Variable();
+				ShortcutItem.Type = SA.IOSDeploy.PlistValueTypes.Dictionary;
+				UIApplicationShortcutItems.AddChild (ShortcutItem);
+
+
+				var ShortcutItemTitle =   new SA.IOSDeploy.Variable();
+				ShortcutItemTitle.Name = "UIApplicationShortcutItemTitle";
+				ShortcutItemTitle.StringValue = item.Title;
+				ShortcutItem.AddChild (ShortcutItemTitle);
+
+				var ShortcutItemSubtitle =   new SA.IOSDeploy.Variable();
+				ShortcutItemSubtitle.Name = "UIApplicationShortcutItemSubtitle";
+				ShortcutItemSubtitle.StringValue = item.Subtitle;
+				ShortcutItem.AddChild (ShortcutItemSubtitle);
+
+
+				var ShortcutItemType =   new SA.IOSDeploy.Variable();
+				ShortcutItemType.Name = "UIApplicationShortcutItemType";
+				ShortcutItemType.StringValue = item.Action;
+				ShortcutItem.AddChild (ShortcutItemType);
+
+			}
+
+
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(UIApplicationShortcutItems);
+
+
+		}
+
+
+		if(IOSNativeSettings.Instance.EnablePushNotificationsAPI) {
+			SA.IOSDeploy.Variable UIBackgroundModes =  new SA.IOSDeploy.Variable();
+			UIBackgroundModes.Name = "UIBackgroundModes";
+			UIBackgroundModes.Type = SA.IOSDeploy.PlistValueTypes.Array;
+
+			SA.IOSDeploy.Variable remoteNotification =  new SA.IOSDeploy.Variable();
+			remoteNotification.Name = "remote-notification";
+			remoteNotification.StringValue = "remote-notification";
+			remoteNotification.Type = SA.IOSDeploy.PlistValueTypes.String;
+
+			UIBackgroundModes.AddChild (remoteNotification);
+			SA.IOSDeploy.ISD_Settings.Instance.AddVariable(UIBackgroundModes);
+
+		}
+
+
+
+
 		if(IOSNativeSettings.Instance.EnableInAppsAPI) {
 			SA.IOSDeploy.ISD_Settings.Instance.AddFramework (SA.IOSDeploy.iOSFramework.StoreKit);
 		}

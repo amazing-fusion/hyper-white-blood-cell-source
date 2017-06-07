@@ -38,7 +38,7 @@ namespace SA.Fitness {
 		}
 
 		public void DispatchDataPointEvent(string[] bundle) {
-			OnDataPointReceived (id, new DataPoint (dataType, bundle));
+			OnDataPointReceived (id, new DataPoint (dataType, bundle, Connection.SEPARATOR1));
 		}
 
 		public int Id {

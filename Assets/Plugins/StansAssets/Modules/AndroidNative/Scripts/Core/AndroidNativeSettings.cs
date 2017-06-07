@@ -17,9 +17,9 @@ using UnityEditor;
 
 public class AndroidNativeSettings : ScriptableObject {
 
-	public const string VERSION_NUMBER = "9.5/18";
-	public const string GOOGLE_PLAY_SDK_VERSION_NUMBER = "10.0.1";
-	public const string GOOGLE_PLAY_SDK_LEAGCY_VERSION_NUMBER = "10084000";
+	public const string VERSION_NUMBER = "9.6/19";
+	public const string GOOGLE_PLAY_SDK_VERSION_NUMBER = "10.2.1";
+	public const string GOOGLE_PLAY_SDK_LEAGCY_VERSION_NUMBER = "10298000";
 
 	public bool EnablePlusAPI 		= true;
 	public bool EnableGamesAPI 		= true;

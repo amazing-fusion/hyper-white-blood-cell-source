@@ -26,7 +26,7 @@ using UnityEngine.SceneManagement;
 namespace SA.Analytics.Google {
 
 
-	public class Manager : MonoBehaviour {
+	public class GA_Manager : MonoBehaviour {
 		
 		
 		public const string GOOGLE_ANALYTICS_CLIENTID_PREF_KEY = "google_analytics_clientid_pref_key";
@@ -34,7 +34,7 @@ namespace SA.Analytics.Google {
 		public const string SYSTEM_INFO = "SystemInfo";
 		
 		
-		private static Manager Instance = null;
+		private static GA_Manager Instance = null;
 		
 		private static string _ClientId;
 		
@@ -130,7 +130,7 @@ namespace SA.Analytics.Google {
 		public static void StartTracking() {
 			if(Instance == null) {
 				GameObject an = new GameObject("Google Analytics");
-				an.AddComponent<Manager>();
+				an.AddComponent<GA_Manager>();
 			}
 		}
 		

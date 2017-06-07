@@ -17,6 +17,9 @@ namespace SA.Fitness {
 
 		public const string SEPARATOR1 = "|";
 		public const string SEPARATOR2 = "~";
+		public const string SEPARATOR3 = "$";
+		public const string SEPARATOR4 = "%";
+		public const string SEPARATOR5 = "^";
 
 		private const int RESULT_OK = -1;
 

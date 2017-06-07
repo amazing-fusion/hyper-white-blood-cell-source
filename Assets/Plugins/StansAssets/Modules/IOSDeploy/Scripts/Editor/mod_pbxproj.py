@@ -883,9 +883,9 @@ class XcodeProject(PBXDict):
         parent.add_child(file_ref)
         results.append(file_ref)
 
-        f = open('mod_pbxproj_Logs.txt', 'a')
-        f.write('add_file ' + f_path + '\n')
-        f.close()
+        #f = open('mod_pbxproj_Logs.txt', 'a')
+		#f.write('add_file ' + f_path + '\n')
+		#f.close()
 
         # create a build file for the file ref
         if file_ref.build_phase and create_build_files:

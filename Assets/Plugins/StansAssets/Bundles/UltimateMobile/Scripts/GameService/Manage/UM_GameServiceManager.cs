@@ -343,7 +343,7 @@ public class UM_GameServiceManager : SA.Common.Pattern.Singleton<UM_GameServiceM
 	public void IncrementAchievement(UM_Achievement achievement, float percentages) {
 		switch(Application.platform) {
 		case RuntimePlatform.IPhonePlayer:
-            GameCenterManager.SubmitAchievement(GameCenterManager.GetAchievementProgress(achievement.IOSId) + percentages, achievement.IOSId);
+			GameCenterManager.SubmitAchievement(percentages, achievement.IOSId);
 			break;
 		case RuntimePlatform.Android:
 

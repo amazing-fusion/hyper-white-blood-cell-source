@@ -9,6 +9,7 @@
 
 
 using UnityEngine;
+using System;
 
 public class JSHelper : MonoBehaviour {
 	
@@ -25,9 +26,13 @@ public class JSHelper : MonoBehaviour {
 
 
 
+
+	[Obsolete("InitGameCenter is deprecated, please use InitGameCenter() instead")]
 	void InitGameCneter() {
+		InitGameCenter ();
+	}
 
-
+	public void InitGameCenter() {
 		//Achievement registration. If you will skipt this step GameCenterManager.achievements array will contain only achievements with reported progress 
 		GameCenterManager.RegisterAchievement (TEST_ACHIEVEMENT_1_ID);
 		GameCenterManager.RegisterAchievement (TEST_ACHIEVEMENT_2_ID);
@@ -41,12 +46,12 @@ public class JSHelper : MonoBehaviour {
 
 		GameCenterManager.OnScoreSubmitted += OnScoreSubmitted;
 		GameCenterManager.OnAuthFinished += HandleOnAuthFinished;
-	
+
 
 		DontDestroyOnLoad (gameObject);
 
 		GameCenterManager.Init();
-		
+
 		ISN_Logger.Log("InitGameCenter");
 	}
 

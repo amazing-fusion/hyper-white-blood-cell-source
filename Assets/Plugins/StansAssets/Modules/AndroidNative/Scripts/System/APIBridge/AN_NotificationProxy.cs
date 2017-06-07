@@ -51,6 +51,6 @@ public class AN_NotificationProxy {
 	}
 	
 	public static void CanselLocalNotification(int id) {
-		CallActivityFunction("canselLocalNotification", id.ToString());
+		CallActivityFunction("cancelLocalNotification", id.ToString());
 	}
 }

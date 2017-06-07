@@ -44,7 +44,7 @@ namespace SA.Analytics.Google {
 				string HitRequest = request.RequestBody;
 				if(GA_Settings.Instance.IsQueueTimeEnabled) {
 					HitRequest += "&qt" + request.Delay;
-					Manager.SendSkipCache(HitRequest);
+					GA_Manager.SendSkipCache(HitRequest);
 				}
 
 			}

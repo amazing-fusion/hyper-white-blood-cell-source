@@ -696,7 +696,7 @@ namespace SA.Analytics.Google {
 
 		
 			if(trackLevelName) {
-				SetScreenName(GA_Settings.Instance.LevelPrefix + Manager.LoadedLevelName + GA_Settings.Instance.LevelPostfix);
+				SetScreenName(GA_Settings.Instance.LevelPrefix + GA_Manager.LoadedLevelName + GA_Settings.Instance.LevelPostfix);
 			}
 
 
@@ -836,7 +836,7 @@ namespace SA.Analytics.Google {
 			string stringData = builder.ToString();
 			builder.Length = 0;
 
-			Manager.Send(stringData);
+			GA_Manager.Send(stringData);
 
 		}
 

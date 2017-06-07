@@ -21,6 +21,26 @@ public class NativeIOSActionsExample : BaseIOSFeaturePreview {
 		ISN_GestureRecognizer.Instance.OnSwipe +=  delegate(ISN_SwipeDirection direction) {
 			Debug.Log("Swipe: " + direction);
 		};
+
+
+		SA.IOSNative.Gestures.ForceTouch.Instance.Setup (0.5f, 1f, 2.5f);
+
+		SA.IOSNative.Gestures.ForceTouch.Instance.OnForceTouchStarted += () => {
+			Debug.Log ("OnForceTouchStarted");
+		};
+
+		SA.IOSNative.Gestures.ForceTouch.Instance.OnForceChanged += (SA.IOSNative.Gestures.ForceInfo info) => {
+			Debug.Log ("OnForceChanged: " + info.Force + " / " + info.MaxForce);
+		};
+
+		SA.IOSNative.Gestures.ForceTouch.Instance.OnForceTouchFinished += () => {
+			Debug.Log ("OnForceTouchFinished");
+		};
+			
+/*
+		SA.IOSNative.Gestures.ForceTouch.OnForceChanged += (info) {
+			Debug.Log("Force: " + info.Force);
+		};*/
 	}
 
 

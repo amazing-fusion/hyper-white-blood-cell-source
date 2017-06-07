@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 namespace SA.IOSNative.StoreKit {
 	
-	public class PaymentManager : SA.Common.Pattern.Singleton<PaymentManager> {
+	public class PaymentManager : SA.Common.Pattern.Singleton<PaymentManager> {		
 
 
 		public const string APPLE_VERIFICATION_SERVER   = "https://buy.itunes.apple.com/verifyReceipt";
@@ -78,7 +78,6 @@ namespace SA.IOSNative.StoreKit {
 			}
 
 			_IsWaitingLoadResult = true;
-
 
 			string ids = "";
 			int len = Products.Count;
@@ -340,8 +339,7 @@ namespace SA.IOSNative.StoreKit {
 
 
 		private void onTransactionFailed(string data) {
-
-			string[] DataArray = data.Split(new string[] { SA.Common.Data.Converter.DATA_SPLITTER.ToString() }, StringSplitOptions.None);
+			string[] DataArray = data.Split(new string[] { SA.Common.Data.Converter.DATA_SPLITTER2.ToString() }, StringSplitOptions.None);
 
 			string prodcutId = DataArray [0];
 			var error = new SA.Common.Models.Error (DataArray [1]);
