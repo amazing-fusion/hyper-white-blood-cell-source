@@ -113,7 +113,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
             Debug.Log("Load Video Rewarded");
             GoogleMobileAd.OnRewardedVideoLoaded -= HandleOnRewardedVideoLoaded;
             if (Time.time < _rewardedAdTimeout) {
-                FirebaseAnalyticsManager.Instance.SendRewardedAdverStart();
+                AnalyticsController.Instance.SendRewardedAdverStart();
                 GoogleMobileAd.ShowRewardedVideo();
                 _rewardedAdTimeout = 0;
             }
@@ -146,7 +146,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
         {
             GoogleMobileAd.OnInterstitialLoaded -= OnInterstisialsLoaded;
             if (Time.time < _intersticialAdTimeout) {
-                FirebaseAnalyticsManager.Instance.SendIntersticialAdverStart();
+                AnalyticsController.Instance.SendIntersticialAdverStart();
                 GoogleMobileAd.ShowInterstitialAd();
                 _intersticialAdTimeout = 0;
             }
@@ -169,7 +169,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
         public void ShowRewardedVideoAd()
         {
             if (GoogleMobileAd.IsRewardedVideoReady) {
-                FirebaseAnalyticsManager.Instance.SendRewardedAdverStart();
+                AnalyticsController.Instance.SendRewardedAdverStart();
                 GoogleMobileAd.ShowRewardedVideo();
             } else {
                 GoogleMobileAd.OnRewardedVideoLoaded += HandleOnRewardedVideoLoaded;
@@ -183,7 +183,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
         public void ShowInterstisialAd()
         {
             if (GoogleMobileAd.IsInterstitialReady) {
-                FirebaseAnalyticsManager.Instance.SendIntersticialAdverStart();
+                AnalyticsController.Instance.SendIntersticialAdverStart();
                 GoogleMobileAd.ShowInterstitialAd();
             } else {
                 GoogleMobileAd.OnInterstitialLoaded += OnInterstisialsLoaded;

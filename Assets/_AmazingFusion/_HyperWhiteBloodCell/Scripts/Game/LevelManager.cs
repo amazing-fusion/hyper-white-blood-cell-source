@@ -32,7 +32,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
                 {
                     _currentLevelNumber = value;
                     if (_currentLevelNumber > 0) {
-                        FirebaseAnalyticsManager.Instance.SendLevel(_currentLevelNumber);
+                        AnalyticsController.Instance.SendLevel(_currentLevelNumber);
                     }
                     if (OnLevelChange != null) OnLevelChange();
                 }

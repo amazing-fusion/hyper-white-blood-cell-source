@@ -30,7 +30,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
 
         public void GoToLink() {
 #if UNITY_ANDROID
-            FirebaseAnalyticsManager.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");
+            AnalyticsController.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");
             Application.OpenURL(GOOGLE_PLAY_URL);
 #elif UNITY_IOS
             FirebaseAnalyticsManager.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");

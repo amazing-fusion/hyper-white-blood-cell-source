@@ -131,7 +131,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
 
         void HandleOnRewarded(string itemId, int amount)
         {
-            FirebaseAnalyticsManager.Instance.SendRewardedAdverWatched();
+            AnalyticsController.Instance.SendRewardedAdverWatched();
             try {
                 _hideAnimation.gameObject.SetActive(false);
                 LevelManager.Instance.RestartLevel = true;
