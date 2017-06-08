@@ -33,7 +33,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
             AnalyticsController.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");
             Application.OpenURL(GOOGLE_PLAY_URL);
 #elif UNITY_IOS
-            FirebaseAnalyticsManager.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");
+            AnalyticsController.Instance.SendCrossPromotion("RabbitMercenaryIdleClicker_01");
             Application.OpenURL(ITUNES_URL);
 #endif 
             Hide();
