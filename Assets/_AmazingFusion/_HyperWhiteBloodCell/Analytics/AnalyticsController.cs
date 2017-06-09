@@ -7,8 +7,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
     public class AnalyticsController : GlobalSingleton<AnalyticsController>
     {
         const bool FLURRY_DEBUG_ENABLED = true;
-        const string FLURRY_IOS_API_KEY = "PD2FSP3DMP3PN3MKFFFS";
-        const string FLURRY_ANDROID_API_KEY = "4NXSHC576ZGFKD2BPNM9";
+        const string FLURRY_IOS_API_KEY = "MQQ9B9NRQ3VJ3QV3W7C4";
+        const string FLURRY_ANDROID_API_KEY = "94QHCDKHR2HKRF6QTDZX";
 
         // Use this for initialization
         void Start()
@@ -33,12 +33,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
             FirebaseAnalytics.LogEvent(string.Format("Level {0}", level));
 #endif
 
-            //TODO: probar a lanzar con parámetros (ver funnel)
-            //KHD.FlurryAnalytics.Instance.LogEvent(string.Format("Level {0}", level));
-
-            Dictionary<string, string> flurryParameters = new Dictionary<string, string>();
-            flurryParameters.Add("Level", level.ToString());
-            KHD.FlurryAnalytics.Instance.LogEventWithParameters("Level Reached", flurryParameters);
+            KHD.FlurryAnalytics.Instance.LogEvent(string.Format("Level {0}"));
         }
 
         public void SendCrossPromotion(string bannerKey) {
