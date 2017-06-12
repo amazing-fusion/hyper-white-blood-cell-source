@@ -5,6 +5,8 @@ using UnityEngine;
 namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class CrossPromotionController : Singleton<CrossPromotionController> {
 
+        static bool _showed;
+
         //TODO: Scale for more games
         const string GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.KoronStudios.Rabbit.Mercenary.Idle.Clicker";
         const string ITUNES_URL = "https://itunes.apple.com/us/app/rabbit-mercenary-idle-clicker/id1237555963?ls=1&mt=8";
@@ -20,8 +22,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
 
         string _currentAd;
 
+        public static bool Showed {
+            get {
+                return _showed;
+            }
+        }
+
         public void Show() {
-            _promotionPanel.gameObject.SetActive(true);
+            if (!_showed) {
+                _promotionPanel.gameObject.SetActive(true);
+                _showed = true;
+            }
         }
 
         public void Hide() {

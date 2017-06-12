@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114381081559404380}
   - component: {fileID: 114218221864275326}
   - component: {fileID: 114731978330231976}
+  - component: {fileID: 114240632565146832}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -74,6 +75,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c560ea651a91844a9825ee5dd50b6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114240632565146832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132144765716646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100bcd619e46e4ffb94e546ff98724b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114381081559404380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,20 +122,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a023fd1346edc49498308269f2397f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeNotifications:
-    _elements:
-    - _key: 86400
-      _value:
-      - Cough, cough!
-      - I am cold...
-      - I am not feeling fine...
-    - _key: 604800
-      _value:
-      - I have a high fever...
-      - My throat is killing me
-      - My whole body hurt
-    - _key: 2592000
-      _value:
-      - 'I don''t longer feels anything '
-      - I love my mother...
-      - I see a white light...
+  _notifications:
+  - _key: daily
+    _text:
+    - Cough, cough!
+    - I am cold...
+    - I am not feeling fine...
+    _seconds: 86400
+  - _key: weekly
+    _text:
+    - I have a high fever...
+    - My throat is killing me
+    - My whole body hurt
+    _seconds: 604800
+  - _key: monthly
+    _text:
+    - I don't longer feels anything
+    - I love my mother...
+    - I see a white light...
+    _seconds: 2592000

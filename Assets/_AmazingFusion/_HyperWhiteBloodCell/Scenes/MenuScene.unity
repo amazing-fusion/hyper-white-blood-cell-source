@@ -479,11 +479,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearID: 0
-  IDs: 961c0000971c0000981c0000
+  IDs: 961c0000971c0000981c0000461d0000471d0000
   OBJs:
   - {fileID: 1369467011}
   - {fileID: 1353291250}
   - {fileID: 1069054527}
+  - {fileID: 713328543}
+  - {fileID: 1214020732}
 --- !u!4 &906720924
 Transform:
   m_ObjectHideFlags: 1
@@ -586,6 +588,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._text.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4295619376600880, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -617,6 +629,31 @@ Prefab:
     - target: {fileID: 4295619376600880, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._key
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._text.Array.data[0]
+      value: Test!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._text.Array.data[1]
+      value: I love my mother...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._text.Array.data[2]
+      value: I see a white light...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114731978330231976, guid: f862a80c922cbdb4bbc1a04fa47f72d4,
+        type: 2}
+      propertyPath: _notifications.Array.data[3]._seconds
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f862a80c922cbdb4bbc1a04fa47f72d4, type: 2}

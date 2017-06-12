@@ -3,67 +3,112 @@ using System.Collections.Generic;
 using EasyEditor;
 
 namespace com.AmazingFusion.HyperWhiteBloodCellDash {
-    public class NotificationsController : Singleton<NotificationsController> {
+    public class NotificationsController : Singleton<NotificationsController> { 
 
         [System.Serializable]
-        public class TimeNotificationDictionary : SerializableDictionary<int, string[], TimeNotificationPair> { }
-        [System.Serializable]
-        public class TimeNotificationPair : SerializableKeyValuePair<int, string[]> { }
+        private struct NotificationData {
+            [SerializeField]
+            string _key;
 
-        [SerializeField, Message(text = "Key:\tTime in seconds.\nValue:\tLocalized text key.", messageType = MessageType.Info)]
-        TimeNotificationDictionary _timeNotifications;
+            [SerializeField]
+            string[] _text;
 
-        void Start()
-        {
-            UM_NotificationController.Instance.CancelAllLocalNotifications();
-        }
+            [SerializeField]
+            int _seconds;
 
-        public void SetNotifications()
-        {
-            if (UM_NotificationController.HasInstance)
-            {
-                foreach (KeyValuePair<int, string[]> timeNotification in _timeNotifications)
-                {
-                    string notificationText = timeNotification.Value[Random.Range(0, timeNotification.Value.Length)];
-                    UM_NotificationController.Instance.ScheduleLocalNotification(
-                                Application.productName,
-                                notificationText,
-                                timeNotification.Key);
+            public string Key {
+                get {
+                    return _key;
+                }
+            }
 
-                    //Debug.Log("<color=blue>" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "</color>\n" + System.DateTime.Now.AddSeconds(timeNotification.Key).ToString("yyyy-MM-dd HH:mm:ss") + " => " + notificationText);
-                    //GameAnalyticsSDK.GameAnalytics.NewErrorEvent(GameAnalyticsSDK.GAErrorSeverity.Debug, "[NotificationController] " + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " - Notification scheduled: " + System.DateTime.Now.AddSeconds(timeNotification.Key).ToString("yyyy-MM-dd HH:mm:ss") + " => " + notificationText);
+            public string[] Text {
+                get {
+                    return _text;
+                }
+            }
+
+            public int Seconds {
+                get {
+                    return _seconds;
                 }
             }
         }
 
-        //void OnDestroy()
-        //{
-        //    SetNotifications();
-        //}
+        [SerializeField]
+        NotificationData[] _notifications;
 
-        //void OnApplicationFocus(bool hasFocus)
-        //{
-        //    if (!hasFocus)
-        //    {
-        //        SetNotifications();
-        //    }
-        //    else
-        //    {
-        //        UM_NotificationController.Instance.CancelAllLocalNotifications();
-        //    }
-        //}
+        protected override void Awake() {
+            base.Awake();
+            for (int i = 0; i < _notifications.Length; ++i) {
+                DemiumGames.DGNotificationManager.Instance.SetCallbackInt(i, NotificationCallback);
+            }
+        }
 
-        //protected override void OnApplicationQuit() {
-        //    SetNotifications();
-        //    base.OnApplicationQuit();
-        //}
+        void Start()
+        {
+#if UNITY_IOS
+            UM_NotificationController.Instance.CancelAllLocalNotifications();
+#elif UNITY_ANDROID
 
+#endif
+        }
+
+        public void SetNotifications()
+        {
+#if UNITY_IOS
+            if (UM_NotificationController.HasInstance)
+            {
+                foreach (NotificationData notification in _notifications)
+                {
+                    string notificationText = notification.Text[Random.Range(0, notification.Text.Length)];
+                    UM_NotificationController.Instance.ScheduleLocalNotification(
+                                Application.productName,
+                                notificationText,
+                                notification.Seconds);
+                }
+            }
+#elif UNITY_ANDROID
+            for (int i = 0; i < _notifications.Length; ++i) {
+                NotificationData notification = _notifications[i];
+                string notificationText = notification.Text[Random.Range(0, notification.Text.Length)];
+                DemiumGames.DGNotificationManager.Instance.SendNotificationWithAppIcon(
+                        i,
+                        Application.productName,
+                        notificationText,
+                        DemiumGames.Resources.notification_icon,
+                        notification.Seconds);
+            }
+#endif
+
+        }
+
+
+        private void CancelAllNotifications() {
+            for (int i = 0; i < _notifications.Length; i++) {
+                for (int j = 0; j < _notifications[i].Text.Length; j++) {
+                DemiumGames.DGNotificationManager.Instance.CancelNotification(i,
+                    Application.productName,
+                    _notifications[i].Text[j],
+                    DemiumGames.Resources.notification_icon,
+                    "");
+                }
+            }
+        }
         void OnApplicationPause(bool pause) {
             if (pause) {
                 SetNotifications();
             } else {
+#if UNITY_IOS
                 UM_NotificationController.Instance.CancelAllLocalNotifications();
+#elif UNITY_ANDROID
+                CancelAllNotifications(); 
+#endif
             }
+        }
+
+        void NotificationCallback(int notificationId) {
+            AnalyticsController.Instance.SendNotificationClicked(_notifications[notificationId].Key);
         }
     }
 }
