@@ -23,8 +23,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
 #endif
 
             KHD.FlurryAnalytics.Instance.StartSession(
-                FLURRY_IOS_API_KEY, // - replace with your API KEY.
-                FLURRY_ANDROID_API_KEY, // - replace with your API KEY.
+                FLURRY_IOS_API_KEY,
+                FLURRY_ANDROID_API_KEY,
                 true);
         }
 
@@ -33,7 +33,7 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
             FirebaseAnalytics.LogEvent(string.Format("Level {0}", level));
 #endif
 
-            KHD.FlurryAnalytics.Instance.LogEvent(string.Format("Level {0}"));
+            KHD.FlurryAnalytics.Instance.LogEvent(string.Format("Level {0}", level));
         }
 
         public void SendCrossPromotion(string bannerKey) {
