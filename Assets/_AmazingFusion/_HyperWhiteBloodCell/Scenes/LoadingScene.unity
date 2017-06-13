@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -25,6 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -41,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 7
+  serializedVersion: 9
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -53,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 4
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -66,13 +67,27 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFiltering: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_RuntimeCPUUsage: 25
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -89,8 +104,57 @@ NavMeshSettings:
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &102924780
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 102924782}
+  - component: {fileID: 102924781}
+  m_Layer: 0
+  m_Name: EditorPlusSceneObjectsSave.b3aafbdda51f9bd37f26ad464b7e9340ed297b74
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &102924781
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102924780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775efaa7df4e81545922827071f94c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClearID: 0
+  IDs: 7f1d0000801d0000811d0000821d0000
+  OBJs:
+  - {fileID: 695898254}
+  - {fileID: 163079387}
+  - {fileID: 566938461}
+  - {fileID: 1151512200}
+--- !u!4 &102924782
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102924780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163079387
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +217,7 @@ Canvas:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 163079387}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -162,6 +226,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -535,10 +600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _texts:
-  - Loading
-  - Loading.
-  - Loading..
-  - Loading...
+  - 4c6f6164696e67
+  - 4c6f6164696e672e
+  - 4c6f6164696e672e2e
+  - 4c6f6164696e672e2e2e
   _rate: 0.3
 --- !u!1 &695898254
 GameObject:
@@ -639,7 +704,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+  m_text: Random text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9189e75a254ad6745b6d56dd50540aad, type: 2}
   m_sharedMaterial: {fileID: 21063805114436728, guid: 9189e75a254ad6745b6d56dd50540aad,
@@ -707,12 +772,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1151512201}
-    characterCount: 57
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 8
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -769,28 +834,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _randomText:
-  - "Did you know there\xB4s almost a trillion of germs right now on your cell phone?"
-  - You make me sick, human.
-  - Virus Detected!
-  - Say hello to the bacteria walking on your hands :)
-  - Are you sure is only a cold?
-  - "It\xB4s sneeze time!"
-  - Bugged out~
-  - Blowing noses...
-  - Clearing the throat
-  - White blood cells in attack position
-  - "Don\xB4t die on me"
-  - Commit after the toilet
-  - Preparing vaccine...
-  - If you push to hard on the toilet you can get blind
-  - 'Since when did you clean your hands? '
-  - Gesundheit
-  - You are germinated!
-  - It will only hurt a little bit
-  - Blue pill or red pill?
-  - All your blood cells are belong to us
-  - After cleaning your mouth, you still have more than 10,000 bacteria on each tooth.
-  - Your office desk contains 400 times more viruses than a toilet.
+  - 44696420796f75206b6e6f77207468657265c2b47320616c6d6f73742061207472696c6c696f6e206f66206765726d73207269676874206e6f77206f6e20796f75722063656c6c2070686f6e653f
+  - 596f75206d616b65206d65207369636b2c2068756d616e2e
+  - 566972757320446574656374656421
+  - 5361792068656c6c6f20746f207468652062616374657269612077616c6b696e67206f6e20796f75722068616e6473203a29
+  - 41726520796f752073757265206973206f6e6c79206120636f6c643f
+  - 4974c2b47320736e65657a652074696d6521
+  - 427567676564206f75747e
+  - 426c6f77696e67206e6f7365732e2e2e
+  - 436c656172696e6720746865207468726f6174
+  - 576869746520626c6f6f642063656c6c7320696e2061747461636b20706f736974696f6e
+  - 446f6ec2b47420646965206f6e206d65
+  - 436f6d6d69742061667465722074686520746f696c6574
+  - 507265706172696e672076616363696e652e2e2e
+  - 496620796f75207075736820746f2068617264206f6e2074686520746f696c657420796f752063616e2067657420626c696e64
+  - 53696e6365207768656e2064696420796f7520636c65616e20796f75722068616e64733f20
+  - 476573756e6468656974
+  - 596f7520617265206765726d696e6174656421
+  - 49742077696c6c206f6e6c7920687572742061206c6974746c6520626974
+  - 426c75652070696c6c206f72207265642070696c6c3f
+  - 416c6c20796f757220626c6f6f642063656c6c73206172652062656c6f6e6720746f207573
+  - 416674657220636c65616e696e6720796f7572206d6f7574682c20796f75207374696c6c2068617665206d6f7265207468616e2031302c303030206261637465726961206f6e206561636820746f6f74682e
+  - 596f7572206f6666696365206465736b20636f6e7461696e73203430302074696d6573206d6f72652076697275736573207468616e206120746f696c65742e
 --- !u!1 &1441580128
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1034,8 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022

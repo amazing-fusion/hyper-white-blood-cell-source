@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using EasyEditor;
+using DemiumGames;
 
 namespace com.AmazingFusion.HyperWhiteBloodCellDash {
     public class NotificationsController : Singleton<NotificationsController> { 
@@ -38,27 +39,33 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
         [SerializeField]
         NotificationData[] _notifications;
 
+        [SerializeField]
+        DGNotificationManager.DGNotificationCallback _notificationCallBack;
+
+#if !UM_NOTIFICATIONS && UNITY_ANDROID
         protected override void Awake() {
             base.Awake();
             for (int i = 0; i < _notifications.Length; ++i) {
-                DemiumGames.DGNotificationManager.Instance.SetCallbackInt(i, NotificationCallback);
+                DemiumGames.DGNotificationManager.Instance.SetCallbackInt(i, _notificationCallBack);
             }
         }
+#endif
 
         void Start()
         {
-#if UNITY_IOS
+#if UM_NOTIFICATIONS || UNITY_IOS
             UM_NotificationController.Instance.CancelAllLocalNotifications();
 #elif UNITY_ANDROID
-
+            DGNotificationManager.Instance.CancelAllLocalNotifications();
 #endif
         }
 
         public void SetNotifications()
         {
-#if UNITY_IOS
+#if UM_NOTIFICATIONS || UNITY_IOS
             if (UM_NotificationController.HasInstance)
             {
+                UM_NotificationController.Instance.CancelAllLocalNotifications();
                 foreach (NotificationData notification in _notifications)
                 {
                     string notificationText = notification.Text[Random.Range(0, notification.Text.Length)];
@@ -69,10 +76,11 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
                 }
             }
 #elif UNITY_ANDROID
+            UM_NotificationController.Instance.CancelAllLocalNotifications();
             for (int i = 0; i < _notifications.Length; ++i) {
                 NotificationData notification = _notifications[i];
                 string notificationText = notification.Text[Random.Range(0, notification.Text.Length)];
-                DemiumGames.DGNotificationManager.Instance.SendNotificationWithAppIcon(
+                DGNotificationManager.Instance.SendNotificationWithAppIcon(
                         i,
                         Application.productName,
                         notificationText,
@@ -83,31 +91,19 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
 
         }
 
-
-        private void CancelAllNotifications() {
-            for (int i = 0; i < _notifications.Length; i++) {
-                for (int j = 0; j < _notifications[i].Text.Length; j++) {
-                DemiumGames.DGNotificationManager.Instance.CancelNotification(i,
-                    Application.productName,
-                    _notifications[i].Text[j],
-                    DemiumGames.Resources.notification_icon,
-                    "");
-                }
-            }
-        }
         void OnApplicationPause(bool pause) {
             if (pause) {
                 SetNotifications();
             } else {
-#if UNITY_IOS
+#if UM_NOTIFICATIONS || UNITY_IOS
                 UM_NotificationController.Instance.CancelAllLocalNotifications();
 #elif UNITY_ANDROID
-                CancelAllNotifications(); 
+                DGNotificationManager.Instance.CancelAllLocalNotifications();
 #endif
             }
         }
 
-        void NotificationCallback(int notificationId) {
+        void OnNotificationCallback(int notificationId) {
             AnalyticsController.Instance.SendNotificationClicked(_notifications[notificationId].Key);
         }
     }

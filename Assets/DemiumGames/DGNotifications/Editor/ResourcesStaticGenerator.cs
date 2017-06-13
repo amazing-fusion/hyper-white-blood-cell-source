@@ -10,7 +10,7 @@ public class ResourcesStaticGenerator  {
     {
 
         string path = "./Assets/Plugins/Android/res/drawable";
-        string scriptPath = "./Assets/DGNotifications/Resources.cs";
+        string scriptPath = "./Assets/DemiumGames/DGNotifications/Resources.cs";
         List<string> fileList = new List<string>(); 
         foreach(string file in System.IO.Directory.GetFiles(path)){
             string aux = file.Substring(path.Length + 1);
