@@ -72,16 +72,16 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash
             KHD.FlurryAnalytics.Instance.LogEvent("Intersticial Ad Started");
         }
 
-        public void SendNotificationClicked(string notificationKey) {
+        public void SendStartedFromNotification(string notificationKey) {
 #if UNITY_ANDROID
             Dictionary<string, object> firParameters = new Dictionary<string, object>();
             firParameters.Add("Notification", notificationKey);
-            FirebaseAnalytics.LogEvent("Notification Clicked", firParameters);
+            FirebaseAnalytics.LogEvent("Started From Notification", firParameters);
 #endif
 
             Dictionary<string, string> flurryParameters = new Dictionary<string, string>();
             flurryParameters.Add("Notification", notificationKey);
-            KHD.FlurryAnalytics.Instance.LogEventWithParameters("Notification Clicked", flurryParameters);
+            KHD.FlurryAnalytics.Instance.LogEventWithParameters("Started From Notification", flurryParameters);
         }
     }
 }

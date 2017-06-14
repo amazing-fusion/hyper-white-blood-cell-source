@@ -56,7 +56,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
 #if UM_NOTIFICATIONS || UNITY_IOS
             UM_NotificationController.Instance.CancelAllLocalNotifications();
 #elif UNITY_ANDROID
-            DGNotificationManager.Instance.CancelAllLocalNotifications();
+            CancelAllNotifications();
+            //DGNotificationManager.Instance.CancelAllNotifications();
 #endif
         }
 
@@ -76,7 +77,8 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
                 }
             }
 #elif UNITY_ANDROID
-            UM_NotificationController.Instance.CancelAllLocalNotifications();
+            CancelAllNotifications();
+            //DGNotificationManager.Instance.CancelAllNotifications();
             for (int i = 0; i < _notifications.Length; ++i) {
                 NotificationData notification = _notifications[i];
                 string notificationText = notification.Text[Random.Range(0, notification.Text.Length)];
@@ -84,11 +86,17 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
                         i,
                         Application.productName,
                         notificationText,
-                        DemiumGames.Resources.notification_icon,
+                        "notificationsicon",
                         notification.Seconds);
             }
 #endif
 
+        }
+
+        void CancelAllNotifications() {
+            for (int i = 0; i < _notifications.Length; ++i) {
+                DGNotificationManager.Instance.CancelNotification(i);
+            }
         }
 
         void OnApplicationPause(bool pause) {
@@ -98,13 +106,14 @@ namespace com.AmazingFusion.HyperWhiteBloodCellDash {
 #if UM_NOTIFICATIONS || UNITY_IOS
                 UM_NotificationController.Instance.CancelAllLocalNotifications();
 #elif UNITY_ANDROID
-                DGNotificationManager.Instance.CancelAllLocalNotifications();
+                CancelAllNotifications();
+                //DGNotificationManager.Instance.CancelAllNotifications();
 #endif
             }
         }
 
-        void OnNotificationCallback(int notificationId) {
-            AnalyticsController.Instance.SendNotificationClicked(_notifications[notificationId].Key);
+        public void OnNotificationCallback(int notificationId) {
+            AnalyticsController.Instance.SendStartedFromNotification(_notifications[notificationId].Key);
         }
     }
 }
